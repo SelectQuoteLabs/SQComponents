@@ -68,6 +68,8 @@ const uploadFile = async (env = 'dev') => {
         })
         .promise();
 
+      console.log(JSON.stringify(s3HistoryData, null, 2));
+
       console.log(
         `Uploaded to S3 History folder successfully at ${s3HistoryData.location}`
       );
