@@ -68,10 +68,8 @@ const uploadFile = async (env = 'dev') => {
         })
         .promise();
 
-      console.log(JSON.stringify(s3HistoryData, null, 2));
-
       console.log(
-        `Uploaded to S3 History folder successfully at ${s3HistoryData.location}`
+        `Uploaded to S3 History folder successfully at ${s3HistoryData.Location}`
       );
 
       // Clear object(s) from environment bucket
@@ -86,7 +84,7 @@ const uploadFile = async (env = 'dev') => {
         .promise();
 
       console.log(
-        `Successfully uploaded npm packaged file to S3 at ${s3Data.location}`
+        `Successfully uploaded npm packaged file to S3 at ${s3Data.Location}`
       );
     } catch (err) {
       _errorHandler(err);
