@@ -15,6 +15,10 @@
     "semver": "npm version",
     "deploy": "func() { npm run semver \"$1\" && npm pack && node s3.js; }; func"
   },
+  "files": [
+    "/dist",
+    "/src"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
