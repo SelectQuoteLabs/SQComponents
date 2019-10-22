@@ -89,7 +89,7 @@ const uploadFile = async (env = 'dev') => {
       const s3Data = await s3
         .upload({
           Bucket: process.env.AWS_S3_BUCKET_NAME,
-          Key: `${env}/${fileName}`, // add @latest to filename for consuming apps to use!
+          Key: `${env}/scplus-shared-components@latest.tgz`, // add @latest to filename for consuming apps to use!
           Body: data,
         })
         .promise();
