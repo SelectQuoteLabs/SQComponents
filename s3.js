@@ -1,8 +1,14 @@
 require('dotenv').config();
 
 const AWS = require('aws-sdk');
+const chalk = require('chalk');
 const fs = require('fs');
 const packageJSON = require('./package.json');
+
+const errorText = chalk.bold.red;
+const infoText = chalk.gray;
+const successText = chalk.greenBright;
+const underlineText = chalk.underline;
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -15,7 +21,7 @@ const fileName = `scplus-shared-components-${packageJSON.version}.tgz`;
 
 const _errorHandler = err => {
   if (err) {
-    console.log(err);
+    console.log(errorText(err));
     throw err;
   }
 };
@@ -50,7 +56,7 @@ const uploadFile = async (env = 'dev') => {
     ) {
       const errMessage =
         'A file with this version already exists, please up the version and try again.';
-      console.log(errMessage);
+      console.log(errorText(errMessage));
       throw new Error(errMessage);
     }
   } catch (err) {
@@ -70,7 +76,11 @@ const uploadFile = async (env = 'dev') => {
         .promise();
 
       console.log(
-        `Uploaded to S3 History folder successfully at ${s3HistoryData.Location}`
+        successText(
+          `Uploaded to S3 History folder successfully at ${underlineText(
+            s3HistoryData.Location
+          )}`
+        )
       );
 
       // Clear object(s) from environment bucket
@@ -85,16 +95,20 @@ const uploadFile = async (env = 'dev') => {
         .promise();
 
       console.log(
-        `Successfully uploaded npm packaged file to S3 at ${s3Data.Location}`
+        successText(
+          `Successfully uploaded npm packaged file to S3 at ${underlineText(
+            s3Data.Location
+          )}`
+        )
       );
 
-      console.log('Cleaning up generated compressed files...');
+      console.log(infoText('Cleaning up generated compressed files...'));
 
       fs.unlink(`${__dirname}/${fileName}`, err => {
         if (err) {
-          console.log(err);
+          console.log(errorText(err));
         }
-        console.log('Generated file cleanup complete');
+        console.log(successText('Generated file cleanup complete'));
       });
     } catch (err) {
       _errorHandler(err);
