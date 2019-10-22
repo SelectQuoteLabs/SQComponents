@@ -77,9 +77,9 @@ const uploadFile = async (env = 'dev') => {
 
       console.log(
         successText(
-          `Uploaded to S3 History folder successfully at ${underlineText(
+          `Successfully ploaded to S3 History folder at ${underlineText(
             s3HistoryData.Location
-          )}`
+          )}\n\n`
         )
       );
 
@@ -98,11 +98,11 @@ const uploadFile = async (env = 'dev') => {
         successText(
           `Successfully uploaded npm packaged file to S3 at ${underlineText(
             s3Data.Location
-          )}`
+          )}\n\n`
         )
       );
 
-      console.log(infoText('Cleaning up generated compressed files...'));
+      console.log(infoText('Cleaning up generated compressed files...\n\n'));
 
       fs.unlink(`${__dirname}/${fileName}`, err => {
         if (err) {
