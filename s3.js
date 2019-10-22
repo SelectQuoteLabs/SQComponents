@@ -8,7 +8,7 @@ const packageJSON = require('./package.json');
 const errorText = chalk.bold.red;
 const infoText = chalk.gray;
 const successText = chalk.greenBright;
-const underlineText = chalk.underline;
+const urlText = chalk.underline.blue;
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -77,9 +77,9 @@ const uploadFile = async (env = 'dev') => {
 
       console.log(
         successText(
-          `Successfully ploaded to S3 History folder at ${underlineText(
+          `Successfully uploaded to S3 History folder at:\n${urlText(
             s3HistoryData.Location
-          )}\n\n`
+          )}\n`
         )
       );
 
@@ -96,13 +96,13 @@ const uploadFile = async (env = 'dev') => {
 
       console.log(
         successText(
-          `Successfully uploaded npm packaged file to S3 at ${underlineText(
+          `Successfully uploaded npm packaged file to S3 at:\n${urlText(
             s3Data.Location
-          )}\n\n`
+          )}\n`
         )
       );
 
-      console.log(infoText('Cleaning up generated compressed files...\n\n'));
+      console.log(infoText('Cleaning up generated compressed files...\n'));
 
       fs.unlink(`${__dirname}/${fileName}`, err => {
         if (err) {
