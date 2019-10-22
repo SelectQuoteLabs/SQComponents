@@ -11,6 +11,7 @@ const s3 = new AWS.S3({
 
 const bucket = process.env.AWS_S3_BUCKET_NAME;
 const fileName = `scplus-shared-components-${packageJSON.version}.tgz`;
+// @TODO: Make a copy of the .tgz file and add @latest to the name, then upload to proper env on s3
 
 const _errorHandler = err => {
   if (err) {
@@ -78,7 +79,7 @@ const uploadFile = async (env = 'dev') => {
       const s3Data = await s3
         .upload({
           Bucket: process.env.AWS_S3_BUCKET_NAME,
-          Key: `${env}/${fileName}`,
+          Key: `${env}/${fileName}`, // add @latest to filename for consuming apps to use!
           Body: data,
         })
         .promise();
@@ -86,6 +87,15 @@ const uploadFile = async (env = 'dev') => {
       console.log(
         `Successfully uploaded npm packaged file to S3 at ${s3Data.Location}`
       );
+
+      console.log('Cleaning up generated compressed files...');
+
+      fs.unlink(`${__dirname}/${fileName}`, err => {
+        if (err) {
+          console.log(err);
+        }
+        console.log('Generated file cleanup complete');
+      });
     } catch (err) {
       _errorHandler(err);
     }
