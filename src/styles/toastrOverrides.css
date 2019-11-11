@@ -1,0 +1,22 @@
+.toast-success {
+  background-color: var(--color-palmLeaf) !important;
+}
+
+.toast-error {
+  background-color: var(--color-roseMadder) !important;
+}
+
+.toast-info {
+  background-color: var(--color-frenchBleu) !important;
+}
+
+#toast-container > .toast-success,
+#toast-container > .toast-error,
+#toast-container > .toast-warning,
+#toast-container > .toast-info {
+  background-image: none !important;
+}
+
+#toast-container > div {
+  padding-left: 15px !important; /* remove background-image padding */
+}

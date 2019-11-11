@@ -1,0 +1,12 @@
+/* GLOBAL Material-UI overrides */
+
+.materialUI-checkbox svg {
+  fill: var(--color-teal) !important;
+}
+.materialUI-checkbox--disabled svg {
+  fill: var(--color-slate) !important;
+}
+
+.materialUI-checkbox--inactive svg {
+  fill: var(--color-stone) !important;
+}
