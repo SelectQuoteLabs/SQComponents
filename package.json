@@ -1,6 +1,6 @@
 {
   "name": "scplus-shared-components",
-  "version": "1.1.9",
+  "version": "1.1.12",
   "description": "SC Plus shared component library",
   "main": "dist/bundle.cjs.min.js",
   "module": "dist/bundle.esm.min.js",
@@ -13,8 +13,14 @@
     "lint.fix": "eslint 'src/**/*.js' --fix",
     "lint.staged": "lint-staged",
     "semver": "npm version",
-    "deploy": "func() { npm run semver \"$1\" && npm pack && node s3.js; }; func"
+    "deploy": "func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
+  "files": [
+    "/dist",
+    "/src"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -50,7 +56,12 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.5.1",
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-flowtype": "^4.3.0",

@@ -1,2 +1,2 @@
-export * from './sq-button';
-export * from './sq-header';
+export {default} from './styles';
+export {default as ButtonCircle} from './ButtonCircle';

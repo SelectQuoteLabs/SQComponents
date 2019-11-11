@@ -11,13 +11,14 @@ const successText = chalk.greenBright;
 const urlText = chalk.underline.blue;
 
 const s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  region: 'us-west-2',
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
 const bucket = process.env.AWS_S3_BUCKET_NAME;
 const fileName = `scplus-shared-components-${packageJSON.version}.tgz`;
-// @TODO: Make a copy of the .tgz file and add @latest to the name, then upload to proper env on s3
 
 const _errorHandler = err => {
   if (err) {
