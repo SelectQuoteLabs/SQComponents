@@ -1,38 +1,43 @@
 import React from 'react';
 import {action} from '@storybook/addon-actions';
+import FolderIcon from '@material-ui/icons/Folder';
 
-import ButtonCircle from '../src/ButtonCircle';
+import BaseAvatar from '../src/BaseAvatar';
 
 export default {
-  title: 'ButtonCircle',
+  title: 'BaseAvatar',
 };
 
-export const isEnabled = () => (
-  <ButtonCircle isEnabled={true} onClick={action('clicked')}>
-    {'T'}
-  </ButtonCircle>
+export const letterBadgeIsEnabled = () => (
+  <BaseAvatar onClick={action('clicked')}>{'T'}</BaseAvatar>
 );
 
-export const isDisabled = () => (
-  <ButtonCircle isEnabled={false} onClick={action('clicked')}>
+export const letterBadgeIsDisabled = () => (
+  <BaseAvatar isDisabled={true} onClick={action('clicked')}>
     {'T'}
-  </ButtonCircle>
+  </BaseAvatar>
 );
 
-export const isFocued = () => (
-  <ButtonCircle isFocused={true} onClick={action('clicked')}>
+export const letterBadgeIsFocused = () => (
+  <BaseAvatar isFocused={true} onClick={action('clicked')}>
     {'T'}
-  </ButtonCircle>
+  </BaseAvatar>
 );
 
-export const isInverted = () => (
-  <ButtonCircle isInverted={true} onClick={action('clicked')}>
+export const letterBadgeIsInverted = () => (
+  <BaseAvatar isInverted={true} onClick={action('clicked')}>
     {'T'}
-  </ButtonCircle>
+  </BaseAvatar>
 );
 
-export const isContentCentered = () => (
-  <ButtonCircle isContentCenter={true} onClick={action('clicked')}>
+export const letterBadgeIsContentCentered = () => (
+  <BaseAvatar isContentCenter={true} onClick={action('clicked')}>
     {'T'}
-  </ButtonCircle>
+  </BaseAvatar>
+);
+
+export const iconBadgeIsEnabled = () => (
+  <BaseAvatar onClick={action('clicked')}>
+    <FolderIcon />
+  </BaseAvatar>
 );
