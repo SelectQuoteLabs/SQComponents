@@ -1,35 +1,33 @@
-.buttonCircle {
+.baseAvatar {
   height: 3rem;
   width: 3rem;
   font-size: 2rem;
   font-weight: var(--font-weight-semibold);
-  border-radius: 50%;
   color: var(--color-white);
-  line-height: 2.4rem;
   background-color: var(--color-cerulean);
   margin: 0 auto;
   transition: background-color 0.2s;
 }
 
-.buttonCircle--inverted {
+.baseAvatar--inverted {
   color: var(--color-cerulean);
   background-color: transparent;
   border: 0.167rem solid var(--color-cerulean);
 }
 
-.buttonCircle--isDisabled {
+.baseAvatar--isDisabled {
   color: var(--color-white);
   background-color: var(--color-slate);
   border: 0.083rem solid var(--color-slate);
 }
 
-.buttonCircle--isFocused {
+.baseAvatar--isFocused {
   color: var(--color-white);
   background-color: var(--color-spanishOrange);
   border: 0.083rem solid var(--color-spanishOrange);
 }
 
-.buttonCircle--centerContent {
+.baseAvatar--centerContent {
   display: flex;
   justify-content: center;
   align-items: center;
