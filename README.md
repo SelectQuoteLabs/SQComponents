@@ -1,26 +1,18 @@
 # SC Plus Shared Component Library
 
-This is shared component library aims to offer reusable components to unify the UI for all Select Quote applications.
+SC Plus shared component library aims to offer reusable components to unify the UI for all Select Quote applications.
 
 ## Getting Started
 
 ### Consuming
 
-To consume one of the shared components you can pull in the shared libary in your package.json file via the S3 location.
+To add the shared components library:
+
+In your package.json add:
 
 ```
-Sean Groff help here
+"scplus-shared-components: "S3 BUCKET URL"
 ```
-
-To use a component in your project import the component directly like:
-
-```
-import Avatar from 'scplus-shared-components/Avatar'
-```
-
-### Prerequisites
-
-Install Node and NPM to run this project locally.
 
 ### Installing
 
@@ -30,10 +22,19 @@ Run
 npm install
 ```
 
+To use a component in your project import the component like any other component:
+
+```
+import Avatar from 'scplus-shared-components'
+```
+
+### Prerequisites
+
+Install Node and NPM to run this project locally.
+
 To get the storybook site up run
 
 ```
-npm run build-storybook
 npm run storybook
 ```
 
@@ -45,8 +46,7 @@ This project uses Rollup to package the project. The tarball is then uploaded to
 To package and deploy the library run
 
 ```
-npm run build
-npm run deploy
+npm run deploy ${SemVer tag}
 ```
 
 ## Contributing
