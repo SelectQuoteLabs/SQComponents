@@ -2,42 +2,42 @@ import React from 'react';
 import {action} from '@storybook/addon-actions';
 import FolderIcon from '@material-ui/icons/Folder';
 
-import BaseAvatar from '../src/BaseAvatar';
+import Avatar from '../src/Avatar';
 
 export default {
-  title: 'BaseAvatar',
+  title: 'Avatar',
 };
 
 export const letterBadgeIsEnabled = () => (
-  <BaseAvatar onClick={action('clicked')}>{'T'}</BaseAvatar>
+  <Avatar onClick={action('clicked')}>{'T'}</Avatar>
 );
 
 export const letterBadgeIsDisabled = () => (
-  <BaseAvatar isDisabled={true} onClick={action('clicked')}>
+  <Avatar isDisabled={true} onClick={action('clicked')}>
     {'T'}
-  </BaseAvatar>
+  </Avatar>
 );
 
 export const letterBadgeIsFocused = () => (
-  <BaseAvatar isFocused={true} onClick={action('clicked')}>
+  <Avatar isFocused={true} onClick={action('clicked')}>
     {'T'}
-  </BaseAvatar>
+  </Avatar>
 );
 
 export const letterBadgeIsInverted = () => (
-  <BaseAvatar isInverted={true} onClick={action('clicked')}>
+  <Avatar isInverted={true} onClick={action('clicked')}>
     {'T'}
-  </BaseAvatar>
+  </Avatar>
 );
 
 export const letterBadgeIsContentCentered = () => (
-  <BaseAvatar isContentCenter={true} onClick={action('clicked')}>
+  <Avatar isContentCenter={true} onClick={action('clicked')}>
     {'T'}
-  </BaseAvatar>
+  </Avatar>
 );
 
 export const iconBadgeIsEnabled = () => (
-  <BaseAvatar onClick={action('clicked')}>
+  <Avatar onClick={action('clicked')}>
     <FolderIcon />
-  </BaseAvatar>
+  </Avatar>
 );

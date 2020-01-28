@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Avatar from '@material-ui/core/Avatar';
+import MUIAvatar from '@material-ui/core/Avatar';
 
-import './BaseAvatar.css';
+import './Avatar.css';
 
 // This component was formerly named ButtonCircle
-function BaseAvatar({
+function Avatar({
   children,
   isContentCenter = true,
   isDisabled = false,
@@ -14,28 +14,26 @@ function BaseAvatar({
   isInverted,
 }) {
   const contentCenterClass = React.useMemo(() => {
-    return isContentCenter ? 'baseAvatar--centerContent' : '';
+    return isContentCenter ? 'avatar--centerContent' : '';
   }, [isContentCenter]);
 
   const circleClass = React.useMemo(() => {
-    const baseClass = isInverted
-      ? 'baseAvatar baseAvatar--inverted'
-      : 'baseAvatar';
+    const baseClass = isInverted ? 'avatar avatar--inverted' : 'avatar';
 
-    if (isDisabled) return `${baseClass} baseAvatar--isDisabled`;
-    if (isFocused) return `${baseClass} baseAvatar--isFocused`;
+    if (isDisabled) return `${baseClass} avatar--isDisabled`;
+    if (isFocused) return `${baseClass} avatar--isFocused`;
 
     return baseClass;
   }, [isDisabled, isFocused, isInverted]);
 
   return (
-    <Avatar className={classnames(circleClass, contentCenterClass)}>
+    <MUIAvatar className={classnames(circleClass, contentCenterClass)}>
       {children}
-    </Avatar>
+    </MUIAvatar>
   );
 }
 
-BaseAvatar.propTypes = {
+Avatar.propTypes = {
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
   isFocused: PropTypes.bool,
@@ -43,4 +41,4 @@ BaseAvatar.propTypes = {
   isContentCenter: PropTypes.bool,
 };
 
-export default BaseAvatar;
+export default Avatar;

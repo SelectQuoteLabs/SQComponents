@@ -1,4 +1,4 @@
-.baseAvatar {
+.avatar {
   height: 3rem;
   width: 3rem;
   font-size: 2rem;
@@ -9,25 +9,25 @@
   transition: background-color 0.2s;
 }
 
-.baseAvatar--inverted {
+.avatar--inverted {
   color: var(--color-cerulean);
   background-color: transparent;
   border: 0.167rem solid var(--color-cerulean);
 }
 
-.baseAvatar--isDisabled {
+.avatar--isDisabled {
   color: var(--color-white);
   background-color: var(--color-slate);
   border: 0.083rem solid var(--color-slate);
 }
 
-.baseAvatar--isFocused {
+.avatar--isFocused {
   color: var(--color-white);
   background-color: var(--color-spanishOrange);
   border: 0.083rem solid var(--color-spanishOrange);
 }
 
-.baseAvatar--centerContent {
+.avatar--centerContent {
   display: flex;
   justify-content: center;
   align-items: center;

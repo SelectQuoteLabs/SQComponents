@@ -13,7 +13,7 @@
     "lint.fix": "eslint 'src/**/*.js' --fix",
     "lint.staged": "lint-staged",
     "semver": "npm version",
-    "deploy": "func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
+    "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
