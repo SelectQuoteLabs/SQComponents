@@ -5,7 +5,7 @@ import MUIAvatar from '@material-ui/core/Avatar';
 
 import './Avatar.css';
 
-/* Avatar Component - formerly known as ButtonCircle */
+/** Avatar Component - formerly known as ButtonCircle */
 function Avatar({
   children,
   isContentCenter = true,
