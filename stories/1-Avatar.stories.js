@@ -3,7 +3,7 @@ import {action} from '@storybook/addon-actions';
 import FolderIcon from '@material-ui/icons/Folder';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
-import markdown from '../notes/1-ButtonCircle.md';
+import markdown from '../notes/1-Avatar.md';
 
 import Avatar from '../src/Avatar';
 
