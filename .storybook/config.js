@@ -1,10 +1,11 @@
-import {configure, addDecorator} from '@storybook/react';
+import {configure, addDecorator, addParameters} from '@storybook/react';
 import React from 'react';
 import {MuiThemeProvider as V0MuiThemeProvider} from 'material-ui'; // v0.x
 import {StylesProvider} from '@material-ui/styles';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import 'storybook-addon-material-ui/register';
+import selectQuoteTheme from './selectQuoteTheme';
 
 import '../src/styles'; // global styles
 import cssVars from '../src/styles/cssVars';
@@ -57,6 +58,12 @@ addDecorator(storyFn => {
 // Visually centers the component for every story
 addDecorator(storyFn => {
   return <CenterComponentsInStorybook>{storyFn()}</CenterComponentsInStorybook>;
+});
+
+addParameters({
+  options: {
+    theme: selectQuoteTheme,
+  },
 });
 
 // automatically import all files ending in *.stories.js
