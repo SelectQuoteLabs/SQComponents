@@ -6,7 +6,7 @@ SC Plus shared component library aims to offer reusable components to unify the 
 
 ### Consuming
 
-To use one of the components in the shared components library in your package.json add:
+To use a component from the shared components library, add the library as a dependency in the package.json
 
 ```
 "scplus-shared-components: "<S3 BUCKET URL>"
