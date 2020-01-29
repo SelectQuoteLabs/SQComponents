@@ -6,23 +6,13 @@ SC Plus shared component library aims to offer reusable components to unify the 
 
 ### Consuming
 
-To add the shared components library:
-
-In your package.json add:
+To use one of the components in the shared components library in your package.json add:
 
 ```
-"scplus-shared-components: "S3 BUCKET URL"
+"scplus-shared-components: "<S3 BUCKET URL>"
 ```
 
-### Installing
-
-Run
-
-```
-npm install
-```
-
-To use a component in your project import the component like any other component:
+Then in the file you want to use a component import the component like any other component:
 
 ```
 import Avatar from 'scplus-shared-components'
@@ -30,15 +20,35 @@ import Avatar from 'scplus-shared-components'
 
 ### Prerequisites
 
-Install Node and NPM to run this project locally.
+This project leverages Docker and docker-compose. Docker must be installed installed to run this project.
 
-To get the storybook site up run
+### Installing and Running
+
+Pull an Existing Docker Image you can pass the VERSION property with the Docker image tag you want to pull down.
 
 ```
-npm run storybook
+VERSION=1.0 docker-compose pull scplus-shared-components
 ```
 
-## Running the tests
+To build the projects docker image run(optional to prepend with VERSION=<tag>):
+
+```
+docker-compose build scplus-shared-components
+```
+
+You can then run the project locally with:
+
+```
+docker-compose up scplus-shared-components
+```
+
+Then navigate to http://localhost:6006
+
+## Running the tests and lint
+
+```
+docker-compose run test
+```
 
 ## Deployment
 
@@ -52,6 +62,7 @@ npm run deploy ${SemVer tag}
 ## Contributing
 
 To contribute documentation for future components you can [clone this JIRA](https://selectquote.atlassian.net/browse/SSC-1).
+
 For adding new components to the library follow this order:
 
 1. Make changes locally on a feature branch following the [PR process.](https://selectquote.atlassian.net/wiki/spaces/SE/pages/839516288/Pull+Requests)
