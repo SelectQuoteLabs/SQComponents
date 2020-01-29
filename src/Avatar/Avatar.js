@@ -41,15 +41,15 @@ Avatar.defaultProps = {
 };
 
 Avatar.propTypes = {
-  /* The content you want inside the Avatar */
+  /** The content you want inside the Avatar */
   children: PropTypes.node.isRequired,
-  /* If the avatar is disabled */
+  /** If the avatar is disabled */
   isDisabled: PropTypes.bool,
-  /* If the avatar is focused */
+  /** If the avatar is focused */
   isFocused: PropTypes.bool,
-  /* If we display an inverted version of the avatar */
+  /** If we display an inverted version of the avatar */
   isInverted: PropTypes.bool,
-  /* If we center the content inside the avatar */
+  /** If we center the content inside the avatar */
   isContentCenter: PropTypes.bool,
 };
 
