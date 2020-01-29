@@ -17,7 +17,7 @@ export default {
 
 export const letterBadge = () => (
   <Avatar
-    disabled={boolean('isDisabled', false)}
+    isDisabled={boolean('isDisabled', false)}
     isFocused={boolean('isFocused', false)}
     isInverted={boolean('isInverted', false)}
     isContentCenter={boolean('isContentCenter', false)}
@@ -30,7 +30,7 @@ export const letterBadge = () => (
 export const iconBadge = () => (
   <Avatar
     onClick={action('clicked')}
-    disabled={boolean('isDisabled', false)}
+    isDisabled={boolean('isDisabled', false)}
     isFocused={boolean('isFocused', false)}
     isInverted={boolean('isInverted', false)}
     isContentCenter={boolean('isContentCenter', false)}
