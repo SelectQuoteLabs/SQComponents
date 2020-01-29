@@ -1,5 +1,4 @@
 import React from 'react';
-import {action} from '@storybook/addon-actions';
 import FolderIcon from '@material-ui/icons/Folder';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
@@ -21,7 +20,6 @@ export const letterBadge = () => (
     isFocused={boolean('isFocused', false)}
     isInverted={boolean('isInverted', false)}
     isContentCenter={boolean('isContentCenter', false)}
-    onClick={action('clicked')}
   >
     {'T'}
   </Avatar>
@@ -29,7 +27,6 @@ export const letterBadge = () => (
 
 export const iconBadge = () => (
   <Avatar
-    onClick={action('clicked')}
     isDisabled={boolean('isDisabled', false)}
     isFocused={boolean('isFocused', false)}
     isInverted={boolean('isInverted', false)}
