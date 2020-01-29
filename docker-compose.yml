@@ -1,0 +1,22 @@
+version: '3'
+
+# runs dev server and volume mounts files
+services:
+  scplus-shared-components:
+    image: 'scplus-shared-components:${VERSION-latest}'
+    build:
+      context: .
+    ports:
+      - 6006:6006
+    volumes:
+      - .:/app:cached
+      - shared-components-node_modules:/app/node_modules
+
+  # runs lint and test
+  test:
+    build: ./
+    image: 'scplus-shared-components:${VERSION-latest}'
+    command: sh -c "npm run lint"
+
+volumes:
+  shared-components-node_modules:
