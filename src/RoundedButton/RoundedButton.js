@@ -12,7 +12,7 @@ class RoundedButton extends React.Component {
       label,
       action,
       title,
-      disabled,
+      isDisabled,
       primary,
       className,
       children,
@@ -27,13 +27,13 @@ class RoundedButton extends React.Component {
           'roundedButton',
           'roundedButton__btn',
           {
-            'roundedButton__btn--disabled': disabled,
+            'roundedButton__btn--disabled': isDisabled,
             'roundedButton__btn--primary': primary,
             'roundedButton__btn--secondary': !primary,
           },
           className
         )}
-        disabled={disabled}
+        disabled={isDisabled}
       >
         {children ? children : label}
       </Button>
