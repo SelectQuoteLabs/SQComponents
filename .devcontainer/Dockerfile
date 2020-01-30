@@ -57,5 +57,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 ENV DEBIAN_FRONTEND=dialog
 
+RUN mkdir "/workspace" && mkdir "/workspace/node_modules" && \
+    chown -R ${USERNAME}:${USERNAME} "/workspace/node_modules"
+
 # Uncomment to default to non-root user
 USER $USER_UID
