@@ -50,3 +50,8 @@
   border-color: var(--color-lightGray) !important;
   cursor: not-allowed !important;
 }
+
+.login__button {
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+}

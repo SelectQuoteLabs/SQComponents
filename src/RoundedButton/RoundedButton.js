@@ -6,39 +6,38 @@ import Button from '@material-ui/core/Button';
 import './RoundedButton.css';
 
 /** Rounded Button - base button component */
-class RoundedButton extends React.Component {
-  render() {
-    const {
-      label,
-      action,
-      title,
-      isDisabled,
-      primary,
-      className,
-      children,
-    } = this.props;
+function RoundedButton({
+  label,
+  action,
+  title,
+  isDisabled,
+  primary,
+  className,
+  children,
+}) {
+  const baseClass = 'roundedButton roundedButton__btn';
 
-    return (
-      <Button
-        key={title}
-        title={title}
-        onClick={() => action()}
-        className={classnames(
-          'roundedButton',
-          'roundedButton__btn',
-          {
-            'roundedButton__btn--disabled': isDisabled,
-            'roundedButton__btn--primary': primary,
-            'roundedButton__btn--secondary': !primary,
-          },
-          className
-        )}
-        disabled={isDisabled}
-      >
-        {children ? children : label}
-      </Button>
-    );
-  }
+  const disabledClass = React.useMemo(() => {
+    return isDisabled ? 'roundedButton__btn--disabled' : '';
+  }, [isDisabled]);
+
+  const primaryClass = React.useMemo(() => {
+    return primary
+      ? 'roundedButton__btn--primary'
+      : 'roundedButton__btn--secondary';
+  }, [primary]);
+
+  return (
+    <Button
+      key={title}
+      title={title}
+      onClick={() => action()}
+      className={classnames(baseClass, disabledClass, primaryClass, className)}
+      disabled={isDisabled}
+    >
+      {children ? children : label}
+    </Button>
+  );
 }
 
 RoundedButton.defaultProps = {
