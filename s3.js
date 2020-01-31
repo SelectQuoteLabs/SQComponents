@@ -76,6 +76,8 @@ const uploadFile = async (env = 'dev') => {
   fs.readFile(localFileName, async (err, data) => {
     _errorHandler(err);
 
+    console.log(infoText('Uploading to S3...\n'));
+
     try {
       const s3HistoryData = await s3
         .upload({
