@@ -19,7 +19,8 @@ const s3 = new AWS.S3({
 
 const bucket = process.env.AWS_S3_BUCKET_NAME;
 const bucketKey = process.env.AWS_S3_BUCKET_KEY;
-const fileName = `scplus-shared-components@${packageJSON.version}.tgz`;
+const localFileName = `scplus-shared-components-${packageJSON.version}.tgz`;
+const s3FileName = `scplus-shared-components@${packageJSON.version}.tgz`;
 
 const _errorHandler = err => {
   if (err) {
@@ -58,7 +59,7 @@ const uploadFile = async (env = 'dev') => {
 
     if (
       s3Objects.Contents.find(
-        s3Object => s3Object.Key === `${bucketKey}/${fileName}`
+        s3Object => s3Object.Key === `${bucketKey}/${s3FileName}`
       )
     ) {
       const errMessage =
@@ -70,14 +71,14 @@ const uploadFile = async (env = 'dev') => {
     _errorHandler(err);
   }
 
-  fs.readFile(fileName, async (err, data) => {
+  fs.readFile(localFileName, async (err, data) => {
     _errorHandler(err);
 
     try {
       const s3HistoryData = await s3
         .upload({
           Bucket: bucket,
-          Key: `${bucketKey}/${fileName}`,
+          Key: `${bucketKey}/${s3FileName}`,
           Body: data,
         })
         .promise();
@@ -96,7 +97,7 @@ const uploadFile = async (env = 'dev') => {
       const s3Data = await s3
         .upload({
           Bucket: process.env.AWS_S3_BUCKET_NAME,
-          Key: `${bucketKey}/${bucketKey}@latest.tgz`, // add @latest to filename for consuming apps to use!
+          Key: `${bucketKey}/${bucketKey}@latest.tgz`, // add @latest to s3 filename for consuming apps to use!
           Body: data,
         })
         .promise();
@@ -111,7 +112,7 @@ const uploadFile = async (env = 'dev') => {
 
       console.log(infoText('Cleaning up generated compressed files...\n'));
 
-      fs.unlink(`${__dirname}/${fileName}`, err => {
+      fs.unlink(`${__dirname}/${localFileName}`, err => {
         if (err) {
           console.log(errorText(err));
         }
