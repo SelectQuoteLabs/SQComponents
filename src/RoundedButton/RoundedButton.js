@@ -6,15 +6,7 @@ import Button from '@material-ui/core/Button';
 import './RoundedButton.css';
 
 /** Rounded Button - base button component */
-function RoundedButton({
-  label,
-  action,
-  title,
-  isDisabled,
-  primary,
-  className,
-  children,
-}) {
+function RoundedButton({label, action, title, isDisabled, primary, children}) {
   const baseClass = 'roundedButton roundedButton__btn';
 
   const disabledClass = React.useMemo(() => {
@@ -32,7 +24,7 @@ function RoundedButton({
       key={title}
       title={title}
       onClick={() => action()}
-      className={classnames(baseClass, disabledClass, primaryClass, className)}
+      className={classnames(baseClass, disabledClass, primaryClass)}
       disabled={isDisabled}
     >
       {children ? children : label}
@@ -57,8 +49,6 @@ RoundedButton.propTypes = {
   isDisabled: PropTypes.bool,
   /** If the button has a primary style */
   primary: PropTypes.bool,
-  /** Any special class overrides */
-  className: PropTypes.string,
 };
 
 export default RoundedButton;

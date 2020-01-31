@@ -14,27 +14,6 @@ export default {
   },
 };
 
-export const base = () => (
-  <RoundedButton
-    label={text('label', 'SAVE')}
-    title="Rounded Button Base"
-    action={action('button clicked')}
-    isDisabled={boolean('isDisabled', false)}
-    primary={boolean('primary', false)}
-  />
-);
-
-export const loginButton = () => (
-  <RoundedButton
-    label={text('label', 'SIGN IN')}
-    title="Sign In"
-    action={action('login button clicked')}
-    isDisabled={boolean('isDisabled', false)}
-    primary={boolean('primary', false)}
-    className={text('className', 'login__button')}
-  />
-);
-
 export const primaryButton = () => (
   <RoundedButton
     label={text('label', 'SAVE')}
@@ -42,5 +21,15 @@ export const primaryButton = () => (
     action={action('primary btn clicked')}
     isDisabled={boolean('isDisabled', false)}
     primary={boolean('primary', true)}
+  />
+);
+
+export const secondaryButton = () => (
+  <RoundedButton
+    label={text('label', 'SAVE')}
+    title="Rounded Button Base"
+    action={action('button clicked')}
+    isDisabled={boolean('isDisabled', false)}
+    primary={boolean('primary', false)}
   />
 );
