@@ -39,12 +39,14 @@ const _deleteS3Objects = async () => {
       object.Key.includes('@latest')
     ).map(object => ({Key: object.Key}));
 
-    await s3
-      .deleteObjects({
-        Bucket: bucket,
-        Delete: {Objects: s3ObjectKeysToDelete},
-      })
-      .promise();
+    if (s3ObjectKeysToDelete.length) {
+      await s3
+        .deleteObjects({
+          Bucket: bucket,
+          Delete: {Objects: s3ObjectKeysToDelete},
+        })
+        .promise();
+    }
   } catch (err) {
     _errorHandler(err);
   }
