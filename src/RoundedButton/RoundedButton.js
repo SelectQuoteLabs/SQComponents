@@ -3,10 +3,29 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@material-ui/core/Button';
 
+import {useDeprecated} from '../hooks/useDeprecated';
+
 import './RoundedButton.css';
 
 /** Rounded Button - base button component */
-function RoundedButton({label, action, title, isDisabled, primary, children}) {
+function RoundedButton({
+  label,
+  action,
+  title,
+  isDisabled: isButtonDisabled,
+  primary,
+  children,
+  ...rest
+}) {
+  const {testWarning} = useDeprecated(
+    'RoundedButton',
+    new Date(2020, 1, 31),
+    'disabled',
+    'isDisabled'
+  );
+
+  const isDisabled = testWarning(rest.disabled, isButtonDisabled);
+
   const baseClass = 'roundedButton roundedButton__btn';
 
   const disabledClass = React.useMemo(() => {
