@@ -3,29 +3,12 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@material-ui/core/Button';
 
-import {useDeprecated} from '../hooks/useDeprecated';
+import {deprecated} from '../helpers/deprecation';
 
 import './RoundedButton.css';
 
 /** Rounded Button - base button component */
-function RoundedButton({
-  label,
-  action,
-  title,
-  isDisabled: isButtonDisabled,
-  primary,
-  children,
-  ...rest
-}) {
-  const {testWarning} = useDeprecated(
-    'RoundedButton',
-    new Date(2020, 1, 31),
-    'disabled',
-    'isDisabled'
-  );
-
-  const isDisabled = testWarning(rest.disabled, isButtonDisabled);
-
+function RoundedButton({label, action, title, isDisabled, primary, children}) {
   const baseClass = 'roundedButton roundedButton__btn';
 
   const disabledClass = React.useMemo(() => {
@@ -70,4 +53,12 @@ RoundedButton.propTypes = {
   primary: PropTypes.bool,
 };
 
-export default RoundedButton;
+const RoundedButtonWithDeprecations = deprecated(RoundedButton, {
+  deprecatedDate: new Date(2020, 0, 31),
+  failureDate: new Date(2020, 1, 28),
+  isMarkedForFailure: false,
+  deprecatedProp: 'disabled',
+  replacementProp: 'isDisabled',
+});
+
+export default RoundedButtonWithDeprecations;
