@@ -1,7 +1,7 @@
-import moment from 'moment';
+import {add, format} from 'date-fns';
 
-const DEPRECATION_DURATION_WEEKS = 4;
-const DATE_FORMAT_PATTERN = 'MMMM Do YYYY';
+const DEPRECATION_DURATION_MONTHS = 1;
+const DATE_FORMAT_PATTERN = 'LLLL do, yyyy';
 
 const BUILD_REPLACEMENT_MESSAGE = (componentName, replacementPropertyName) =>
   ` and is now known as ${componentName}.${replacementPropertyName}`;
@@ -11,25 +11,29 @@ const BUILD_DEPRECATED_MESSAGE = (
   deprecatedOnDate,
   deprecatedPropertyName,
   replacementPropertyName
-) => `${componentName}.${deprecatedPropertyName} was deprecated on ${moment(
-  deprecatedOnDate
-).format(DATE_FORMAT_PATTERN)}${replacementPropertyName &&
+) => `${componentName}.${deprecatedPropertyName} was deprecated on ${format(
+  deprecatedOnDate,
+  DATE_FORMAT_PATTERN
+)}${replacementPropertyName &&
   BUILD_REPLACEMENT_MESSAGE(componentName, replacementPropertyName)}.
 
-${componentName}.${deprecatedPropertyName} is slated for removal on ${moment(
-  deprecatedOnDate
-)
-  .add(DEPRECATION_DURATION_WEEKS, 'weeks')
-  .format(DATE_FORMAT_PATTERN)}.
+${componentName}.${deprecatedPropertyName} is slated for removal on ${format(
+  add(deprecatedOnDate, {
+    months: DEPRECATION_DURATION_MONTHS,
+  }),
+  DATE_FORMAT_PATTERN
+)}.
 Please update your code accordingly.`;
 
-export function useDeprecated(
+export function deprecated(
   componentName,
   deprecatedOnDate,
   deprecatedPropertyName,
   replacementPropertyName,
   deprecationMessageBuilder = BUILD_DEPRECATED_MESSAGE
 ) {
+  console.log(deprecatedOnDate);
+
   const DEPRECATION_MESSAGE = deprecationMessageBuilder(
     componentName,
     deprecatedOnDate,
@@ -54,5 +58,5 @@ export function useDeprecated(
     return replacement;
   };
 
-  return {warn: testWarning, fail: testFailure};
+  return {testWarning, testFailure};
 }
