@@ -1,4 +1,1 @@
-// import Components
-import Avatar from './components/Avatar';
-
-export default {Avatar};
+export {default as Avatar} from './components/Avatar';
