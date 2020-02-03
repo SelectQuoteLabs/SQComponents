@@ -15,7 +15,8 @@
     "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
     "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json"
   },
   "files": [
     "/dist",
@@ -43,12 +44,11 @@
   "homepage": "https://bitbucket.org/SelectQuote/scplus-shared-components#readme",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
-    "aws-sdk": "^2.552.0",
-    "chalk": "^2.4.2",
     "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
     "material-ui": "^0.20.2",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0"
@@ -67,9 +67,12 @@
     "@storybook/addons": "^5.2.6",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.2.6",
+    "aws-sdk": "^2.552.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-react-docgen": "^4.1.0",
+    "chalk": "^2.4.2",
+    "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-flowtype": "^4.3.0",
