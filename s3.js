@@ -18,7 +18,9 @@ const s3 = new AWS.S3({
 });
 
 const bucket = process.env.AWS_S3_BUCKET_NAME;
-const fileName = `scplus-shared-components-${packageJSON.version}.tgz`;
+const bucketKey = process.env.AWS_S3_BUCKET_KEY;
+const localFileName = `scplus-shared-components-${packageJSON.version}.tgz`;
+const s3FileName = `scplus-shared-components@${packageJSON.version}.tgz`;
 
 const _errorHandler = err => {
   if (err) {
@@ -27,32 +29,39 @@ const _errorHandler = err => {
   }
 };
 
-const _deleteS3Objects = async (env = 'dev') => {
+const _deleteS3Objects = async () => {
   try {
-    const s3Objects = await s3.listObjectsV2({Bucket: bucket}).promise();
+    const s3Objects = await s3
+      .listObjectsV2({Bucket: bucket, Prefix: bucketKey})
+      .promise();
+
     const s3ObjectKeysToDelete = s3Objects.Contents.filter(object =>
-      object.Key.includes(env)
+      object.Key.includes('@latest')
     ).map(object => ({Key: object.Key}));
 
-    await s3
-      .deleteObjects({
-        Bucket: bucket,
-        Delete: {Objects: s3ObjectKeysToDelete},
-      })
-      .promise();
+    if (s3ObjectKeysToDelete.length) {
+      await s3
+        .deleteObjects({
+          Bucket: bucket,
+          Delete: {Objects: s3ObjectKeysToDelete},
+        })
+        .promise();
+    }
   } catch (err) {
     _errorHandler(err);
   }
 };
 
 const uploadFile = async (env = 'dev') => {
-  // Check if file already exists in S3 History bucket
+  // Check if file already exists in S3 bucket
   try {
-    const s3Objects = await s3.listObjectsV2({Bucket: bucket}).promise();
+    const s3Objects = await s3
+      .listObjectsV2({Bucket: bucket, Prefix: bucketKey})
+      .promise();
 
     if (
       s3Objects.Contents.find(
-        s3Object => s3Object.Key === `history/${fileName}`
+        s3Object => s3Object.Key === `${bucketKey}/${s3FileName}`
       )
     ) {
       const errMessage =
@@ -64,33 +73,35 @@ const uploadFile = async (env = 'dev') => {
     _errorHandler(err);
   }
 
-  fs.readFile(fileName, async (err, data) => {
+  fs.readFile(localFileName, async (err, data) => {
     _errorHandler(err);
+
+    console.log(infoText('Uploading to S3...\n'));
 
     try {
       const s3HistoryData = await s3
         .upload({
           Bucket: bucket,
-          Key: `history/${fileName}`,
+          Key: `${bucketKey}/${s3FileName}`,
           Body: data,
         })
         .promise();
 
       console.log(
         successText(
-          `Successfully uploaded to S3 History folder at:\n${urlText(
+          `Successfully uploaded to S3 at:\n${urlText(
             s3HistoryData.Location
           )}\n`
         )
       );
 
-      // Clear object(s) from environment bucket
-      await _deleteS3Objects(); // TODO: pass in environment param
+      // Clear object(s) from bucket
+      await _deleteS3Objects();
 
       const s3Data = await s3
         .upload({
           Bucket: process.env.AWS_S3_BUCKET_NAME,
-          Key: `${env}/scplus-shared-components@latest.tgz`, // add @latest to filename for consuming apps to use!
+          Key: `${bucketKey}/${bucketKey}@latest.tgz`, // add @latest to s3 filename for consuming apps to use!
           Body: data,
         })
         .promise();
@@ -105,7 +116,7 @@ const uploadFile = async (env = 'dev') => {
 
       console.log(infoText('Cleaning up generated compressed files...\n'));
 
-      fs.unlink(`${__dirname}/${fileName}`, err => {
+      fs.unlink(`${__dirname}/${localFileName}`, err => {
         if (err) {
           console.log(errorText(err));
         }
@@ -117,4 +128,4 @@ const uploadFile = async (env = 'dev') => {
   });
 };
 
-uploadFile(); // @TODO pass in environment from an env variable
+uploadFile();
