@@ -5,4 +5,4 @@ package
 *.zip
 .env
 .DS_STORE
-.cache
+.parcel-cache
