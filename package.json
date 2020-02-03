@@ -1,6 +1,6 @@
 {
   "name": "scplus-shared-components",
-  "version": "1.1.20",
+  "version": "1.1.21",
   "description": "SC Plus shared component library",
   "main": "dist",
   "module": "dist",
