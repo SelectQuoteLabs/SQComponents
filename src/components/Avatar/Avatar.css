@@ -10,9 +10,9 @@
 }
 
 .avatar--inverted {
-  color: var(--color-cerulean);
+  color: var(--color-teal);
   background-color: transparent;
-  border: 0.167rem solid var(--color-cerulean);
+  border: 0.167rem solid var(--color-teal);
 }
 
 .avatar--isDisabled {
