@@ -35,7 +35,6 @@
 }
 
 /* disabled */
-/* these need to be at bottom to trump specificity :( */
 .roundedButton__btn.roundedButton__btn--disabled,
 .roundedButton__btn.roundedButton__btn--disabled:hover {
   background-color: var(--color-lightGray);
