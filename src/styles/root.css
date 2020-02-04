@@ -104,11 +104,6 @@ iframe {
   box-sizing: inherit;
 }
 
-/* global material-ui override */
-button:hover {
-  background-color: var(--color-button-hover) !important;
-}
-
 button:hover[disabled] {
   background-color: initial !important;
 }

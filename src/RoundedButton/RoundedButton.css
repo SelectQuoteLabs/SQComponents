@@ -4,49 +4,43 @@
 
 /* material-ui overrides */
 .roundedButton__btn {
-  padding: 0 1rem !important;
-  height: 2.5rem !important;
-  line-height: 1rem !important;
-  margin-right: 0.5rem !important;
-  border: 0.1667rem solid !important;
-  border-radius: 2rem !important;
-  font-weight: 1000 !important; /* material-ui override */
+  padding: 0 1rem;
+  height: 2.5rem;
+  line-height: 1rem;
+  margin-right: 0.5rem;
+  border: 0.1667rem solid;
+  border-radius: 2rem;
+  font-weight: 1000;
 }
 
 .roundedButton__btn--primary {
-  background-color: var(--button-primary) !important; /* material-ui override */
-  color: var(--color-white) !important; /* material-ui override */
+  background-color: var(--button-primary);
+  color: var(--color-white);
 }
 
 .roundedButton__btn--primary:hover {
-  background-color: var(
-    --button-primary-hover
-  ) !important; /* material-ui override */
-  color: var(--color-white) !important; /* material-ui override */
+  background-color: var(--button-primary-hover);
+  color: var(--color-white);
 }
 
 .roundedButton__btn--secondary {
-  background-color: var(--color-white) !important; /* material-ui override */
-  color: var(--button-secondary) !important; /* material-ui override */
-  border-color: var(--button-secondary) !important; /* material-ui override */
+  background-color: var(--color-white);
+  color: var(--button-secondary);
+  border-color: var(--button-secondary);
 }
 
 .roundedButton__btn--secondary:hover {
-  background-color: var(
-    --button-secondary-hover
-  ) !important; /* material-ui override */
-  color: var(--button-secondary) !important; /* material-ui override */
-  border-color: var(--button-secondary) !important; /* material-ui override */
+  background-color: var(--button-secondary-hover);
+  color: var(--button-secondary);
+  border-color: var(--button-secondary);
 }
 
 /* disabled */
 /* these need to be at bottom to trump specificity :( */
 .roundedButton__btn.roundedButton__btn--disabled,
 .roundedButton__btn.roundedButton__btn--disabled:hover {
-  background-color: var(
-    --color-lightGray
-  ) !important; /* material-ui override */
-  color: var(--color-white) !important; /* material-ui override */
-  border-color: var(--color-lightGray) !important;
-  cursor: not-allowed !important;
+  background-color: var(--color-lightGray);
+  color: var(--color-white);
+  border-color: var(--color-lightGray);
+  cursor: not-allowed;
 }
