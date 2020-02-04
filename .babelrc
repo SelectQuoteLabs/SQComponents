@@ -1,9 +1,4 @@
 {
-  "presets": [
-    ["@babel/env", {"modules": false, "targets": {"chrome": "60"}}],
-    "@babel/preset-react"
-  ],
-  "plugins": [
-    "react-docgen"
-  ]
+  "presets": ["@babel/preset-react"],
+  "plugins": ["react-docgen"]
 }
