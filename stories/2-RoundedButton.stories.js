@@ -4,7 +4,7 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/1-RoundedButton.md';
 
-import RoundedButton from '../src/RoundedButton';
+import RoundedButton from '../src/components/RoundedButton';
 
 export default {
   title: 'RoundedButton',
