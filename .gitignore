@@ -6,3 +6,4 @@ package
 .env
 .DS_STORE
 .parcel-cache
+.cache
