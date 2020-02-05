@@ -104,10 +104,6 @@ iframe {
   box-sizing: inherit;
 }
 
-button:hover[disabled] {
-  background-color: initial !important;
-}
-
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 7px;
