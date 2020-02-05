@@ -9,8 +9,8 @@ import './RoundedButton.css';
 function RoundedButton({
   onClick,
   title,
-  isDisabled,
-  isPrimary,
+  isDisabled = false,
+  isPrimary = true,
   children,
   startIcon,
   endIcon,
@@ -45,11 +45,6 @@ function RoundedButton({
     </Button>
   );
 }
-
-RoundedButton.defaultProps = {
-  disabled: false,
-  primary: true,
-};
 
 RoundedButton.propTypes = {
   /** The onClick action */
