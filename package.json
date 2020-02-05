@@ -1,9 +1,8 @@
 {
   "name": "scplus-shared-components",
-  "version": "1.1.19",
+  "version": "1.1.27",
   "description": "SC Plus shared component library",
-  "main": "dist",
-  "module": "dist",
+  "browser": "dist/index.js",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -14,8 +13,10 @@
     "lint.staged": "lint-staged",
     "semver": "npm version",
     "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
+    "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json"
   },
   "files": [
     "/dist",
@@ -43,15 +44,13 @@
   "homepage": "https://bitbucket.org/SelectQuote/scplus-shared-components#readme",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
-    "aws-sdk": "^2.552.0",
-    "chalk": "^2.4.2",
     "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
     "material-ui": "^0.20.2",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -67,9 +66,12 @@
     "@storybook/addons": "^5.2.6",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.2.6",
+    "aws-sdk": "^2.552.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-react-docgen": "^4.1.0",
+    "chalk": "^2.4.2",
+    "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-flowtype": "^4.3.0",
@@ -79,8 +81,9 @@
     "eslint-plugin-react-hooks": "^2.1.2",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
-    "parcel-bundler": "^1.12.4",
+    "parcel": "^2.0.0-alpha.3.2",
     "prettier": "^1.18.2",
+    "react-scripts": "3.3.0",
     "rimraf": "^3.0.0",
     "storybook-addon-material-ui": "^0.9.0-alpha.20"
   },
