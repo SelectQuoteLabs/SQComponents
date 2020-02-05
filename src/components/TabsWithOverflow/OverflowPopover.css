@@ -1,0 +1,15 @@
+@import '../../styles/root.css';
+
+.overflowPopover__menuItemLabel {
+  color: var(--color-teal);
+  font-size: 1rem;
+}
+
+.overflowPopover__menuItemLabel--selected {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-spanishOrange);
+}
+
+.overflowPopover__menuItemLabel--disabled {
+  color: var(--color-slate);
+}

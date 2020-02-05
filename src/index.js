@@ -10,9 +10,11 @@ import toastrOverrides from './styles/toastrOverrides.css';
 
 // import Components
 import Avatar from './components/Avatar';
+import TabsWithOverflow from './components/TabsWithOverflow';
 
 export default {
   Avatar,
+  TabsWithOverflow,
   fonts,
   root,
   typography,
