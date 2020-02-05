@@ -19,13 +19,17 @@ function RoundedButton({onClick, title, isDisabled, isPrimary, children}) {
       : 'roundedButton__btn--secondary';
   }, [isPrimary]);
 
+  const buttonColor = React.useMemo(() => {
+    return isPrimary ? 'primary' : 'secondary';
+  }, [isPrimary]);
+
   return (
     <Button
       key={title}
       title={title}
       onClick={onClick}
       className={classnames(baseClass, disabledClass, primaryClass)}
-      isPrimary={isPrimary}
+      color={buttonColor}
     >
       {children}
     </Button>

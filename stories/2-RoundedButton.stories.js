@@ -16,20 +16,22 @@ export default {
 
 export const primaryButton = () => (
   <RoundedButton
-    label={text('label', 'SAVE')}
     title="Primary Button Base"
     onClick={action('primary btn clicked')}
     isDisabled={boolean('isDisabled', false)}
     isPrimary={boolean('primary', true)}
-  />
+  >
+    {text('children', 'SAVE')}
+  </RoundedButton>
 );
 
 export const secondaryButton = () => (
   <RoundedButton
-    label={text('label', 'SAVE')}
     title="Rounded Button Base"
     onClick={action('button clicked')}
     isDisabled={boolean('isDisabled', false)}
     isPrimary={boolean('primary', false)}
-  />
+  >
+    {text('children', 'SAVE')}
+  </RoundedButton>
 );
