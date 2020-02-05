@@ -18,9 +18,9 @@ export const primaryButton = () => (
   <RoundedButton
     label={text('label', 'SAVE')}
     title="Primary Button Base"
-    action={action('primary btn clicked')}
+    onClick={action('primary btn clicked')}
     isDisabled={boolean('isDisabled', false)}
-    primary={boolean('primary', true)}
+    isPrimary={boolean('primary', true)}
   />
 );
 
@@ -28,8 +28,8 @@ export const secondaryButton = () => (
   <RoundedButton
     label={text('label', 'SAVE')}
     title="Rounded Button Base"
-    action={action('button clicked')}
+    onClick={action('button clicked')}
     isDisabled={boolean('isDisabled', false)}
-    primary={boolean('primary', false)}
+    isPrimary={boolean('primary', false)}
   />
 );
