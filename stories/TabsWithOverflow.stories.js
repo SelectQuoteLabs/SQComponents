@@ -1,5 +1,5 @@
 import React from 'react';
-import {withKnobs} from '@storybook/addon-knobs';
+import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/Tabs Menu with Kebab.md';
@@ -45,6 +45,6 @@ export const menuButton = () => (
     tabs={TAB_OPTIONS}
     selectedTab={selectedTab}
     selectTab={selectTab}
-    disabled={false}
+    disabled={boolean('disabled', false)}
   />
 );
