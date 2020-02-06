@@ -3,7 +3,7 @@
 }
 
 .roundedButton__btn {
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   height: 2.5rem;
   line-height: 1rem;
   margin-right: 0.5rem;
@@ -15,6 +15,7 @@
 .roundedButton__btn--primary {
   background-color: var(--button-primary);
   color: var(--color-white);
+  border-color: transparent;
 }
 
 .roundedButton__btn--primary:hover {
@@ -35,10 +36,18 @@
 }
 
 /* disabled */
-.roundedButton__btn.roundedButton__btn--disabled,
-.roundedButton__btn.roundedButton__btn--disabled:hover {
+.roundedButton__btn--primary.roundedButton__btn.roundedButton__btn--disabled,
+.roundedButton__btn--primary.roundedButton__btn.roundedButton__btn--disabled:hover {
   background-color: var(--color-lightGray);
   color: var(--color-white);
+  border-color: var(--color-lightGray);
+  cursor: not-allowed;
+}
+
+.roundedButton__btn--secondary.roundedButton__btn.roundedButton__btn--disabled,
+.roundedButton__btn--secondary.roundedButton__btn.roundedButton__btn--disabled:hover {
+  background-color: var(--color-white);
+  color: var(--color-lightGray);
   border-color: var(--color-lightGray);
   cursor: not-allowed;
 }
