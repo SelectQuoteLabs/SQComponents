@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import Button from '@material-ui/core/Button';
 
 import './RoundedButton.css';
@@ -11,33 +10,33 @@ function RoundedButton({
   title,
   isDisabled = false,
   isPrimary = true,
+  isSubmit = false,
   children,
   startIcon,
   endIcon,
 }) {
-  const baseClass = 'roundedButton roundedButton__btn';
+  const buttonClass = React.useMemo(() => {
+    let baseClass = 'roundedButton';
+    if (isDisabled) baseClass = `${baseClass} roundedButton--disabled`;
 
-  const disabledClass = React.useMemo(() => {
-    return isDisabled ? 'roundedButton__btn--disabled' : '';
-  }, [isDisabled]);
+    if (isSubmit && isPrimary)
+      return `${baseClass} roundedButton--submit-primary`;
+    if (isSubmit && !isPrimary)
+      return `${baseClass} roundedButton--submit-secondary`;
 
-  const primaryClass = React.useMemo(() => {
-    return isPrimary
-      ? 'roundedButton__btn--primary'
-      : 'roundedButton__btn--secondary';
-  }, [isPrimary]);
-
-  const buttonColor = React.useMemo(() => {
-    return isPrimary ? 'primary' : 'secondary';
-  }, [isPrimary]);
+    if (isPrimary) {
+      return `${baseClass} roundedButton--primary`;
+    } else {
+      return `${baseClass} roundedButton--secondary`;
+    }
+  }, [isDisabled, isPrimary, isSubmit]);
 
   return (
     <Button
       key={title}
       title={title}
       onClick={onClick}
-      className={classnames(baseClass, disabledClass, primaryClass)}
-      color={buttonColor}
+      className={buttonClass}
       startIcon={startIcon}
       endIcon={endIcon}
     >
@@ -57,6 +56,8 @@ RoundedButton.propTypes = {
   isDisabled: PropTypes.bool,
   /** If the button has a primary style */
   isPrimary: PropTypes.bool,
+  /** If the button is a submit style */
+  isSubmit: PropTypes.bool,
   /** An <Icon> component that prepends button text */
   startIcon: PropTypes.node,
   /** An <Icon> component that appends button text */

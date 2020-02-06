@@ -31,6 +31,8 @@
   --color-button-teal-hover: #d8f1f4;
   --color-button-hover-white: rgba(255, 255, 255, 0.2);
   --color-button-disabled: #a09d9e;
+  --color-button-submit: #6ca03b;
+  --color-button-submit-hover: #9dd169;
 
   --base-font-size: 12px;
 
