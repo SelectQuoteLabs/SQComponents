@@ -2,7 +2,7 @@ import {createMuiTheme} from '@material-ui/core/styles';
 
 import cssVars from '../src/styles/cssVars';
 
-const {richBlack} = cssVars.colors;
+const {stone, teal} = cssVars.colors;
 
 const theme = {
   typography: {
@@ -10,7 +10,10 @@ const theme = {
   },
   palette: {
     primary: {
-      main: richBlack,
+      main: teal,
+    },
+    secondary: {
+      main: stone,
     },
   },
 };
