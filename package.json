@@ -15,7 +15,7 @@
     "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
     "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out",
     "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json"
   },
   "files": [
