@@ -62,5 +62,12 @@ ENV DEBIAN_FRONTEND=dialog
 RUN mkdir "/workspace" && mkdir "/workspace/node_modules" && \
     chown -R ${USERNAME}:${USERNAME} "/workspace/node_modules"
 
+## Install Oh My Zsh if it's not already
+RUN test -d ~/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+## Install the zsh-autosuggestions plugin if it's not already
+RUN test -d ~/.oh-my-zsh/plugins/zsh-autosuggestions || git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+## Migrate our .zshrc over
+COPY .zshrc ~/
+
 # Switch to the "node" user
 USER $USER_UID
