@@ -1,0 +1,32 @@
+{
+  "executionRoleArn": "__EXECUTION_ROLE_ARN__",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/scplus-shared-components",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 6006,
+          "protocol": "tcp",
+          "containerPort": 6006
+        }
+      ],
+      "cpu": 1024,
+      "memory": 1024,
+      "image": "__LABEL__",
+      "essential": true,
+      "name": "app"
+    }
+  ],
+  "memory": "1024",
+  "taskRoleArn": "__TASK_ROLE_ARN__",
+  "family": "scplus-shared-components",
+  "networkMode": "bridge",
+  "cpu": "1024"
+}
