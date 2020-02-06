@@ -10,3 +10,7 @@
 .materialUI-checkbox--inactive svg {
   fill: var(--color-stone) !important;
 }
+
+.MuiButton-root.Mui-disabled {
+  cursor: not-allowed;
+}

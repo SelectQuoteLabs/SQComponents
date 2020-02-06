@@ -20,8 +20,8 @@ export const primaryButton = () => (
     title="Primary Button Base"
     onClick={action('primary btn clicked')}
     isDisabled={boolean('isDisabled', false)}
-    isPrimary={boolean('isPrimary', true)}
-    isSubmit={boolean('isSubmit', false)}
+    color={text('color', 'primary')}
+    variant={text('variant', 'contained')}
   >
     {text('children', 'SAVE')}
   </RoundedButton>
@@ -32,8 +32,8 @@ export const secondaryButton = () => (
     title="Secondary Button Base"
     onClick={action('button clicked')}
     isDisabled={boolean('isDisabled', false)}
-    isPrimary={boolean('isPrimary', false)}
-    isSubmit={boolean('isSubmit', false)}
+    color={text('color', 'secondary')}
+    variant={text('variant', 'outlined')}
   >
     {text('children', 'SAVE')}
   </RoundedButton>
@@ -44,20 +44,18 @@ export const disabledButton = () => (
     title="Disabled Button Base"
     onClick={action('button clicked')}
     isDisabled={boolean('isDisabled', true)}
-    isPrimary={boolean('isPrimary', false)}
-    isSubmit={boolean('isSubmit', false)}
   >
     {text('children', 'SAVE')}
   </RoundedButton>
 );
 
-export const submitButton = () => (
+export const successButton = () => (
   <RoundedButton
-    title="Submit Button Base"
+    title="Success Button Base"
     onClick={action('button clicked')}
     isDisabled={boolean('isDisabled', false)}
-    isPrimary={boolean('isPrimary', true)}
-    isSubmit={boolean('isSubmit', true)}
+    color={text('color', 'success')}
+    variant={text('variant', 'contained')}
   >
     {text('children', 'SAVE')}
   </RoundedButton>
@@ -68,8 +66,8 @@ export const buttonWithStartIcon = () => (
     title="Primary Button Base"
     onClick={action('primary btn clicked')}
     isDisabled={boolean('isDisabled', false)}
-    isPrimary={boolean('isPrimary', true)}
-    isSubmit={boolean('isSubmit', false)}
+    color={text('color', 'success')}
+    variant={text('variant', 'contained')}
     startIcon={<AccessAlarm />}
   >
     {text('children', 'SAVE')}
@@ -81,8 +79,8 @@ export const buttonWithEndIcon = () => (
     title="Primary Button Base"
     onClick={action('primary btn clicked')}
     isDisabled={boolean('isDisabled', false)}
-    isPrimary={boolean('isPrimary', true)}
-    isSubmit={boolean('isSubmit', false)}
+    color={text('color', 'success')}
+    variant={text('variant', 'contained')}
     endIcon={<ThreeDRotation />}
   >
     {text('children', 'SAVE')}

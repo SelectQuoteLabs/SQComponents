@@ -6,12 +6,17 @@
   border: 0.1667rem solid var(--button-primary);
   border-radius: 2rem;
   font-weight: 1000;
+  box-shadow: none;
+}
+
+.roundedButton:hover {
+  box-shadow: none;
 }
 
 .roundedButton--primary {
   background-color: var(--button-primary);
   color: var(--color-white);
-  border-color: transparent;
+  border: 0.1667rem solid transparent;
 }
 
 .roundedButton--primary:hover {
@@ -22,55 +27,22 @@
 .roundedButton--secondary {
   background-color: var(--color-white);
   color: var(--button-secondary);
-  border-color: var(--button-secondary);
+  border: 0.1667rem solid var(--button-secondary);
 }
 
 .roundedButton--secondary:hover {
   background-color: var(--button-secondary-hover);
   color: var(--button-secondary);
-  border-color: var(--button-secondary);
+  border: 0.1667rem solid var(--button-secondary);
 }
 
-.roundedButton--submit-primary {
+.roundedButton--success {
   background-color: var(--color-button-submit);
   color: var(--color-white);
-  border-color: transparent;
+  border: 0.1667rem solid transparent;
 }
 
-.roundedButton--submit-primary:hover {
+.roundedButton--success:hover {
   background-color: var(--color-button-submit-hover);
   color: var(--color-white);
-}
-
-.roundedButton--submit-secondary {
-  background-color: var(--color-white);
-  color: var(--color-button-submit);
-  border-color: var(--color-button-submit);
-}
-
-.roundedButton--submit-secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-button-submit);
-  border-color: var(--color-button-submit);
-}
-
-/* disabled */
-.roundedButton--disabled.roundedButton--primary,
-.roundedButton--disabled.roundedButton--submit-primary,
-.roundedButton--disabled.roundedButton--submit-primary:hover,
-.roundedButton--disabled.roundedButton--primary:hover {
-  background-color: var(--color-lightGray);
-  color: var(--color-white);
-  border-color: var(--color-lightGray);
-  cursor: not-allowed;
-}
-
-.roundedButton--disabled.roundedButton--secondary,
-.roundedButton--disabled.roundedButton--submit-secondary,
-.roundedButton--disabled.roundedButton--submit-secondary:hover,
-.roundedButton--disabled.roundedButton--secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-lightGray);
-  border-color: var(--color-lightGray);
-  cursor: not-allowed;
 }

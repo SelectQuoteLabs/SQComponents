@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import classnames from 'classnames';
 
 import './RoundedButton.css';
 
@@ -9,34 +10,34 @@ function RoundedButton({
   onClick,
   title,
   isDisabled = false,
-  isPrimary = true,
-  isSubmit = false,
+  color = 'primary',
+  variant = 'contained',
   children,
   startIcon,
   endIcon,
 }) {
-  const buttonClass = React.useMemo(() => {
-    let baseClass = 'roundedButton';
-    if (isDisabled) baseClass = `${baseClass} roundedButton--disabled`;
+  const isGhostButton = React.useMemo(() => {
+    return variant === 'outlined';
+  }, [variant]);
 
-    if (isSubmit && isPrimary)
-      return `${baseClass} roundedButton--submit-primary`;
-    if (isSubmit && !isPrimary)
-      return `${baseClass} roundedButton--submit-secondary`;
-
-    if (isPrimary) {
-      return `${baseClass} roundedButton--primary`;
-    } else {
-      return `${baseClass} roundedButton--secondary`;
-    }
-  }, [isDisabled, isPrimary, isSubmit]);
+  const isSuccessButton = React.useMemo(() => {
+    return color === 'success';
+  }, [color]);
 
   return (
     <Button
       key={title}
       title={title}
       onClick={onClick}
-      className={buttonClass}
+      className={`roundedButton ${classnames({
+        'roundedButton--primary': !isGhostButton && !isSuccessButton,
+        'roundedButton--secondary': isGhostButton && !isSuccessButton,
+        'roundedButton--success': !isGhostButton && isSuccessButton,
+        'roundedButton--disabled': isDisabled,
+      })}`}
+      disabled={isDisabled}
+      variant={variant}
+      color={color}
       startIcon={startIcon}
       endIcon={endIcon}
     >
@@ -54,10 +55,10 @@ RoundedButton.propTypes = {
   children: PropTypes.node,
   /** If the button is disabled */
   isDisabled: PropTypes.bool,
-  /** If the button has a primary style */
-  isPrimary: PropTypes.bool,
-  /** If the button is a submit style */
-  isSubmit: PropTypes.bool,
+  /** The style of a button, primary/secondary/success */
+  color: PropTypes.oneOf(['primary', 'secondary', 'success']),
+  /** If the button contained or outlined */
+  variant: PropTypes.oneOf(['contained', 'outlined']),
   /** An <Icon> component that prepends button text */
   startIcon: PropTypes.node,
   /** An <Icon> component that appends button text */
