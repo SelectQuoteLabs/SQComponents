@@ -33,11 +33,10 @@ function RoundedButton({
         'roundedButton--primary': !isGhostButton && !isSuccessButton,
         'roundedButton--secondary': isGhostButton && !isSuccessButton,
         'roundedButton--success': !isGhostButton && isSuccessButton,
-        'roundedButton--disabled': isDisabled,
       })}`}
       disabled={isDisabled}
       variant={variant}
-      color={color}
+      color={isSuccessButton ? 'default' : color}
       startIcon={startIcon}
       endIcon={endIcon}
     >

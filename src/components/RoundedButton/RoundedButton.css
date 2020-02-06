@@ -37,12 +37,12 @@
 }
 
 .roundedButton--success {
-  background-color: var(--color-button-submit);
+  background-color: var(--color-palmLeaf);
   color: var(--color-white);
   border: 0.1667rem solid transparent;
 }
 
 .roundedButton--success:hover {
-  background-color: var(--color-button-submit-hover);
+  background-color: var(--color-button-hover-success);
   color: var(--color-white);
 }
