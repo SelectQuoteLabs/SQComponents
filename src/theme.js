@@ -2,7 +2,7 @@ import {createMuiTheme} from '@material-ui/core/styles';
 
 import cssVars from '../src/styles/cssVars';
 
-const {cerulean, teal} = cssVars.colors;
+const {cerulean, palmLeaf, teal} = cssVars.colors;
 
 const theme = {
   typography: {
@@ -14,6 +14,9 @@ const theme = {
     },
     secondary: {
       main: cerulean,
+    },
+    success: {
+      main: palmLeaf,
     },
   },
 };

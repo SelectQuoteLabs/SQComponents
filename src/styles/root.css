@@ -31,6 +31,7 @@
   --color-button-teal-hover: #d8f1f4;
   --color-button-hover-white: rgba(255, 255, 255, 0.2);
   --color-button-disabled: #a09d9e;
+  --color-button-hover-success: #9dd169;
 
   --base-font-size: 12px;
 
@@ -69,10 +70,10 @@
   --font-weight-label: var(--font-weight-normal);
   --font-weight-input: var(--font-weight-semibold);
 
-  --button-primary: var(--color-cerulean);
+  --button-primary: var(--color-teal);
   --button-primary-hover: var(--color-button-cerulean-hover);
 
-  --button-secondary: var(--color-teal);
+  --button-secondary: var(--color-cerulean);
   --button-secondary-hover: var(--color-button-teal-hover);
 }
 
@@ -102,15 +103,6 @@ iframe {
 *:after,
 *:before {
   box-sizing: inherit;
-}
-
-/* global material-ui override */
-button:hover {
-  background-color: var(--color-button-hover) !important;
-}
-
-button:hover[disabled] {
-  background-color: initial !important;
 }
 
 ::-webkit-scrollbar {
