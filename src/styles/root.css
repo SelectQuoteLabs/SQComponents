@@ -70,10 +70,10 @@
   --font-weight-label: var(--font-weight-normal);
   --font-weight-input: var(--font-weight-semibold);
 
-  --button-primary: var(--color-cerulean);
+  --button-primary: var(--color-teal);
   --button-primary-hover: var(--color-button-cerulean-hover);
 
-  --button-secondary: var(--color-teal);
+  --button-secondary: var(--color-cerulean);
   --button-secondary-hover: var(--color-button-teal-hover);
 }
 
