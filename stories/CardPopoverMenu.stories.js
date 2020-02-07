@@ -4,7 +4,7 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/Tabs Menu with Kebab.md';
 
-import TabsWithOverflow from '../src/components/TabsWithOverflow/TabsWithOverflow';
+import CardPopoverMenu from '../src/components/TabsWithOverflow/CardPopoverMenu';
 
 const TAB_OPTIONS = [
   {
@@ -27,24 +27,19 @@ const TAB_OPTIONS = [
 
 let selectedTab = TAB_OPTIONS[0];
 
-const selectTab = selection => {
-  selectedTab = TAB_OPTIONS.find(tab => tab.value === selection);
-  action(`Menu option changed to ${selectTab}`);
-};
-
 export default {
-  title: 'Tabs Menu With Kebab',
+  title: 'CardPopoverMenu',
   decorators: [withKnobs, withInfo],
   parameters: {
     notes: {markdown},
   },
 };
 
-export const menuButton = () => (
-  <TabsWithOverflow
+export const menuWithKebab = () => (
+  <CardPopoverMenu
     tabs={TAB_OPTIONS}
     selectedTab={selectedTab}
-    selectTab={selectTab}
+    selectTab={action(`Menu option changed to: `)}
     disabled={boolean('disabled', false)}
   />
 );

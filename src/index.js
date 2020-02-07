@@ -6,4 +6,4 @@ export {default as cssVars} from 'styles/cssVars';
 
 // Components
 export {default as Avatar} from './components/Avatar';
-export {default as TabsWithOverflow} from './components/TabsWithOverflow';
+export {default as CardPopoverMenu} from './components/CardPopoverMenu';

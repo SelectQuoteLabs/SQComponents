@@ -1,10 +1,10 @@
-.tabsWithOverflow {
+.cardPopoverMenu {
   display: flex;
   align-items: center;
   margin-left: -0.5rem;
   justify-content: flex-end;
 }
 
-.tabsWithOverflow__kabob div {
+.cardPopoverMenu__kabob div {
   flex-direction: row-reverse !important;
 }

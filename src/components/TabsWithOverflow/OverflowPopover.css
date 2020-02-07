@@ -1,5 +1,3 @@
-@import '../../styles/root.css';
-
 .overflowPopover__menuItemLabel {
   color: var(--color-teal);
   font-size: 1rem;

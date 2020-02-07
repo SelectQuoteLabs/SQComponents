@@ -1,1 +1,1 @@
-export {default} from './TabsWithOverflow';
+export {default} from './CardPopoverMenu';

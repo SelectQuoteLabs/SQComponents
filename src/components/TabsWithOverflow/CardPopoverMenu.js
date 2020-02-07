@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Kabob from 'material-ui/svg-icons/navigation/more-vert';
 import cssVars from '../../styles/cssVars';
-import OverflowPopover from '../TabsWithOverflow/OverflowPopover';
-import './TabsWithOverflow.css';
+import OverflowPopover from './OverflowPopover';
+import './CardPopoverMenu.css';
 
-class TabsWithOverflow extends React.Component {
+class CardPopoverMenu extends React.Component {
   constructor(props) {
     super(props);
 
@@ -100,7 +100,7 @@ class TabsWithOverflow extends React.Component {
 
     return (
       <div
-        className="tabsWithOverflow"
+        className="cardPopoverMenu"
         ref={e => {
           this.tabsContainerNODE = e;
         }}
@@ -116,7 +116,7 @@ class TabsWithOverflow extends React.Component {
             const isSelected = selectedTab.value === tab.value;
             return (
               <Tab
-                className="tabsWithOverflow__kabob"
+                className="cardPopoverMenu__kabob"
                 key={tab.label}
                 buttonStyle={{
                   fontWeight: isSelected ? bold : normal,
@@ -162,15 +162,15 @@ class TabsWithOverflow extends React.Component {
   }
 }
 
-TabsWithOverflow.propTypes = {
+CardPopoverMenu.propTypes = {
   tabs: PropTypes.array.isRequired,
   selectedTab: PropTypes.object.isRequired,
   selectTab: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 };
 
-TabsWithOverflow.defaultProps = {
+CardPopoverMenu.defaultProps = {
   disabled: false,
 };
 
-export default TabsWithOverflow;
+export default CardPopoverMenu;
