@@ -2,12 +2,30 @@
   "branches": ["master", {"name": "release-test"}],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/npm",
+      "@semantic-release/release-notes-generator",
       {
-        "npmPublish": false,
-        "tarballDir": "./dist"
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "docs/CHANGELOG-${nextRelease.version}.md"
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepare": "npm run build && npm pack",
+        "publish": "npm run publish"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["docs", "package.json", "package.lock.json"],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ]
   ]
