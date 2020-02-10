@@ -18,8 +18,10 @@ pipelines:
     master:
       - step:
           script:
+            - npm install
             - npx semantic-release
     release-test:
       - step:
           script:
+            - npm install
             - npx semantic-release
