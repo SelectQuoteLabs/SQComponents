@@ -17,9 +17,9 @@ pipelines:
   branches:
     master:
       - step:
-        script:
-          - npx semantic-release
+          script:
+            - npx semantic-release
     release-test:
       - step:
-        script:
-          - npx semantic-release
+          script:
+            - npx semantic-release
