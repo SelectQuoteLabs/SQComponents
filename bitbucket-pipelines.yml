@@ -14,3 +14,12 @@ pipelines:
           - npm install
           - npm run lint
           - npm test
+  branches:
+    master:
+      - step:
+        script:
+          - npx semantic-release
+    release-test:
+      - step:
+        script:
+          - npx semantic-release
