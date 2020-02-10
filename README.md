@@ -4,6 +4,17 @@ SC Plus shared component library aims to offer reusable components to unify the 
 
 ---
 
+## Contributing
+
+When you make changes to this repo, you must use git command line to actually create the commit message
+
+```
+git add .
+git commit
+```
+
+A tool called `commitizen` will guide you through creating a `Conventional Commit` style commit message that can be parsed by our automatic versioning tools on check-in.
+
 ## Consuming
 
 To use a component from the shared components library, add the library as a dependency in the package.json
