@@ -1,3 +1,6 @@
+// CSS
+import './styles/index.css';
+
 // Standardized Material UI Theme
 export {muiTheme} from './theme';
 
