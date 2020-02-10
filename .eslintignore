@@ -4,3 +4,4 @@ src/**/*.css
 *.json
 *.md
 .storybook
+.out
