@@ -17,7 +17,8 @@
     "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .out",
-    "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json"
+    "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json",
+    "release.local": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug"
   },
   "files": [
     "/dist"
