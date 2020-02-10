@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/root/.oh-my-zsh"
+export ZSH="/home/node/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,8 +70,6 @@ ZSH_THEME="refined"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions docker node)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -101,3 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # From Sean
 autoload -U promptinit; promptinit
 prompt lambda-pure
+
+
+# ALWAYS DO THIS LAST
+source $ZSH/oh-my-zsh.sh
