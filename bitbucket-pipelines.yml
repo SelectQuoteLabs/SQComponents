@@ -23,5 +23,6 @@ pipelines:
     release-test:
       - step:
           script:
+            - echo $BITBUCKET_GIT_HTTP_ORIGIN
             - npm install
             - npx semantic-release
