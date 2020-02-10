@@ -1,4 +1,5 @@
 {
+  "repositoryURL": "$BITBUCKET_GIT_HTTP_ORIGIN",
   "branches": ["master", {"name": "release-test"}],
   "plugins": [
     "@semantic-release/commit-analyzer",
