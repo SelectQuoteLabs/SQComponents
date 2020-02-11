@@ -11,12 +11,14 @@ pipelines:
         caches:
           - node
         script: # Modify the commands below to build your repository.
-          - npm install
+          - npm ci
           - npm run lint
           - npm test
   branches:
     master:
       - step:
+          caches:
+            - node
           script:
-            - npm install
+            - npm ci
             - npx semantic-release
