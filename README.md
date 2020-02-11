@@ -6,14 +6,16 @@ SC Plus shared component library aims to offer reusable components to unify the 
 
 ## Contributing
 
-When you make changes to this repo, you must use git command line to actually create the commit message
+When you make changes to this repo, you must adhere to the `Conventional Commit` standard.
+
+If you are unfamiliar with writing `Conventional Commit` style messages, you can use the `commitizen` to guide you through creating the commit message
 
 ```
 git add .
-git commit
+npx git-cz
 ```
 
-A tool called `commitizen` will guide you through creating a `Conventional Commit` style commit message that can be parsed by our automatic versioning tools on check-in.
+`Conventional Commit` formatted messages are required for proper versioning and automatic generation of release notes / CHANGELOG.
 
 ## Consuming
 
