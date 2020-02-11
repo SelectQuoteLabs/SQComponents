@@ -18,14 +18,15 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .out",
     "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json",
-    "release.local": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug"
+    "release.local": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug",
+    "commit": "npx git-cz"
   },
   "files": [
     "/dist"
   ],
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
@@ -58,6 +59,8 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@material-ui/icons": "^4.5.1",
     "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/exec": "^5.0.0",
