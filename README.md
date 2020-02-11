@@ -4,6 +4,19 @@ SC Plus shared component library aims to offer reusable components to unify the 
 
 ---
 
+## Contributing
+
+When you make changes to this repo, you must adhere to the `Conventional Commit` standard.
+
+If you are unfamiliar with writing `Conventional Commit` style messages, you can use the `commitizen` to guide you through creating the commit message
+
+```
+git add .
+npx git-cz
+```
+
+`Conventional Commit` formatted messages are required for proper versioning and automatic generation of release notes / CHANGELOG.
+
 ## Consuming
 
 To use a component from the shared components library, add the library as a dependency in the package.json
