@@ -65,8 +65,6 @@ ENV DEBIAN_FRONTEND=dialog
 RUN mkdir "/workspace" && mkdir "/workspace/node_modules" && \
     chown -R ${USERNAME}:${USERNAME} "/workspace/node_modules"
 
-#RUN cp -RT ~/ /home/${USERNAME}
-#RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
 
 # Switch to the "node" user
 USER $USER_UID
