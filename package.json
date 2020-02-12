@@ -13,17 +13,20 @@
     "lint.staged": "lint-staged",
     "semver": "npm version",
     "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
+    "publish": "node s3.js",
     "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .out",
-    "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json"
+    "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json",
+    "release.local": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug",
+    "commit": "npx git-cz"
   },
   "files": [
-    "/dist",
-    "/src"
+    "/dist"
   ],
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
@@ -36,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/SelectQuote/scplus-shared-components.git"
+    "url": "http://bitbucket.org/SelectQuote/scplus-shared-components"
   },
   "keywords": [],
   "author": "",
@@ -56,7 +59,12 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@material-ui/icons": "^4.5.1",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.3.9",
     "@storybook/addon-info": "^5.3.9",
@@ -71,6 +79,9 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-react-docgen": "^4.1.0",
     "chalk": "^2.4.2",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-conventionalcommits": "^4.2.3",
+    "cz-conventional-changelog": "^3.1.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.0.2",
@@ -85,6 +96,7 @@
     "prettier": "^1.18.2",
     "react-scripts": "3.3.0",
     "rimraf": "^3.0.0",
+    "semantic-release": "^17.0.2",
     "storybook-addon-material-ui": "^0.9.0-alpha.20"
   },
   "browserslist": {
@@ -98,5 +110,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

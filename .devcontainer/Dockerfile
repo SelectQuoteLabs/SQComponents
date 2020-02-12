@@ -51,6 +51,9 @@ RUN apt-get update \
     && curl -sSL "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose \
     #
+    # Install VI for git
+    && apt-get install -y vim-tiny \
+    #
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
@@ -62,5 +65,13 @@ ENV DEBIAN_FRONTEND=dialog
 RUN mkdir "/workspace" && mkdir "/workspace/node_modules" && \
     chown -R ${USERNAME}:${USERNAME} "/workspace/node_modules"
 
+
 # Switch to the "node" user
 USER $USER_UID
+
+## Install Oh My Zsh if it's not already
+RUN test -d /home/${USERNAME}/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+## Install the zsh-autosuggestions plugin if it's not already
+RUN test -d /home/${USERNAME}/.oh-my-zsh/plugins/zsh-autosuggestions || git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+## Migrate our .zshrc over
+COPY .zshrc /home/${USERNAME}/
