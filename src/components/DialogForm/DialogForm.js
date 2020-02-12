@@ -16,13 +16,19 @@ function DialogForm({
   cancelButtonText = 'Cancel',
   children,
   isOpen,
+  maxWidth = 'sm',
   onClose,
   onSave,
   saveButtonText = 'Save',
   title,
 }) {
   return (
-    <Dialog open={isOpen} TransitionComponent={Transition} onClose={onClose}>
+    <Dialog
+      maxWidth={maxWidth}
+      open={isOpen}
+      TransitionComponent={Transition}
+      onClose={onClose}
+    >
       <DialogTitle disableTypography={true} className="dialogForm__title">
         {title}
       </DialogTitle>
@@ -40,12 +46,21 @@ function DialogForm({
 }
 
 DialogForm.propTypes = {
+  /** The secondary button text (Button located on left side of Dialog) */
   cancelButtonText: PropTypes.string,
+  /** The content to be rendered in the dialog body */
   children: PropTypes.node.isRequired,
+  /** The current open/closed state of the Dialog */
   isOpen: PropTypes.bool.isRequired,
+  /** Determine the max-width of the dialog. The dialog width grows with the size of the screen. Set to false to disable maxWidth. */
+  maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', false]),
+  /** Callback function invoked when the user clicks on the secondary button or outside the Dialog */
   onClose: PropTypes.func.isRequired,
+  /** Callback function invoke when the user clicks the primary button */
   onSave: PropTypes.func.isRequired,
+  /** The primary button text (Button located on right side of Dialog) */
   saveButtonText: PropTypes.string,
+  /** Title text at the top of the Dialog */
   title: PropTypes.string.isRequired,
 };
 
