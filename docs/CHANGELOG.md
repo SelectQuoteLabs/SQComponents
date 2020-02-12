@@ -1,3 +1,10 @@
+### [1.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.4.0...v1.4.1) (2020-02-12)
+
+
+### Bug Fixes
+
+* **roundedbutton:** fixed font size & weight styles of button ([6d547fa](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6d547fa8774c027419b2bebbbfc6fb9d111488e2))
+
 ## [1.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.3.0...v1.4.0) (2020-02-12)
 
 
