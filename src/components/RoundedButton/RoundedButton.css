@@ -5,7 +5,8 @@
   margin-right: 0.5rem;
   border: 0.1667rem solid var(--button-primary);
   border-radius: 2rem;
-  font-weight: 1000;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
   box-shadow: none;
 }
 
