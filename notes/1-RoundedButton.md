@@ -17,7 +17,3 @@ When consuming this component be sure you are using the correct props. If you ar
 an old component in your app with this one, you definitely want to make sure the `isDisabled`
 prop is correctly being named. We have updated this component to follow our code standards
 and the `disabled` prop has been renamed to `isDisabled`.
-
-You can pass in either a `label` prop or put any React node inside the component tags as children.
-However -- the `label` prop is still _required_ and therefore you must pass something in that prop
-to satisfy the button's propTypes.
