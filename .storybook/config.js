@@ -1,7 +1,7 @@
 import {configure, addDecorator, addParameters} from '@storybook/react';
 import React from 'react';
 import {MuiThemeProvider as V0MuiThemeProvider} from 'material-ui'; // v0.x
-import {StylesProvider} from '@material-ui/styles';
+import {StylesProvider} from '@material-ui/core/styles';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import 'storybook-addon-material-ui/register';
