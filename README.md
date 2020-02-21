@@ -83,6 +83,65 @@ docker-compose up scplus-shared-components
 
 Then navigate to http://localhost:6006
 
+### Deprecating Components and Props
+
+As we migrate components from divisional code into the shared components we have an opportunity to rewrite and unify the API. We may choose to replace certain components entirely or change the name of props to bring them inline with our conventions.
+
+Also, we have historically found ourselves in a position where our conventions changed and we felt like we couldn't update any components because we were afraid they may break if we do.
+
+A few helpers HOC's have been introduced to deal with these types of situations:
+
+#### Fully Deprecating a Component
+
+```javascript
+import {deprecateComponent} from 'helpers/deprecation';
+
+// ... code for component here
+
+// Originally, we may have simply exported the component:
+// export default Component
+
+// Instead, we're going to wrap it in 'deprecateComponent':
+export default deprecateComponent(
+  Component,
+  false /* isMarkedForFailure: setting this to false simply warns */
+  /* optionally provide a deprecation message here */
+);
+```
+
+#### Deprecating Individual Props on a Component
+
+```javascript
+import {deprecateProps} from 'helpers/deprecation';
+
+// ... code for component here
+
+// Originally, we may have simply exported the component:
+// export default Component
+
+// Instead, we're going to wrap it in 'deprecateProps':
+export default deprecateComponent(
+  Component,
+  {
+    isMarkedForFailure: false /* Warn that his prop is deprecated */,
+    deprecatedProp: 'disabled' /* Prop that is deprecated */,
+
+    /* The value of 'disabled' will be assigned to 'isDisabled' */
+    replacementProp: 'isDisabled',
+  },
+  {
+    /* Throw an error if this prop is assigned */
+    isMarkedForFailure: true,
+    deprecatedProp: 'onClick',
+
+    /* Custom error message for explaining the deprecation */
+    deprecationMessage: `Component.onClick has been fully deprecated because users do not expect to be able to click on Component elements.
+
+      Consider wrapping Component in a button to clarify the intent to users.`,
+  }
+);
+```
+
 ## Running the tests and lint
 
 ```
