@@ -2,6 +2,23 @@ version: '3'
 
 # runs dev server and volume mounts files
 services:
+  build-storybook:
+    image: node:erbium-alpine3.11
+    working_dir: /app
+    volumes:
+      - .:/app
+      - storybook-artifacts:/app/.out:Z
+    command: npm ci && npx watch 'npm run build-storybook' .
+
+  storybook-local:
+    image: node:erbium-alpine3.11
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - 6006:6006
+    command: npm run storybook
+
   scplus-shared-components:
     image: 'scplus-shared-components:${VERSION-latest}'
     build:
@@ -9,8 +26,7 @@ services:
     ports:
       - 6006:6006
     volumes:
-      - .:/app:cached
-      - shared-components-node_modules:/app/node_modules:Z
+      - .:/app
 
   # runs lint and test
   test:
@@ -20,3 +36,4 @@ services:
 
 volumes:
   shared-components-node_modules:
+  storybook-artifacts:
