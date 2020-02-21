@@ -15,6 +15,7 @@ const Transition = React.forwardRef((props, ref) => {
 function DialogForm({
   cancelButtonText = 'Cancel',
   children,
+  isDisabled = false,
   isOpen,
   maxWidth = 'sm',
   onClose,
@@ -37,7 +38,7 @@ function DialogForm({
         <RoundedButton onClick={onClose} color="secondary" variant="outlined">
           {cancelButtonText}
         </RoundedButton>
-        <RoundedButton onClick={onSave} color="primary">
+        <RoundedButton isDisabled={isDisabled} onClick={onSave} color="primary">
           {saveButtonText}
         </RoundedButton>
       </DialogActions>
@@ -50,6 +51,8 @@ DialogForm.propTypes = {
   cancelButtonText: PropTypes.string,
   /** The content to be rendered in the dialog body */
   children: PropTypes.node.isRequired,
+  /** The current disabled state of the Dialog Save Button */
+  isDisabled: PropTypes.bool,
   /** The current open/closed state of the Dialog */
   isOpen: PropTypes.bool.isRequired,
   /** Determine the max-width of the dialog. The dialog width grows with the size of the screen. Set to false to disable maxWidth. */
