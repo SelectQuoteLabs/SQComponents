@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import classnames from 'classnames';
 
-import {deprecated} from '../../helpers/deprecation';
+import {deprecateProps} from '../../helpers/deprecation';
 
 import './RoundedButton.css';
 
@@ -66,7 +66,7 @@ RoundedButton.propTypes = {
   endIcon: PropTypes.node,
 };
 
-const RoundedButtonWithDeprecations = deprecated(RoundedButton, {
+const RoundedButtonWithDeprecations = deprecateProps(RoundedButton, {
   isMarkedForFailure: false,
   deprecatedProp: 'disabled',
   replacementProp: 'isDisabled',
