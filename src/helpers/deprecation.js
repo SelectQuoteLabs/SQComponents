@@ -1,36 +1,22 @@
 import React from 'react';
-import {format} from 'date-fns';
-
-const DATE_FORMAT_PATTERN = 'LLLL do, yyyy';
 
 const BUILD_REPLACEMENT_MESSAGE = (componentName, replacementPropertyName) =>
   ` and is now known as ${componentName}.${replacementPropertyName}`;
 
 const BUILD_DEPRECATED_MESSAGE = (
   componentName,
-  deprecatedOnDate,
-  deprecationFailureDate,
   deprecatedPropertyName,
   replacementPropertyName
-) => `${componentName}.${deprecatedPropertyName} was deprecated on ${format(
-  deprecatedOnDate,
-  DATE_FORMAT_PATTERN
-)}${replacementPropertyName &&
+) => `${componentName}.${deprecatedPropertyName} is deprecated${replacementPropertyName &&
   BUILD_REPLACEMENT_MESSAGE(componentName, replacementPropertyName)}.
 
-${componentName}.${deprecatedPropertyName} is slated for removal on ${format(
-  deprecationFailureDate,
-  DATE_FORMAT_PATTERN
-)}.
-Please update your code accordingly.`;
+Please update your code accordingly as ${componentName}.${deprecatedPropertyName} is slated for removal in a future release.`;
 
 /**
  * @typedef {Object} DeprecationDefinition
  *
  * @param {Function} ComponentWithDeprecations The component that we want to enforce deprecations on.
  * @param  {DeprecationDefinition[]} deprecations
- * @property {date} deprecatedDate The date that the specified property was considered deprecated.
- * @property {date} failureDate The date upon which new versions of the component library are expected to start throwing errors for this deprecation.
  * @property {boolean} isMarkedForFailure Specify that this property is fully deprecated and throw errors instead of just showing warnings.
  * @property {string} deprecatedProperty The name of the prop that is deprecated.
  * @property {string} [replacementProperty] The name of a prop that is intended to replace the deprecated prop, if available.
@@ -39,8 +25,6 @@ Please update your code accordingly.`;
 export function deprecated(ComponentWithDeprecations, ...deprecations) {
   const deprecationTests = deprecations.map(
     ({
-      deprecatedDate,
-      failureDate,
       isMarkedForFailure,
       deprecatedProp,
       replacementProp,
@@ -50,8 +34,6 @@ export function deprecated(ComponentWithDeprecations, ...deprecations) {
         // ComponentWithDeprecations will either be a functional component or a class
         // in which case it's actually a constructor function
         ComponentWithDeprecations.name,
-        deprecatedDate,
-        failureDate,
         deprecatedProp,
         replacementProp
       );
