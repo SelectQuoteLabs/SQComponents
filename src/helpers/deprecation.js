@@ -24,7 +24,7 @@ Please update your code accordingly.`;
  * @property {boolean} isMarkedForFailure Specify that this property is fully deprecated and throw errors instead of just showing warnings.
  * @property {string} deprecatedProperty The name of the prop that is deprecated.
  * @property {string} [replacementProperty] The name of a prop that is intended to replace the deprecated prop, if available.
- * @property {Function} [deprecationMessageBuilder] Builder function for the warning/error message, see BUILD_DEPRECATED_MESSAGE for example.
+ * @property {Function} [deprecationMessage] Warning/Error message to display to the user.
  */
 export function deprecateProps(ComponentWithDeprecations, ...deprecations) {
   const deprecationTests = deprecations.map(
@@ -32,16 +32,12 @@ export function deprecateProps(ComponentWithDeprecations, ...deprecations) {
       isMarkedForFailure,
       deprecatedProp,
       replacementProp,
-      deprecationMessageBuilder = BUILD_DEPRECATED_PROP_MESSAGE,
-    }) => {
-      const DEPRECATION_MESSAGE = deprecationMessageBuilder(
-        // ComponentWithDeprecations will either be a functional component or a class
-        // in which case it's actually a constructor function
+      deprecationMessage = BUILD_DEPRECATED_PROP_MESSAGE(
         ComponentWithDeprecations.name,
         deprecatedProp,
         replacementProp
-      );
-
+      ),
+    }) => {
       function buildReturnObject(replacementProperty, value) {
         if (!replacementProperty) {
           return {};
@@ -61,11 +57,11 @@ export function deprecateProps(ComponentWithDeprecations, ...deprecations) {
         }
 
         if (!isMarkedForFailure) {
-          console.warn(DEPRECATION_MESSAGE);
+          console.warn(deprecationMessage);
           return buildReturnObject(replacementProp, deprecated);
         }
 
-        throw new Error(DEPRECATION_MESSAGE);
+        throw new Error(deprecationMessage);
       };
     }
   );
@@ -93,15 +89,16 @@ export function deprecateProps(ComponentWithDeprecations, ...deprecations) {
 export function deprecateComponent(
   DeprecatedComponent,
   isMarkedForFailure,
-  deprecationMessageBuilder = BUILD_DEPRECATED_COMPONENT_MESSAGE
+  deprecationMessage = BUILD_DEPRECATED_COMPONENT_MESSAGE(
+    DeprecatedComponent.name
+  )
 ) {
   return function FullyDeprecatedComponent(props) {
-    const message = deprecationMessageBuilder(DeprecatedComponent.name);
     if (isMarkedForFailure) {
-      throw new Error(message);
+      throw new Error(deprecationMessage);
     }
 
-    console.warn(message);
+    console.warn(deprecationMessage);
     return <DeprecatedComponent {...props} />;
   };
 }
