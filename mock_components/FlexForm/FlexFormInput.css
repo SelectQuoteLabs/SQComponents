@@ -1,0 +1,6 @@
+.flexFormInput__characterCounter {
+  font-size: 0.9em;
+  right: 0;
+  top: 1px;
+  color: var(--color-label);
+}

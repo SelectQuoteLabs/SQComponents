@@ -1,0 +1,76 @@
+{
+  "executionRoleArn": "__EXECUTION_ROLE_ARN__",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/scplus-shared-components",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 6006,
+          "protocol": "tcp",
+          "containerPort": 6006
+        }
+      ],
+      "cpu": 1024,
+      "memory": 3072,
+      "image": "__LABEL__",
+      "essential": true,
+      "name": "app"
+    },
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/scplus-shared-components",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "links": ["app"],
+      "cpu": 0,
+      "memoryReservation": 4,
+      "image": "__NGINX_REPO__",
+      "healthCheck": {
+        "retries": 3,
+        "command": ["true"],
+        "timeout": 5,
+        "interval": 60,
+        "startPeriod": 60
+      },
+      "essential": true,
+      "name": "nginx",
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 100000,
+          "hardLimit": 100000
+        }
+      ],
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "volumesFrom": [
+        {
+          "sourceContainer": "app",
+          "readOnly": true
+        }
+      ]
+    }
+  ],
+  "memory": "3072",
+  "taskRoleArn": "__TASK_ROLE_ARN__",
+  "family": "scplus-shared-components",
+  "networkMode": "bridge",
+  "cpu": "1024"
+}
+

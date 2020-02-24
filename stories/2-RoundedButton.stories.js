@@ -86,3 +86,14 @@ export const buttonWithEndIcon = () => (
     {text('children', 'SAVE')}
   </RoundedButton>
 );
+
+export const deprecatedDisableButton = () => (
+  <RoundedButton
+    title="Rounded Button Base"
+    onClick={action('button clicked')}
+    disabled={boolean('disable', false)}
+    primary={boolean('primary', false)}
+  >
+    {text('label', 'Check the console to see the deprecation warning.')}
+  </RoundedButton>
+);

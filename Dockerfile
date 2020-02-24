@@ -1,4 +1,4 @@
-FROM node:erbium-alpine3.11 as build
+FROM node:erbium as build
 
 # Create working directory
 WORKDIR /app

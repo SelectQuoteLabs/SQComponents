@@ -1,0 +1,12 @@
+.dialogForm__title {
+  color: var(--color-richBlack);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.75rem;
+}
+
+.dialogForm__actions {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 100%;
+  padding: 1.3333rem 2rem;
+}
