@@ -1,24 +1,50 @@
-# This is a sample build configuration for JavaScript.
-# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-image: node:erbium
+image: tstrohmeier/awscli:3.6.4
+
+definitions:
+  services:
+    docker:
+      memory: 1024
+
+# Repeatable Steps
+commonBuildAndDeploy: &commonBuildAndDeploy
+  name: Build & Deploy
+  script:
+    - pip install -U awscli
+    - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+    - export TAG=${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
+    - export LABEL=${AWS_REGISTRY_URL}:$TAG
+    - >
+      docker build
+      -t scplus-shared-components:$TAG
+      --build-arg ENVIRONMENT=${ENVIRONMENT}
+      .
+    - docker push $LABEL
+    - sed -i -e "s|__LABEL__|$LABEL|g" task-definition.json
+    - sed -i -e "s|__ENV__|${ENV}|g" task-definition.json
+    - sed -i -e "s|__EXECUTION_ROLE_ARN__|${EXECUTION_ROLE}|g" task-definition.json
+    - sed -i -e "s|__TASK_ROLE_ARN__|${TASK_ROLE}|g" task-definition.json
+    - sed -i -e "s|__NGINX_REPO__|${NGINX_REPO}|g" task-definition.json 
+    - >
+      aws ecs register-task-definition
+      --family scplus-shared-components
+      --cli-input-json file://task-definition.json
+    - >
+      aws ecs update-service
+      --service scplus-shared-components
+      --task-definition scplus-shared-components
+      --cluster SharedServices
+  services:
+    - docker
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - node
-        script: # Modify the commands below to build your repository.
-          - npm ci
-          - npm run lint
-          - npm test
+  custom:
+    production:
+      - step:
+          deployment: production
+          <<: *commonBuildAndDeploy
+
   branches:
     master:
       - step:
-          caches:
-            - node
-          script:
-            - npm ci
-            - npx semantic-release
+          deployment: production
+          <<: *commonBuildAndDeploy
