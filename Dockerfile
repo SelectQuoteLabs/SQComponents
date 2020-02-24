@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # install python
-RUN apk add python
+RUN apk add make python
 
 # build storybook static assets
 RUN npm ci && npm run build-storybook
