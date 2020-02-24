@@ -11,7 +11,7 @@ commonBuildAndDeploy: &commonBuildAndDeploy
   script:
     - pip install -U awscli
     - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
-    - export LABEL=${AWS_REGISTRY_URL}:{ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
+    - export LABEL=${AWS_REGISTRY_URL}:${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
     - >
       docker build
       -t $LABEL
