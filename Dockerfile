@@ -7,8 +7,7 @@ WORKDIR /app
 COPY . .
 
 # install python
-RUN apt-get update
-RUN apt-get install python
+RUN apk add python3
 
 # build storybook static assets
 RUN npm ci && npm run build-storybook
