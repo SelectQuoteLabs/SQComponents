@@ -11,11 +11,10 @@ commonBuildAndDeploy: &commonBuildAndDeploy
   script:
     - pip install -U awscli
     - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
-    - export TAG=${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
-    - export LABEL=${AWS_REGISTRY_URL}:$TAG
+    - export LABEL=${AWS_REGISTRY_URL}:{ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
     - >
       docker build
-      -t scplus-shared-components:$TAG
+      -t $LABEL
       --build-arg ENVIRONMENT=${ENVIRONMENT}
       .
     - docker push $LABEL
