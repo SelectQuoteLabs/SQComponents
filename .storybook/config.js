@@ -1,10 +1,12 @@
 import {configure, addDecorator, addParameters} from '@storybook/react';
 import React from 'react';
 import {MuiThemeProvider as V0MuiThemeProvider} from 'material-ui'; // v0.x
-import {StylesProvider} from '@material-ui/styles';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {StylesProvider} from '@material-ui/core/styles';
+import {MuiThemeProvider} from '@material-ui/core/styles';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import 'storybook-addon-material-ui/register';
+
+import {muiTheme} from '../src/theme';
 import selectQuoteTheme from './selectQuoteTheme';
 
 import '../src/styles'; // global styles
@@ -30,7 +32,6 @@ const theme = {
 
 // https://material-ui.com/guides/migration-v0x/
 const muiThemeV0 = getMuiTheme(theme);
-const muiTheme = createMuiTheme(theme);
 
 // For Storybook usage ONLY
 const centerStyle = {

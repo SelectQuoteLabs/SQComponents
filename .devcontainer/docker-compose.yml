@@ -7,38 +7,30 @@ version: '3'
 services:
   # Update this to the name of the service you want to work with in your docker-compose.yml file
   scplus-shared-components-remote-development:
-    # You may want to add a non-root user to your Dockerfile. On Linux, this will prevent
-    # new files getting created as root. See https://aka.ms/vscode-remote/containers/non-root-user
-    # for the needed Dockerfile updates and then uncomment the next line.
-    user: node
-
-    # Uncomment if you want to add a different Dockerfile in the .devcontainer folder
     build:
       context: .
       dockerfile: Dockerfile
 
-    # Uncomment if you want to expose any additional ports. The snippet below exposes port 3000.
-    # ports:
-    #   - 3000:3000
-
     volumes:
       # Update this to wherever you want VS Code to mount the folder of your project
-      - shared-components-node_modules:/workspace/node_modules
-      - ..:/workspace:cached
-      - ~/.ssh:/home/node/.ssh:ro
+      - shared-components-node_modules:/workspace/node_modules:Z
+      - ..:/workspace:delegated
+      - ~/.ssh:/root/.ssh:delegated
 
       # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-in-docker-compose for details.
       - /var/run/docker.sock:/var/run/docker.sock
 
-    # Uncomment the next four lines if you will use a ptrace-based debugger like C++, Go, and Rust.
-    # cap_add:
-    #   - SYS_PTRACE
-    # security_opt:
-    #   - seccomp:unconfined
-
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
+  storybook-local:
+    image: node:erbium-alpine3.11
+    working_dir: /app
+    volumes:
+      - ..:/app:delegated
+    ports:
+      - 6006:6006
+    command: npm run storybook
+
 volumes:
   shared-components-node_modules:
-    external: true

@@ -1,5 +1,7 @@
 # bundler configuration
 .bundle
+.out
+.parcel-cache
 
 # git configuration
 .git
@@ -10,6 +12,7 @@
 
 # Visual Studio Code
 .vscode
+.devcontainer
 
 # Chrome Debugging
 .chrome
@@ -41,3 +44,4 @@ log/*.log
 # Precompiled
 /public/assets
 /public/packs
+/dist

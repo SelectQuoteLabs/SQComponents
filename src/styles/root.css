@@ -1,13 +1,18 @@
 /*css vars here*/
 :root {
   --color-cerulean: #01a1b7;
+  --color--green: #69a825;
   --color-teal: #017788;
+  --color-lightTeal: #34a1b6;
   --color-frenchBleu: #0066ff;
+  --color-oysterBay: #d9f1f4;
+  --color-orange: #f17c21;
 
   --color-brightYellow: #ff9f1c;
   --color-sienna: #c46c2a;
   --color-spanishOrange: #eb7100;
 
+  --color-black: #000000;
   --color-richBlack: #050404;
   --color-jetBlack: #322f2f;
   --color-charlestonGreen: #2e282a;
@@ -31,6 +36,7 @@
   --color-button-teal-hover: #d8f1f4;
   --color-button-hover-white: rgba(255, 255, 255, 0.2);
   --color-button-disabled: #a09d9e;
+  --color-button-hover-success: #9dd169;
 
   --base-font-size: 12px;
 
@@ -49,7 +55,7 @@
   /* Agent, Admin View height related variables */
   --nav-height: 4.063rem;
   --nav-margin-bottom: 1.5rem;
-  --agent-toolbar-height: 5.833rem;
+  --agent-toolbar-height: 5rem;
   --container-padding-bottom: 1.5rem; /* Admin and Agent Container */
 
   --react-virtualized-list-height: 300px;
@@ -59,6 +65,12 @@
   --size-label: 12px;
   --size-label-with-offset: 1.34rem;
   --size-input: 14px;
+  --color-label-size: 1.167rem;
+
+  --full-width: 100%;
+
+  --box-shaddow-card: 0.083rem 0.083rem 0.417rem var(--color-stone); /* Misspelled in SQAH */
+  --top-input: 3.1666rem;
 
   /* derived */
   --color-disabled: var(--color-slate);
@@ -69,11 +81,16 @@
   --font-weight-label: var(--font-weight-normal);
   --font-weight-input: var(--font-weight-semibold);
 
-  --button-primary: var(--color-cerulean);
+  /* Button */
+  --button-primary: var(--color-teal);
   --button-primary-hover: var(--color-button-cerulean-hover);
+  --button-primaryEmpty-hover: var(--color-oysterBay);
 
-  --button-secondary: var(--color-teal);
+  --button-secondary: var(--color-cerulean);
   --button-secondary-hover: var(--color-button-teal-hover);
+
+  --button-font-weight: var(--font-weight-semibold);
+  --button-font-size: 1.1667rem;
 }
 
 html {
@@ -102,15 +119,6 @@ iframe {
 *:after,
 *:before {
   box-sizing: inherit;
-}
-
-/* global material-ui override */
-button:hover {
-  background-color: var(--color-button-hover) !important;
-}
-
-button:hover[disabled] {
-  background-color: initial !important;
 }
 
 ::-webkit-scrollbar {
