@@ -8,6 +8,7 @@
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
   box-shadow: none;
+  text-transform: capitalize;
 }
 
 .roundedButton:hover {
