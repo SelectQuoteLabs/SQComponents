@@ -18,7 +18,7 @@
         }
       ],
       "cpu": 1024,
-      "memory": 1024,
+      "memory": 2048,
       "image": "__LABEL__",
       "essential": true,
       "name": "app"
@@ -67,7 +67,7 @@
       ]
     }
   ],
-  "memory": "1024",
+  "memory": "2048",
   "taskRoleArn": "__TASK_ROLE_ARN__",
   "family": "scplus-shared-components",
   "networkMode": "bridge",
