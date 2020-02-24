@@ -3,7 +3,7 @@ image: tstrohmeier/awscli:3.6.4
 definitions:
   services:
     docker:
-      memory: 2048
+      memory: 4096
 
 # Repeatable Steps
 commonBuildAndDeploy: &commonBuildAndDeploy
