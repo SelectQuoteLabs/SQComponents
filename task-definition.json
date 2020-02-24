@@ -27,7 +27,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/select-care",
+          "awslogs-group": "/ecs/scplus-shared-components",
           "awslogs-region": "us-west-2",
           "awslogs-stream-prefix": "ecs"
         }
