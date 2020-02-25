@@ -23,7 +23,7 @@ export const primaryButton = () => (
     color={text('color', 'primary')}
     variant={text('variant', 'contained')}
   >
-    {text('children', 'SAVE')}
+    {text('children', 'save')}
   </RoundedButton>
 );
 
@@ -35,7 +35,7 @@ export const secondaryButton = () => (
     color={text('color', 'secondary')}
     variant={text('variant', 'outlined')}
   >
-    {text('children', 'SAVE')}
+    {text('children', 'save')}
   </RoundedButton>
 );
 
@@ -45,7 +45,7 @@ export const disabledButton = () => (
     onClick={action('button clicked')}
     isDisabled={boolean('isDisabled', true)}
   >
-    {text('children', 'SAVE')}
+    {text('children', 'save')}
   </RoundedButton>
 );
 
@@ -57,7 +57,7 @@ export const successButton = () => (
     color={text('color', 'success')}
     variant={text('variant', 'contained')}
   >
-    {text('children', 'SAVE')}
+    {text('children', 'save')}
   </RoundedButton>
 );
 
@@ -70,7 +70,7 @@ export const buttonWithStartIcon = () => (
     variant={text('variant', 'contained')}
     startIcon={<AccessAlarm />}
   >
-    {text('children', 'SAVE')}
+    {text('children', 'save')}
   </RoundedButton>
 );
 
@@ -83,7 +83,7 @@ export const buttonWithEndIcon = () => (
     variant={text('variant', 'contained')}
     endIcon={<ThreeDRotation />}
   >
-    {text('children', 'SAVE')}
+    {text('children', 'save')}
   </RoundedButton>
 );
 
