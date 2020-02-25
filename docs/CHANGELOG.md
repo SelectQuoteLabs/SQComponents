@@ -1,18 +1,16 @@
 ## [1.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.4.1...v1.5.0) (2020-02-21)
 
-
 ### Features
 
-* **deprecation:** added full component deprecation ([3163bfa](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3163bfaa65d132e82a2dd02c8fd09dd3df6d83b3))
-
+- **deprecation:** added full component deprecation ([3163bfa](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3163bfaa65d132e82a2dd02c8fd09dd3df6d83b3))
 
 ### Bug Fixes
 
-* **.storybook/config:** fixed bad import for material-ui ([4a16df0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4a16df0190ce4bc69af52980d1fc458343f1096b))
-* **deprecation:** final tweaks to deprecation ([cc582e0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/cc582e0d928fa2e55c922a916d7e912fbfd3c144))
-* **deprecation:** simplify deprecation messages ([4a46d98](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4a46d982805c9aef5fa2a9094fde32ec4e90f48f))
-* **docker:** performance improvements and storybook ([7caeade](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7caeade9dcf474a98138d6fa5e8dc6beaa311b92))
-* **package-lock.json:** need to rebuild package-lock.json ([5fbe100](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5fbe100b25308b101453040b8941c15bf089f291))
+- **.storybook/config:** fixed bad import for material-ui ([4a16df0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4a16df0190ce4bc69af52980d1fc458343f1096b))
+- **deprecation:** final tweaks to deprecation ([cc582e0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/cc582e0d928fa2e55c922a916d7e912fbfd3c144))
+- **deprecation:** simplify deprecation messages ([4a46d98](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4a46d982805c9aef5fa2a9094fde32ec4e90f48f))
+- **docker:** performance improvements and storybook ([7caeade](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7caeade9dcf474a98138d6fa5e8dc6beaa311b92))
+- **package-lock.json:** need to rebuild package-lock.json ([5fbe100](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5fbe100b25308b101453040b8941c15bf089f291))
 
 ### [1.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.4.0...v1.4.1) (2020-02-12)
 
