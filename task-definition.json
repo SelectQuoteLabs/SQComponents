@@ -12,7 +12,7 @@
       },
       "portMappings": [
         {
-          "hostPort": 6006,
+          "hostPort": 0,
           "protocol": "tcp",
           "containerPort": 6006
         }
