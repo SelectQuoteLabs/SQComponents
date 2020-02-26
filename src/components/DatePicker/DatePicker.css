@@ -1,0 +1,98 @@
+.datePicker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  top: 0.2rem;
+}
+
+.datePicker__fullWidth {
+  width: 100%;
+}
+
+.react-datePicker-popper {
+  width: max-content;
+  z-index: var(--date-picker-z-index);
+}
+
+.react-datepicker__time-list {
+  padding: 0;
+}
+
+/* changes for making the input generic and bottom border only */
+.react-datepicker__input-container > input {
+  font-size: 1.17rem;
+  line-height: 1.33rem;
+  padding: 0.66rem 2rem 0.66rem 0rem;
+  border-bottom: 1px solid var(--color-gainsboro);
+  border-left: none;
+  border-top: none;
+  box-shadow: none;
+  border-right: none;
+  width: 100%;
+}
+
+.react-datepicker-wrapper .react-datepicker__input-container {
+  width: 100%;
+}
+
+.react-datepicker__month-container {
+  line-height: normal;
+}
+
+/* changes for making the label generic*/
+.datePicker__label {
+  color: var(--color-label);
+  font-size: var(--size-label);
+  line-height: 1.67rem;
+  display: inline-block;
+}
+
+.datePicker__error {
+  border-bottom: 0.1667rem solid var(--color-spanishOrange);
+}
+
+.datePicker__errorText {
+  top: 0.8rem;
+  position: relative;
+  font-size: var(--size-label);
+  width: max-content;
+  color: var(--color-roseMadder);
+}
+
+.datePicker__calendarIcon {
+  bottom: -8px;
+  position: absolute !important; /* material-ui override */
+  right: 0 !important; /* material-ui override */
+  color: var(--color-teal) !important; /* material-ui override */
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.datePicker__calendarIcon--disabled {
+  color: var(--color-slate) !important; /* material-ui override */
+  cursor: not-allowed;
+}
+
+.datePicker__clearIcon {
+  color: var(--color-white) !important; /* material-ui override */
+}
+
+.datePicker__clearIcon_btn {
+  bottom: 2px;
+  position: absolute !important; /* material-ui override */
+  right: 22px !important; /* material-ui override */
+  color: var(--color-white) !important; /* material-ui override */
+  transform: scale(0.5, 0.5);
+  cursor: pointer;
+  border: 1px solid var(--color-slate) !important;
+  border-radius: 2rem !important;
+  background-color: var(--color-slate) !important;
+  min-width: 0px !important;
+  height: auto !important;
+  line-height: 0px !important;
+}
+
+.datePicker__clearIcon_btn:hover {
+  background-color: var(--color-slate) !important; /* material-ui override */
+}
