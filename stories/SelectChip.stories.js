@@ -16,7 +16,6 @@ export default {
 
 export const selectChip = () => (
   <SelectChip
-    tabIndex={1}
     onClick={action('SelectChip clicked!')}
     optionIsSelected={boolean(
       'optionIsSelected',
@@ -30,13 +29,28 @@ export const selectChip = () => (
 
 export const selectChipWithMoarContent = () => (
   <SelectChip
-    tabIndex={1}
     onClick={action('SelectChip clicked!')}
     optionIsSelected={boolean(
       'optionIsSelected',
       false,
       'Selected State of SelectChip'
     )}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. In egestas erat
+    imperdiet sed euismod. Adipiscing at in tellus integer.
+  </SelectChip>
+);
+
+export const selectChipWithMoarContentAndStaticWidth = () => (
+  <SelectChip
+    onClick={action('SelectChip clicked!')}
+    optionIsSelected={boolean(
+      'optionIsSelected',
+      false,
+      'Selected State of SelectChip'
+    )}
+    staticWidth="15rem"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. In egestas erat
