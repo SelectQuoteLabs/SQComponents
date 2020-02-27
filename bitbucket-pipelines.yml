@@ -10,16 +10,16 @@ definitions:
 # Repeatable Steps
 testStep: &testStep
   - step:
-    name: Default Test Step
-    caches:
-      - clientnode
-    script:
-      - echo "Running client and build steps..."
-      - cd client && npm ci
-      - echo "Running lint on the client directory..."
-      - npm run lint
-      - echo "Running test and build steps..."
-      - npm test
+      name: Default Test Step
+      caches:
+        - clientnode
+      script:
+        - echo "Running client and build steps..."
+        - cd client && npm ci
+        - echo "Running lint on the client directory..."
+        - npm run lint
+        - echo "Running test and build steps..."
+        - npm test
 nodeBuild: &nodeBuild
   name: Node Install and Publish
   caches:
