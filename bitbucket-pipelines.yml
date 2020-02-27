@@ -22,13 +22,13 @@ testStep: &testStep
         - npm test
 nodeBuild: &nodeBuild
   - step:
-    name: Node Install and Publish
-    image: node:carbon
-    caches:
-      - nodemodules
-    script:
-      - npm ci && npm semantic-release
-      - npm run publish
+      name: Node Install and Publish
+      image: node:carbon
+      caches:
+        - nodemodules
+      script:
+        - npm ci && npm semantic-release
+        - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
   image: tstrohmeier/awscli:3.6.4
