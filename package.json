@@ -13,7 +13,7 @@
     "lint.staged": "lint-staged",
     "semver": "npm version",
     "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
-    "publish": "node s3.js",
+    "publish": "node s3.js --inspect-brk",
     "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .out",
