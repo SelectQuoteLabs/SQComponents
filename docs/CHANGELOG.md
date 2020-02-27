@@ -1,3 +1,10 @@
+### [1.6.7](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.6...v1.6.7) (2020-02-27)
+
+
+### Bug Fixes
+
+* **deploy:** fixed the releaseCmd for semantic-release/exec ([32bd14a](https://bitbucket.org/SelectQuote/scplus-shared-components/commit/32bd14a62f3e3d34c80fecee8bb53bbd0347d2cf))
+
 ### [1.6.6](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.5...v1.6.6) (2020-02-27)
 
 
