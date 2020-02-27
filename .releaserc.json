@@ -5,7 +5,8 @@
     [
       "@semantic-release/npm",
       {
-        "publish": false
+        "npmPublish": false,
+        "tarballDir": "."
       }
     ],
     "@semantic-release/commit-analyzer",
