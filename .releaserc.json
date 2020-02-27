@@ -27,7 +27,7 @@
     [
       "@semantic-release/exec",
       {
-        "publish": "npm run publish"
+        "publishCmd": "npm run publish"
       }
     ],
     [
