@@ -14,7 +14,7 @@ testStep: &testStep
       caches:
         - clientnode
       script:
-        - apk install tree
+        - apt install tree
         - echo "Checking output..."
         - pwd
         - tree
