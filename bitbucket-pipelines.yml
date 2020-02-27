@@ -13,7 +13,7 @@ testStep: &testStep
   caches:
     - clientnode
   script:
-     - echo "Running client and build steps..."
+    - echo "Running client and build steps..."
     - cd client && npm ci
     - echo "Running lint on the client directory..."
     - npm run lint
