@@ -51,7 +51,9 @@ Now you can open the folder containing this repo in VS Code and you'll be presen
 
 The benefit of running inside a container is that your development environment will have the exact same tooling as the build pipeline in Bitbucket.
 
-The development container will automatically run the storybook container (scplus-shared-components).
+The development container will automatically run the storybook container (scplus-shared-components) and you can access it at https://localhost:6006
+
+<sup><i>It may take a little while for the service to start. Storybook does a full build every time it starts, and you can monitor the logs from the storybook container to see the progress.</i></sup>
 
 > Note: You can still use other IDEs (such as WebStorm) if you prefer and completely ignore containerization of your development environment.
 >
