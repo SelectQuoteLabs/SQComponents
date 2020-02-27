@@ -1,4 +1,4 @@
-image: node:carbon
+image: node:erbium
 definitions:
   caches:
     nodemodules: nodemodules
@@ -17,7 +17,6 @@ testStep: &testStep
 nodeBuild: &nodeBuild
   - step:
       name: Node Install and Publish
-      image: node:carbon
       caches:
         - nodemodules
       script:
