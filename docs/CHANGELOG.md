@@ -1,3 +1,10 @@
+### [1.6.5](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.4...v1.6.5) (2020-02-27)
+
+
+### Bug Fixes
+
+* **deploy:** use semantic-release/npm ([85bced8](https://bitbucket.org/SelectQuote/scplus-shared-components/commit/85bced8d8201f7ca89032d9fc980ef4d17252f6a))
+
 ### [1.6.4](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.3...v1.6.4) (2020-02-27)
 
 
