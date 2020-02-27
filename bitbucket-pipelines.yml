@@ -8,17 +8,22 @@ definitions:
       memory: 3072
 
 # Repeatable Steps
-nodeBuild: &nodeBuild
-  name: Node Tests & Install
+testStep: &testStep
+  name: Default Test Step
   caches:
     - clientnode
   script:
-    - echo "Running client and build steps..."
+     - echo "Running client and build steps..."
     - cd client && npm ci
     - echo "Running lint on the client directory..."
     - npm run lint
     - echo "Running test and build steps..."
     - npm test
+nodeBuild: &nodeBuild
+  name: Node Install and Publish
+  caches:
+    - clientnode
+  script:
     - npm semantic-release
     - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
@@ -53,14 +58,16 @@ commonBuildAndDeploy: &commonBuildAndDeploy
 
 pipelines:
   default:
-    - <<: *nodeBuild
+    - <<: *testStep
   custom:
     production:
       - step:
           deployment: production
+          <<: *nodeBuild
           <<: *commonBuildAndDeploy
   branches:
     master:
       - step:
           deployment: production
+          <<: *nodeBuild
           <<: *commonBuildAndDeploy
