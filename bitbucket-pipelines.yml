@@ -22,6 +22,7 @@ testStep: &testStep
         - npm test
 nodeBuild: &nodeBuild
   name: Node Install and Publish
+  image: node:carbon
   caches:
     - nodemodules
   script:
@@ -64,11 +65,11 @@ pipelines:
     production:
       - step:
           deployment: production
-          <<: *nodeBuild
           <<: *commonBuildAndDeploy
+      <<: *nodeBuild
   branches:
     master:
       - step:
           deployment: production
-          <<: *nodeBuild
           <<: *commonBuildAndDeploy
+      <<: *nodeBuild
