@@ -67,10 +67,10 @@ pipelines:
       - step:
           deployment: production
           <<: *commonBuildAndDeploy
-      <<: *nodeBuild
+      - <<: *nodeBuild
   branches:
     master:
       - step:
           deployment: production
           <<: *commonBuildAndDeploy
-      <<: *nodeBuild
+      - <<: *nodeBuild
