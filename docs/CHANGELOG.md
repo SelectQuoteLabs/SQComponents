@@ -1,3 +1,20 @@
+## [1.6.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.5.0...v1.6.0) (2020-02-27)
+
+
+### Features
+
+* **dialogform:** added the isDisabled prop and mock flexform components ([1dd5116](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1dd5116ad3f25faf329a42a60ead381c430e48dc))
+* **dialogform:** creates the DialogForm component ([82e2ae7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/82e2ae7e39c15122fc39ceeb1e8b9936264fa8d3))
+* **selectchip:** ports selectchip component from SQAH ([7891f1d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7891f1d67dac74d3e78855c1a02f408eed7007c7))
+
+
+### Bug Fixes
+
+* **dialogalert:** dialog components for alerts ([614f865](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/614f865c1552069f215119bea656f07ece72b647))
+* **roundedbutton:** button text now capitalized & secondary button teal ([70dd0d8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/70dd0d81aa191274d1c0b9c20359b2d9a78329f6))
+* **selectchip:** changes hover border-color and adds staticWidth option ([917d281](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/917d281815c33f29764e5480edc218cd88547843))
+* **storybookconfig.js:** use the correct mui import path ([da599d6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/da599d64f9251cc9b17a1589970aa30ab059faa5))
+
 ## [1.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.4.1...v1.5.0) (2020-02-21)
 
 ### Features
