@@ -1,3 +1,10 @@
+### [1.6.6](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.5...v1.6.6) (2020-02-27)
+
+
+### Bug Fixes
+
+* **deploy:** configured .releaserc for semantic-release ([a412876](https://bitbucket.org/SelectQuote/scplus-shared-components/commit/a412876ded1c005bccf076e67c26ac2c57eb87ce))
+
 ### [1.6.5](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.4...v1.6.5) (2020-02-27)
 
 
