@@ -1,13 +1,34 @@
-image: tstrohmeier/awscli:3.6.4
+image: node:carbon
 
 definitions:
+  caches:
+    clientnode: client/node_modules
   services:
     docker:
       memory: 3072
 
 # Repeatable Steps
+testStep: &testStep
+  name: Default Test Step
+  caches:
+    - clientnode
+  script:
+     - echo "Running client and build steps..."
+    - cd client && npm ci
+    - echo "Running lint on the client directory..."
+    - npm run lint
+    - echo "Running test and build steps..."
+    - npm test
+nodeBuild: &nodeBuild
+  name: Node Install and Publish
+  caches:
+    - clientnode
+  script:
+    - npm ci && npm semantic-release
+    - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
+  image: tstrohmeier/awscli:3.6.4
   script:
     - pip install -U awscli
     - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
@@ -36,14 +57,17 @@ commonBuildAndDeploy: &commonBuildAndDeploy
     - docker
 
 pipelines:
+  default:
+    - <<: *testStep
   custom:
     production:
       - step:
           deployment: production
+          <<: *nodeBuild
           <<: *commonBuildAndDeploy
-
   branches:
     master:
       - step:
           deployment: production
+          <<: *nodeBuild
           <<: *commonBuildAndDeploy
