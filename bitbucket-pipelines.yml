@@ -2,7 +2,7 @@ image: node:carbon
 
 definitions:
   caches:
-    clientnode: client/node_modules
+    node_modules: node_modules
   services:
     docker:
       memory: 3072
@@ -12,15 +12,10 @@ testStep: &testStep
   - step:
       name: Default Test Step
       caches:
-        - clientnode
+        - node_modules
       script:
-        - apt update
-        - apt install tree
-        - echo "Checking output..."
-        - pwd
-        - tree
         - echo "Running client and build steps..."
-        - cd client && npm ci
+        - npm ci
         - echo "Running lint on the client directory..."
         - npm run lint
         - echo "Running test and build steps..."
@@ -28,7 +23,7 @@ testStep: &testStep
 nodeBuild: &nodeBuild
   name: Node Install and Publish
   caches:
-    - clientnode
+    - node_modules
   script:
     - npm ci && npm semantic-release
     - npm run publish
