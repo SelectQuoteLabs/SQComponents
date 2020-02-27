@@ -14,6 +14,9 @@ testStep: &testStep
       caches:
         - clientnode
       script:
+        - echo "Checking output..."
+        - pwd
+        - ls -al
         - echo "Running client and build steps..."
         - cd client && npm ci
         - echo "Running lint on the client directory..."
