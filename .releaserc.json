@@ -2,6 +2,12 @@
   "repositoryURL": "$BITBUCKET_GIT_HTTP_ORIGIN",
   "branches": ["master", {"name": "release-test"}],
   "plugins": [
+    [
+      "@semantic-release/npm",
+      {
+        "publish": false
+      }
+    ],
     "@semantic-release/commit-analyzer",
     [
       "@semantic-release/release-notes-generator",
@@ -20,7 +26,6 @@
     [
       "@semantic-release/exec",
       {
-        "prepare": "npm run build && npm pack",
         "publish": "npm run publish"
       }
     ],
