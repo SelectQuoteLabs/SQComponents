@@ -14,11 +14,8 @@ testStep: &testStep
       caches:
         - nodemodules
       script:
-        - echo "Running client and build steps..."
         - npm ci
-        - echo "Running lint on the client directory..."
         - npm run lint
-        - echo "Running test and build steps..."
         - npm test
 nodeBuild: &nodeBuild
   - step:
@@ -27,7 +24,8 @@ nodeBuild: &nodeBuild
       caches:
         - nodemodules
       script:
-        - npm ci && npm semantic-release
+        - npm ci
+        - npm run semantic-release
         - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
