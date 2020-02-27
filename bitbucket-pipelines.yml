@@ -21,13 +21,14 @@ testStep: &testStep
         - echo "Running test and build steps..."
         - npm test
 nodeBuild: &nodeBuild
-  name: Node Install and Publish
-  image: node:carbon
-  caches:
-    - nodemodules
-  script:
-    - npm ci && npm semantic-release
-    - npm run publish
+  - step:
+    name: Node Install and Publish
+    image: node:carbon
+    caches:
+      - nodemodules
+    script:
+      - npm ci && npm semantic-release
+      - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
   image: tstrohmeier/awscli:3.6.4
