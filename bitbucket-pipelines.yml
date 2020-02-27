@@ -14,6 +14,7 @@ testStep: &testStep
       caches:
         - clientnode
       script:
+        - apt update
         - apt install tree
         - echo "Checking output..."
         - pwd
