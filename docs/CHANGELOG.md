@@ -1,3 +1,10 @@
+### [1.6.9](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.8...v1.6.9) (2020-02-27)
+
+
+### Bug Fixes
+
+* **deploy:** run build during prepare step of deploy ([3be341a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3be341a1f0f8efe36d1455f70415b26067ae0cb3))
+
 ### [1.6.8](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.7...v1.6.8) (2020-02-27)
 
 
