@@ -24,7 +24,7 @@ nodeBuild: &nodeBuild
   caches:
     - clientnode
   script:
-    - npm semantic-release
+    - npm ci && npm semantic-release
     - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
