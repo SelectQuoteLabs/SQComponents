@@ -13,7 +13,7 @@
     "lint.staged": "lint-staged",
     "semver": "npm version",
     "deploy": "npm run build && func() { npm run semver \"$1\" && npm pack && node s3.js; }; func",
-    "publish": "node s3.js --inspect-brk",
+    "publish": "node s3.js",
     "deploy:locally": "npm run build && func() { npm run semver \"$1\" && npm pack; }; func",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .out",
@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:SelectQuote/scplus-shared-components.git"
+    "url": "http://bitbucket.org/SelectQuote/scplus-shared-components"
   },
   "keywords": [],
   "author": "",
