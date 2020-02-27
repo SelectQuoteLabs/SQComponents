@@ -14,10 +14,10 @@ testStep: &testStep
       caches:
         - clientnode
       script:
-        - apt-get install tree
+        - yum install tree
         - echo "Checking output..."
         - pwd
-        - ls -al
+        - tree
         - echo "Running client and build steps..."
         - cd client && npm ci
         - echo "Running lint on the client directory..."
