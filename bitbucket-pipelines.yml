@@ -1,13 +1,10 @@
 image: node:carbon
-
 definitions:
   caches:
     nodemodules: nodemodules
   services:
     docker:
       memory: 3072
-
-# Repeatable Steps
 testStep: &testStep
   - step:
       name: Default Test Step
@@ -25,7 +22,7 @@ nodeBuild: &nodeBuild
         - nodemodules
       script:
         - npm ci
-        - npm run semantic-release
+        - npx semantic-release
         - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
@@ -56,7 +53,6 @@ commonBuildAndDeploy: &commonBuildAndDeploy
       --cluster SharedServices
   services:
     - docker
-
 pipelines:
   default:
     - <<: *testStep
