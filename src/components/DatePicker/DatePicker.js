@@ -15,7 +15,7 @@ import {
 import Button from '@material-ui/core/Button';
 import ClearIcon from 'material-ui/svg-icons/content/clear';
 
-import './react-datepicker.css';
+import 'react-datepicker/dist/react-datepicker.css';
 import './DatePicker.css';
 
 function DatePicker({
