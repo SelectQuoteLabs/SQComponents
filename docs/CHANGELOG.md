@@ -1,3 +1,10 @@
+### [1.6.2](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.1...v1.6.2) (2020-02-27)
+
+
+### Bug Fixes
+
+* **deploy:** for a dry run test ([16811a0](https://bitbucket.org/SelectQuote/scplus-shared-components/commit/16811a0b59f5b06c552d144c34782e122dc1ba31))
+
 ### [1.6.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.0...v1.6.1) (2020-02-27)
 
 

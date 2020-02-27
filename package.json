@@ -19,6 +19,7 @@
     "build-storybook": "build-storybook -c .storybook -o .out",
     "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json",
     "release.local": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug",
+    "release.dry-run": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug --dry-run",
     "commit": "npx git-cz"
   },
   "files": [
@@ -39,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://bitbucket.org/SelectQuote/scplus-shared-components"
+    "url": "git@bitbucket.org:SelectQuote/scplus-shared-components.git"
   },
   "keywords": [],
   "author": "",
