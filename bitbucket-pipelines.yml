@@ -1,21 +1,36 @@
-image: tstrohmeier/awscli:3.6.4
+image: node:carbon
 
 definitions:
+  caches:
+    clientnode: client/node_modules
   services:
     docker:
-      memory: 2048
+      memory: 3072
 
 # Repeatable Steps
+nodeBuild: &nodeBuild
+  name: Node Tests & Install
+  caches:
+    - clientnode
+  script:
+    - echo "Running client and build steps..."
+    - cd client && npm ci
+    - echo "Running lint on the client directory..."
+    - npm run lint
+    - echo "Running test and build steps..."
+    - npm test
+    - npm semantic-release
+    - npm run publish
 commonBuildAndDeploy: &commonBuildAndDeploy
   name: Build & Deploy
+  image: tstrohmeier/awscli:3.6.4
   script:
     - pip install -U awscli
     - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
-    - export TAG=${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
-    - export LABEL=${AWS_REGISTRY_URL}:$TAG
+    - export LABEL=${AWS_REGISTRY_URL}:${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
     - >
       docker build
-      -t scplus-shared-components:$TAG
+      -t $LABEL
       --build-arg ENVIRONMENT=${ENVIRONMENT}
       .
     - docker push $LABEL
@@ -37,12 +52,13 @@ commonBuildAndDeploy: &commonBuildAndDeploy
     - docker
 
 pipelines:
+  default:
+    - <<: *nodeBuild
   custom:
     production:
       - step:
           deployment: production
           <<: *commonBuildAndDeploy
-
   branches:
     master:
       - step:
