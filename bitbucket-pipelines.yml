@@ -2,27 +2,28 @@ image: node:carbon
 
 definitions:
   caches:
-    clientnode: client/node_modules
+    nodemodules: nodemodules
   services:
     docker:
       memory: 3072
 
 # Repeatable Steps
 testStep: &testStep
-  name: Default Test Step
-  caches:
-    - clientnode
-  script:
-     - echo "Running client and build steps..."
-    - cd client && npm ci
-    - echo "Running lint on the client directory..."
-    - npm run lint
-    - echo "Running test and build steps..."
-    - npm test
+  - step:
+      name: Default Test Step
+      caches:
+        - nodemodules
+      script:
+        - echo "Running client and build steps..."
+        - npm ci
+        - echo "Running lint on the client directory..."
+        - npm run lint
+        - echo "Running test and build steps..."
+        - npm test
 nodeBuild: &nodeBuild
   name: Node Install and Publish
   caches:
-    - clientnode
+    - nodemodules
   script:
     - npm ci && npm semantic-release
     - npm run publish
