@@ -1,3 +1,10 @@
+### [1.6.8](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.7...v1.6.8) (2020-02-27)
+
+
+### Bug Fixes
+
+* **deploy:** reverted manipulation to package.json ([1ebe2a8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1ebe2a842edd854d550424ad7c5e63084ff62db0))
+
 ### [1.6.7](https://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.6...v1.6.7) (2020-02-27)
 
 
