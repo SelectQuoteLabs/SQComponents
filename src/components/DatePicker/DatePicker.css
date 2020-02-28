@@ -46,18 +46,18 @@
 }
 
 .datePicker__clearIcon_btn {
-  bottom: 2px;
+  bottom: 0.25rem;
   position: absolute;
-  right: 22px;
+  right: 2rem;
   color: var(--color-white);
   transform: scale(0.5, 0.5);
   cursor: pointer;
-  border: 1px solid var(--color-slate);
+  border: 0.1rem solid var(--color-slate);
   border-radius: 2rem;
   background-color: var(--color-slate);
-  min-width: 0px;
+  min-width: 0.1rem;
   height: auto;
-  line-height: 0px;
+  line-height: 0.1rem;
 }
 
 .datePicker__clearIcon_btn:hover {
@@ -68,7 +68,7 @@
   font-size: 1.17rem;
   line-height: 1.33rem;
   padding: 0.66rem 2rem 0.66rem 0rem;
-  border-bottom: 1px solid var(--color-gainsboro);
+  border-bottom: 0.2rem solid var(--color-gainsboro);
   border-left: none;
   border-top: none;
   box-shadow: none;
@@ -79,6 +79,5 @@
 .datePicker__popper {
   width: 25rem;
   height: auto;
-  padding: 10px 10px;
   line-height: normal;
 }

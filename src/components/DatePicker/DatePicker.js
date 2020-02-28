@@ -61,6 +61,10 @@ function DatePicker({
 
   const onDateChange = (value, e) => {
     updateDate(field, convertValueToSaveFormat(value)); // ensure value is a date object
+    // explicitly close the popover since it is wrapped in a label
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
   };
 
   const value = convertSaveFormatValueToMoment(entity[field]);
@@ -104,7 +108,7 @@ function DatePicker({
   return (
     <div className="datePicker">
       <label className="datePicker__label">{label}</label>
-      <label onClick={e => e.preventDefault()}>
+      <label>
         <ReactDatePicker
           className="datePicker__input"
           popperClassName="datePicker__popper"
