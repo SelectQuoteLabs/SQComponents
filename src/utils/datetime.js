@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export const DATE_TIME_FORMATS = {
   DATABASE_FORMAT: 'YYYY-MM-DD HH:mm:ss.SSS', // Possibly not needed
@@ -31,11 +31,11 @@ export const DATE_TIME_FORMATS = {
  */
 export function getDateWithoutTimezone(dateTime, fromFormat) {
   if (!dateTime) {
-    dateTime = moment();
+    dateTime = dayjs();
   }
 
   const momentToConvert =
-    typeof dateTime === 'string' ? moment(dateTime, fromFormat) : dateTime;
+    typeof dateTime === 'string' ? dayjs(dateTime, fromFormat) : dateTime;
 
   return momentToConvert;
 }
@@ -50,11 +50,11 @@ export function getDateWithoutTimezone(dateTime, fromFormat) {
  */
 export function applyBrowserTimezoneToDate(dateTime, fromFormat) {
   if (!dateTime) {
-    dateTime = moment();
+    dateTime = dayjs();
   }
 
   const momentToConvert =
-    typeof dateTime === 'string' ? moment(dateTime, fromFormat) : dateTime;
+    typeof dateTime === 'string' ? dayjs(dateTime, fromFormat) : dateTime;
 
   return momentToConvert.local();
 }
@@ -80,7 +80,7 @@ export function clientMomentToSpecialServerFormat(
   }
 
   const momentToConvert =
-    typeof dateTime === 'string' ? moment(dateTime, fromFormat) : dateTime;
+    typeof dateTime === 'string' ? dayjs(dateTime, fromFormat) : dateTime;
 
   return momentToConvert.format(toFormat);
 }
@@ -90,7 +90,7 @@ export function getDateAsMomentIfValid(date) {
     return undefined;
   }
 
-  const momentDate = moment(date);
+  const momentDate = dayjs(date);
 
   return momentDate.isValid() ? momentDate : undefined;
 }
