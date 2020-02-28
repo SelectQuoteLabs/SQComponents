@@ -24,9 +24,8 @@ export const DatePickerExample = () => (
     label="Start Date"
     field="start"
     entity={dateRange}
-    fullWidth={true}
     updateDate={action(`date updated`)}
     disabled={boolean('disabled', false)}
-    fullWidth={boolean('fullWidth', false)}
+    showTime={boolean('showTime', false)}
   />
 );
