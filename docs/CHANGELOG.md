@@ -1,3 +1,10 @@
+### [1.8.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.0...v1.8.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* **readme.md:** mostly doing this to fix the compiled npm packaged ([052d0dd](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/052d0ddc874cc54092d959a80002b331ff63fcf1))
+
 ## [1.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.7.0...v1.8.0) (2020-03-02)
 
 
