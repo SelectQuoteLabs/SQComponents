@@ -1,3 +1,10 @@
+## [1.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.7.0...v1.8.0) (2020-03-02)
+
+
+### Features
+
+* added the readme and changelog instead of the welcome screen ([8baf0df](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8baf0dfb153fe0eacaafb28008c5c0e62533d04b))
+
 ## [1.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.9...v1.7.0) (2020-03-02)
 
 
