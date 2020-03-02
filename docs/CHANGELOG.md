@@ -1,3 +1,10 @@
+## [1.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.9...v1.7.0) (2020-03-02)
+
+
+### Features
+
+* **added a datepicker component and doc:** added a datepicker component ([e3c8d13](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e3c8d13b55a3048923d95a5807d961846b45c62c))
+
 ### [1.6.9](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.6.8...v1.6.9) (2020-02-27)
 
 
