@@ -189,7 +189,8 @@ For adding new components to the library follow this order:
 2. Run the storybook site locally and confirm all changes.
 3. Add complete story to properly document component.
 4. Run the tests.
-5. Open a PR to the develop branch.
+5. Merge your feature branch with origin/master (To be fixed in the near future)
+6. Open a PR to the master branch.
 
 ## Versioning
 
