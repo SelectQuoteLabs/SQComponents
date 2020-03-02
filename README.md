@@ -4,6 +4,12 @@ SC Plus shared component library aims to offer reusable components to unify the 
 
 ---
 
+## Viewing the Storybook
+
+The latest version of the Shared Component Library Storybook can be viewed at:
+
+`https://scplus-shared-components.selectquotelabs.com/`
+
 ## Contributing
 
 When you make changes to this repo, you must adhere to the `Conventional Commit` standard.
@@ -19,16 +25,39 @@ npx git-cz
 
 ## Consuming
 
-To use a component from the shared components library, add the library as a dependency in the package.json
+### Initial Setup
+
+To use a component from the shared components library, add the library as a dependency in the package.json.
+
+Ideally, the SSC version consumed is managed by the technical lead.
 
 ```
 "scplus-shared-components: "<S3 BUCKET URL>"
 ```
 
-Then in the file you want to use a component import the component like any other component:
+To standardize our CSS global styles, replace the following CSS files with the their Shared Component Library counterparts.
+
+- root.css
+- animations.css
+- typography.css
+- utilClasses.css
+
+From the `client/src/index.js` of the consumer codebase import the `index.css` from SSC.
+
+The `index.css` file from SSC imports the 4 CSS files above.
+
+```js
+import 'scplus-shared-components/dist/index.css';
+```
+
+Delete the four CSS files listed above from the consumer codebase
+
+### Using a Shared Component
+
+From the file you want to consume a shared component, import the component:
 
 ```
-import Avatar from 'scplus-shared-components'
+import { Avatar } from 'scplus-shared-components'
 ```
 
 ---
@@ -148,15 +177,6 @@ export default deprecateComponent(
 
 ```
 docker-compose run test
-```
-
-## Deployment
-
-This project uses Rollup to package the project. The tarball is then uploaded to S3 where it can be consumed.
-To package and deploy the library run
-
-```
-npm run deploy ${SemVer tag}
 ```
 
 ## Contributing
