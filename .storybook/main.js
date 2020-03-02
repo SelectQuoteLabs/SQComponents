@@ -12,16 +12,24 @@ module.exports = {
     },
   ],
   webpackFinal: config => {
-    config.module.rules.push({
-      test: /.jsx?$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+    config.module.rules = [
+      ...config.module.rules,
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
-    });
+      {
+        test: /\.mjs/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      },
+    ];
 
     return config;
   },
