@@ -56,13 +56,13 @@ pipelines:
     - <<: *initializeAndValidate
   custom:
     production:
-      - <<: *buildAndDeployLibrary
       - step:
           deployment: production
+          <<: *buildAndDeployLibrary
           <<: *buildAndDeployStorybook
   branches:
     master:
-      - <<: *buildAndDeployLibrary
       - step:
           deployment: production
+          <<: *buildAndDeployLibrary
           <<: *buildAndDeployStorybook
