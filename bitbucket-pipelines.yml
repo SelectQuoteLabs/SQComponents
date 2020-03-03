@@ -14,18 +14,12 @@ initializeAndValidate: &initializeAndValidate
         - npm ci
         - npm run lint
         - npm test
-buildAndDeployLibrary: &buildAndDeployLibrary
-  - step:
-      name: Build & Deploy Common Components Library
-      caches:
-        - nodemodules
-      script:
-        - npm ci
-        - npx semantic-release
 buildAndDeployStorybook: &buildAndDeployStorybook
   name: Build & Deploy Storybook
-  image: tstrohmeier/awscli:3.6.4
+  image: dustinewanselectquote/node-awscli:latest
   script:
+    - npm ci
+    - npx semantic-release
     - pip install -U awscli
     - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
     - export LABEL=${AWS_REGISTRY_URL}:${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
@@ -58,11 +52,9 @@ pipelines:
     production:
       - step:
           deployment: production
-          <<: *buildAndDeployLibrary
           <<: *buildAndDeployStorybook
   branches:
     master:
       - step:
           deployment: production
-          <<: *buildAndDeployLibrary
           <<: *buildAndDeployStorybook
