@@ -5,25 +5,25 @@ definitions:
   services:
     docker:
       memory: 3072
-testStep: &testStep
+initializeAndValidate: &initializeAndValidate
   - step:
-      name: Default Test Step
+      name: NPM Install, Lint, and Run Tests
       caches:
         - nodemodules
       script:
         - npm ci
         - npm run lint
         - npm test
-nodeBuild: &nodeBuild
+buildAndDeployLibrary: &buildAndDeployLibrary
   - step:
-      name: Node Install and Publish
+      name: Build & Deploy Common Components Library
       caches:
         - nodemodules
       script:
         - npm ci
         - npx semantic-release
-commonBuildAndDeploy: &commonBuildAndDeploy
-  name: Build & Deploy
+buildAndDeployStorybook: &buildAndDeployStorybook
+  name: Build & Deploy Storybook
   image: tstrohmeier/awscli:3.6.4
   script:
     - pip install -U awscli
@@ -53,16 +53,16 @@ commonBuildAndDeploy: &commonBuildAndDeploy
     - docker
 pipelines:
   default:
-    - <<: *testStep
+    - <<: *initializeAndValidate
   custom:
     production:
+      - <<: *buildAndDeployLibrary
       - step:
           deployment: production
-          <<: *commonBuildAndDeploy
-      - <<: *nodeBuild
+          <<: *buildAndDeployStorybook
   branches:
     master:
+      - <<: *buildAndDeployLibrary
       - step:
           deployment: production
-          <<: *commonBuildAndDeploy
-      - <<: *nodeBuild
+          <<: *buildAndDeployStorybook
