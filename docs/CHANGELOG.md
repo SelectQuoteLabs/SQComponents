@@ -1,3 +1,10 @@
+### [1.8.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.1...v1.8.2) (2020-03-03)
+
+
+### Bug Fixes
+
+* **index.js:** components were missing from the build entry file ([e443327](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e44332720ec6eee16e09978e2ab607f5489293cc))
+
 ### [1.8.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.0...v1.8.1) (2020-03-02)
 
 
