@@ -1,3 +1,10 @@
+### [1.8.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.2...v1.8.3) (2020-03-03)
+
+
+### Bug Fixes
+
+* **test:** empty commit to trigger patch release ([38c47b0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/38c47b05f0ff06f9e151d9211c86dab50e9a8517))
+
 ### [1.8.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.1...v1.8.2) (2020-03-03)
 
 
