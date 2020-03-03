@@ -1,3 +1,11 @@
+### [1.8.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.3...v1.8.4) (2020-03-03)
+
+
+### Bug Fixes
+
+* **build:** attempt 2 at including changelog in storybook ([913921b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/913921b507215263e3ffee32fbc0a4abe8fe66be))
+* **build:** attempt 3 at including CHANGELOG ([865d424](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/865d4241bd8076043b6860706f17a2e0a54d759c))
+
 ### [1.8.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.2...v1.8.3) (2020-03-03)
 
 
