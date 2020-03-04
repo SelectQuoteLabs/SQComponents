@@ -1,10 +1,12 @@
 import React from 'react';
 import markdown from '../notes/Tooltip.md';
+import {withInfo} from '@storybook/addon-info';
 
 import Tooltip from '../src/components/Tooltip';
 
 export default {
   title: 'Tooltip',
+  decorators: [withInfo],
   parameters: {
     notes: {markdown},
   },
