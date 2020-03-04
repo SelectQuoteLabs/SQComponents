@@ -8,4 +8,8 @@ Pro tip - use a tooltip.
 ## Technical Notes
 - The title prop must either be a string or a DOM element.
 - If you set the title prop to an empty string, the tooltip itself will not render. Do not set it to null or undefined as that will render the arrow and nothing else 👎.
-
+- Possible `placement` props:
+  - "top", "top-start", "top-end"
+  - "right", "right-start", "right-end"
+  - "left", "left-start", "left-end"
+  - "bottom", "bottom-start", "bottom-end"
