@@ -1,3 +1,10 @@
+### [1.8.5](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.4...v1.8.5) (2020-03-05)
+
+
+### Bug Fixes
+
+* update RoundedButton component to include propTypes in info ([fa9457f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fa9457fb07d0e5c35d54278f89639d7b25c75691))
+
 ### [1.8.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.3...v1.8.4) (2020-03-03)
 
 
