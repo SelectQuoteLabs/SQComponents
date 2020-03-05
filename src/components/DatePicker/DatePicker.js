@@ -104,7 +104,7 @@ function DatePicker({
     /\d/,
   ];
   const mask = showTime ? maskWithTime : maskWithDate;
-  const date = `${dateFormat} (${showTime} ? ${timeFormat} : '')`;
+  const time = showTime ? timeFormat : '';
 
   return (
     <div className="datePicker">
@@ -113,7 +113,7 @@ function DatePicker({
         <ReactDatePicker
           className="datePicker__input"
           popperClassName="datePicker__popper"
-          dateFormat={date}
+          dateFormat={`${dateFormat} ${time}`}
           disabled={disabled}
           dropdownMode="select"
           maxDate={getDateAsMomentIfValid(maxDate)}
