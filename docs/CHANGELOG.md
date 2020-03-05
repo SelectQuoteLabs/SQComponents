@@ -1,3 +1,10 @@
+### [1.8.6](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.5...v1.8.6) (2020-03-05)
+
+
+### Bug Fixes
+
+* updating how we do sting interpolation ([c5c1eb0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c5c1eb0eccc21d3142a4b29f6c64a22cc003d218))
+
 ### [1.8.5](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.4...v1.8.5) (2020-03-05)
 
 
