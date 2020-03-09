@@ -1,6 +1,6 @@
 {
   "name": "scplus-shared-components",
-  "version": "1.1.35",
+  "version": "1.6.8",
   "description": "SC Plus shared component library",
   "main": "dist/index.js",
   "private": true,
@@ -19,6 +19,7 @@
     "build-storybook": "build-storybook -c .storybook -o .out",
     "nuke-everything": "rm -rf ./dist && rm -rf ./node_modules && rm -f package-lock.json",
     "release.local": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug",
+    "release.dry-run": "eval $(egrep -v '^#' .env | xargs) npx semantic-release --no-ci --debug --dry-run",
     "commit": "npx git-cz"
   },
   "files": [
@@ -50,9 +51,12 @@
     "@remotelock/react-week-scheduler": "^3.5.8",
     "@tippy.js/react": "^3.1.1",
     "classnames": "^2.2.6",
+    "dayjs": "^1.8.21",
     "dotenv": "^8.2.0",
     "material-ui": "^0.20.2",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-datepicker": "^2.13.0",
+    "react-text-mask": "^5.4.3"
   },
   "peerDependencies": {
     "react": "^16.12.0",

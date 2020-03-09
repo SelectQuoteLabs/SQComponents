@@ -1,13 +1,18 @@
 import React from 'react';
-import {linkTo} from '@storybook/addon-links';
-import {Welcome} from '@storybook/react/demo';
+import readme from '../README.md';
+import changes from '../docs/CHANGELOG.md';
 
 export default {
   title: 'Welcome',
+  parameters: {
+    notes: {readme, changes},
+  },
 };
 
-export const toStorybook = () => <Welcome showApp={linkTo('Button')} />;
+export const docs = () => (
+  <h1>Go to the Notes to view the README and Changelog</h1>
+);
 
-toStorybook.story = {
-  name: 'to Storybook',
+docs.story = {
+  name: 'Docs',
 };

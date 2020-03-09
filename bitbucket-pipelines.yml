@@ -5,28 +5,21 @@ definitions:
   services:
     docker:
       memory: 3072
-testStep: &testStep
+initializeAndValidate: &initializeAndValidate
   - step:
-      name: Default Test Step
+      name: NPM Install, Lint, and Run Tests
       caches:
         - nodemodules
       script:
         - npm ci
         - npm run lint
         - npm test
-nodeBuild: &nodeBuild
-  - step:
-      name: Node Install and Publish
-      caches:
-        - nodemodules
-      script:
-        - npm ci
-        - npx semantic-release
-        - npm run publish
-commonBuildAndDeploy: &commonBuildAndDeploy
-  name: Build & Deploy
-  image: tstrohmeier/awscli:3.6.4
+buildAndDeployStorybook: &buildAndDeployStorybook
+  name: Build & Deploy Storybook
+  image: dustinewanselectquote/node-awscli:latest
   script:
+    - npm ci
+    - npx semantic-release
     - pip install -U awscli
     - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
     - export LABEL=${AWS_REGISTRY_URL}:${ENVIRONMENT}_${BITBUCKET_BUILD_NUMBER}
@@ -40,7 +33,7 @@ commonBuildAndDeploy: &commonBuildAndDeploy
     - sed -i -e "s|__ENV__|${ENV}|g" task-definition.json
     - sed -i -e "s|__EXECUTION_ROLE_ARN__|${EXECUTION_ROLE}|g" task-definition.json
     - sed -i -e "s|__TASK_ROLE_ARN__|${TASK_ROLE}|g" task-definition.json
-    - sed -i -e "s|__NGINX_REPO__|${NGINX_REPO}|g" task-definition.json 
+    - sed -i -e "s|__NGINX_REPO__|${NGINX_REPO}|g" task-definition.json
     - >
       aws ecs register-task-definition
       --family scplus-shared-components
@@ -54,16 +47,14 @@ commonBuildAndDeploy: &commonBuildAndDeploy
     - docker
 pipelines:
   default:
-    - <<: *testStep
+    - <<: *initializeAndValidate
   custom:
     production:
       - step:
           deployment: production
-          <<: *commonBuildAndDeploy
-      - <<: *nodeBuild
+          <<: *buildAndDeployStorybook
   branches:
     master:
       - step:
           deployment: production
-          <<: *commonBuildAndDeploy
-      - <<: *nodeBuild
+          <<: *buildAndDeployStorybook
