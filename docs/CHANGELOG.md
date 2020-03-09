@@ -1,3 +1,10 @@
+### [1.10.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.0...v1.10.1) (2020-03-09)
+
+
+### Bug Fixes
+
+* expose WeeklySchedule to consumers ([f0249ce](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f0249ced9cea4361f69a8631238ced33dab5f60e))
+
 ## [1.10.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.9.0...v1.10.0) (2020-03-09)
 
 
