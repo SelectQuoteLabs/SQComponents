@@ -46,7 +46,7 @@ const SCHEDULER_STYLE = {
 
 const BuildHoverTooltip = TooltipBody =>
   React.forwardRef(function(props, ref) {
-    const {handleDelete, disabled} = props;
+    const {disabled} = props;
     return (
       <Tippy
         interactive
@@ -57,7 +57,7 @@ const BuildHoverTooltip = TooltipBody =>
         enabled={!disabled}
         duration={[toNearestFrame(150), toNearestFrame(25)]}
         delay={[toNearestFrame(83), 0]}
-        content={<TooltipBody handleDelete={handleDelete} />}
+        content={<TooltipBody scheduleEntryProps={props} />}
         style={{backgroundColor: 'red'}}
       >
         <DefaultEventRootComponent
@@ -70,7 +70,7 @@ const BuildHoverTooltip = TooltipBody =>
   });
 
 function WeeklySchedule({
-  TooltipGuy,
+  TooltipContents,
   style,
   schedule: providedSchedule = [],
   isReadOnly,
@@ -97,8 +97,8 @@ function WeeklySchedule({
     // bottom: 'weekly-schedule__resize-handle-bottom',
   };
 
-  const HoverTooltip = React.useMemo(() => BuildHoverTooltip(TooltipGuy), [
-    TooltipGuy,
+  const HoverTooltip = React.useMemo(() => BuildHoverTooltip(TooltipContents), [
+    TooltipContents,
   ]);
 
   return (
@@ -120,7 +120,7 @@ function WeeklySchedule({
 
 WeeklySchedule.propTypes = {
   /** Tooltip element */
-  TooltipGuy: PropTypes.node.isRequired,
+  TooltipContents: PropTypes.node.isRequired,
   isReadOnly: PropTypes.bool,
   schedule: schedulePropType,
   onChange: PropTypes.func.isRequired,

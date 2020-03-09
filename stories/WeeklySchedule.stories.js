@@ -15,7 +15,9 @@ export default {
 };
 
 export const WeeklyScheduleStory = () => {
-  const renderDeleteButton = React.useCallback(({handleDelete}) => {
+  const renderDeleteButton = React.useCallback(({scheduleEventProps}) => {
+    const {handleDelete} = scheduleEventProps;
+
     return (
       <div>
         <button onClick={handleDelete}>Delete Me</button>
@@ -27,7 +29,7 @@ export const WeeklyScheduleStory = () => {
     <WeeklySchedule
       isReadOnly={boolean('isDisabled', false)}
       onChange={action('Schedule Updated')}
-      TooltipGuy={renderDeleteButton}
+      TooltipContent={renderDeleteButton}
     />
   );
 };
