@@ -16,3 +16,4 @@ export {default as DialogForm} from './components/DialogForm';
 export {default as RoundedButton} from './components/RoundedButton';
 export {default as SelectChip} from './components/SelectChip';
 export {default as TabsWithOverflow} from './components/TabsWithOverflow';
+export {default as WeeklySchedule} from './components/WeeklySchedule';
