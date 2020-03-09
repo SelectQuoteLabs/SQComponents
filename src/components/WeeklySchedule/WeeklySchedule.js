@@ -25,7 +25,7 @@ const toNearestFrame = ms =>
   Math.round(ms + FRAME_LENGTH - (ms % FRAME_LENGTH));
 
 /* IF YOU OVERRIDE THIS, YOU MUST OVERRIDE .day-hours { font-size } in ./schedule-overrides.css !!! */
-const ROW_HEIGHT = '40px';
+const ROW_HEIGHT = '15px';
 
 const SCHEDULER_STYLE = {
   width: '100%',
@@ -93,8 +93,8 @@ function WeeklySchedule({
       classes['event-content'],
       'weekly-schedule__event-content'
     ),
-    top: 'weekly-schedule__resize-handle-top',
-    bottom: 'weekly-schedule__resize-handle-bottom',
+    // top: 'weekly-schedule__resize-handle-top',
+    // bottom: 'weekly-schedule__resize-handle-bottom',
   };
 
   const HoverTooltip = React.useMemo(() => BuildHoverTooltip(TooltipGuy), [
@@ -110,7 +110,7 @@ function WeeklySchedule({
       schedule={schedule}
       onChange={updateSchedule}
       defaultHours={[8, 17]}
-      visualGridVerticalPrecision={60}
+      visualGridVerticalPrecision={15}
       verticalPrecision={15}
       cellClickPrecision={60}
       eventRootComponent={HoverTooltip}
