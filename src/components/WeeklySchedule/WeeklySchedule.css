@@ -1,19 +1,19 @@
-.weekly-schedule__day-hours {
+.weeklySchedule__day-hours {
   font-size: 10px;
 }
 
-.weekly-schedule__resize-handle-top {
+.weeklySchedule__resize-handle-top {
   top: -20px !important;
   cursor: n-resize !important;
 }
 
-.weekly-schedule__resize-handle-bottom {
+.weeklySchedule__resize-handle-bottom {
   bottom: 27px !important;
   cursor: s-resize !important;
 }
 
-.weekly-schedule__resize-handle-bottom::after,
-.weekly-schedule__resize-handle-top::after {
+.weeklySchedule__resize-handle-bottom::after,
+.weeklySchedule__resize-handle-top::after {
   height: 20px !important;
   display: block;
   text-align: center;
@@ -21,7 +21,7 @@
   font-size: 2px;
 }
 
-.weekly-schedule__event-content {
+.weeklySchedule__event-content {
   color: white;
   position: relative;
   top: calc(50% - 16px);

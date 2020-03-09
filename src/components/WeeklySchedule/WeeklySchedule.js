@@ -88,13 +88,13 @@ function WeeklySchedule({
 
   const overriddenClasses = {
     ...classes,
-    'day-hours': classnames(classes['day-hours'], 'weekly-schedule__day-hours'),
+    'day-hours': classnames(classes['day-hours'], 'weeklySchedule__day-hours'),
     'event-content': classnames(
       classes['event-content'],
-      'weekly-schedule__event-content'
+      'weeklySchedule__event-content'
     ),
-    // top: 'weekly-schedule__resize-handle-top',
-    // bottom: 'weekly-schedule__resize-handle-bottom',
+    // top: 'weeklySchedule__resize-handle-top',
+    // bottom: 'weeklySchedule__resize-handle-bottom',
   };
 
   const HoverTooltip = React.useMemo(() => BuildHoverTooltip(TooltipContents), [
