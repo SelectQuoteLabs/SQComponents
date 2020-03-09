@@ -1,3 +1,16 @@
+## [1.10.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.9.0...v1.10.0) (2020-03-09)
+
+
+### Features
+
+* **weeklyschedule:** saving progress on weekly schedule ([3fdf327](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3fdf327e4da6f6dc5b6270866b3ef2b145cc29bb))
+
+
+### Bug Fixes
+
+* follow bem for CSS ([852326f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/852326fc7004360b6d9a6a052445f9006012d630))
+* **weekly schedule:** reverted some styling to defaults ([fec8b54](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fec8b5445e1ed1f9e972e428169c91ea5aea4feb))
+
 ## [1.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.6...v1.9.0) (2020-03-09)
 
 
