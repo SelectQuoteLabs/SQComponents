@@ -1,3 +1,10 @@
+### [1.10.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.1...v1.10.2) (2020-03-10)
+
+
+### Bug Fixes
+
+* **weekly schedule:** weekly schedule now respects schedule prop ([66afbb1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/66afbb1ed6e25472292fae075e3f8018dcf93002))
+
 ### [1.10.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.0...v1.10.1) (2020-03-09)
 
 
