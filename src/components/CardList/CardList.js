@@ -20,9 +20,7 @@ function CardList({
   isInitiallyExpanded = true,
   tabOptions,
 }) {
-  const [expanded, setExpanded] = React.useState(
-    isExpandable ? isInitiallyExpanded : false
-  );
+  const [expanded, setExpanded] = React.useState(isInitiallyExpanded);
   const [selectedTab, setselectedTab] = React.useState(tabOptions[0]);
 
   const expandClick = () => {
@@ -53,7 +51,7 @@ function CardList({
               <IconButton
                 onClick={expandClick}
                 aria-expanded={expanded}
-                aria-label="show more"
+                aria-label="open"
               >
                 <ExpandMoreIcon />
               </IconButton>
@@ -63,7 +61,7 @@ function CardList({
       />
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent className="cardList__content" style={height}>
+        <CardContent className="cardList__content" style={(height, width)}>
           {selectedTab.listItems.map(option => (
             <SelectChip
               onClick={handleListItemClick}
@@ -114,17 +112,7 @@ CardList.propTypes = {
   onListItemClick: PropTypes.func,
   /** Should the card list have the capability to minimize and maximize */
   isExpandable: PropTypes.bool,
-  /** object containing the options to be used in the card 
-  {
-    label: 'Agent PV',
-    value: 'agentPV',
-    listItems: {
-      header: 'Acct ID : 6666666',
-      body: 'Name : Pete Monterroso',
-      footer: 'PV Rule : TA Follow Up 2'
-    }
-  } 
-  */
+  /** object containing the options to be used in the card. See notes for more */
   tabOptions: PropTypes.object,
 };
 

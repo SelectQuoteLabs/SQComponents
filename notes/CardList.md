@@ -4,7 +4,7 @@
 
 ## Design Notes
 
--- The card list will take the width set by the child component or use a static width passed as a prop. The height is fixed to 33.25 rem. By default the card will be expanded. If the desired behavior is to have it start minimized pass the prop `initiallyExpanded={false}`
+-- By default the card will be expanded. If the desired behavior is to have it start minimized pass the prop `isInitiallyExpanded={false}`. Set `isExpandable` to false to remove the expand option and have the card always open
 
 ## Technical Notes
 
@@ -12,8 +12,20 @@ Sample:
 
 ```
 <CardList
-  width={100px}
-  listItems={{header: Agent PV, items: [{Title: Agent PV}, {}, {}]}
+  width={{width: '45rem'}} //optional
+  height={{height: '55rem'}} //optional
+  onListItemClick={action(`Opening the acount`)}
+  isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+  isExpandable={boolean('isExpandable', true)}
+  tabOptions={{
+  label: 'Agent PV',
+  value: 'agentPV',
+  listItems: {
+    header: 'Acct ID : 6666666',
+    body: 'Name : Pete Monterroso',
+    footer: 'PV Rule : TA Follow Up 2'
+  }
+  }}
 />
 
 ```

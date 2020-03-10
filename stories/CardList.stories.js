@@ -121,8 +121,8 @@ export const CardListWithCustomStyle = () => (
 export const CardListExampleWithoutStyle = () => (
   <CardList
     onListItemClick={action(`Opening the acount`)}
-    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
-    isExpandable={boolean('isExpandable', true)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', true)}
+    isExpandable={boolean('isExpandable', false)}
     tabOptions={TAB_OPTIONS}
   />
 );
