@@ -1,0 +1,54 @@
+.cardList__header {
+  padding: 2px;
+  border-bottom: 1px solid var(--color-lightGray);
+}
+
+.cardList__headerItems {
+  display: flex;
+  align-items: center;
+  margin-left: -0.5rem;
+  justify-content: flex-end;
+  height: auto;
+  padding: 4px 0px 0px 0px;
+}
+
+.cardList__headerItems > div {
+  height: 3.5rem;
+  padding-top: 0.5rem;
+}
+
+.cardList {
+  display: inline-block;
+  padding: 0rem 0rem 0rem 0rem;
+  font-size: 14px;
+  min-width: 25rem;
+  width: auto;
+}
+
+.cardList__content {
+  padding: 0.1rem 1.5rem 0rem 0rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 30rem;
+}
+
+.cardList__items {
+  display: inline-block;
+  padding: 0rem 0rem 0rem 0rem;
+  font-size: 14px;
+  height: 6rem;
+  overflow: auto;
+  width: auto;
+}
+
+.cardList__secondary {
+  font-size: 12px;
+}
+
+.cardList__secondaryItem {
+  font-size: 12px;
+}
+
+.cardListItem__selectChip {
+  height: 1.25rem;
+}

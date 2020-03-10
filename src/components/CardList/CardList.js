@@ -3,50 +3,100 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-// import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
+import SelectChip from '../SelectChip/SelectChip';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import './CardList.css';
 
-function CardList({headerContent, children, width, initiallyExpanded = true}) {
-  const [expanded, setExpanded] = React.useState(initiallyExpanded);
+function CardList({
+  onListItemClick,
+  width,
+  height,
+  isExpandable = true,
+  isInitiallyExpanded = true,
+  tabOptions,
+}) {
+  const [expanded, setExpanded] = React.useState(
+    isExpandable ? isInitiallyExpanded : false
+  );
+  const [selectedTab, setselectedTab] = React.useState(tabOptions[0]);
 
-  const handleExpandClick = () => {
+  const expandClick = () => {
     setExpanded(!expanded);
   };
 
+  const selectTab = selectedValue => {
+    setselectedTab(tabOptions.find(tab => tab.value === selectedValue));
+  };
+
+  const handleListItemClick = event => {
+    onListItemClick(event.currentTarget);
+  };
+
   return (
-    <Card style={{width: width ? width : ''}}>
+    <Card className="cardList" style={width}>
       <CardHeader
+        className="cardList__header"
         action={
-          <div>
-            <IconButton
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
+          <div className="cardList__headerItems">
+            <CardPopoverMenu
+              tabs={tabOptions}
+              selectedTab={selectedTab}
+              selectTab={selectTab}
+              disabled={false}
+            />
+            {isExpandable && (
+              <IconButton
+                onClick={expandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            )}
           </div>
         }
-        title={headerContent}
       />
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent style={{height: '13.25rem', overflow: 'auto'}}>
-          Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-          over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-          stirring occasionally until lightly browned, 6 to 8 minutes. Transfer
-          shrimp to a large plate and set aside, leaving chicken and chorizo in
-          the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-          pepper, and cook, stirring often until thickened and fragrant, about
-          10 minutes. Add saffron broth and remaining 4 1/2 cups chicken broth;
-          bring to a boil. Add rice and stir very gently to distribute. Top with
-          artichokes and peppers, and cook without stirring, until most of the
-          liquid is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add
-          reserved shrimp and mussels, tucking them down into the rice, and cook
-          again without stirring, until mussels have opened and rice is just
-          tender, 5 to 7 minutes more. (Discard any mussels that don’t open.)
-          {children}
+        <CardContent className="cardList__content" style={height}>
+          {selectedTab.listItems.map(option => (
+            <SelectChip
+              onClick={handleListItemClick}
+              className="cardListItem__selectChip"
+            >
+              <ListItem
+                className="cardList__items"
+                key={option.header ? option.header : option}
+              >
+                {option.header && (
+                  <ListItemText
+                    disableTypography={true}
+                    primary={option.header}
+                  />
+                )}
+                {option.body && (
+                  <ListItemText
+                    className="cardList__secondaryItem"
+                    disableTypography={true}
+                    secondary={option.body}
+                  />
+                )}
+                {option.footer && (
+                  <ListItemText
+                    className="cardList__secondaryItem"
+                    disableTypography={true}
+                    secondary={option.footer}
+                  />
+                )}
+                {!option.header && !option.body && !option.footer && option}
+              </ListItem>
+            </SelectChip>
+          ))}
         </CardContent>
       </Collapse>
     </Card>
@@ -55,13 +105,27 @@ function CardList({headerContent, children, width, initiallyExpanded = true}) {
 
 CardList.propTypes = {
   /** boolean to override default behavior of intially expanded */
-  initiallyExpanded: PropTypes.bool.isRequired,
-  /** Elements to be rendered in the list in the card. */
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  isInitiallyExpanded: PropTypes.bool.isRequired,
   /** optional prop to expand the width of the card.  Default is auto to children elements */
   width: PropTypes.string,
-  /** Tab header to be desplayed. */
-  headerContent: PropTypes.string,
+  /** optional prop to expand the height of the card.  Default is auto to children elements */
+  height: PropTypes.string,
+  /** Function to be triggered when an item is clicked on in the Card List */
+  onListItemClick: PropTypes.func,
+  /** Should the card list have the capability to minimize and maximize */
+  isExpandable: PropTypes.bool,
+  /** object containing the options to be used in the card 
+  {
+    label: 'Agent PV',
+    value: 'agentPV',
+    listItems: {
+      header: 'Acct ID : 6666666',
+      body: 'Name : Pete Monterroso',
+      footer: 'PV Rule : TA Follow Up 2'
+    }
+  } 
+  */
+  tabOptions: PropTypes.object,
 };
 
 export default CardList;
