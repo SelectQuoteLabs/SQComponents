@@ -58,7 +58,6 @@ const BuildHoverTooltip = TooltipBody =>
         duration={[toNearestFrame(150), toNearestFrame(25)]}
         delay={[toNearestFrame(83), 0]}
         content={<TooltipBody scheduleEntryProps={props} />}
-        style={{backgroundColor: 'red'}}
       >
         <DefaultEventRootComponent
           {...props}
@@ -72,11 +71,12 @@ const BuildHoverTooltip = TooltipBody =>
 function WeeklySchedule({
   TooltipContents,
   style,
-  schedule: providedSchedule = [],
+  schedule: providedSchedule,
   isReadOnly,
   onChange,
 }) {
-  const [schedule, setSchedule] = useState(providedSchedule);
+  const [schedule, setSchedule] = useState(providedSchedule || []);
+  React.useEffect(() => setSchedule(providedSchedule), [providedSchedule]);
 
   const updateSchedule = React.useCallback(
     entries => {
@@ -117,6 +117,8 @@ function WeeklySchedule({
     />
   );
 }
+
+WeeklySchedule.START_DAY = START_DAY;
 
 WeeklySchedule.propTypes = {
   /** Tooltip element */

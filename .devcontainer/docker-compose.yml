@@ -31,7 +31,7 @@ services:
       - ..:/app:delegated
     ports:
       - 6006:6006
-    command: npm run storybook
+    command: npm run storybook || sleep infinity
 
 volumes:
   shared-components-node_modules:
