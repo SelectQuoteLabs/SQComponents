@@ -5,7 +5,7 @@ import {action} from '@storybook/addon-actions';
 import markdown from '../notes/1-RoundedButton.md';
 import {AccessAlarm, ThreeDRotation} from '@material-ui/icons';
 
-import RoundedButton from '../src/components/RoundedButton';
+import {RoundedButton} from '../src';
 
 export default {
   title: 'RoundedButton',

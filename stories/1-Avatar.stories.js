@@ -4,7 +4,7 @@ import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/1-Avatar.md';
 
-import Avatar from '../src/components/Avatar';
+import {Avatar} from '../src';
 
 export default {
   title: 'Avatar',

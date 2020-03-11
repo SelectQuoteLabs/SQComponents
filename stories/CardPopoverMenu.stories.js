@@ -4,7 +4,7 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/Tabs Menu with Kebab.md';
 
-import CardPopoverMenu from '../src/components/TabsWithOverflow/CardPopoverMenu';
+import {CardPopoverMenu} from '../src';
 
 const TAB_OPTIONS = [
   {

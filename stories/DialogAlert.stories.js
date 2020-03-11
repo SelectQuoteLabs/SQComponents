@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/DialogAlert.md';
 
-import DialogAlert from '../src/components/DialogAlert';
+import {DialogAlert} from '../src';
 
 export default {
   title: 'DialogAlert',

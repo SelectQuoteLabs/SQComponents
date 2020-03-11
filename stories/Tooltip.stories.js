@@ -2,7 +2,7 @@ import React from 'react';
 import markdown from '../notes/Tooltip.md';
 import {withInfo} from '@storybook/addon-info';
 
-import Tooltip from '../src/components/Tooltip';
+import {Tooltip} from '../src';
 
 export default {
   title: 'Tooltip',

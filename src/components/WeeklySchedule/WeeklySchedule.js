@@ -4,13 +4,13 @@ import {
   TimeGridScheduler,
   classes,
   DefaultEventRootComponent,
-} from '@remotelock/react-week-scheduler';
+} from 'react-weekly-schedule';
 import Tippy from '@tippy.js/react';
 import classnames from 'classnames';
 
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/material.css';
-import '@remotelock/react-week-scheduler/index.css';
+import 'react-weekly-schedule/index.css';
 import './WeeklySchedule.css';
 
 /* The actual date doesn't really matter.
