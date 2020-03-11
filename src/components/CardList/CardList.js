@@ -10,7 +10,23 @@ import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
 import SelectChip from '../SelectChip/SelectChip';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import {makeStyles} from '@material-ui/core/styles';
 import './CardList.css';
+
+const useStyles = makeStyles(theme => ({
+  expand: {
+    transform: 'rotate(0deg)',
+    paddingTop: '0.5rem',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+    paddingTop: '0.5rem',
+  },
+}));
 
 function CardList({
   onListItemClick,
@@ -20,8 +36,11 @@ function CardList({
   isInitiallyExpanded = true,
   tabs,
 }) {
-  const [isExpanded, setExpanded] = React.useState(isInitiallyExpanded);
+  const [isExpanded, setExpanded] = React.useState(
+    !isExpandable ? true : isInitiallyExpanded
+  );
   const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
+  const expandClasses = useStyles();
 
   const expandClick = () => {
     setExpanded(!isExpanded);
@@ -49,6 +68,10 @@ function CardList({
             />
             {isExpandable && (
               <IconButton
+                className={
+                  (expandClasses.expand,
+                  {[expandClasses.expandOpen]: isExpanded})
+                } //eslint-disable-line
                 onClick={expandClick}
                 aria-expanded={isExpanded}
                 aria-label="open"
