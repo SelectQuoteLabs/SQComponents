@@ -1,3 +1,14 @@
+## [1.11.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.2...v1.11.0) (2020-03-11)
+
+
+### Features
+
+* a new Card List component WIP ([df91a23](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/df91a23507a39746613e0cd15f0e2074007d944b))
+* css styliing, expand icon rotating, ([ce845a7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ce845a7afd106122c046ffb1f32711c9b60d45ec))
+* updated propTypes for object sizes and doc ([d700808](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d700808441f0b3898e5c1f5766ca952617d344c2))
+* updated the docs and expanding props ([9c3a0f6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9c3a0f6a3fa6acaec9b1b24d00cc4effa7215119))
+* updated to use the SelectChip, and options ([2977f9f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2977f9fae555d05004e2e7e8c2f5427f8064c24b))
+
 ### [1.10.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.1...v1.10.2) (2020-03-10)
 
 
