@@ -128,15 +128,15 @@ function CardList({
 }
 
 CardList.propTypes = {
-  /** boolean to override default behavior of intially expanded = true */
+  /** OPTIONAL - boolean to override default behavior of intially expanded = true */
   isInitiallyExpanded: PropTypes.bool.isRequired,
-  /** optional prop to expand the width of the card.  Default is 25rem */
-  width: PropTypes.string,
-  /** optional prop to expand the height of the card.  Default is 30rem */
-  height: PropTypes.string,
+  /** OPTIONAL - width of the card.  Default is 25rem. Ex. height={{height: '55rem'}}*/
+  width: PropTypes.object,
+  /** OPTIONAL - height of the card.  Default is 30rem. Ex. width={{width: '55rem'}} */
+  height: PropTypes.object,
   /** Function to be triggered when an item is clicked on in the Card List */
   onListItemClick: PropTypes.func,
-  /** Should the card list have the capability to minimize and maximize */
+  /** OPTIONAL - Should the card list have the capability to minimize and maximize. default = true */
   isExpandable: PropTypes.bool,
   /** object containing the options to be used in the card. See notes for more info. */
   tabs: PropTypes.object,
