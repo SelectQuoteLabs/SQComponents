@@ -75,16 +75,14 @@ const lastCasesWorkedList = [
 
 const accountHistory = [
   <ListItemText disableTypography={true}>
-    {' '}
     'PV Rule : Quoted - LowInterest - Attempt2'
   </ListItemText>,
   <ListItemText disableTypography={true}>
-    {' '}
     'Account History Quoted - LowInterest - Attempt3'
   </ListItemText>,
 ];
 
-const TAB_OPTIONS = [
+const tabOptions = [
   {
     label: 'Agent PV',
     value: 'agentPV',
@@ -114,7 +112,7 @@ export const CardListWithCustomStyle = () => (
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
-    tabOptions={TAB_OPTIONS}
+    tabs={tabOptions}
   />
 );
 
@@ -123,6 +121,6 @@ export const CardListExampleWithoutStyle = () => (
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', true)}
     isExpandable={boolean('isExpandable', false)}
-    tabOptions={TAB_OPTIONS}
+    tabs={tabOptions}
   />
 );

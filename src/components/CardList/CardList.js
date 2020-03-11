@@ -18,17 +18,17 @@ function CardList({
   height,
   isExpandable = true,
   isInitiallyExpanded = true,
-  tabOptions,
+  tabs,
 }) {
-  const [expanded, setExpanded] = React.useState(isInitiallyExpanded);
-  const [selectedTab, setselectedTab] = React.useState(tabOptions[0]);
+  const [isExpanded, setExpanded] = React.useState(isInitiallyExpanded);
+  const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
 
   const expandClick = () => {
-    setExpanded(!expanded);
+    setExpanded(!isExpanded);
   };
 
-  const selectTab = selectedValue => {
-    setselectedTab(tabOptions.find(tab => tab.value === selectedValue));
+  const handleTabChange = selectedValue => {
+    setSelectedTab(tabs.find(tab => tab.value === selectedValue));
   };
 
   const handleListItemClick = event => {
@@ -42,15 +42,15 @@ function CardList({
         action={
           <div className="cardList__headerItems">
             <CardPopoverMenu
-              tabs={tabOptions}
+              tabs={tabs}
               selectedTab={selectedTab}
-              selectTab={selectTab}
+              selectTab={handleTabChange}
               disabled={false}
             />
             {isExpandable && (
               <IconButton
                 onClick={expandClick}
-                aria-expanded={expanded}
+                aria-expanded={isExpanded}
                 aria-label="open"
               >
                 <ExpandMoreIcon />
@@ -60,38 +60,41 @@ function CardList({
         }
       />
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.listItems.map(option => (
+          {selectedTab.listItems.map(listItem => (
             <SelectChip
               onClick={handleListItemClick}
               className="cardListItem__selectChip"
             >
               <ListItem
                 className="cardList__items"
-                key={option.header ? option.header : option}
+                key={tabs.indexOf(selectedTab)}
               >
-                {option.header && (
+                {listItem.header && (
                   <ListItemText
                     disableTypography={true}
-                    primary={option.header}
+                    primary={listItem.header}
                   />
                 )}
-                {option.body && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={option.body}
-                  />
-                )}
-                {option.footer && (
+                {listItem.body && (
                   <ListItemText
                     className="cardList__secondaryItem"
                     disableTypography={true}
-                    secondary={option.footer}
+                    secondary={listItem.body}
                   />
                 )}
-                {!option.header && !option.body && !option.footer && option}
+                {listItem.footer && (
+                  <ListItemText
+                    className="cardList__secondaryItem"
+                    disableTypography={true}
+                    secondary={listItem.footer}
+                  />
+                )}
+                {!listItem.header &&
+                  !listItem.body &&
+                  !listItem.footer &&
+                  listItem}
               </ListItem>
             </SelectChip>
           ))}
@@ -102,18 +105,18 @@ function CardList({
 }
 
 CardList.propTypes = {
-  /** boolean to override default behavior of intially expanded */
+  /** boolean to override default behavior of intially expanded = true */
   isInitiallyExpanded: PropTypes.bool.isRequired,
-  /** optional prop to expand the width of the card.  Default is auto to children elements */
+  /** optional prop to expand the width of the card.  Default is 25rem */
   width: PropTypes.string,
-  /** optional prop to expand the height of the card.  Default is auto to children elements */
+  /** optional prop to expand the height of the card.  Default is 30rem */
   height: PropTypes.string,
   /** Function to be triggered when an item is clicked on in the Card List */
   onListItemClick: PropTypes.func,
   /** Should the card list have the capability to minimize and maximize */
   isExpandable: PropTypes.bool,
-  /** object containing the options to be used in the card. See notes for more */
-  tabOptions: PropTypes.object,
+  /** object containing the options to be used in the card. See notes for more info. */
+  tabs: PropTypes.object,
 };
 
 export default CardList;
