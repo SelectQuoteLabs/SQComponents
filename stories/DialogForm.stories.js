@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/Dialog.md';
 
-import DialogForm from '../src/components/DialogForm';
+import {DialogForm} from '../src';
 import FlexForm from '../mock_components/FlexForm/FlexForm';
 import FlexFormInput from '../mock_components/FlexForm/FlexFormInput';
 

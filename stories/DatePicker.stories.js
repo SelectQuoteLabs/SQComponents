@@ -4,7 +4,7 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/DatePicker.md';
 
-import DatePicker from '../src/components/DatePicker/DatePicker';
+import {DatePicker} from '../src';
 
 const dateRange = {
   start: '',

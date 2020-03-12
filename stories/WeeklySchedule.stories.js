@@ -5,7 +5,7 @@ import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/WeeklySchedule.md';
 import moment from 'moment';
 
-import WeeklySchedule from '../src/components/WeeklySchedule';
+import {WeeklySchedule} from '../src';
 
 export default {
   title: 'WeeklySchedule',
@@ -66,8 +66,6 @@ const BUILD_RANDOM_SCHEDULE = () => {
       })
     )
     .reduce((acc, rangesByDay) => [...acc, ...rangesByDay], []);
-
-  console.log(schedule);
 
   return schedule;
 };
