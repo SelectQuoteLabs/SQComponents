@@ -5,7 +5,6 @@ const styles = {
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '3rem',
-  // width: '100%',
 };
 
 function Section({children}) {
