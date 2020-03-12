@@ -1,3 +1,10 @@
+## [1.12.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.11.0...v1.12.0) (2020-03-12)
+
+
+### Features
+
+* **weeklyschedule:** forked the weekly schedule npm package and cleanup ([e00fb25](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e00fb259f5211d292d05b38372af68fedb3a4afb))
+
 ## [1.11.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.2...v1.11.0) (2020-03-11)
 
 
