@@ -1,3 +1,10 @@
+### [1.12.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.0...v1.12.1) (2020-03-13)
+
+
+### Bug Fixes
+
+* **dialogform:** doesnt render save button if no onSave prop provided ([5401e70](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5401e70c77208410af122ff7acec02e5d7dd9700))
+
 ## [1.12.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.11.0...v1.12.0) (2020-03-12)
 
 
