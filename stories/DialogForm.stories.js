@@ -16,7 +16,7 @@ export default {
   },
 };
 
-export const dialogWithSaveButton = () => (
+export const dialogForm = () => (
   <>
     <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
     <DialogForm
@@ -29,6 +29,31 @@ export const dialogWithSaveButton = () => (
       maxWidth="sm"
       onClose={action('Close button clicked')}
       onSave={action('Save button clicked')}
+      title="Dialog Form"
+    >
+      <FlexForm isTight>
+        <FlexFormInput label="Test 1" field="test" />
+        <FlexFormInput label="Test 2" field="test" />
+        <FlexFormInput label="Test 3" field="test" />
+        <FlexFormInput label="Test 4" field="test" />
+        <FlexFormInput label="Test 5" field="test" />
+        <FlexFormInput label="Test 6" field="test" />
+        <FlexFormInput label="Test 7" field="test" />
+        <FlexFormInput label="Test 8" field="test" />
+        <FlexFormInput label="Test 9" field="test" />
+        <FlexFormInput label="Test 10" field="test" />
+      </FlexForm>
+    </DialogForm>
+  </>
+);
+
+export const dialogFormWithoutSaveButton = () => (
+  <>
+    <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
+    <DialogForm
+      isOpen={boolean('isOpen', false, 'Open/Close Dialog')}
+      maxWidth="sm"
+      onClose={action('Close button clicked')}
       title="Dialog Form"
     >
       <FlexForm isTight>
