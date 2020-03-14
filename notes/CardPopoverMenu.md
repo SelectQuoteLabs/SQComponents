@@ -1,6 +1,6 @@
-# Tabs Menu with Kebab
+# Card Popover Menu
 
--- Menu Button with popover options
+-- Menu Button with popover options and a kabob icon.
 
 ## Design Notes
 

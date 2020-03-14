@@ -2,7 +2,7 @@ import React from 'react';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
-import markdown from '../notes/Tabs Menu with Kebab.md';
+import markdown from '../notes/CardPopoverMenu.md';
 
 import CardPopoverMenu from '../src/components/TabsWithOverflow/CardPopoverMenu';
 
