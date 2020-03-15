@@ -41,6 +41,32 @@
 }
 /* ag-grid theme override css */
 
+.columnList__header {
+  display: flex;
+  margin-left: 0.5rem;
+  justify-content: flex-end;
+  font-weight: 400;
+  font-size: 21px;
+  padding: 0rem 0.5rem 0rem 1rem;
+  height: 4rem;
+  padding: 0.15rem;
+  border-bottom: 1px solid var(--color-lightGray);
+}
+
+.columnList__cardPopOverMenu {
+  border-right: 1px solid var(--color-slate);
+  padding-top: 0.5rem;
+}
+
+.columnList__header1 {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0rem 0rem 0rem 0rem;
+  border-bottom: 1px solid var(--color-lightGray);
+}
+
 .columnList__rows {
   font-size: 10.5px;
   color: var(--color-jetBlack);

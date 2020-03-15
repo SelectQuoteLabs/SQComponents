@@ -10,6 +10,8 @@
 
 Under the covers we are using the Ag-Grid community edition. This is a very powerful grid software with many features and functionality. We are currently pulling in and using just a portion of the possible features.
 
+If you wan to show just one tab of information the additional header will not be shown and you will just get the card body with the column headers.
+
 Sample minimum data sent to CardList
 
 ```

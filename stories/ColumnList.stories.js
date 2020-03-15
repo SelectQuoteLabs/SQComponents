@@ -4,12 +4,6 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/ColumnList.md';
 import ColumnList from '../src/components/ColumnList/ColumnList';
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardPopoverMenu from '../src/components/CardPopoverMenu/CardPopoverMenu';
 import {accountHistoryLarge} from './utils/accountHistoryLarge';
 import '../src/components/ColumnList/ColumnList.css';
 import './ColumnListExample.css';
@@ -22,11 +16,62 @@ export default {
   },
 };
 
-const agentPVList = [];
+const agentPVList = [
+  {
+    status: 'PV list status',
+    comment: "Not Action 'Invalid.  This was probably illegal",
+    user: 'Alisha Pena',
+    date: '04/09/2013 11:14 am',
+    pvRule: 'N/A',
+    userType: 'Incoming',
+  },
+  {
+    status: 'PV list status',
+    comment: "Action 'Invalid.",
+    user: 'Alisha Cox',
+    date: '04/09/2014 11:14 am',
+    pvRule: 'N/A',
+    userType: 'Agent',
+  },
+];
 
-const toDoSupportTicketsList = [];
+const toDoSupportTicketsList = [
+  {
+    status: 'To do support ticket item',
+    comment: "Not Action 'Invalid.",
+    user: 'Alisha Pena',
+    date: '04/09/2013 11:14 am',
+    pvRule: 'N/A',
+    userType: 'Incoming',
+  },
+  {
+    status: 'To do support ticket item',
+    comment: "Action 'Invalid.  This was probably illegal",
+    user: 'Alisha Cox',
+    date: '04/09/2014 11:14 am',
+    pvRule: 'N/A',
+    userType: 'Agent',
+  },
+];
 
-const lastCasesWorkedList = [];
+const lastCasesWorkedList = [
+  {
+    status: 'last case worked',
+    comment: "Not Action 'Invalid.",
+    user: 'Alisha Pena',
+    date: '04/09/2013 11:14 am',
+    pvRule: 'N/A',
+    userType: 'Incoming',
+  },
+  {
+    status: 'last case worked',
+    comment: "Action 'Invalid.  This was probably illegal",
+    user: 'Alisha Cox',
+    date: '04/09/2014 11:14 am',
+    pvRule: 'N/A',
+    userType: 'Agent',
+  },
+];
 
 const accountHistory = [
   {
@@ -126,7 +171,6 @@ const accountHistory = [
     userType: 'Agent',
   },
 ];
-const title = 'Account Information';
 const tabs = [
   {
     label: 'Account History',
@@ -182,43 +226,14 @@ const tabs = [
   },
 ];
 
-const selectedTab = tabs[0];
-
 export const ColumnListWithCard = () => (
-  <Card style={{width: '65rem'}}>
-    <CardHeader
-      disableTypography={true}
-      className="columnList__header"
-      title={title}
-      action={
-        <div className="columnList__header1">
-          <div className="columnList__cardPopOverMenu">
-            <CardPopoverMenu
-              tabs={tabs}
-              selectedTab={selectedTab}
-              selectTab={action(`Changing the tab`)}
-              disabled={false}
-            />
-          </div>
-          <IconButton
-            onClick={action(`closing or opening`)}
-            aria-expanded={true}
-            aria-label="open"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </div>
-      }
-    />
-    <CardContent style={{height: '26rem', width: '65rem', padding: '0px'}}>
-      <ColumnList
-        onListItemClick={action(`Opening the acount`)}
-        width={'65rem'}
-        height={'26rem'}
-        selectedTab={selectedTab}
-      />
-    </CardContent>
-  </Card>
+  <ColumnList
+    onListItemClick={action(`Opening the acount`)}
+    width={'65rem'}
+    height={'26rem'}
+    tabs={tabs}
+    title={'Account Information'}
+  />
 );
 
 export const ColumnListMultipleSelection = () => (
@@ -226,7 +241,7 @@ export const ColumnListMultipleSelection = () => (
     width={'55rem'}
     height={'40rem'}
     onListItemClick={action(`Opening the acount`)}
-    selectedTab={selectedTab}
+    tabs={tabs}
     rowSelection={'multiple'}
   />
 );
@@ -250,6 +265,7 @@ const largetabs = [
 export const LargeColumnListExample = () => (
   <ColumnList
     onListItemClick={action(`Opening the acount`)}
-    selectedTab={largetabs[0]}
+    tabs={largetabs}
+    title={'Account Information'}
   />
 );
