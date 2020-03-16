@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const styles = {
-  padding: '0 0 0 1.5rem',
+  padding: '0 1.5rem',
 };
 
 function SectionBody({children}) {
