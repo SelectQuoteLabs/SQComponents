@@ -34,7 +34,6 @@ function ColumnList({
   sortable = true,
   filter = true,
   resizable = true,
-  rowSelection = 'single',
   title,
   isInitiallyExpanded = true,
 }) {
@@ -109,7 +108,6 @@ function ColumnList({
               onGridReady={onGridReady}
               defaultColDef={defaultColumnProps}
               rowClass={'columnList__rows'}
-              rowSelection={rowSelection}
               pagination={selectedTab.rowData.length > 100 ? true : false}
               paginationPageSize={100}
             ></AgGridReact>
@@ -133,8 +131,6 @@ ColumnList.propTypes = {
   filter: PropTypes.bool,
   /** OPTIONAL - Ability to resize each column by clicking between the headers. default = true */
   resizable: PropTypes.bool,
-  /** OPTIONAL - Ability to select one or multiple rows default = single */
-  rowSelection: PropTypes.oneOf(['single', 'multiple']),
   /** OPTIONAL - Should the card list have the capability to minimize and maximize. default = true */
   isInitiallyExpanded: PropTypes.bool,
 };

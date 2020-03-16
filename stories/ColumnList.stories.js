@@ -232,15 +232,6 @@ export const ColumnListWithCardHeader = () => (
   />
 );
 
-export const ColumnListMultipleSelection = () => (
-  <ColumnList
-    width='55rem'
-    height='40rem'
-    tabs={tabs}
-    rowSelection='multiple'
-  />
-);
-
 const largetabs = [
   {
     label: 'Account History',
