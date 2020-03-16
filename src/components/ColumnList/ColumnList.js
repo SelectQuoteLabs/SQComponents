@@ -85,7 +85,7 @@ function ColumnList({
                 onClick={expandClick}
                 className={
                   (expandClasses.expand,
-                  {[expandClasses.expandOpen]: isExpanded})
+                    {[expandClasses.expandOpen]: isExpanded})
                 } //eslint-disable-line
                 aria-expanded={true}
                 aria-label="open"
@@ -121,9 +121,9 @@ function ColumnList({
 }
 
 ColumnList.propTypes = {
-  /** OPTIONAL - width of the card.  Default is 25rem. Ex. height={{height: '55rem'}}*/
+  /** OPTIONAL - width of the card.  Default is 85rem. Ex. width='25rem'*/
   width: PropTypes.string,
-  /** OPTIONAL - height of the card.  Default is 30rem. Ex. width={{width: '55rem'}} */
+  /** OPTIONAL - height of the card.  Default is 25rem. Ex. height='85rem' */
   height: PropTypes.string,
   /** Selected tab in view with selectedTab.columns and selectedTab.rowData */
   tabs: PropTypes.array,

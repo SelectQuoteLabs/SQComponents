@@ -15,11 +15,11 @@ export default {
 
 const onCellClicked = params => {
   const gridApi = params.api;
-  var selectedRows = gridApi.getSelectedRows();
+  const selectedRows = gridApi.getSelectedRows();
   if (selectedRows.length) {
     gridApi.deselectAll();
     //do something custom
-    alert(`Opening the acount: \n ${JSON.stringify(selectedRows[0])}`);
+    alert(`Opening the account: \n ${JSON.stringify(selectedRows[0])}`);
   }
 };
 
@@ -225,19 +225,19 @@ const tabs = [
 
 export const ColumnListWithCardHeader = () => (
   <ColumnList
-    width={'65rem'}
-    height={'26rem'}
+    width='65rem'
+    height='26rem'
     tabs={tabs}
-    title={'Account Information'}
+    title='Account Information'
   />
 );
 
 export const ColumnListMultipleSelection = () => (
   <ColumnList
-    width={'55rem'}
-    height={'40rem'}
+    width='55rem'
+    height='40rem'
     tabs={tabs}
-    rowSelection={'multiple'}
+    rowSelection='multiple'
   />
 );
 
