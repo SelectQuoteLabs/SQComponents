@@ -8,9 +8,52 @@
 
 ## Technical Notes
 
-This component uses the Material UI card component for the optional header and card body.  Under the covers we are using the Ag-Grid community edition for the card body. This is a very powerful grid package with many features and functionality. 
+This component uses the Material UI card component for the optional header and card body. Under the covers we are using the Ag-Grid community edition for the card body. This is a very powerful grid package with many features and functionality.
 
 If you want to show just one tab of information the additional header will not be shown and you will just get the card body with the column headers.
+
+## Consumer classes
+If you would like to define a column as a number field and have the right alignment you can use the class columnList__number in your column definition.
+
+Will use these properties in addition to the columnList class.
+```
+  .columnList__number {
+    text-align: right;
+  }
+```
+  ```
+  const columns = [
+    {
+      headerName: 'Number right',
+      field: 'number',
+      cellClass: 'columnList__number',
+    }
+  ]
+  ```
+  If you would like to define a column as a hyperlink field and have the you can use the class columnList__hyperlink in your column definition.
+
+  Will use these properties in addition to the columnList class.
+```
+  .columnList__hyperlink {
+    color: var(--color-teal);
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+.columnList__hyperlink:hover {
+  text-decoration: underline;
+}
+```
+```
+  const columns = [
+    {
+      headerName: 'Status',
+      field: 'status',
+      onCellClicked: onCellClicked,
+      cellClass: 'columnList__hyperlink',
+    }
+  ]
+  ```
 
 ### Sample
 

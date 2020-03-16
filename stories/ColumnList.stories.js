@@ -1,7 +1,6 @@
 import React from 'react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
-import {action} from '@storybook/addon-actions';
 import markdown from '../notes/ColumnList.md';
 import ColumnList from '../src/components/ColumnList/ColumnList';
 import {accountHistoryLarge} from './utils/accountHistoryLarge';
@@ -25,13 +24,22 @@ const onCellClicked = params => {
 };
 
 const columns = [
-  {headerName: 'Status', field: 'status', onCellClicked: onCellClicked, cellClass: 'columnList__hyperlink'},
+  {
+    headerName: 'Status',
+    field: 'status',
+    onCellClicked: onCellClicked,
+    cellClass: 'columnList__hyperlink',
+  },
   {headerName: 'Comment', field: 'comment'},
   {headerName: 'User', field: 'user'},
   {headerName: 'Date', field: 'date'},
   {headerName: 'PV Rule', field: 'pvRule'},
-  {headerName: 'Number right', field: 'number', cellClass: 'columnList__number'},
-]
+  {
+    headerName: 'Number right',
+    field: 'number',
+    cellClass: 'columnList__number',
+  },
+];
 
 const agentPVListRows = [
   {
@@ -242,8 +250,4 @@ const largetabs = [
   },
 ];
 
-export const LargeListWithoutCardHeader = () => (
-  <ColumnList
-    tabs={largetabs}
-  />
-);
+export const LargeListWithoutCardHeader = () => <ColumnList tabs={largetabs} />;

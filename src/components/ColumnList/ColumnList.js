@@ -64,7 +64,6 @@ function ColumnList({
     gridApi.sizeColumnsToFit();
   };
 
-
   return (
     <Card style={{width: width}}>
       {tabs.length > 1 && (
@@ -86,7 +85,7 @@ function ColumnList({
                 onClick={expandClick}
                 className={
                   (expandClasses.expand,
-                    {[expandClasses.expandOpen]: isExpanded})
+                  {[expandClasses.expandOpen]: isExpanded})
                 } //eslint-disable-line
                 aria-expanded={true}
                 aria-label="open"
