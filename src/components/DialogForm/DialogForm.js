@@ -38,9 +38,15 @@ function DialogForm({
         <RoundedButton onClick={onClose} color="secondary" variant="outlined">
           {cancelButtonText}
         </RoundedButton>
-        <RoundedButton isDisabled={isDisabled} onClick={onSave} color="primary">
-          {saveButtonText}
-        </RoundedButton>
+        {onSave && (
+          <RoundedButton
+            isDisabled={isDisabled}
+            onClick={onSave}
+            color="primary"
+          >
+            {saveButtonText}
+          </RoundedButton>
+        )}
       </DialogActions>
     </Dialog>
   );
@@ -60,7 +66,7 @@ DialogForm.propTypes = {
   /** Callback function invoked when the user clicks on the secondary button or outside the Dialog */
   onClose: PropTypes.func.isRequired,
   /** Callback function invoke when the user clicks the primary button */
-  onSave: PropTypes.func.isRequired,
+  onSave: PropTypes.func,
   /** The primary button text (Button located on right side of Dialog) */
   saveButtonText: PropTypes.string,
   /** Title text at the top of the Dialog */

@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/SelectChip.md';
 
-import SelectChip from '../src/components/SelectChip';
+import {SelectChip} from '../src';
 
 export default {
   title: 'SelectChip',

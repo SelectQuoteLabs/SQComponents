@@ -1,8 +1,8 @@
 {
   "name": "scplus-shared-components",
-  "version": "1.6.8",
+  "version": "1.12.1",
   "description": "SC Plus shared component library",
-  "browser": "dist/index.js",
+  "main": "dist/index.js",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -48,6 +48,7 @@
   "homepage": "https://bitbucket.org/SelectQuote/scplus-shared-components#readme",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
+    "@tippy.js/react": "^3.1.1",
     "classnames": "^2.2.6",
     "dayjs": "^1.8.21",
     "dotenv": "^8.2.0",
@@ -57,6 +58,7 @@
     "prop-types": "^15.7.2",
     "react-datepicker": "^2.13.0",
     "react-text-mask": "^5.4.3",
+    "react-weekly-schedule": "0.0.0-development",
     "yup": "^0.28.3"
   },
   "peerDependencies": {

@@ -39,10 +39,10 @@ The commit will be validated through a linter pre-commit hook and will reject an
 
 To use a component from the shared components library, add the library as a dependency in the package.json.
 
-Ideally, the SSC version consumed is managed by the technical lead.
+Ideally, the SSC version consumed is managed by the technical lead. Replace the X.X.X at the end of the URL below with the version you are wanting to consume. You can look at the Changelog.md for a full list of all versions and what was in each.
 
 ```json
-"scplus-shared-components: "<S3 BUCKET URL>"
+"scplus-shared-components": "https://npm-public.selectquotelabs.com/scplus-shared-components/X.X.X",
 ```
 
 To standardize our CSS global styles, replace the following CSS files with the their Shared Component Library counterparts.
