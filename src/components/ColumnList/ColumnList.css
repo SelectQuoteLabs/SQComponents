@@ -43,14 +43,12 @@
 
 .columnList__header {
   display: flex;
-  margin-left: 0.5rem;
   justify-content: flex-end;
   font-weight: 400;
   font-size: 21px;
   padding: 0rem 0.5rem 0rem 1rem;
   height: 4rem;
-  padding: 0.15rem;
-  border-bottom: 1px solid var(--color-lightGray);
+  border: .5px solid var(--color-lightGray);
 }
 
 .columnList__cardPopOverMenu {
@@ -58,13 +56,12 @@
   padding-top: 0.5rem;
 }
 
-.columnList__header1 {
+.columnList__headerButtons {
   display: flex;
   justify-content: flex-end;
   font-weight: 400;
   font-size: 12px;
-  padding: 0rem 0rem 0rem 0rem;
-  border-bottom: 1px solid var(--color-lightGray);
+  padding: 0.15rem 0rem 0rem 0rem;
 }
 
 .columnList__rows {
@@ -72,4 +69,19 @@
   color: var(--color-jetBlack);
   font-weight: 400;
   font-family: 'Open Sans, sans-serif';
+  outline: none !important;
+}
+
+.columnList__hyperlink {
+  color: var(--color-teal);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.columnList__hyperlink:hover {
+  text-decoration: underline;
+}
+
+.columnList__number {
+  text-align: right;
 }

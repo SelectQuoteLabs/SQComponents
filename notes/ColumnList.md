@@ -8,20 +8,26 @@
 
 ## Technical Notes
 
-Under the covers we are using the Ag-Grid community edition. This is a very powerful grid software with many features and functionality. We are currently pulling in and using just a portion of the possible features.
+This component uses the Material UI card component for the optional header and card body.  Under the covers we are using the Ag-Grid community edition for the card body. This is a very powerful grid package with many features and functionality. 
 
-If you wan to show just one tab of information the additional header will not be shown and you will just get the card body with the column headers.
+If you want to show just one tab of information the additional header will not be shown and you will just get the card body with the column headers.
 
-Sample minimum data sent to CardList
+### Sample
 
 ```
-const openAccount = selectedValue => {
-  // open the account selected
-}
+const onCellClicked = params => {
+  const gridApi = params.api;
+  var selectedRows = gridApi.getSelectedRows();
+  if (selectedRows.length) {
+    gridApi.deselectAll(); //deselect all rows
+    //do something custom
+    alert(`Opening the acount: \n ${JSON.stringify(selectedRows[0])}`);
+  }
+};
 
 const accountHistory = [
-  {status: "Valid", comment: "Not Action 'Invalid.  This was probably illegal", user: 'Alisha Pena', date: '04/09/2013 11:14 am', pvRule: 'N/A', userType: 'Incoming'},
-      {status: "Invalid", comment: "Action 'Invalid.  This was probably illegal", user: 'Alisha Cox', date: '04/09/2014 11:14 am', pvRule: 'N/A', userType: 'Agent'}
+  {status: "Valid", comment: "Not Action 'Invalid.  This was probably illegal", user: 'Alisha Pena', date: '04/09/2013 11:14 am', pvRule: 'N/A', number: 97979},
+  {status: "Invalid", comment: "Action 'Invalid.  This was probably illegal", user: 'Alisha Cox', date: '04/09/2014 11:14 am', pvRule: 'N/A', number: 8751009}
 ];
 
 const tabs = [
@@ -29,12 +35,12 @@ const tabs = [
     label: 'Account History',
     value: 'accountHistory',
     columns: [
-      {headerName: "Status", field: "status"},
+      {headerName: 'Status', field: 'status', onCellClicked: onCellClicked, cellClass: 'columnList__hyperlink'},
       {headerName: "Comment", field: "comment"},
       {headerName: "User", field: "user"},
       {headerName: "Date", field: "date"},
       {headerName: "PV Rule", field: "pvRule"},
-      {headerName: "User Type", field: "userType"}
+      {headerName: 'Number right', field: 'number', cellClass: 'columnList__number'},
     ],
     rowData: accountHistory
     ];
@@ -42,8 +48,10 @@ const tabs = [
 ];
 
   < ColumnList
-    onListItemClick={openAccount}
-    selectedTab={tabs[0]}
+    width={'65rem'}
+    height={'26rem'}
+    tabs={tabs}
+    title={'Account Information'}
   />
 
 ```

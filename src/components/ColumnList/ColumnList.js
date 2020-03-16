@@ -35,7 +35,6 @@ function ColumnList({
   filter = true,
   resizable = true,
   rowSelection = 'single',
-  onListItemClick,
   title,
   isInitiallyExpanded = true,
 }) {
@@ -65,16 +64,6 @@ function ColumnList({
     gridApi.sizeColumnsToFit();
   };
 
-  const onSelectionChanged = params => {
-    const gridApi = params.api;
-    var selectedRows = gridApi.getSelectedRows();
-    if (selectedRows.length) {
-      if (selectedRows.length === 1) {
-        onListItemClick(selectedRows[0]);
-        rowSelection === 'single' && gridApi.deselectAll();
-      } else onListItemClick(selectedRows);
-    }
-  };
 
   return (
     <Card style={{width: width}}>
@@ -84,7 +73,7 @@ function ColumnList({
           className="columnList__header"
           title={title}
           action={
-            <div className="columnList__header1">
+            <div className="columnList__headerButtons">
               <div className="columnList__cardPopOverMenu">
                 <CardPopoverMenu
                   tabs={tabs}
@@ -97,7 +86,7 @@ function ColumnList({
                 onClick={expandClick}
                 className={
                   (expandClasses.expand,
-                  {[expandClasses.expandOpen]: isExpanded})
+                    {[expandClasses.expandOpen]: isExpanded})
                 } //eslint-disable-line
                 aria-expanded={true}
                 aria-label="open"
@@ -122,7 +111,6 @@ function ColumnList({
               defaultColDef={defaultColumnProps}
               rowClass={'columnList__rows'}
               rowSelection={rowSelection}
-              onSelectionChanged={onSelectionChanged}
               pagination={selectedTab.rowData.length > 100 ? true : false}
               paginationPageSize={100}
             ></AgGridReact>
@@ -138,10 +126,8 @@ ColumnList.propTypes = {
   width: PropTypes.string,
   /** OPTIONAL - height of the card.  Default is 30rem. Ex. width={{width: '55rem'}} */
   height: PropTypes.string,
-  /** Function to be triggered when an item is clicked on in the Card List */
-  onListItemClick: PropTypes.func,
   /** Selected tab in view with selectedTab.columns and selectedTab.rowData */
-  selectedTab: PropTypes.object,
+  tabs: PropTypes.array,
   /** OPTIONAL - Ability to sort by each column by clicking the header. Can be set per column. default = true */
   sortable: PropTypes.bool,
   /** OPTIONAL - Ability to filter each column by clicking the header. Can be set per column. default = true */
@@ -150,6 +136,8 @@ ColumnList.propTypes = {
   resizable: PropTypes.bool,
   /** OPTIONAL - Ability to select one or multiple rows default = single */
   rowSelection: PropTypes.oneOf(['single', 'multiple']),
+  /** OPTIONAL - Should the card list have the capability to minimize and maximize. default = true */
+  isInitiallyExpanded: PropTypes.bool,
 };
 
 export default ColumnList;
