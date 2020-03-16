@@ -69,7 +69,6 @@
   color: var(--color-jetBlack);
   font-weight: 400;
   font-family: 'Open Sans, sans-serif';
-  outline: none !important;
 }
 
 .columnList__hyperlink {
