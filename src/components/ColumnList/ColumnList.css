@@ -42,10 +42,6 @@
   font-weight: 400;
 }
 
-.columnList__hyperlink:hover {
-  text-decoration: underline;
-}
-
 .columnList__number {
   text-align: right;
 }
