@@ -1,3 +1,10 @@
+## [1.13.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.1...v1.13.0) (2020-03-18)
+
+
+### Features
+
+* **section, sectionheader, sectionbody:** implement Section components ([4ab8dc8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4ab8dc8f59ddbf5c9c1798d974e8e10deaf6c852))
+
 ### [1.12.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.0...v1.12.1) (2020-03-13)
 
 
