@@ -30,9 +30,9 @@ const columns = [
     onCellClicked: onCellClicked,
     cellClass: 'columnList__hyperlink',
   },
-  {headerName: 'Comment', field: 'comment'},
+  {headerName: 'Comment', field: 'comment', width: 400},
   {headerName: 'User', field: 'user'},
-  {headerName: 'Date', field: 'date'},
+  {headerName: 'Date', field: 'date', type: ['dateColumn']},
   {headerName: 'PV Rule', field: 'pvRule'},
   {
     headerName: 'Number right',

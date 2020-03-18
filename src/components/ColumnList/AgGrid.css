@@ -11,6 +11,7 @@
 .ag-theme-balham .ag-row-hover {
   background-color: var(--color-lightBlue) !important;
 }
+
 .ag-theme-balham {
   font-family: 'Open Sans' !important;
 }
@@ -23,6 +24,10 @@
 .ag-theme-balham .ag-rtl .ag-cell-focus.ag-cell-range-single-cell.ag-cell-range-handle {
   border: none !important;
   outline: none !important; 
+}
+
+.ag-theme-balham .ag-row-selected {
+  background-color: var(--color-lightBlue) !important;
 }
 
 .ag-icon {

@@ -10,6 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import {makeStyles} from '@material-ui/core/styles';
 import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
 import './ColumnList.css';
+import './AgGrid.css';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
@@ -96,7 +97,7 @@ function ColumnList({
         />
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-        <CardContent style={{height: height, width: width, padding: '0px'}}>
+        <CardContent class="columnList__content" style={{height: height, width: width}}>
           <div
             className="ag-theme-balham"
             style={{height: height, width: width}}
@@ -110,6 +111,7 @@ function ColumnList({
               rowClass={'columnList__rows'}
               pagination={selectedTab.rowData.length > 100 ? true : false}
               paginationPageSize={100}
+              rowSelection={'single'}
             ></AgGridReact>
           </div>
         </CardContent>
