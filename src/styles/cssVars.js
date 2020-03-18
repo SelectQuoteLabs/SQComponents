@@ -18,7 +18,7 @@ export default {
     white: '#FFFFFF',
 
     stone: '#8A8889',
-    slate: '#B3B4B3',
+    slate: '#B3B4B3', // used for disabled
     concrete: '#B8B2A9',
     gainsboro: '#E0E0E0',
 

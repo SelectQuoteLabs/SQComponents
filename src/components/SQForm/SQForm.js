@@ -1,29 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
-
-import {SQFormThemeProvider} from './SQFormContext';
-import './SQForm.css';
-
-function _isDomElement(element) {
-  return element && typeof element.type === 'string';
-}
-
-function _isMuiSvgIcon(element) {
-  return element && element.type.muiName === 'SvgIcon';
-}
-
-function isReactComponent(element) {
-  if (_isDomElement(element) || _isMuiSvgIcon(element)) return false;
-  return true;
-}
 
 function SQForm({
   children,
   initialValues,
+  muiGridProps = {},
   onSubmit,
-  formItemCSSClass = null,
   validationSchema,
 }) {
   const validationYupSchema = React.useMemo(() => {
@@ -39,17 +24,17 @@ function SQForm({
       validationSchema={validationYupSchema}
       validateOnMount={true}
     >
-      {props => {
+      {_props => {
         return (
-          <SQFormThemeProvider formItemCSSClass={formItemCSSClass}>
-            <Form className="sqForm">
-              {React.Children.map(children, child => {
-                if (!child) return null;
-                if (!isReactComponent(child)) return child;
-                return React.cloneElement(child, props);
-              })}
-            </Form>
-          </SQFormThemeProvider>
+          <Form>
+            <Grid
+              {...muiGridProps}
+              container
+              spacing={muiGridProps.spacing || 2}
+            >
+              {children}
+            </Grid>
+          </Form>
         );
       }}
     </Formik>
@@ -59,19 +44,24 @@ function SQForm({
 SQForm.propTypes = {
   /** Form Input(s) */
   children: PropTypes.node.isRequired,
-  /** Optional CSS class */
-  formItemCSSClass: PropTypes.string,
   /** Form Entity Object */
   initialValues: PropTypes.object.isRequired,
-  /**Form Submission Handler | @typedef onSubmit: (values: Values, formikBag: FormikBag) => void | Promise<any> */
+  /** Any prop from https://material-ui.com/api/grid */
+  muiGridProps: PropTypes.object,
+  /**
+   * Form Submission Handler | @typedef onSubmit: (values: Values, formikBag: FormikBag) => void | Promise<any>
+   * IMPORTANT: If onSubmit is async, then Formik will automatically set isSubmitting to false on your behalf once it has resolved.
+   * This means you do NOT need to call formikBag.setSubmitting(false) manually.
+   * However, if your onSubmit function is synchronous, then you need to call setSubmitting(false) on your own.
+   *
+   * https://jaredpalmer.com/formik/docs/api/withFormik#handlesubmit-values-values-formikbag-formikbag--void--promiseany
+   * */
   onSubmit: PropTypes.func.isRequired,
-  /** Yup validation schema shape */
+  /**
+   * Yup validation schema shape
+   * https://jaredpalmer.com/formik/docs/guides/validation#validationschema
+   * */
   validationSchema: PropTypes.object,
 };
 
 export default SQForm;
-
-/**
- * NOTES:
- * form submission handler. It is passed your forms values and the "FormikBag", which includes an object containing a subset of the injected props and methods (i.e. all the methods with names that start with set<Thing> + resetForm) and any props that were passed to the wrapped component.
- */
