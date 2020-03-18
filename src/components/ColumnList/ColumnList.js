@@ -9,8 +9,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import {makeStyles} from '@material-ui/core/styles';
 import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
-import './ColumnList.css';
 import './AgGrid.css';
+import './ColumnList.css';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
@@ -65,7 +65,7 @@ function ColumnList({
   };
 
   return (
-    <Card style={{width: width}}>
+    <Card style={{width: width}} className="columnList">
       {tabs.length > 1 && (
         <CardHeader
           disableTypography={true}
