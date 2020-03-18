@@ -16,5 +16,8 @@ export {default as DialogAlert} from './components/DialogAlert';
 export {default as DialogForm} from './components/DialogForm';
 export {default as RoundedButton} from './components/RoundedButton';
 export {default as SelectChip} from './components/SelectChip';
+export {default as Section} from './components/Section';
+export {default as SectionBody} from './components/SectionBody';
+export {default as SectionHeader} from './components/SectionHeader';
 export {default as Tooltip} from './components/Tooltip';
 export {default as WeeklySchedule} from './components/WeeklySchedule';
