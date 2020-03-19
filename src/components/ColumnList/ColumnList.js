@@ -85,7 +85,7 @@ function ColumnList({
                 onClick={expandClick}
                 className={
                   (expandClasses.expand,
-                    {[expandClasses.expandOpen]: isExpanded})
+                  {[expandClasses.expandOpen]: isExpanded})
                 } //eslint-disable-line
                 aria-expanded={true}
                 aria-label="open"
@@ -97,7 +97,10 @@ function ColumnList({
         />
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-        <CardContent class="columnList__content" style={{height: height, width: width}}>
+        <CardContent
+          className="columnList__content"
+          style={{height: height, width: width}}
+        >
           <div
             className="ag-theme-balham"
             style={{height: height, width: width}}
