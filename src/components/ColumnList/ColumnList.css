@@ -3,7 +3,10 @@
   font-family: 'Open Sans';
 }
 .columnList__content {
-  padding: 0; 
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0 !important; /* Material UI override */
 }
 
 .columnList__header {

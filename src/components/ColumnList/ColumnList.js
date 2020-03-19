@@ -15,7 +15,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 const useStyles = makeStyles(theme => ({
-  expand: {
+  open: {
     transform: 'rotate(0deg)',
     paddingTop: '0.5rem',
     marginLeft: 'auto',
@@ -23,13 +23,13 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.shortest,
     }),
   },
-  expandOpen: {
+  closed: {
     transform: 'rotate(180deg)',
     paddingTop: '0.5rem',
   },
 }));
+
 function ColumnList({
-  width = '85rem',
   height = '25rem',
   tabs,
   sortable = true,
@@ -47,6 +47,7 @@ function ColumnList({
   };
 
   const expandClasses = useStyles();
+  const expandedStyle = isExpanded ? expandClasses.open : expandClasses.closed;
 
   const expandClick = () => {
     setExpanded(!isExpanded);
@@ -65,7 +66,7 @@ function ColumnList({
   };
 
   return (
-    <Card style={{width: width}} className="columnList">
+    <Card className="columnList">
       {tabs.length > 1 && (
         <CardHeader
           disableTypography={true}
@@ -83,10 +84,7 @@ function ColumnList({
               </div>
               <IconButton
                 onClick={expandClick}
-                className={
-                  (expandClasses.expand,
-                  {[expandClasses.expandOpen]: isExpanded})
-                } //eslint-disable-line
+                className={expandedStyle} //eslint-disable-line
                 aria-expanded={true}
                 aria-label="open"
               >
@@ -98,25 +96,20 @@ function ColumnList({
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className="columnList__content"
-          style={{height: height, width: width}}
+          className="ag-theme-balham columnList__content"
+          style={{height: height}}
         >
-          <div
-            className="ag-theme-balham"
-            style={{height: height, width: width}}
-          >
-            <AgGridReact
-              animateRows={true}
-              columnDefs={selectedTab.columns}
-              rowData={selectedTab.rowData}
-              onGridReady={onGridReady}
-              defaultColDef={defaultColumnProps}
-              rowClass={'columnList__rows'}
-              pagination={selectedTab.rowData.length > 100 ? true : false}
-              paginationPageSize={100}
-              rowSelection={'single'}
-            ></AgGridReact>
-          </div>
+          <AgGridReact
+            animateRows={true}
+            columnDefs={selectedTab.columns}
+            rowData={selectedTab.rowData}
+            onGridReady={onGridReady}
+            defaultColDef={defaultColumnProps}
+            rowClass={'columnList__rows'}
+            pagination={selectedTab.rowData.length > 100 ? true : false}
+            paginationPageSize={100}
+            rowSelection={'single'}
+          ></AgGridReact>
         </CardContent>
       </Collapse>
     </Card>

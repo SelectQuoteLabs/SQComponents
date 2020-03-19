@@ -32,7 +32,7 @@ const columns = [
   },
   {headerName: 'Comment', field: 'comment', width: 400},
   {headerName: 'User', field: 'user'},
-  {headerName: 'Date', field: 'date', type: ['dateColumn']},
+  {headerName: 'Date', field: 'date'},
   {headerName: 'PV Rule', field: 'pvRule'},
   {
     headerName: 'Number right',
@@ -50,17 +50,17 @@ const agentPVListRows = [
     pvRule: 'N/A',
     number: 234234,
   },
-  {
-    status: 'PV list status',
-    comment: "Action 'Invalid.",
-    user: 'Alisha Cox',
-    date: '04/09/2014 11:14 am',
-    pvRule: 'N/A',
-    number: 2342342,
-  },
 ];
 
 const toDoSupportTicketsListRows = [
+  {
+    status: 'To do support ticket item',
+    comment: "Not Action 'Invalid.",
+    user: 'Alisha Pena',
+    date: '04/09/2013 11:14 am',
+    pvRule: 'N/A',
+    number: 7567575,
+  },
   {
     status: 'To do support ticket item',
     comment: "Not Action 'Invalid.",
@@ -224,12 +224,9 @@ const tabs = [
 ];
 
 export const ColumnListWithCardHeader = () => (
-  <ColumnList
-    width='65rem'
-    height='26rem'
-    tabs={tabs}
-    title='Account Information'
-  />
+  <div style={{height: '30rem', width: '85rem'}}>
+    <ColumnList tabs={tabs} title="Account Information" />
+  </div>
 );
 
 const largetabs = [
@@ -241,4 +238,8 @@ const largetabs = [
   },
 ];
 
-export const LargeListWithoutCardHeader = () => <ColumnList tabs={largetabs} />;
+export const LargeListWithoutCardHeader = () => (
+  <div style={{height: '30rem', width: '85rem'}}>
+    <ColumnList tabs={largetabs} />
+  </div>
+);
