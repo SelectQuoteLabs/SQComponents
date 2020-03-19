@@ -115,32 +115,34 @@ class CardPopoverMenu extends React.Component {
           {viewableTabs.map((tab, index) => {
             const isSelected = selectedTab.value === tab.value;
             return (
-              <Tab
-                className="cardPopoverMenu__kabob"
-                key={tab.label}
-                buttonStyle={{
-                  fontWeight: isSelected ? bold : normal,
-                  color:
-                    disabled || tab.disabled
-                      ? slate
-                      : isSelected
-                      ? spanishOrange
-                      : teal,
-                  padding: '0 0.5rem',
-                }}
-                label={
-                  <>
-                    <Kabob />
-                    <span>&nbsp;&nbsp;</span>
-                    {tab.label}
-                  </>
-                }
-                value={tab.value}
-                disabled={disabled || tab.disabled}
-                ref={input => {
-                  this.tabsNodes[index] = input;
-                }}
-              />
+              isSelected && (
+                <Tab
+                  className="cardPopoverMenu__kabob"
+                  key={tab.label}
+                  buttonStyle={{
+                    fontWeight: isSelected ? bold : normal,
+                    color:
+                      disabled || tab.disabled
+                        ? slate
+                        : isSelected
+                        ? spanishOrange
+                        : teal,
+                    padding: '0 0.5rem',
+                  }}
+                  label={
+                    <>
+                      <Kabob />
+                      <span>&nbsp;&nbsp;</span>
+                      {tab.label}
+                    </>
+                  }
+                  value={tab.value}
+                  disabled={disabled || tab.disabled}
+                  ref={input => {
+                    this.tabsNodes[index] = input;
+                  }}
+                />
+              )
             );
           })}
         </Tabs>
