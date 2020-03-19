@@ -1,3 +1,18 @@
+## [1.14.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.13.0...v1.14.0) (2020-03-19)
+
+
+### Features
+
+* column List oncellClick feature, story fixin ([b96a4a5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b96a4a5552b0acd14574002cb0ed85437214a2a3))
+* fixed font family for all text fields ([1054669](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/10546692718ca18b757a5d86b6cbccdb9d33bc83))
+* moved agrid css to it's own file and made new overrides ([27daf2e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/27daf2e0ccad7dd4b6f16e7d70d7677bb5a28bee))
+* moved css and removed proptype ([470077f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/470077f11ff713240a01b6903771faa0f27799c2))
+* removed unneeded css in a class ([648aa8c](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/648aa8c94a3ea4d4134bbcd0f5ae74a38ac7f630))
+* updated styling per UX review ([4280610](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4280610bdddba0fba7f59fb9643f5b705662bb47))
+* updated the column list to have a dynamiccaly shown header ([dbefde5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbefde5daad1c2f0eb9cc238325a54d7eac5c7cd))
+* updated the documentation and prettier ([d9b55ba](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d9b55bac04d3006df916b6f38fb2950ae8e50d39))
+* updated typos, documentation, data type number for example ([05b87c9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/05b87c952426cfcaf8b8a1403cff62bc2361c696))
+
 ## [1.13.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.1...v1.13.0) (2020-03-18)
 
 
