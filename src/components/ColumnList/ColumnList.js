@@ -10,9 +10,9 @@ import Collapse from '@material-ui/core/Collapse';
 import {makeStyles} from '@material-ui/core/styles';
 import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
 import './AgGrid.css';
-import './ColumnList.css';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import './ColumnList.css';
 
 const useStyles = makeStyles(theme => ({
   open: {
@@ -117,8 +117,6 @@ function ColumnList({
 }
 
 ColumnList.propTypes = {
-  /** OPTIONAL - width of the card.  Default is 85rem. Ex. width='25rem'*/
-  width: PropTypes.string,
   /** OPTIONAL - height of the card.  Default is 25rem. Ex. height='85rem' */
   height: PropTypes.string,
   /** Selected tab in view with selectedTab.columns and selectedTab.rowData */

@@ -224,7 +224,7 @@ const tabs = [
 ];
 
 export const ColumnListWithCardHeader = () => (
-  <div style={{height: '30rem', width: '85rem'}}>
+  <div style={{height: '30rem', width: '55rem'}}>
     <ColumnList tabs={tabs} title="Account Information" />
   </div>
 );
