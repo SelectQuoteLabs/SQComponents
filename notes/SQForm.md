@@ -1,6 +1,6 @@
 # SQForm
 
--- SQ Form System
+SQ Form is a form component that handles all validations and state for you. Under the covers it is using Formik for most of the heavy lifting and Yup to validate fields.
 
 ## Design Notes
 
@@ -24,7 +24,7 @@ This means you do NOT need to call formikBag.setSubmitting(false) manually.
 However, if your onSubmit function is synchronous, then you need to call setSubmitting(false) on your own.
 If you're still reading this, I commend you. The docs say all of this by the way :)
 
-**SQTextField**
+**SQFormTextField**
 
 The `helperText` prop defaults to an empty space it is always present in the DOM. This prevents UI bounce when the placeholder text appears, changing the calculated height of the input.
 

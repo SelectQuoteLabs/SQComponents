@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import markdown from '../notes/SQForm.md';
 
 import SQForm from '../src/components/SQForm';
-import SQTextField from '../src/components/SQForm/SQTextField';
+import SQFormTextField from '../src/components/SQForm/SQFormTextField';
 import SQFormButton from '../src/components/SQForm/SQFormButton';
 
 export default {
@@ -40,11 +40,11 @@ export const basicForm = () => {
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
-        <SQTextField name="firstName" label="First name" size={3} />
-        <SQTextField name="lastName" label="Last name" size={3} />
-        <SQTextField name="city" label="City" size={3} />
-        <SQTextField name="age" label="Age" size={1} />
-        <SQTextField name="state" label="State" size={2} />
+        <SQFormTextField name="firstName" label="First name" size={3} />
+        <SQFormTextField name="lastName" label="Last name" size={3} />
+        <SQFormTextField name="city" label="City" size={3} />
+        <SQFormTextField name="age" label="Age" size={1} />
+        <SQFormTextField name="state" label="State" size={2} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
@@ -76,21 +76,21 @@ export const formWithValidation = () => {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        <SQTextField
+        <SQFormTextField
           name="firstName"
           label="First name"
           size={6}
           isRequired={true}
         />
-        <SQTextField
+        <SQFormTextField
           name="lastName"
           label="Last name"
           size={6}
           isRequired={true}
         />
-        <SQTextField name="city" label="City" size={8} />
-        <SQTextField name="age" label="Age" size={2} isRequired={true} />
-        <SQTextField name="state" label="State" size={2} />
+        <SQFormTextField name="city" label="City" size={8} />
+        <SQFormTextField name="age" label="Age" size={2} isRequired={true} />
+        <SQFormTextField name="state" label="State" size={2} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
@@ -109,31 +109,31 @@ export const basicFormWithCustomOnBlur = () => {
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
-        <SQTextField
+        <SQFormTextField
           name="firstName"
           label="First name"
           size={3}
           onBlur={action('Blur event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="lastName"
           label="Last name"
           size={3}
           onBlur={action('Blur event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="city"
           label="City"
           size={2}
           onBlur={action('Blur event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="age"
           label="Age"
           size={2}
           onBlur={action('Blur event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="state"
           label="State"
           size={2}
@@ -157,31 +157,31 @@ export const basicFormWithCustomOnChange = () => {
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
-        <SQTextField
+        <SQFormTextField
           name="firstName"
           label="First name"
           size={3}
           onChange={action('Change event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="lastName"
           label="Last name"
           size={3}
           onChange={action('Change event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="city"
           label="City"
           size={2}
           onChange={action('Change event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="age"
           label="Age"
           size={2}
           onChange={action('Change event!')}
         />
-        <SQTextField
+        <SQFormTextField
           name="state"
           label="State"
           size={2}

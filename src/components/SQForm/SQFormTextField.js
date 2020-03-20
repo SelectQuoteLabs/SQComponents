@@ -8,7 +8,7 @@ import {getIn, useField} from 'formik';
 
 const SPACE_STYLE = {marginRight: '0.3333rem'};
 
-function SQTextField({
+function SQFormTextField({
   name,
   label,
   isRequired = false,
@@ -19,7 +19,7 @@ function SQTextField({
 }) {
   const [field, meta] = useField(name);
   const errorMessage = getIn(meta, 'error');
-  const isTouched = !!getIn(meta, 'touched');
+  const isTouched = getIn(meta, 'touched');
   const isError = !!errorMessage;
   const isFieldError = isTouched && isError;
   const isFieldRequired = !isTouched && isRequired;
@@ -84,7 +84,7 @@ function SQTextField({
   );
 }
 
-SQTextField.propTypes = {
+SQFormTextField.propTypes = {
   /** Name of the field will be the Object key of the key/value pair form payload */
   name: PropTypes.string.isRequired,
   /** Descriptive label of the input */
@@ -101,4 +101,4 @@ SQTextField.propTypes = {
   onChange: PropTypes.func,
 };
 
-export default SQTextField;
+export default SQFormTextField;
