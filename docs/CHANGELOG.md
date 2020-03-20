@@ -1,3 +1,12 @@
+## [1.15.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.14.0...v1.15.0) (2020-03-20)
+
+
+### Features
+
+* added emojis to the card list component by color ([69212f3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/69212f3845e19af362e89f79b64b5ea62d281a90))
+* added icons for each color in the cardlist ([4fd059f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4fd059ff4b38c93e524ce5db53713eb40faa0fbb))
+* simplified imports ([dbd45e5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbd45e5899ee4c260bd4f342bc37ce32fc0a5985))
+
 ## [1.14.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.13.0...v1.14.0) (2020-03-19)
 
 
