@@ -19,6 +19,7 @@ const agentPVList = [
     header: 'Acct ID : 3761140',
     body: 'Name : Ashley Payne',
     footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    color: 'Purple',
   },
   {
     header: 'Acct ID : 446426',

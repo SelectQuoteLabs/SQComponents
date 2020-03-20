@@ -36,6 +36,42 @@ function CardList({
   isInitiallyExpanded = true,
   tabs,
 }) {
+  const getColorIcons = color => {
+    const colorIcon = {
+      Greeen: (
+        <span role="img" aria-label="Green">
+          🍐
+        </span>
+      ),
+      Orange: (
+        <span role="img" aria-label="Orange">
+          🍊
+        </span>
+      ),
+      Pink: (
+        <span role="img" aria-label="Pink">
+          🍉
+        </span>
+      ),
+      Purple: (
+        <span role="img" aria-label="Purple">
+          🍇
+        </span>
+      ),
+      Red: (
+        <span role="img" aria-label="Red">
+          🍒
+        </span>
+      ),
+      Yellow: (
+        <span role="img" aria-label="Yellow">
+          🍌
+        </span>
+      ),
+    };
+    return colorIcon[color] || color;
+  };
+
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
@@ -114,6 +150,7 @@ function CardList({
                     secondary={listItem.footer}
                   />
                 )}
+                {listItem.color && getColorIcons(listItem.color)}
                 {!listItem.header &&
                   !listItem.body &&
                   !listItem.footer &&
