@@ -6,7 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
+import Tooltip from '../Tooltip/Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -38,38 +40,44 @@ function CardList({
 }) {
   const getColorIcons = color => {
     const colorIcon = {
-      Greeen: (
-        <span role="img" aria-label="Green">
+      Green: (
+        <span role="img" aria-label={color}>
           🍐
         </span>
       ),
       Orange: (
-        <span role="img" aria-label="Orange">
+        <span role="img" aria-label={color}>
           🍊
         </span>
       ),
       Pink: (
-        <span role="img" aria-label="Pink">
+        <span role="img" aria-label={color}>
           🍉
         </span>
       ),
       Purple: (
-        <span role="img" aria-label="Purple">
+        <span role="img" aria-label={color}>
           🍇
         </span>
       ),
       Red: (
-        <span role="img" aria-label="Red">
+        <span role="img" aria-label={color}>
           🍒
         </span>
       ),
       Yellow: (
-        <span role="img" aria-label="Yellow">
+        <span role="img" aria-label={color}>
           🍌
         </span>
       ),
     };
-    return colorIcon[color] || color;
+    return (
+      <ListItemIcon className="cardList__icon">
+        <Tooltip title={color} placement="top">
+          {colorIcon[color] || color}
+        </Tooltip>
+      </ListItemIcon>
+    );
   };
 
   const [isExpanded, setExpanded] = React.useState(
@@ -130,6 +138,7 @@ function CardList({
                 className="cardList__items"
                 key={tabs.indexOf(selectedTab)}
               >
+                {listItem.color && getColorIcons(listItem.color)}
                 {listItem.header && (
                   <ListItemText
                     disableTypography={true}
@@ -150,7 +159,6 @@ function CardList({
                     secondary={listItem.footer}
                   />
                 )}
-                {listItem.color && getColorIcons(listItem.color)}
                 {!listItem.header &&
                   !listItem.body &&
                   !listItem.footer &&

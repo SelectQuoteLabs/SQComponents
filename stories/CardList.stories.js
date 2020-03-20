@@ -17,7 +17,7 @@ export default {
 const agentPVList = [
   {
     header: 'Acct ID : 3761140',
-    body: 'Name : Ashley Payne',
+    body: 'Name : Ashley Payne has a really long name',
     footer: 'PV Rule : Quoted - LowInterest - Attempt2',
     color: 'Purple',
   },
@@ -25,11 +25,13 @@ const agentPVList = [
     header: 'Acct ID : 446426',
     body: 'Name : Flor Monterroso',
     footer: 'PV Rule : TA Follow Up 2',
+    color: 'Green',
   },
   {
     header: 'Acct ID : 3761140',
     body: 'Name : Ashley Payne',
     footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    color: 'Orange',
   },
   {
     header: 'Acct ID : 446426',
@@ -45,6 +47,19 @@ const agentPVList = [
     header: 'Acct ID : 446426',
     body: 'Name : Flor Monterroso',
     footer: 'PV Rule : TA Follow Up 2',
+    color: 'Pink',
+  },
+  {
+    header: 'Acct ID : 111111',
+    body: 'Name : Bob Payne',
+    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    color: 'Red',
+  },
+  {
+    header: 'Acct ID : 222222',
+    body: 'Name : Bob Monterroso',
+    footer: 'PV Rule : TA Follow Up 2',
+    color: 'Yellow',
   },
 ];
 
@@ -53,11 +68,13 @@ const toDoSupportTicketsList = [
     header: 'Acct ID : 111111',
     body: 'Name : Bob Payne',
     footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    color: 'Red',
   },
   {
     header: 'Acct ID : 222222',
     body: 'Name : Bob Monterroso',
     footer: 'PV Rule : TA Follow Up 2',
+    color: 'Yellow',
   },
 ];
 
