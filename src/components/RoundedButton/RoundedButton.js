@@ -15,6 +15,7 @@ function RoundedButton({
   children,
   startIcon,
   endIcon,
+  type = 'button',
 }) {
   const isGhostButton = React.useMemo(() => {
     return variant === 'outlined';
@@ -39,6 +40,7 @@ function RoundedButton({
       color={isSuccessButton ? 'default' : color}
       startIcon={startIcon}
       endIcon={endIcon}
+      type={type}
     >
       {children}
     </Button>
@@ -46,8 +48,8 @@ function RoundedButton({
 }
 
 RoundedButton.propTypes = {
-  /** The onClick action */
-  onClick: PropTypes.func.isRequired,
+  /** The onClick action if not of type "submit" */
+  onClick: PropTypes.func,
   /** The title of the button */
   title: PropTypes.string.isRequired,
   /** Will override the text inside the button */
@@ -62,6 +64,8 @@ RoundedButton.propTypes = {
   startIcon: PropTypes.node,
   /** An <Icon> component that appends button text */
   endIcon: PropTypes.node,
+  /** Type of button, defaults to 'button' */
+  type: PropTypes.oneOf(['submit', 'reset', 'button']),
 };
 
 export default RoundedButton;
