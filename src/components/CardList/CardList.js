@@ -6,7 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import CardPopoverMenu from '../CardPopoverMenu';
+import Tooltip from '../Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -36,6 +38,48 @@ function CardList({
   isInitiallyExpanded = true,
   tabs,
 }) {
+  const getColorIcons = color => {
+    const colorIcon = {
+      Green: (
+        <span role="img" aria-label={color}>
+          🍐
+        </span>
+      ),
+      Orange: (
+        <span role="img" aria-label={color}>
+          🍊
+        </span>
+      ),
+      Pink: (
+        <span role="img" aria-label={color}>
+          🍉
+        </span>
+      ),
+      Purple: (
+        <span role="img" aria-label={color}>
+          🍇
+        </span>
+      ),
+      Red: (
+        <span role="img" aria-label={color}>
+          🍒
+        </span>
+      ),
+      Yellow: (
+        <span role="img" aria-label={color}>
+          🍌
+        </span>
+      ),
+    };
+    return (
+      <ListItemIcon className="cardList__icon">
+        <Tooltip title={color} placement="top">
+          {colorIcon[color] || color}
+        </Tooltip>
+      </ListItemIcon>
+    );
+  };
+
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
@@ -94,6 +138,7 @@ function CardList({
                 className="cardList__items"
                 key={tabs.indexOf(selectedTab)}
               >
+                {listItem.color && getColorIcons(listItem.color)}
                 {listItem.header && (
                   <ListItemText
                     disableTypography={true}
