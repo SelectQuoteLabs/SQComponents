@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import WarningIcon from '@material-ui/icons/NewReleases';
-import CheckIcon from '@material-ui/icons/Check';
-import {getIn, useField} from 'formik';
 
-const SPACE_STYLE = {marginRight: '0.3333rem'};
+import {useForm} from './useForm';
 
 function SQFormTextField({
   name,
@@ -17,51 +14,13 @@ function SQFormTextField({
   onBlur,
   onChange,
 }) {
-  const [field, meta] = useField(name);
-  const errorMessage = getIn(meta, 'error');
-  const isTouched = getIn(meta, 'touched');
-  const isError = !!errorMessage;
-  const isFieldError = isTouched && isError;
-  const isFieldRequired = !isTouched && isRequired;
-  const isFulfilled = isTouched && !isFieldError;
-
-  const handleChange = React.useCallback(
-    event => {
-      field.onChange(event);
-      onChange && onChange(event);
-    },
-    [field, onChange]
-  );
-  const handleBlur = React.useCallback(
-    event => {
-      field.onBlur(event);
-      onBlur && onBlur(event);
-    },
-    [field, onBlur]
-  );
-
-  const HelperTextComponent = React.useMemo(() => {
-    if (isFieldRequired) {
-      return (
-        <>
-          <WarningIcon color="disabled" style={SPACE_STYLE} />
-          Required
-        </>
-      );
-    }
-    if (isFieldError) {
-      return (
-        <>
-          <WarningIcon color="error" style={SPACE_STYLE} />
-          {errorMessage}
-        </>
-      );
-    }
-    if (isFulfilled)
-      return (
-        <CheckIcon style={{color: 'var(--color-palmLeaf)', ...SPACE_STYLE}} />
-      );
-  }, [errorMessage, isFieldError, isFieldRequired, isFulfilled]);
+  const [fieldHelpers, {isFieldError}] = useForm({
+    name,
+    isRequired,
+    onBlur,
+    onChange,
+  });
+  const {handleBlur, handleChange, HelperTextComponent} = fieldHelpers;
 
   return (
     <Grid item sm={size}>
