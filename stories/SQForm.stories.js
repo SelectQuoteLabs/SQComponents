@@ -10,6 +10,7 @@ import markdown from '../notes/SQForm.md';
 import SQForm from '../src/components/SQForm';
 import SQFormTextField from '../src/components/SQForm/SQFormTextField';
 import SQFormButton from '../src/components/SQForm/SQFormButton';
+import SQFormCheckbox from '../src/components/SQForm/SQFormCheckbox';
 
 export default {
   title: 'SQForm',
@@ -26,6 +27,12 @@ const MOCK_FORM_ENTITY = {
   age: '',
   state: '',
 };
+const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
+  ...MOCK_FORM_ENTITY,
+  hobby: '',
+  cool: false,
+  lame: false,
+};
 
 const handleSubmit = (values, actions) => {
   window.alert(JSON.stringify(values, null, 2));
@@ -36,7 +43,7 @@ export const basicForm = () => {
   return (
     <Card raised style={{padding: 16}}>
       <SQForm
-        initialValues={MOCK_FORM_ENTITY}
+        initialValues={MOCK_FORM_WITH_BOOLEANS_ENTITY}
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
@@ -45,6 +52,9 @@ export const basicForm = () => {
         <SQFormTextField name="city" label="City" size={3} />
         <SQFormTextField name="age" label="Age" size={1} />
         <SQFormTextField name="state" label="State" size={2} />
+        <SQFormTextField name="hobby" label="Hobby" size={4} />
+        <SQFormCheckbox name="cool" label="Cool" />
+        <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>

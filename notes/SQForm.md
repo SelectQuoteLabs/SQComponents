@@ -24,6 +24,10 @@ This means you do NOT need to call formikBag.setSubmitting(false) manually.
 However, if your onSubmit function is synchronous, then you need to call setSubmitting(false) on your own.
 If you're still reading this, I commend you. The docs say all of this by the way :)
 
+**SQFormCheckbox**
+
+Use like any other checkbox. The value is provided from SQForm like the rest of the SQForm components.
+
 **SQFormTextField**
 
 The `helperText` prop defaults to an empty space it is always present in the DOM. This prevents UI bounce when the placeholder text appears, changing the calculated height of the input.

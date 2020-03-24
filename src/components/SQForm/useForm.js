@@ -66,9 +66,9 @@ export function useForm({name, isRequired, onBlur, onChange}) {
     return ' '; // return something so DOM element always exists
   }, [errorMessage, isFieldError, isFieldRequired, isFulfilled]);
 
-  return [
-    {handleBlur, handleChange, HelperTextComponent},
-    {
+  return {
+    formikField: {field, meta, helpers},
+    fieldState: {
       errorMessage,
       isTouched,
       isError,
@@ -76,6 +76,6 @@ export function useForm({name, isRequired, onBlur, onChange}) {
       isFieldRequired,
       isFulfilled,
     },
-    {field, meta, helpers},
-  ];
+    fieldHelpers: {handleBlur, handleChange, HelperTextComponent},
+  };
 }
