@@ -24,13 +24,16 @@ function SQFormDropdown({
   onChange,
   size = 'auto',
 }) {
-  const [fieldHelpers, {isFieldError}, {field}] = useForm({
+  const {
+    formikField: {field},
+    fieldState: {isFieldError},
+    fieldHelpers: {handleBlur, handleChange, HelperTextComponent},
+  } = useForm({
     name,
     isRequired,
     onBlur,
     onChange,
   });
-  const {handleBlur, handleChange, HelperTextComponent} = fieldHelpers;
   const labelID = label.toLowerCase();
 
   const options = React.useMemo(() => {

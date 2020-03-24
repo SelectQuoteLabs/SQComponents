@@ -15,13 +15,15 @@ function SQFormTextField({
   onBlur,
   onChange,
 }) {
-  const [fieldHelpers, {isFieldError}] = useForm({
+  const {
+    fieldState: {isFieldError},
+    fieldHelpers: {handleBlur, handleChange, HelperTextComponent},
+  } = useForm({
     name,
     isRequired,
     onBlur,
     onChange,
   });
-  const {handleBlur, handleChange, HelperTextComponent} = fieldHelpers;
 
   return (
     <Grid item sm={size}>
