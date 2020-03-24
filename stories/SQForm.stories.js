@@ -7,10 +7,7 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import markdown from '../notes/SQForm.md';
 
-import SQForm from '../src/components/SQForm';
-import SQFormTextField from '../src/components/SQForm/SQFormTextField';
-import SQFormButton from '../src/components/SQForm/SQFormButton';
-import SQFormCheckbox from '../src/components/SQForm/SQFormCheckbox';
+import {SQForm, SQFormTextField, SQFormButton, SQFormCheckbox} from '../src';
 
 export default {
   title: 'SQForm',
