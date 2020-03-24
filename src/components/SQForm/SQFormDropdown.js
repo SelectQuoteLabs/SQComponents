@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -15,6 +16,7 @@ const EMPTY_OPTION = {label: EMPTY_LABEL, value: EMPTY_VALUE};
 function SQFormDropdown({
   children,
   displayEmpty = false,
+  isDisabled = false,
   isRequired = false,
   label,
   name,
@@ -50,7 +52,7 @@ function SQFormDropdown({
     <Grid item sm={size}>
       <InputLabel id={labelID}>{label}</InputLabel>
       <Select
-        inputProps={{name}}
+        input={<Input disabled={isDisabled} name={name} />}
         value={field.value}
         onBlur={handleBlur}
         onChange={handleChange}
@@ -82,6 +84,8 @@ SQFormDropdown.propTypes = {
   ),
   /** Whether to display empty option - - in options */
   displayEmpty: PropTypes.bool,
+  /** Disabled property to disable the input if true */
+  isDisabled: PropTypes.bool,
   /** Required property used to highlight input and label if not fulfilled */
   isRequired: PropTypes.bool,
   /** Label text */

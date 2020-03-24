@@ -49,7 +49,7 @@ export const basicForm = () => {
       >
         <SQFormTextField name="firstName" label="First name" size={4} />
         <SQFormTextField name="lastName" label="Last name" size={4} />
-        <SQFormTextField name="city" label="City" size={4} />
+        <SQFormTextField isDisabled={true} name="city" label="City" size={4} />
         <SQFormTextField name="age" label="Age" size={3} />
         <SQFormDropdown name="state" label="State" displayEmpty={true} size={9}>
           {MOCK_STATE_OPTIONS}

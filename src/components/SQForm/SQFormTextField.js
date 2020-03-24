@@ -8,6 +8,7 @@ import {useForm} from './useForm';
 function SQFormTextField({
   name,
   label,
+  isDisabled = false,
   isRequired = false,
   placeholder = '',
   size = 'auto',
@@ -26,6 +27,7 @@ function SQFormTextField({
     <Grid item sm={size}>
       <TextField
         color="primary"
+        disabled={isDisabled}
         error={isFieldError}
         fullWidth={true}
         InputLabelProps={{shrink: true}}
@@ -50,6 +52,8 @@ SQFormTextField.propTypes = {
   label: PropTypes.string.isRequired,
   /** Placeholder text used inside the input field to provide hints to the user */
   placeholder: PropTypes.string,
+  /** Disabled property to disable the input if true */
+  isDisabled: PropTypes.bool,
   /** Required property used to highlight input and label if not fulfilled */
   isRequired: PropTypes.bool,
   /** Size of the input given full-width is 12. */
