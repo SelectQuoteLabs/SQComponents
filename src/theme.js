@@ -38,6 +38,12 @@ const theme = {
         },
       },
     },
+    MuiSelect: {
+      selectMenu: {
+        height: '1.6667rem', // match computed height of text fields
+        lineHeight: '2rem',
+      },
+    },
     MuiFormHelperText: {
       root: {
         display: 'flex',
@@ -46,12 +52,16 @@ const theme = {
         fontSize: 'var(--size-label)',
         fontWeight: 'var(--font-weight-semibold)',
         lineHeight: 'var(--size-label)',
+        height: '1.5rem',
       },
     },
     MuiInputLabel: {
-      shrink: {
-        fontSize: 'var(--size-label-with-offset)',
+      root: {
+        fontSize: 'var(--size-label)',
         color: 'var(--color-jetBlack)',
+      },
+      shrink: {
+        transform: 'translate(0, 1.5px) scale(1)',
       },
     },
   },
