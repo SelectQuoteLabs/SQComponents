@@ -229,7 +229,10 @@ const tabs = [
     initialFilter: {
       status: {
         type: 'valid',
-        values: ['Valid'],
+      },
+      user: {
+        type: 'contains',
+        filter: 'Alisha Pena',
       },
     },
   },
@@ -255,6 +258,9 @@ const tabs = [
 
 export const ColumnListWithCardHeader = () => (
   <div style={{height: '30rem', width: '55rem'}}>
+    <h1 style={{textAlign: 'center'}}>
+      Initial filters set, custom filters, and a Header
+    </h1>
     <ColumnList tabs={tabs} title="Account Information" />
   </div>
 );

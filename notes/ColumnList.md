@@ -15,13 +15,15 @@ If you want to show just one tab of information the additional header will not b
 Additional documentation on how columns can be customized can be found https://www.ag-grid.com/javascript-grid-column-definitions/ .
 
 ## Consumer classes
-If you would like to define a column as a number field and have the right alignment you can use the class columnList__number in your column definition.
+
+If you would like to define a column as a number field and have the right alignment you can use the class columnList\_\_number in your column definition.
 
 ```
   .columnList__number {
     text-align: right;
   }
 ```
+
 ```
   const columns = [
     {
@@ -31,7 +33,68 @@ If you would like to define a column as a number field and have the right alignm
     }
   ]
 ```
-  If you would like to define a column as a hyperlink field and have the you can use the class columnList__hyperlink in your column definition.
+
+## Column filters
+
+Setting an initial column filter to be used on-load of the component can also be done. The status initial filter uses a user defined type of filter called valid. The other one uses the default type of contains to match the string filter value.
+
+```
+const tabs = [
+  {
+    label: 'Account History',
+    value: 'accountHistory',
+    columns: columns,
+    rowData: accountHistoryRows,
+    initialFilter: {
+      status: {
+        type: 'valid',
+        values: ['InValid'],
+      },
+      user: {
+        type: 'contains',
+        filter: 'Alisha Pena',
+      }
+    },
+  },
+```
+
+Adding custom filters
+
+```
+const filterByAction = [
+  {
+    displayKey: 'filterBy',
+    displayName: 'Filter by… (All)',
+    test: function (filterValue, cellValue) {
+      return cellValue != null;
+    },
+    hideFilterInput: true,
+  },
+  {
+    displayKey: 'valid',
+    displayName: 'Valid',
+    test: function (filterValue, cellValue) {
+      return cellValue != null && cellValue === 'valid';
+    },
+    hideFilterInput: true,
+  },
+];
+const columns = [
+  {
+    headerName: 'Status',
+    field: 'status',
+    filterParams: {
+      filterOptions: filterByAction,
+      defaultOption: 'valid',
+      suppressAndOrCondition: true,
+    },
+  },
+];
+```
+
+[Ag-Grid filter API](https://www.ag-grid.com/javascript-grid-filter-api/)
+
+## If you would like to define a column as a hyperlink field and have the you can use the class columnList\_\_hyperlink in your column definition.
 
 ```
   .columnList__hyperlink {
@@ -40,6 +103,7 @@ If you would like to define a column as a number field and have the right alignm
     cursor: pointer;
   }
 ```
+
 ```
   const columns = [
     {
@@ -49,7 +113,7 @@ If you would like to define a column as a number field and have the right alignm
       cellClass: 'columnList__hyperlink',
     }
   ]
-  ```
+```
 
 ### Sample
 
