@@ -7,7 +7,13 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import markdown from '../notes/SQForm.md';
 
-import {SQForm, SQFormTextField, SQFormButton, SQFormDropdown} from '../src';
+import {
+  SQForm,
+  SQFormTextField,
+  SQFormButton,
+  SQFormCheckbox,
+  SQFormDropdown,
+} from '../src';
 
 export default {
   title: 'SQForm',
@@ -23,6 +29,12 @@ const MOCK_FORM_ENTITY = {
   city: '',
   age: '',
   state: '',
+};
+const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
+  ...MOCK_FORM_ENTITY,
+  hobby: '',
+  cool: false,
+  lame: false,
 };
 
 const MOCK_STATE_OPTIONS = [
@@ -40,17 +52,21 @@ export const basicForm = () => {
   return (
     <Card raised style={{padding: 16}}>
       <SQForm
-        initialValues={MOCK_FORM_ENTITY}
+        initialValues={MOCK_FORM_WITH_BOOLEANS_ENTITY}
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
         <SQFormTextField name="firstName" label="First name" size={4} />
         <SQFormTextField name="lastName" label="Last name" size={4} />
-        <SQFormTextField isDisabled={true} name="city" label="City" size={4} />
-        <SQFormTextField name="age" label="Age" size={3} />
-        <SQFormDropdown name="state" label="State" displayEmpty={true} size={9}>
+        <SQFormTextField name="city" label="City" size={4} />
+        <SQFormTextField name="state" label="State" size={2} />
+        <SQFormTextField name="hobby" label="Hobby" size={8} />
+        <SQFormTextField name="age" label="Age" size={2} />
+        <SQFormDropdown name="state" label="State" displayEmpty={true} size={4}>
           {MOCK_STATE_OPTIONS}
         </SQFormDropdown>
+        <SQFormCheckbox name="cool" label="Cool" />
+        <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
