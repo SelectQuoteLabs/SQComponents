@@ -7,9 +7,12 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import markdown from '../notes/SQForm.md';
 
-import SQForm from '../src/components/SQForm';
-import SQFormTextField from '../src/components/SQForm/SQFormTextField';
-import SQFormButton from '../src/components/SQForm/SQFormButton';
+import {
+  SQForm,
+  SQFormTextField,
+  SQFormButton,
+  SQFormAutocomplete,
+} from '../src';
 
 export default {
   title: 'SQForm',
@@ -19,12 +22,20 @@ export default {
   },
 };
 
+const MOCK_AUTOCOMPLETE_OPTIONS = Array.from(new Array(10000))
+  .map(() => {
+    const randomValue = random(10 + Math.ceil(Math.random() * 20));
+    return {label: randomValue, value: randomValue};
+  })
+  .sort((a, b) => a.label.toUpperCase().localeCompare(b.label.toUpperCase()));
+
 const MOCK_FORM_ENTITY = {
   firstName: '',
   lastName: '',
   city: '',
   age: '',
   state: '',
+  tenThousandOptions: '',
 };
 
 const handleSubmit = (values, actions) => {
@@ -45,6 +56,14 @@ export const basicForm = () => {
         <SQFormTextField name="city" label="City" size={3} />
         <SQFormTextField name="age" label="Age" size={1} />
         <SQFormTextField name="state" label="State" size={2} />
+        <SQFormAutocomplete
+          name="tenThousandOptions"
+          label="Ten Thousand Options"
+          size={6}
+        >
+          {MOCK_AUTOCOMPLETE_OPTIONS}
+        </SQFormAutocomplete>
+        <SQFormTextField name="test" label="test" size={6} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
@@ -67,6 +86,7 @@ export const formWithValidation = () => {
     state: Yup.string()
       .min(1, 'Invalid State abbreviation')
       .max(2, 'Invalid State abbreviation'),
+    tenThousandOptions: Yup.string().required('Required'),
   };
 
   return (
@@ -88,7 +108,15 @@ export const formWithValidation = () => {
           size={6}
           isRequired={true}
         />
-        <SQFormTextField name="city" label="City" size={8} />
+        <SQFormTextField name="city" label="City" size={3} />
+        <SQFormAutocomplete
+          name="tenThousandOptions"
+          label="Ten Thousand Options"
+          size={6}
+          isRequired={true}
+        >
+          {MOCK_AUTOCOMPLETE_OPTIONS}
+        </SQFormAutocomplete>
         <SQFormTextField name="age" label="Age" size={2} isRequired={true} />
         <SQFormTextField name="state" label="State" size={2} />
         <Grid item sm={12}>
@@ -196,3 +224,15 @@ export const basicFormWithCustomOnChange = () => {
     </Card>
   );
 };
+
+function random(length) {
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+
+  for (let i = 0; i < length; i += 1) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  return result;
+}

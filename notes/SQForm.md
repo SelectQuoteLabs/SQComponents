@@ -28,6 +28,10 @@ If you're still reading this, I commend you. The docs say all of this by the way
 
 The `helperText` prop defaults to an empty space it is always present in the DOM. This prevents UI bounce when the placeholder text appears, changing the calculated height of the input.
 
+**SQFormAutocomplete**
+
+As shown in the component prop-types, the `children` of this component must be an `Array` of objects. Each object must have the shape of `{label: String, value: String | Number}`.
+
 ## Library Documentation
 
 - [Formik](https://jaredpalmer.com/formik/docs/overview)
