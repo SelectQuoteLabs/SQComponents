@@ -1,3 +1,14 @@
+## [1.16.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.15.0...v1.16.0) (2020-03-25)
+
+
+### Features
+
+* added initial filtering option to the columnList grid ([2adc1f1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2adc1f16b43943117972826c0fda10d26455e9e9))
+* added more doc, and more examples for filters ([1f15899](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1f15899eb292ffbbab6e15fa8884f0725fcb3e2e))
+* reverting autofix text for class names ([80f9c5a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/80f9c5a12e7fd2d23b1e2bf5e36de0f7584907a7))
+* updated grammar in documentation ([bf16ff9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bf16ff996dcde61e06a45a38011cb9038df8343d))
+* updated the md doc for columnList to remove errs ([28e3c5d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/28e3c5d4f900ae9ce61c6fb54eeed4c6920d263b))
+
 ## [1.15.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.14.0...v1.15.0) (2020-03-20)
 
 
