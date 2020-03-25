@@ -63,6 +63,11 @@ function ColumnList({
   const onGridReady = params => {
     const gridApi = params.api;
     gridApi.sizeColumnsToFit();
+
+    if (selectedTab.initialFilter) {
+      gridApi.setFilterModel(selectedTab.initialFilter);
+      gridApi.onFilterChanged();
+    }
   };
 
   return (

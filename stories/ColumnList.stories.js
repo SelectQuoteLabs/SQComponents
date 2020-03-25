@@ -2,7 +2,7 @@ import React from 'react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/ColumnList.md';
-import ColumnList from '../src/components/ColumnList/ColumnList';
+import {ColumnList} from '../src';
 import {accountHistoryLarge} from './utils/accountHistoryLarge';
 
 export default {
@@ -23,12 +23,36 @@ const onCellClicked = params => {
   }
 };
 
+const filterByAction = [
+  {
+    displayKey: 'filterBy',
+    displayName: 'Filter by… (All)',
+    test: function(filterValue, cellValue) {
+      return cellValue != null;
+    },
+    hideFilterInput: true,
+  },
+  {
+    displayKey: 'valid',
+    displayName: 'Valid',
+    test: function(filterValue, cellValue) {
+      return cellValue != null && cellValue === 'valid';
+    },
+    hideFilterInput: true,
+  },
+];
+
 const columns = [
   {
     headerName: 'Status',
     field: 'status',
     onCellClicked: onCellClicked,
     cellClass: 'columnList__hyperlink',
+    filterParams: {
+      filterOptions: filterByAction,
+      defaultOption: 'valid',
+      suppressAndOrCondition: true,
+    },
   },
   {headerName: 'Comment', field: 'comment', width: 400},
   {headerName: 'User', field: 'user'},
@@ -202,6 +226,12 @@ const tabs = [
     value: 'accountHistory',
     columns: columns,
     rowData: accountHistoryRows,
+    initialFilter: {
+      status: {
+        type: 'valid',
+        values: ['Valid'],
+      },
+    },
   },
   {
     label: 'Agent PV',
