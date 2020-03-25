@@ -34,7 +34,7 @@ If you would like to define a column as a number field and have the right alignm
   ]
 ```
 
-If you would like to define a column as a hyperlink field and have the you can use the class columnList__hyperlink in your column definition.
+To define a column as a hyperlink styled field you can use the class columnList__hyperlink in your column definition.
 
 ```
   .columnList__hyperlink {
