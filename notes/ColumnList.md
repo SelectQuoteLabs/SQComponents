@@ -34,6 +34,27 @@ If you would like to define a column as a number field and have the right alignm
   ]
 ```
 
+If you would like to define a column as a hyperlink field and have the you can use the class columnList\_\_hyperlink in your column definition.
+
+```
+  .columnList__hyperlink {
+    color: var(--color-teal);
+    font-size: 12px;
+    cursor: pointer;
+  }
+```
+
+```
+  const columns = [
+    {
+      headerName: 'Status',
+      field: 'status',
+      onCellClicked: onCellClicked,
+      cellClass: 'columnList__hyperlink',
+    }
+  ]
+```
+
 ## Column filters
 
 Setting an initial column filter to be used on-load of the component can also be done. The status initial filter uses a user defined type of filter called valid. The other one uses the default type of contains to match the string filter value.
@@ -93,27 +114,6 @@ const columns = [
 ```
 
 [Ag-Grid filter API](https://www.ag-grid.com/javascript-grid-filter-api/)
-
-## If you would like to define a column as a hyperlink field and have the you can use the class columnList\_\_hyperlink in your column definition.
-
-```
-  .columnList__hyperlink {
-    color: var(--color-teal);
-    font-size: 12px;
-    cursor: pointer;
-  }
-```
-
-```
-  const columns = [
-    {
-      headerName: 'Status',
-      field: 'status',
-      onCellClicked: onCellClicked,
-      cellClass: 'columnList__hyperlink',
-    }
-  ]
-```
 
 ### Sample
 
