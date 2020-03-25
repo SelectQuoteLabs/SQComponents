@@ -7,7 +7,13 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import markdown from '../notes/SQForm.md';
 
-import {SQForm, SQFormTextField, SQFormButton, SQFormCheckbox} from '../src';
+import {
+  SQForm,
+  SQFormTextField,
+  SQFormButton,
+  SQFormCheckbox,
+  SQFormDropdown,
+} from '../src';
 
 export default {
   title: 'SQForm',
@@ -31,6 +37,12 @@ const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
   lame: false,
 };
 
+const MOCK_STATE_OPTIONS = [
+  {label: 'Arizona', value: 'AZ'},
+  {label: 'Kansas', value: 'KS'},
+  {label: 'Missouri', value: 'MO'},
+];
+
 const handleSubmit = (values, actions) => {
   window.alert(JSON.stringify(values, null, 2));
   actions.setSubmitting(false);
@@ -44,12 +56,15 @@ export const basicForm = () => {
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
-        <SQFormTextField name="firstName" label="First name" size={3} />
-        <SQFormTextField name="lastName" label="Last name" size={3} />
-        <SQFormTextField name="city" label="City" size={3} />
-        <SQFormTextField name="age" label="Age" size={1} />
+        <SQFormTextField name="firstName" label="First name" size={4} />
+        <SQFormTextField name="lastName" label="Last name" size={4} />
+        <SQFormTextField name="city" label="City" size={4} />
         <SQFormTextField name="state" label="State" size={2} />
-        <SQFormTextField name="hobby" label="Hobby" size={4} />
+        <SQFormTextField name="hobby" label="Hobby" size={8} />
+        <SQFormTextField name="age" label="Age" size={2} />
+        <SQFormDropdown name="state" label="State" displayEmpty={true} size={4}>
+          {MOCK_STATE_OPTIONS}
+        </SQFormDropdown>
         <SQFormCheckbox name="cool" label="Cool" />
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
@@ -71,9 +86,7 @@ export const formWithValidation = () => {
       .min(1, 'Invalid age')
       .max(3, 'Invalid age')
       .required('Required'),
-    state: Yup.string()
-      .min(1, 'Invalid State abbreviation')
-      .max(2, 'Invalid State abbreviation'),
+    state: Yup.string().required('Required'),
   };
 
   return (
@@ -95,9 +108,17 @@ export const formWithValidation = () => {
           size={6}
           isRequired={true}
         />
-        <SQFormTextField name="city" label="City" size={8} />
+        <SQFormTextField name="city" label="City" size={5} />
+        <SQFormDropdown
+          name="state"
+          label="State"
+          isRequired={true}
+          displayEmpty={true}
+          size={5}
+        >
+          {MOCK_STATE_OPTIONS}
+        </SQFormDropdown>
         <SQFormTextField name="age" label="Age" size={2} isRequired={true} />
-        <SQFormTextField name="state" label="State" size={2} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
@@ -140,12 +161,15 @@ export const basicFormWithCustomOnBlur = () => {
           size={2}
           onBlur={action('Blur event!')}
         />
-        <SQFormTextField
+        <SQFormDropdown
           name="state"
           label="State"
+          displayEmpty={true}
           size={2}
           onBlur={action('Blur event!')}
-        />
+        >
+          {MOCK_STATE_OPTIONS}
+        </SQFormDropdown>
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
@@ -188,12 +212,15 @@ export const basicFormWithCustomOnChange = () => {
           size={2}
           onChange={action('Change event!')}
         />
-        <SQFormTextField
+        <SQFormDropdown
           name="state"
           label="State"
+          displayEmpty={true}
           size={2}
           onChange={action('Change event!')}
-        />
+        >
+          {MOCK_STATE_OPTIONS}
+        </SQFormDropdown>
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>

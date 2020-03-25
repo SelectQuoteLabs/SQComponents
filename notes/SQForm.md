@@ -32,6 +32,12 @@ Use like any other checkbox. The value is provided from SQForm like the rest of 
 
 The `helperText` prop defaults to an empty space it is always present in the DOM. This prevents UI bounce when the placeholder text appears, changing the calculated height of the input.
 
+**SQFormTextField**
+
+As shown in the component prop-types, the `children` of this component must be an `Array` of objects. Each object must have the shape of `{label: String, value: String | Number}`.
+
+If you want an empty option in the dropdown list options, set the `displayEmpty` prop to `true`.
+
 ## Library Documentation
 
 - [Formik](https://jaredpalmer.com/formik/docs/overview)

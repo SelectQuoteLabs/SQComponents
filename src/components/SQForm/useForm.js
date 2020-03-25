@@ -54,7 +54,6 @@ export function useForm({name, isRequired, onBlur, onChange}) {
       return (
         <>
           <WarningIcon color="error" style={SPACE_STYLE} />
-
           {errorMessage}
         </>
       );
