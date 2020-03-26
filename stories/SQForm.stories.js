@@ -134,7 +134,6 @@ export const formWithValidation = () => {
         >
           {MOCK_AUTOCOMPLETE_OPTIONS}
         </SQFormAutocomplete>
-        <SQFormTextField name="city" label="City" size={5} />
         <SQFormDropdown
           name="state"
           label="State"
