@@ -1,3 +1,35 @@
+## [1.16.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.15.0...v1.16.0) (2020-03-25)
+
+### Features
+
+- added initial filtering option to the columnList grid ([2adc1f1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2adc1f16b43943117972826c0fda10d26455e9e9))
+- added more doc, and more examples for filters ([1f15899](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1f15899eb292ffbbab6e15fa8884f0725fcb3e2e))
+- reverting autofix text for class names ([80f9c5a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/80f9c5a12e7fd2d23b1e2bf5e36de0f7584907a7))
+- updated grammar in documentation ([bf16ff9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bf16ff996dcde61e06a45a38011cb9038df8343d))
+- updated the md doc for columnList to remove errs ([28e3c5d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/28e3c5d4f900ae9ce61c6fb54eeed4c6920d263b))
+
+## [1.15.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.14.0...v1.15.0) (2020-03-20)
+
+### Features
+
+- added emojis to the card list component by color ([69212f3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/69212f3845e19af362e89f79b64b5ea62d281a90))
+- added icons for each color in the cardlist ([4fd059f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4fd059ff4b38c93e524ce5db53713eb40faa0fbb))
+- simplified imports ([dbd45e5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbd45e5899ee4c260bd4f342bc37ce32fc0a5985))
+
+## [1.14.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.13.0...v1.14.0) (2020-03-19)
+
+### Features
+
+- column List oncellClick feature, story fixin ([b96a4a5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b96a4a5552b0acd14574002cb0ed85437214a2a3))
+- fixed font family for all text fields ([1054669](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/10546692718ca18b757a5d86b6cbccdb9d33bc83))
+- moved agrid css to it's own file and made new overrides ([27daf2e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/27daf2e0ccad7dd4b6f16e7d70d7677bb5a28bee))
+- moved css and removed proptype ([470077f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/470077f11ff713240a01b6903771faa0f27799c2))
+- removed unneeded css in a class ([648aa8c](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/648aa8c94a3ea4d4134bbcd0f5ae74a38ac7f630))
+- updated styling per UX review ([4280610](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4280610bdddba0fba7f59fb9643f5b705662bb47))
+- updated the column list to have a dynamiccaly shown header ([dbefde5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbefde5daad1c2f0eb9cc238325a54d7eac5c7cd))
+- updated the documentation and prettier ([d9b55ba](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d9b55bac04d3006df916b6f38fb2950ae8e50d39))
+- updated typos, documentation, data type number for example ([05b87c9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/05b87c952426cfcaf8b8a1403cff62bc2361c696))
+
 ## [1.13.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.1...v1.13.0) (2020-03-18)
 
 ### Features
