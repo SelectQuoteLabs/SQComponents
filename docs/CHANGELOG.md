@@ -1,3 +1,22 @@
+## [1.17.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.16.0...v1.17.0) (2020-03-26)
+
+
+### Features
+
+* **sqform:** first iteration at completing the SQForm and SQTextField ([44a2cbb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/44a2cbb30f4b97185af016a3422cf3ba95a34502))
+* **sqform:** initial progress for SQForm, field, and button ([bf9a016](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bf9a01682cadd9337a08b54783d5ca1d821d4a1a))
+* **sqformautocomplete.js:** built initial SQFormAutocomplete component ([53207ee](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/53207ee8e6a3c741ebcb9a827cb937c2f2908f9c))
+* **sqformcheckbox:** finished initial implementation of checkbox ([95caa69](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/95caa69844f74681362805e6c8fcc3ffc120b12e))
+* **sqformcheckbox.js:** saving initial progress of SQFormCheckbox ([bca75de](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bca75de2e1eb1fe1f80d88905221b81d187f5377))
+* **sqformdropdown.js:** initial dropdown implementation ([fa0a510](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fa0a51099dd8aecbbea1859782f993892df2a4ca))
+
+
+### Bug Fixes
+
+* adds disabled prop to textfield & dropdown ([de35079](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/de3507904fa34adec16352293354c8d56d48cb5c))
+* adjust return value of useForm custom hook ([faa23ee](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/faa23ee623bbacdf692f3ef750cbe6b196e2c3e8))
+* pR feedback for button props, rename SQFormTextField, and moar docs ([1afadbb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1afadbb5ae6c40b5c402eb015fbcce2bdfa59dc5))
+
 ## [1.16.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.15.0...v1.16.0) (2020-03-25)
 
 ### Features
