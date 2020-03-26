@@ -1,103 +1,91 @@
 ## [1.16.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.15.0...v1.16.0) (2020-03-25)
 
-
 ### Features
 
-* added initial filtering option to the columnList grid ([2adc1f1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2adc1f16b43943117972826c0fda10d26455e9e9))
-* added more doc, and more examples for filters ([1f15899](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1f15899eb292ffbbab6e15fa8884f0725fcb3e2e))
-* reverting autofix text for class names ([80f9c5a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/80f9c5a12e7fd2d23b1e2bf5e36de0f7584907a7))
-* updated grammar in documentation ([bf16ff9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bf16ff996dcde61e06a45a38011cb9038df8343d))
-* updated the md doc for columnList to remove errs ([28e3c5d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/28e3c5d4f900ae9ce61c6fb54eeed4c6920d263b))
+- added initial filtering option to the columnList grid ([2adc1f1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2adc1f16b43943117972826c0fda10d26455e9e9))
+- added more doc, and more examples for filters ([1f15899](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1f15899eb292ffbbab6e15fa8884f0725fcb3e2e))
+- reverting autofix text for class names ([80f9c5a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/80f9c5a12e7fd2d23b1e2bf5e36de0f7584907a7))
+- updated grammar in documentation ([bf16ff9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bf16ff996dcde61e06a45a38011cb9038df8343d))
+- updated the md doc for columnList to remove errs ([28e3c5d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/28e3c5d4f900ae9ce61c6fb54eeed4c6920d263b))
 
 ## [1.15.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.14.0...v1.15.0) (2020-03-20)
 
-
 ### Features
 
-* added emojis to the card list component by color ([69212f3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/69212f3845e19af362e89f79b64b5ea62d281a90))
-* added icons for each color in the cardlist ([4fd059f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4fd059ff4b38c93e524ce5db53713eb40faa0fbb))
-* simplified imports ([dbd45e5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbd45e5899ee4c260bd4f342bc37ce32fc0a5985))
+- added emojis to the card list component by color ([69212f3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/69212f3845e19af362e89f79b64b5ea62d281a90))
+- added icons for each color in the cardlist ([4fd059f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4fd059ff4b38c93e524ce5db53713eb40faa0fbb))
+- simplified imports ([dbd45e5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbd45e5899ee4c260bd4f342bc37ce32fc0a5985))
 
 ## [1.14.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.13.0...v1.14.0) (2020-03-19)
 
-
 ### Features
 
-* column List oncellClick feature, story fixin ([b96a4a5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b96a4a5552b0acd14574002cb0ed85437214a2a3))
-* fixed font family for all text fields ([1054669](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/10546692718ca18b757a5d86b6cbccdb9d33bc83))
-* moved agrid css to it's own file and made new overrides ([27daf2e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/27daf2e0ccad7dd4b6f16e7d70d7677bb5a28bee))
-* moved css and removed proptype ([470077f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/470077f11ff713240a01b6903771faa0f27799c2))
-* removed unneeded css in a class ([648aa8c](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/648aa8c94a3ea4d4134bbcd0f5ae74a38ac7f630))
-* updated styling per UX review ([4280610](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4280610bdddba0fba7f59fb9643f5b705662bb47))
-* updated the column list to have a dynamiccaly shown header ([dbefde5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbefde5daad1c2f0eb9cc238325a54d7eac5c7cd))
-* updated the documentation and prettier ([d9b55ba](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d9b55bac04d3006df916b6f38fb2950ae8e50d39))
-* updated typos, documentation, data type number for example ([05b87c9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/05b87c952426cfcaf8b8a1403cff62bc2361c696))
+- column List oncellClick feature, story fixin ([b96a4a5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b96a4a5552b0acd14574002cb0ed85437214a2a3))
+- fixed font family for all text fields ([1054669](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/10546692718ca18b757a5d86b6cbccdb9d33bc83))
+- moved agrid css to it's own file and made new overrides ([27daf2e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/27daf2e0ccad7dd4b6f16e7d70d7677bb5a28bee))
+- moved css and removed proptype ([470077f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/470077f11ff713240a01b6903771faa0f27799c2))
+- removed unneeded css in a class ([648aa8c](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/648aa8c94a3ea4d4134bbcd0f5ae74a38ac7f630))
+- updated styling per UX review ([4280610](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4280610bdddba0fba7f59fb9643f5b705662bb47))
+- updated the column list to have a dynamiccaly shown header ([dbefde5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbefde5daad1c2f0eb9cc238325a54d7eac5c7cd))
+- updated the documentation and prettier ([d9b55ba](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d9b55bac04d3006df916b6f38fb2950ae8e50d39))
+- updated typos, documentation, data type number for example ([05b87c9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/05b87c952426cfcaf8b8a1403cff62bc2361c696))
 
 ## [1.13.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.1...v1.13.0) (2020-03-18)
 
-
 ### Features
 
-* **section, sectionheader, sectionbody:** implement Section components ([4ab8dc8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4ab8dc8f59ddbf5c9c1798d974e8e10deaf6c852))
+- **section, sectionheader, sectionbody:** implement Section components ([4ab8dc8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4ab8dc8f59ddbf5c9c1798d974e8e10deaf6c852))
 
 ### [1.12.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.12.0...v1.12.1) (2020-03-13)
 
-
 ### Bug Fixes
 
-* **dialogform:** doesnt render save button if no onSave prop provided ([5401e70](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5401e70c77208410af122ff7acec02e5d7dd9700))
+- **dialogform:** doesnt render save button if no onSave prop provided ([5401e70](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5401e70c77208410af122ff7acec02e5d7dd9700))
 
 ## [1.12.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.11.0...v1.12.0) (2020-03-12)
 
-
 ### Features
 
-* **weeklyschedule:** forked the weekly schedule npm package and cleanup ([e00fb25](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e00fb259f5211d292d05b38372af68fedb3a4afb))
+- **weeklyschedule:** forked the weekly schedule npm package and cleanup ([e00fb25](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e00fb259f5211d292d05b38372af68fedb3a4afb))
 
 ## [1.11.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.2...v1.11.0) (2020-03-11)
 
-
 ### Features
 
-* a new Card List component WIP ([df91a23](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/df91a23507a39746613e0cd15f0e2074007d944b))
-* css styliing, expand icon rotating, ([ce845a7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ce845a7afd106122c046ffb1f32711c9b60d45ec))
-* updated propTypes for object sizes and doc ([d700808](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d700808441f0b3898e5c1f5766ca952617d344c2))
-* updated the docs and expanding props ([9c3a0f6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9c3a0f6a3fa6acaec9b1b24d00cc4effa7215119))
-* updated to use the SelectChip, and options ([2977f9f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2977f9fae555d05004e2e7e8c2f5427f8064c24b))
+- a new Card List component WIP ([df91a23](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/df91a23507a39746613e0cd15f0e2074007d944b))
+- css styliing, expand icon rotating, ([ce845a7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ce845a7afd106122c046ffb1f32711c9b60d45ec))
+- updated propTypes for object sizes and doc ([d700808](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d700808441f0b3898e5c1f5766ca952617d344c2))
+- updated the docs and expanding props ([9c3a0f6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9c3a0f6a3fa6acaec9b1b24d00cc4effa7215119))
+- updated to use the SelectChip, and options ([2977f9f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2977f9fae555d05004e2e7e8c2f5427f8064c24b))
 
 ### [1.10.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.1...v1.10.2) (2020-03-10)
 
-
 ### Bug Fixes
 
-* **weekly schedule:** weekly schedule now respects schedule prop ([66afbb1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/66afbb1ed6e25472292fae075e3f8018dcf93002))
+- **weekly schedule:** weekly schedule now respects schedule prop ([66afbb1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/66afbb1ed6e25472292fae075e3f8018dcf93002))
 
 ### [1.10.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.10.0...v1.10.1) (2020-03-09)
 
-
 ### Bug Fixes
 
-* expose WeeklySchedule to consumers ([f0249ce](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f0249ced9cea4361f69a8631238ced33dab5f60e))
+- expose WeeklySchedule to consumers ([f0249ce](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f0249ced9cea4361f69a8631238ced33dab5f60e))
 
 ## [1.10.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.9.0...v1.10.0) (2020-03-09)
 
-
 ### Features
 
-* **weeklyschedule:** saving progress on weekly schedule ([3fdf327](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3fdf327e4da6f6dc5b6270866b3ef2b145cc29bb))
-
+- **weeklyschedule:** saving progress on weekly schedule ([3fdf327](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3fdf327e4da6f6dc5b6270866b3ef2b145cc29bb))
 
 ### Bug Fixes
 
-* follow bem for CSS ([852326f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/852326fc7004360b6d9a6a052445f9006012d630))
-* **weekly schedule:** reverted some styling to defaults ([fec8b54](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fec8b5445e1ed1f9e972e428169c91ea5aea4feb))
+- follow bem for CSS ([852326f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/852326fc7004360b6d9a6a052445f9006012d630))
+- **weekly schedule:** reverted some styling to defaults ([fec8b54](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fec8b5445e1ed1f9e972e428169c91ea5aea4feb))
 
 ## [1.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.6...v1.9.0) (2020-03-09)
 
-
 ### Features
 
-* **tooltip:** implement base level Tooltip component ([d8eb7d6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d8eb7d63837880391ea788bcb5604659ef5a3101))
+- **tooltip:** implement base level Tooltip component ([d8eb7d6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d8eb7d63837880391ea788bcb5604659ef5a3101))
 
 ### [1.8.6](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.8.5...v1.8.6) (2020-03-05)
 

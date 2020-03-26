@@ -16,7 +16,7 @@ Additional documentation on how columns can be customized can be found https://w
 
 ## Consumer classes
 
-If you would like to define a column as a number field and have the right alignment you can use the class columnList__number in your column definition.
+If you would like to define a column as a number field and have the right alignment you can use the class columnList\_\_number in your column definition.
 
 ```
   .columnList__number {
@@ -34,7 +34,7 @@ If you would like to define a column as a number field and have the right alignm
   ]
 ```
 
-To define a column as a hyperlink styled field you can use the class columnList__hyperlink in your column definition.
+To define a column as a hyperlink styled field you can use the class columnList\_\_hyperlink in your column definition.
 
 ```
   .columnList__hyperlink {
