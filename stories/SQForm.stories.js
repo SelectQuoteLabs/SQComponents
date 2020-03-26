@@ -11,6 +11,7 @@ import {
   SQForm,
   SQFormTextField,
   SQFormButton,
+  SQFormAutocomplete,
   SQFormCheckbox,
   SQFormDropdown,
 } from '../src';
@@ -23,12 +24,20 @@ export default {
   },
 };
 
+const MOCK_AUTOCOMPLETE_OPTIONS = Array.from(new Array(10000))
+  .map(() => {
+    const randomValue = random(10 + Math.ceil(Math.random() * 20));
+    return {label: randomValue, value: randomValue};
+  })
+  .sort((a, b) => a.label.toUpperCase().localeCompare(b.label.toUpperCase()));
+
 const MOCK_FORM_ENTITY = {
   firstName: '',
   lastName: '',
   city: '',
   age: '',
   state: '',
+  tenThousandOptions: '',
 };
 const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
   ...MOCK_FORM_ENTITY,
@@ -60,7 +69,14 @@ export const basicForm = () => {
         <SQFormTextField name="lastName" label="Last name" size={4} />
         <SQFormTextField name="city" label="City" size={4} />
         <SQFormTextField name="state" label="State" size={2} />
-        <SQFormTextField name="hobby" label="Hobby" size={8} />
+        <SQFormAutocomplete
+          name="tenThousandOptions"
+          label="Ten Thousand Options"
+          size={6}
+        >
+          {MOCK_AUTOCOMPLETE_OPTIONS}
+        </SQFormAutocomplete>
+        <SQFormTextField name="hobby" label="Hobby" size={4} />
         <SQFormTextField name="age" label="Age" size={2} />
         <SQFormDropdown name="state" label="State" displayEmpty={true} size={4}>
           {MOCK_STATE_OPTIONS}
@@ -87,6 +103,7 @@ export const formWithValidation = () => {
       .max(3, 'Invalid age')
       .required('Required'),
     state: Yup.string().required('Required'),
+    tenThousandOptions: Yup.string().required('Required'),
   };
 
   return (
@@ -108,7 +125,15 @@ export const formWithValidation = () => {
           size={6}
           isRequired={true}
         />
-        <SQFormTextField name="city" label="City" size={5} />
+        <SQFormTextField name="city" label="City" size={3} />
+        <SQFormAutocomplete
+          name="tenThousandOptions"
+          label="Ten Thousand Options"
+          size={6}
+          isRequired={true}
+        >
+          {MOCK_AUTOCOMPLETE_OPTIONS}
+        </SQFormAutocomplete>
         <SQFormDropdown
           name="state"
           label="State"
@@ -230,3 +255,15 @@ export const basicFormWithCustomOnChange = () => {
     </Card>
   );
 };
+
+function random(length) {
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+
+  for (let i = 0; i < length; i += 1) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  return result;
+}

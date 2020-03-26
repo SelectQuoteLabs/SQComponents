@@ -20,6 +20,7 @@ export {default as Section} from './components/Section';
 export {default as SectionBody} from './components/SectionBody';
 export {default as SectionHeader} from './components/SectionHeader';
 export {default as SQForm} from './components/SQForm';
+export {default as SQFormAutocomplete} from './components/SQForm/SQFormAutocomplete';
 export {default as SQFormCheckbox} from './components/SQForm/SQFormCheckbox';
 export {default as SQFormTextField} from './components/SQForm/SQFormTextField';
 export {default as SQFormDropdown} from './components/SQForm/SQFormDropdown';
