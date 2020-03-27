@@ -1,3 +1,16 @@
+## [1.18.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.17.0...v1.18.0) (2020-03-27)
+
+
+### Features
+
+* reverted tab length check ([5a9bf7f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5a9bf7f4ec92aa227010cd6d45698d014e98766f))
+* update the styling of the header ([d141be2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d141be2b1b704889ecfcc6967e3ccc0f79c43cb1))
+
+
+### Bug Fixes
+
+* updated the cardlist to accept multiple secondary rows and styling ([0961e69](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0961e69cde8f44cdbb439e12718f99d4338f6b92))
+
 ## [1.17.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.16.0...v1.17.0) (2020-03-26)
 
 
