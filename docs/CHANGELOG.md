@@ -1,3 +1,10 @@
+### [1.18.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.0...v1.18.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* migrates RoundedButton, CardList, & Dialogs to Typography theme ([383f03a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/383f03a3717bdccdb16ecc90245de3c76a362d15))
+
 ## [1.18.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.17.0...v1.18.0) (2020-03-27)
 
 ### Features
