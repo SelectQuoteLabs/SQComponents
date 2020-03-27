@@ -126,7 +126,6 @@ function CardList({
           </div>
         }
       />
-
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
           {selectedTab.listItems.map(listItem => (
@@ -145,25 +144,16 @@ function CardList({
                     primary={listItem.header}
                   />
                 )}
-                {listItem.body && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.body}
-                  />
-                )}
-                {listItem.footer && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.footer}
-                  />
-                )}
-                {!listItem.header &&
-                  !listItem.body &&
-                  !listItem.footer &&
-                  listItem}
+                {listItem.secondaryRows &&
+                  listItem.secondaryRows.map(row => (
+                    <ListItemText
+                      className="cardList__secondaryItem"
+                      disableTypography={true}
+                      secondary={row}
+                    />
+                  ))}
               </ListItem>
+              {!listItem.header && !listItem.secondaryRows && listItem}
             </SelectChip>
           ))}
         </CardContent>

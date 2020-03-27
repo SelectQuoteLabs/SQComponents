@@ -1,6 +1,6 @@
 # Card List
 
--- Card that renders a list of Select Chip components. Each Select Chip can accept any of the three `header`, `body`, and `footer` values in the list item. You can also pass a custom component to be rendered in the Select Chip instead of the 3 values outlined above
+-- Card that renders a list of Select Chip components. Each Select Chip can accept any of the three `header`, `secondaryRows`, and `color` values in the list item. You can also pass a custom component to be rendered in the Select Chip instead of the 3 values outlined above
 
 ## Design Notes
 
@@ -22,15 +22,16 @@ Sample with custom width and height:
   value: 'agentPV',
   listItems: {
     header: 'Acct ID : 6666666',
-    body: 'Name : Pete Monterroso',
-    footer: 'PV Rule : TA Follow Up 2'
+     secondaryRows: ['Name : Pete Monterroso',
+    'PV Rule : TA Follow Up 2']
   },
     label: 'Last Cases Worked',
     value: 'lastCasesWorked',
     listItems: {
       header: 'Acct ID : 123123',
-      body: 'Name : Pete Pilot',
-      footer: 'PV Rule : QA Follow Up 2'
+       secondaryRows: ['Name : Pete Pilot',
+      'PV Rule : QA Follow Up 2'],
+      color: 'Yellow'
   }
   }]}
 />
