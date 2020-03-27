@@ -45,15 +45,8 @@
 .cardList__items {
   display: block;
   padding: 0rem 0rem 0rem 0rem;
-  font-size: 14px;
-  font-weight: 600;
   overflow: auto;
   width: auto;
-}
-
-.cardList__secondaryItem {
-  font-size: 12px;
-  font-weight: 400;
 }
 
 .cardListItem__selectChip {

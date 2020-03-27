@@ -139,25 +139,10 @@ function CardList({
                 key={tabs.indexOf(selectedTab)}
               >
                 {listItem.color && getColorIcons(listItem.color)}
-                {listItem.header && (
-                  <ListItemText
-                    disableTypography={true}
-                    primary={listItem.header}
-                  />
-                )}
-                {listItem.body && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.body}
-                  />
-                )}
+                {listItem.header && <ListItemText primary={listItem.header} />}
+                {listItem.body && <ListItemText secondary={listItem.body} />}
                 {listItem.footer && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.footer}
-                  />
+                  <ListItemText secondary={listItem.footer} />
                 )}
                 {!listItem.header &&
                   !listItem.body &&

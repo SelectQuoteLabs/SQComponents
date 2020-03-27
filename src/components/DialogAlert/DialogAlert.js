@@ -4,6 +4,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import RoundedButton from '../RoundedButton';
 import './DialogAlert.css';
@@ -33,11 +35,11 @@ function DialogAlert({
 
   return (
     <Dialog open={isOpen} TransitionComponent={Transition}>
-      <DialogTitle disableTypography={true} className="dialogAlert__title">
-        {title}
+      <DialogTitle disableTypography={true}>
+        <Typography variant="h4">{title}</Typography>
       </DialogTitle>
-      <DialogContent dividers={true} className="dialogAlert__content">
-        {children}
+      <DialogContent dividers={true}>
+        <DialogContentText>{children}</DialogContentText>
       </DialogContent>
       <DialogActions className="dialogAlert__actions">
         {shouldRenderSecondaryButton && (
