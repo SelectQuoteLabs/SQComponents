@@ -1,13 +1,3 @@
-.dialogAlert__title {
-  color: var(--color-richBlack);
-  font-weight: var(--font-weight-semibold);
-  font-size: 1.75rem;
-}
-
-.dialogAlert__content {
-  font-size: 1.1667rem;
-}
-
 .dialogAlert__actions {
   display: flex;
   justify-content: space-between;

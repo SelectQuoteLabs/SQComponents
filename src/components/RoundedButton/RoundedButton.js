@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 
 import './RoundedButton.css';
@@ -42,7 +43,7 @@ function RoundedButton({
       endIcon={endIcon}
       type={type}
     >
-      {children}
+      <Typography variant="button">{children}</Typography>
     </Button>
   );
 }

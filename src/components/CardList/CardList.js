@@ -138,19 +138,10 @@ function CardList({
                 key={tabs.indexOf(selectedTab)}
               >
                 {listItem.color && getColorIcons(listItem.color)}
-                {listItem.header && (
-                  <ListItemText
-                    disableTypography={true}
-                    primary={listItem.header}
-                  />
-                )}
+                {listItem.header && <ListItemText primary={listItem.header} />}
                 {listItem.secondaryRows &&
                   listItem.secondaryRows.map(row => (
-                    <ListItemText
-                      className="cardList__secondaryItem"
-                      disableTypography={true}
-                      secondary={row}
-                    />
+                    <ListItemText secondary={row} />
                   ))}
               </ListItem>
               {!listItem.header && !listItem.secondaryRows && listItem}

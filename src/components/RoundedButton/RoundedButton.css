@@ -4,8 +4,6 @@
   line-height: 1rem;
   border: 0.1667rem solid var(--button-primary);
   border-radius: 2rem;
-  font-size: var(--button-font-size);
-  font-weight: var(--button-font-weight);
   box-shadow: none;
   text-transform: capitalize;
 }
