@@ -100,34 +100,32 @@ function CardList({
 
   return (
     <Card className="cardList" style={width}>
-      {tabs.length > 1 && selectedTab.label && (
-        <CardHeader
-          className="cardList__header"
-          action={
-            <div className="cardList__headerItems">
-              <CardPopoverMenu
-                tabs={tabs}
-                selectedTab={selectedTab}
-                selectTab={handleTabChange}
-                disabled={false}
-              />
-              {isExpandable && (
-                <IconButton
-                  className={
-                    (expandClasses.expand,
-                    {[expandClasses.expandOpen]: isExpanded})
-                  } //eslint-disable-line
-                  onClick={expandClick}
-                  aria-expanded={isExpanded}
-                  aria-label="open"
-                >
-                  <ExpandMoreIcon />
-                </IconButton>
-              )}
-            </div>
-          }
-        />
-      )}
+      <CardHeader
+        className="cardList__header"
+        action={
+          <div className="cardList__headerItems">
+            <CardPopoverMenu
+              tabs={tabs}
+              selectedTab={selectedTab}
+              selectTab={handleTabChange}
+              disabled={false}
+            />
+            {isExpandable && (
+              <IconButton
+                className={
+                  (expandClasses.expand,
+                  {[expandClasses.expandOpen]: isExpanded})
+                } //eslint-disable-line
+                onClick={expandClick}
+                aria-expanded={isExpanded}
+                aria-label="open"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            )}
+          </div>
+        }
+      />
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
           {selectedTab.listItems.map(listItem => (
