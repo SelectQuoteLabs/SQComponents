@@ -1,21 +1,12 @@
 .cardList__header {
-  padding-right: 0.15rem;
-  height: 5rem;
+  height: var(--card-header-height);
   border-bottom: 1px solid var(--color-lightGray);
 }
 
 .cardList__headerItems {
   display: flex;
   align-items: center;
-  margin-left: -0.5rem;
-  justify-content: flex-end;
-  height: auto;
-  padding: 0rem 1rem 0rem 0rem;
-}
-
-.cardList__headerItems > div {
-  height: 3.5rem;
-  padding-top: 0.5rem;
+  height: 2.5rem;
 }
 
 .cardList {
