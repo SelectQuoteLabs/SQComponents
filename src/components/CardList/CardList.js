@@ -100,33 +100,34 @@ function CardList({
 
   return (
     <Card className="cardList" style={width}>
-      <CardHeader
-        className="cardList__header"
-        action={
-          <div className="cardList__headerItems">
-            <CardPopoverMenu
-              tabs={tabs}
-              selectedTab={selectedTab}
-              selectTab={handleTabChange}
-              disabled={false}
-            />
-            {isExpandable && (
-              <IconButton
-                className={
-                  (expandClasses.expand,
-                  {[expandClasses.expandOpen]: isExpanded})
-                } //eslint-disable-line
-                onClick={expandClick}
-                aria-expanded={isExpanded}
-                aria-label="open"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            )}
-          </div>
-        }
-      />
-
+      {tabs.length > 1 && selectedTab.label && (
+        <CardHeader
+          className="cardList__header"
+          action={
+            <div className="cardList__headerItems">
+              <CardPopoverMenu
+                tabs={tabs}
+                selectedTab={selectedTab}
+                selectTab={handleTabChange}
+                disabled={false}
+              />
+              {isExpandable && (
+                <IconButton
+                  className={
+                    (expandClasses.expand,
+                    {[expandClasses.expandOpen]: isExpanded})
+                  } //eslint-disable-line
+                  onClick={expandClick}
+                  aria-expanded={isExpanded}
+                  aria-label="open"
+                >
+                  <ExpandMoreIcon />
+                </IconButton>
+              )}
+            </div>
+          }
+        />
+      )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
           {selectedTab.listItems.map(listItem => (
@@ -145,25 +146,16 @@ function CardList({
                     primary={listItem.header}
                   />
                 )}
-                {listItem.body && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.body}
-                  />
-                )}
-                {listItem.footer && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.footer}
-                  />
-                )}
-                {!listItem.header &&
-                  !listItem.body &&
-                  !listItem.footer &&
-                  listItem}
+                {listItem.secondaryRows &&
+                  listItem.secondaryRows.map(row => (
+                    <ListItemText
+                      className="cardList__secondaryItem"
+                      disableTypography={true}
+                      secondary={row}
+                    />
+                  ))}
               </ListItem>
+              {!listItem.header && !listItem.secondaryRows && listItem}
             </SelectChip>
           ))}
         </CardContent>
