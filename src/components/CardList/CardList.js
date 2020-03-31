@@ -83,12 +83,31 @@ function CardList({
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
-  const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
+
+  const initialSelectedTabState = {...tabs[0], index: tabs.indexOf(tabs[0])};
+  const selectedTabReducer = (state, action) => {
+    switch (action.type) {
+      case 'CHANGE_TAB':
+      case 'SYNC_TAB':
+        return {
+          ...state,
+          ...action.tab,
+          index: tabs.findIndex(tab => tab.value === action.tab.value),
+        };
+      default:
+        return state;
+    }
+  };
+
+  const [selectedTab, setSelectedTab] = React.useReducer(
+    selectedTabReducer,
+    initialSelectedTabState
+  );
 
   // Synchronize selectedTab with tabs
   React.useEffect(() => {
-    setSelectedTab(tabs[0]);
-  }, [tabs]);
+    setSelectedTab({type: 'SYNC_TAB', tab: tabs[selectedTab.index]});
+  }, [selectedTab.index, tabs]);
 
   const expandClasses = useStyles();
 
@@ -97,7 +116,10 @@ function CardList({
   };
 
   const handleTabChange = selectedValue => {
-    setSelectedTab(tabs.find(tab => tab.value === selectedValue));
+    setSelectedTab({
+      type: 'CHANGE_TAB',
+      tab: tabs.find(tab => tab.value === selectedValue),
+    });
   };
 
   const handleListItemClick = event => {
