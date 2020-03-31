@@ -84,6 +84,12 @@ function CardList({
     !isExpandable ? true : isInitiallyExpanded
   );
   const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
+
+  // Synchronize selectedTab with tabs
+  React.useEffect(() => {
+    setSelectedTab(tabs[0]);
+  }, [tabs]);
+
   const expandClasses = useStyles();
 
   const expandClick = () => {
