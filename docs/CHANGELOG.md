@@ -1,3 +1,11 @@
+### [1.18.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.1...v1.18.2) (2020-03-31)
+
+
+### Bug Fixes
+
+* **cardlist.js:** sync currently selected tab with tabs prop ([b845b4b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b845b4b48e04f45de82877877a98bd6193f1b205))
+* **cardlist.js:** syncs up selectedTab with current tabs prop ([9f540a9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9f540a941f9d9c6e17f946b46404f3972600d73f))
+
 ### [1.18.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.0...v1.18.1) (2020-03-27)
 
 
