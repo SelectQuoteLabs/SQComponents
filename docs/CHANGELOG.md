@@ -1,3 +1,10 @@
+## [1.19.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.3...v1.19.0) (2020-04-06)
+
+
+### Features
+
+* 🎸 Adds loading state to CardList ([fdda302](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fdda30232ca4d4ed21e1df7151ad442095eaabf0))
+
 ### [1.18.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.2...v1.18.3) (2020-04-06)
 
 
