@@ -173,3 +173,12 @@ export const CardListExampleWithoutStyle = () => (
     tabs={tabOptions}
   />
 );
+
+export const CardListExampleWithLoading = () => (
+  <CardList
+    onListItemClick={action(`Opening the acount`)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+    isExpandable={boolean('isExpandable', false)}
+    tabs={tabOptions.map(option => ({...option, isLoading: true}))}
+  />
+);
