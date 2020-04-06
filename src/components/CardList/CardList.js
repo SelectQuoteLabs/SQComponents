@@ -150,11 +150,11 @@ function CardList({
       />
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.listItems.map((listItem, i) => (
+          {selectedTab.listItems.map((listItem, listItemIndex) => (
             <SelectChip
               onClick={handleListItemClick}
               className="cardListItem__selectChip"
-              key={i}
+              key={listItemIndex}
             >
               <ListItem
                 className="cardList__items"
@@ -163,8 +163,8 @@ function CardList({
                 {listItem.color && getColorIcons(listItem.color)}
                 {listItem.header && <ListItemText primary={listItem.header} />}
                 {listItem.secondaryRows &&
-                  listItem.secondaryRows.map((row, j) => (
-                    <ListItemText key={`${i}_${j}`} secondary={row} />
+                  listItem.secondaryRows.map((row, secondaryListItemIndex) => (
+                    <ListItemText key={`${listItemIndex}_${secondaryListItemIndex}`} secondary={row} />
                   ))}
               </ListItem>
               {!listItem.header && !listItem.secondaryRows && listItem}
