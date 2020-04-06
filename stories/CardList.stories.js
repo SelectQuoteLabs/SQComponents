@@ -133,6 +133,9 @@ const tabOptions = [
     label: 'Agent PV',
     value: 'agentPV',
     listItems: agentPVList,
+    handleRefresh: () => {
+      alert('Refreshing Prioritized List');
+    }
   },
   {
     label: 'Personal Queue',

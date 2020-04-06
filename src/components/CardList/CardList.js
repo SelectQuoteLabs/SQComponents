@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CardPopoverMenu from '../CardPopoverMenu';
 import Tooltip from '../Tooltip';
@@ -18,15 +19,12 @@ import './CardList.css';
 const useStyles = makeStyles(theme => ({
   expand: {
     transform: 'rotate(0deg)',
-    paddingTop: '0.5rem',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
     transform: 'rotate(180deg)',
-    paddingTop: '0.5rem',
   },
 }));
 
@@ -90,7 +88,6 @@ function CardList({
       case 'CHANGE_TAB':
       case 'SYNC_TAB':
         return {
-          ...state,
           ...action.tab,
           index: tabs.findIndex(tab => tab.value === action.tab.value),
         };
@@ -140,10 +137,7 @@ function CardList({
             />
             {isExpandable && (
               <IconButton
-                className={
-                  (expandClasses.expand,
-                  {[expandClasses.expandOpen]: isExpanded})
-                } //eslint-disable-line
+                className={isExpanded ? expandClasses.expandOpen : expandClasses.expand}
                 onClick={expandClick}
                 aria-expanded={isExpanded}
                 aria-label="open"
@@ -156,10 +150,11 @@ function CardList({
       />
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.listItems.map(listItem => (
+          {selectedTab.listItems.map((listItem, listItemIndex) => (
             <SelectChip
               onClick={handleListItemClick}
               className="cardListItem__selectChip"
+              key={listItemIndex}
             >
               <ListItem
                 className="cardList__items"
@@ -168,8 +163,8 @@ function CardList({
                 {listItem.color && getColorIcons(listItem.color)}
                 {listItem.header && <ListItemText primary={listItem.header} />}
                 {listItem.secondaryRows &&
-                  listItem.secondaryRows.map(row => (
-                    <ListItemText secondary={row} />
+                  listItem.secondaryRows.map((row, secondaryListItemIndex) => (
+                    <ListItemText key={`${listItemIndex}_${secondaryListItemIndex}`} secondary={row} />
                   ))}
               </ListItem>
               {!listItem.header && !listItem.secondaryRows && listItem}
@@ -177,6 +172,13 @@ function CardList({
           ))}
         </CardContent>
       </Collapse>
+      {isExpanded && <footer className="cardListItem__footer">
+            {selectedTab.handleRefresh && 
+              <IconButton title="Refresh List" 
+                          color="primary"
+                          onClick={selectedTab.handleRefresh}>
+                  <RefreshIcon fontSize="large" /></IconButton>}
+      </footer>}
     </Card>
   );
 }
@@ -193,7 +195,7 @@ CardList.propTypes = {
   /** OPTIONAL - Should the card list have the capability to minimize and maximize. default = true */
   isExpandable: PropTypes.bool,
   /** object containing the options to be used in the card. See notes for more info. */
-  tabs: PropTypes.object,
+  tabs: PropTypes.array,
 };
 
 export default CardList;
