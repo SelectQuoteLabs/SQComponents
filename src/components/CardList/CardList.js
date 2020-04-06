@@ -13,6 +13,7 @@ import Tooltip from '../Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import LoadingIcon from '../LoadingIcon';
 import {makeStyles} from '@material-ui/core/styles';
 import './CardList.css';
 
@@ -150,7 +151,8 @@ function CardList({
       />
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.listItems.map((listItem, listItemIndex) => (
+          {selectedTab.isLoading && <div className="cardList__loadingContainer"><LoadingIcon style={{marginLeft: '10rem'}} /></div>}
+          {!selectedTab.isLoading && selectedTab.listItems.map((listItem, listItemIndex) => (
             <SelectChip
               onClick={handleListItemClick}
               className="cardListItem__selectChip"
@@ -172,12 +174,11 @@ function CardList({
           ))}
         </CardContent>
       </Collapse>
-      {isExpanded && <footer className="cardListItem__footer">
-            {selectedTab.handleRefresh && 
-              <IconButton title="Refresh List" 
-                          color="primary"
-                          onClick={selectedTab.handleRefresh}>
-                  <RefreshIcon fontSize="large" /></IconButton>}
+      {isExpanded && selectedTab.handleRefresh && <footer className="cardListItem__footer">
+          <IconButton title="Refresh List"
+                      color="primary"
+                      onClick={selectedTab.handleRefresh}>
+              <RefreshIcon fontSize="large" /></IconButton>
       </footer>}
     </Card>
   );
