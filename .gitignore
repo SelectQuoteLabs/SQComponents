@@ -8,3 +8,4 @@ package
 .parcel-cache
 .cache
 .out
+.idea
