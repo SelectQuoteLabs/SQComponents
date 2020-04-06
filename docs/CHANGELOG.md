@@ -1,3 +1,10 @@
+### [1.18.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.2...v1.18.3) (2020-04-06)
+
+
+### Bug Fixes
+
+* 🐛 Fixes prop-type warnings ([e864cf5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e864cf54d735b1c29e4a60517e78ff714b72fb0c))
+
 ### [1.18.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.1...v1.18.2) (2020-03-31)
 
 
