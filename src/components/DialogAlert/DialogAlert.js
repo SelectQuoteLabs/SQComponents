@@ -48,6 +48,7 @@ function DialogAlert({
               onClick={onSecondaryButtonClick}
               color="secondary"
               variant="outlined"
+              title={secondaryButtonText}
             >
               {secondaryButtonText}
             </RoundedButton>
@@ -59,6 +60,7 @@ function DialogAlert({
               isDisabled={isDisabled}
               onClick={onPrimaryButtonClick}
               color="primary"
+              title={primaryButtonText}
             >
               {primaryButtonText}
             </RoundedButton>
