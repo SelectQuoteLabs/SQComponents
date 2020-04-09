@@ -123,11 +123,17 @@ const tabOptions = [
   },
 ];
 
+const handleClick = listItem => {
+  alert(
+    `Opening ${listItem.header} and Secondary Rows ${listItem.secondaryRows}`
+  );
+};
+
 export const CardListWithCustomStyle = () => (
   <CardList
     width={{width: '45rem'}}
     height={{height: '55rem'}}
-    onListItemClick={action(`Opening the acount`)}
+    onListItemClick={handleClick}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
     tabs={tabOptions}

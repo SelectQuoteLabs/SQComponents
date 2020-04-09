@@ -94,10 +94,6 @@ function CardList({
     setSelectedTab(tabs.find(tab => tab.value === selectedValue));
   };
 
-  const handleListItemClick = event => {
-    onListItemClick(event.currentTarget);
-  };
-
   return (
     <Card className="cardList" style={width}>
       <CardHeader
@@ -126,12 +122,11 @@ function CardList({
           </div>
         }
       />
-
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
           {selectedTab.listItems.map(listItem => (
             <SelectChip
-              onClick={handleListItemClick}
+              onClick={() => onListItemClick(listItem)}
               className="cardListItem__selectChip"
             >
               <ListItem
