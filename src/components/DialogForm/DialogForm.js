@@ -36,7 +36,12 @@ function DialogForm({
       </DialogTitle>
       <DialogContent dividers={true}>{children}</DialogContent>
       <DialogActions className="dialogForm__actions">
-        <RoundedButton title={cancelButtonText} onClick={onClose} color="secondary" variant="outlined">
+        <RoundedButton
+          title={cancelButtonText}
+          onClick={onClose}
+          color="secondary"
+          variant="outlined"
+        >
           {cancelButtonText}
         </RoundedButton>
         {onSave && (

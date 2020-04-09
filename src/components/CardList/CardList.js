@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function CardList({
-  onListItemClick,
   width,
   height,
   isExpandable = true,
@@ -134,7 +133,9 @@ function CardList({
             />
             {isExpandable && (
               <IconButton
-                className={isExpanded ? expandClasses.expandOpen : expandClasses.expand}
+                className={
+                  isExpanded ? expandClasses.expandOpen : expandClasses.expand
+                }
                 onClick={expandClick}
                 aria-expanded={isExpanded}
                 aria-label="open"
@@ -147,35 +148,55 @@ function CardList({
       />
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.isLoading && <div className="cardList__loadingContainer"><LoadingIcon style={{marginLeft: '10rem'}} /></div>}
-          {!selectedTab.isLoading && selectedTab.listItems.map((listItem, listItemIndex) => (
-            <SelectChip
-              onClick={() => onListItemClick(listItem)}
-              className="cardListItem__selectChip"
-              key={listItemIndex}
-            >
-              <ListItem
-                className="cardList__items"
-                key={tabs.indexOf(selectedTab)}
+          {selectedTab.isLoading && (
+            <div className="cardList__loadingContainer">
+              <LoadingIcon style={{marginLeft: '10rem'}} />
+            </div>
+          )}
+          {!selectedTab.isLoading &&
+            selectedTab.listItems.map((listItem, listItemIndex) => (
+              <SelectChip
+                onClick={() =>
+                  selectedTab.onListItemClick &&
+                  selectedTab.onListItemClick(listItem)
+                }
+                className="cardListItem__selectChip"
+                key={listItemIndex}
               >
-                {listItem.color && getColorIcons(listItem.color)}
-                {listItem.header && <ListItemText primary={listItem.header} />}
-                {listItem.secondaryRows &&
-                  listItem.secondaryRows.map((row, secondaryListItemIndex) => (
-                    <ListItemText key={`${listItemIndex}_${secondaryListItemIndex}`} secondary={row} />
-                  ))}
-              </ListItem>
-              {!listItem.header && !listItem.secondaryRows && listItem}
-            </SelectChip>
-          ))}
+                <ListItem
+                  className="cardList__items"
+                  key={tabs.indexOf(selectedTab)}
+                >
+                  {listItem.color && getColorIcons(listItem.color)}
+                  {listItem.header && (
+                    <ListItemText primary={listItem.header} />
+                  )}
+                  {listItem.secondaryRows &&
+                    listItem.secondaryRows.map(
+                      (row, secondaryListItemIndex) => (
+                        <ListItemText
+                          key={`${listItemIndex}_${secondaryListItemIndex}`}
+                          secondary={row}
+                        />
+                      )
+                    )}
+                </ListItem>
+                {!listItem.header && !listItem.secondaryRows && listItem}
+              </SelectChip>
+            ))}
         </CardContent>
       </Collapse>
-      {isExpanded && selectedTab.handleRefresh && <footer className="cardListItem__footer">
-          <IconButton title="Refresh List"
-                      color="primary"
-                      onClick={selectedTab.handleRefresh}>
-              <RefreshIcon fontSize="large" /></IconButton>
-      </footer>}
+      {isExpanded && selectedTab.handleRefresh && (
+        <footer className="cardListItem__footer">
+          <IconButton
+            title="Refresh List"
+            color="primary"
+            onClick={selectedTab.handleRefresh}
+          >
+            <RefreshIcon fontSize="large" />
+          </IconButton>
+        </footer>
+      )}
     </Card>
   );
 }

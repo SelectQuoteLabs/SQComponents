@@ -128,14 +128,33 @@ const accountHistory = [
   </ListItemText>,
 ];
 
+const handlePVClick = listItem => {
+  alert(`Opening PV ${listItem.header}`);
+};
+
+const handleAccountHistoryClick = listItem => {
+  alert(
+    // Checked permissions
+    `Opening ${listItem.props.children}`
+  );
+};
+
+const handleLastCasesWorkedClick = listItem => {
+  alert(
+    //Check permissions
+    `Last Cases ${listItem.header}`
+  );
+};
+
 const tabOptions = [
   {
     label: 'Agent PV',
     value: 'agentPV',
     listItems: agentPVList,
+    onListItemClick: handlePVClick,
     handleRefresh: () => {
       alert('Refreshing Prioritized List');
-    }
+    },
   },
   {
     label: 'Personal Queue',
@@ -146,25 +165,20 @@ const tabOptions = [
     label: 'Account History',
     value: 'accountHistory',
     listItems: accountHistory,
+    onListItemClick: handleAccountHistoryClick,
   },
   {
     label: 'Last Cases Worked',
     value: 'lastCasesWorked',
     listItems: lastCasesWorkedList,
+    onListItemClick: handleLastCasesWorkedClick,
   },
 ];
-
-const handleClick = listItem => {
-  alert(
-    `Opening ${listItem.header} and Secondary Rows ${listItem.secondaryRows}`
-  );
-};
 
 export const CardListWithCustomStyle = () => (
   <CardList
     width={{width: '45rem'}}
     height={{height: '55rem'}}
-    onListItemClick={handleClick}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
     tabs={tabOptions}

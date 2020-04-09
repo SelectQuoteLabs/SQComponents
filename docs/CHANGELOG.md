@@ -1,39 +1,34 @@
 ## [1.20.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.19.0...v1.20.0) (2020-04-09)
 
-
 ### Features
 
-* added the listItem to onclick callback ([39f0075](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/39f00754d5c1320cabbee0d90eadf4b3798df1eb))
-* updated documentation ([15baa35](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/15baa350acccda629f9be33f12aa5fe9fa889fa5))
+- added the listItem to onclick callback ([39f0075](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/39f00754d5c1320cabbee0d90eadf4b3798df1eb))
+- updated documentation ([15baa35](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/15baa350acccda629f9be33f12aa5fe9fa889fa5))
 
 ## [1.19.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.3...v1.19.0) (2020-04-06)
 
-
 ### Features
 
-* 🎸 Adds loading state to CardList ([fdda302](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fdda30232ca4d4ed21e1df7151ad442095eaabf0))
+- 🎸 Adds loading state to CardList ([fdda302](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fdda30232ca4d4ed21e1df7151ad442095eaabf0))
 
 ### [1.18.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.2...v1.18.3) (2020-04-06)
 
-
 ### Bug Fixes
 
-* 🐛 Fixes prop-type warnings ([e864cf5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e864cf54d735b1c29e4a60517e78ff714b72fb0c))
+- 🐛 Fixes prop-type warnings ([e864cf5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e864cf54d735b1c29e4a60517e78ff714b72fb0c))
 
 ### [1.18.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.1...v1.18.2) (2020-03-31)
 
-
 ### Bug Fixes
 
-* **cardlist.js:** sync currently selected tab with tabs prop ([b845b4b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b845b4b48e04f45de82877877a98bd6193f1b205))
-* **cardlist.js:** syncs up selectedTab with current tabs prop ([9f540a9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9f540a941f9d9c6e17f946b46404f3972600d73f))
+- **cardlist.js:** sync currently selected tab with tabs prop ([b845b4b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b845b4b48e04f45de82877877a98bd6193f1b205))
+- **cardlist.js:** syncs up selectedTab with current tabs prop ([9f540a9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9f540a941f9d9c6e17f946b46404f3972600d73f))
 
 ### [1.18.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.0...v1.18.1) (2020-03-27)
 
-
 ### Bug Fixes
 
-* migrates RoundedButton, CardList, & Dialogs to Typography theme ([383f03a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/383f03a3717bdccdb16ecc90245de3c76a362d15))
+- migrates RoundedButton, CardList, & Dialogs to Typography theme ([383f03a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/383f03a3717bdccdb16ecc90245de3c76a362d15))
 
 ## [1.18.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.17.0...v1.18.0) (2020-03-27)
 
