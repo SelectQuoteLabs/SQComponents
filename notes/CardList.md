@@ -8,6 +8,8 @@
 
 ## Technical Notes
 
+The onListItemClick callback will return the whole listItem you passed to the component. You can then use the listItem.header or listItem.secondaryRows objects directly.
+
 Sample with custom width and height:
 
 ```

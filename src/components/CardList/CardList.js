@@ -120,10 +120,6 @@ function CardList({
     });
   };
 
-  const handleListItemClick = event => {
-    onListItemClick(event.currentTarget);
-  };
-
   return (
     <Card className="cardList" style={width}>
       <CardHeader
@@ -154,7 +150,7 @@ function CardList({
           {selectedTab.isLoading && <div className="cardList__loadingContainer"><LoadingIcon style={{marginLeft: '10rem'}} /></div>}
           {!selectedTab.isLoading && selectedTab.listItems.map((listItem, listItemIndex) => (
             <SelectChip
-              onClick={handleListItemClick}
+              onClick={() => onListItemClick(listItem)}
               className="cardListItem__selectChip"
               key={listItemIndex}
             >
