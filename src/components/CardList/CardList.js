@@ -31,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function CardList({
-  onListItemClick,
   width,
   height,
   isExpandable = true,
@@ -126,7 +125,10 @@ function CardList({
         <CardContent className="cardList__content" style={(height, width)}>
           {selectedTab.listItems.map(listItem => (
             <SelectChip
-              onClick={() => onListItemClick(listItem)}
+              onClick={() =>
+                selectedTab.onListItemClick &&
+                selectedTab.onListItemClick(listItem)
+              }
               className="cardListItem__selectChip"
             >
               <ListItem

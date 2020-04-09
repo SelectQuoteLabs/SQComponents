@@ -8,7 +8,7 @@
 
 ## Technical Notes
 
-The onListItemClick callback will return the whole listItem you passed to the component. You can then use the listItem.header or listItem.secondaryRows objects directly.
+The onListItemClick callback will return the whole listItem you passed to the component. This needs to be passed in each tab. You can then use the listItem.header or listItem objects directly.
 
 Sample with custom width and height:
 
@@ -22,6 +22,7 @@ Sample with custom width and height:
   tabs={[{
   label: 'Agent PV',
   value: 'agentPV',
+  onListItemClick: handlePVClick
   listItems: {
     header: 'Acct ID : 6666666',
     body: 'Name : Pete Monterroso',
