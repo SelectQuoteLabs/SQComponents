@@ -6,27 +6,26 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CardPopoverMenu from '../CardPopoverMenu';
 import Tooltip from '../Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import LoadingIcon from '../LoadingIcon';
 import {makeStyles} from '@material-ui/core/styles';
 import './CardList.css';
 
 const useStyles = makeStyles(theme => ({
   expand: {
     transform: 'rotate(0deg)',
-    paddingTop: '0.5rem',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
     transform: 'rotate(180deg)',
-    paddingTop: '0.5rem',
   },
 }));
 
@@ -82,7 +81,31 @@ function CardList({
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
-  const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
+
+  const initialSelectedTabState = {...tabs[0], index: tabs.indexOf(tabs[0])};
+  const selectedTabReducer = (state, action) => {
+    switch (action.type) {
+      case 'CHANGE_TAB':
+      case 'SYNC_TAB':
+        return {
+          ...action.tab,
+          index: tabs.findIndex(tab => tab.value === action.tab.value),
+        };
+      default:
+        return state;
+    }
+  };
+
+  const [selectedTab, setSelectedTab] = React.useReducer(
+    selectedTabReducer,
+    initialSelectedTabState
+  );
+
+  // Synchronize selectedTab with tabs
+  React.useEffect(() => {
+    setSelectedTab({type: 'SYNC_TAB', tab: tabs[selectedTab.index]});
+  }, [selectedTab.index, tabs]);
+
   const expandClasses = useStyles();
 
   const expandClick = () => {
@@ -90,7 +113,10 @@ function CardList({
   };
 
   const handleTabChange = selectedValue => {
-    setSelectedTab(tabs.find(tab => tab.value === selectedValue));
+    setSelectedTab({
+      type: 'CHANGE_TAB',
+      tab: tabs.find(tab => tab.value === selectedValue),
+    });
   };
 
   return (
@@ -108,9 +134,8 @@ function CardList({
             {isExpandable && (
               <IconButton
                 className={
-                  (expandClasses.expand,
-                  {[expandClasses.expandOpen]: isExpanded})
-                } //eslint-disable-line
+                  isExpanded ? expandClasses.expandOpen : expandClasses.expand
+                }
                 onClick={expandClick}
                 aria-expanded={isExpanded}
                 aria-label="open"
@@ -123,48 +148,55 @@ function CardList({
       />
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.listItems.map(listItem => (
-            <SelectChip
-              onClick={() =>
-                selectedTab.onListItemClick &&
-                selectedTab.onListItemClick(listItem)
-              }
-              className="cardListItem__selectChip"
-            >
-              <ListItem
-                className="cardList__items"
-                key={tabs.indexOf(selectedTab)}
+          {selectedTab.isLoading && (
+            <div className="cardList__loadingContainer">
+              <LoadingIcon style={{marginLeft: '10rem'}} />
+            </div>
+          )}
+          {!selectedTab.isLoading &&
+            selectedTab.listItems.map((listItem, listItemIndex) => (
+              <SelectChip
+                onClick={() =>
+                  selectedTab.onListItemClick &&
+                  selectedTab.onListItemClick(listItem)
+                }
+                className="cardListItem__selectChip"
+                key={listItemIndex}
               >
-                {listItem.color && getColorIcons(listItem.color)}
-                {listItem.header && (
-                  <ListItemText
-                    disableTypography={true}
-                    primary={listItem.header}
-                  />
-                )}
-                {listItem.body && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.body}
-                  />
-                )}
-                {listItem.footer && (
-                  <ListItemText
-                    className="cardList__secondaryItem"
-                    disableTypography={true}
-                    secondary={listItem.footer}
-                  />
-                )}
-                {!listItem.header &&
-                  !listItem.body &&
-                  !listItem.footer &&
-                  listItem}
-              </ListItem>
-            </SelectChip>
-          ))}
+                <ListItem
+                  className="cardList__items"
+                  key={tabs.indexOf(selectedTab)}
+                >
+                  {listItem.color && getColorIcons(listItem.color)}
+                  {listItem.header && (
+                    <ListItemText primary={listItem.header} />
+                  )}
+                  {listItem.secondaryRows &&
+                    listItem.secondaryRows.map(
+                      (row, secondaryListItemIndex) => (
+                        <ListItemText
+                          key={`${listItemIndex}_${secondaryListItemIndex}`}
+                          secondary={row}
+                        />
+                      )
+                    )}
+                </ListItem>
+                {!listItem.header && !listItem.secondaryRows && listItem}
+              </SelectChip>
+            ))}
         </CardContent>
       </Collapse>
+      {isExpanded && selectedTab.handleRefresh && (
+        <footer className="cardListItem__footer">
+          <IconButton
+            title="Refresh List"
+            color="primary"
+            onClick={selectedTab.handleRefresh}
+          >
+            <RefreshIcon fontSize="large" />
+          </IconButton>
+        </footer>
+      )}
     </Card>
   );
 }
@@ -181,7 +213,7 @@ CardList.propTypes = {
   /** OPTIONAL - Should the card list have the capability to minimize and maximize. default = true */
   isExpandable: PropTypes.bool,
   /** object containing the options to be used in the card. See notes for more info. */
-  tabs: PropTypes.object,
+  tabs: PropTypes.array,
 };
 
 export default CardList;

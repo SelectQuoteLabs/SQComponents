@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 
 import './RoundedButton.css';
@@ -15,6 +16,7 @@ function RoundedButton({
   children,
   startIcon,
   endIcon,
+  type = 'button',
 }) {
   const isGhostButton = React.useMemo(() => {
     return variant === 'outlined';
@@ -39,15 +41,16 @@ function RoundedButton({
       color={isSuccessButton ? 'default' : color}
       startIcon={startIcon}
       endIcon={endIcon}
+      type={type}
     >
-      {children}
+      <Typography variant="button">{children}</Typography>
     </Button>
   );
 }
 
 RoundedButton.propTypes = {
-  /** The onClick action */
-  onClick: PropTypes.func.isRequired,
+  /** The onClick action if not of type "submit" */
+  onClick: PropTypes.func,
   /** The title of the button */
   title: PropTypes.string.isRequired,
   /** Will override the text inside the button */
@@ -62,6 +65,8 @@ RoundedButton.propTypes = {
   startIcon: PropTypes.node,
   /** An <Icon> component that appends button text */
   endIcon: PropTypes.node,
+  /** Type of button, defaults to 'button' */
+  type: PropTypes.oneOf(['submit', 'reset', 'button']),
 };
 
 export default RoundedButton;

@@ -4,6 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import RoundedButton from '../RoundedButton';
 import './DialogForm.css';
@@ -30,12 +31,17 @@ function DialogForm({
       TransitionComponent={Transition}
       onClose={onClose}
     >
-      <DialogTitle disableTypography={true} className="dialogForm__title">
-        {title}
+      <DialogTitle disableTypography={true}>
+        <Typography variant="h4">{title}</Typography>
       </DialogTitle>
       <DialogContent dividers={true}>{children}</DialogContent>
       <DialogActions className="dialogForm__actions">
-        <RoundedButton onClick={onClose} color="secondary" variant="outlined">
+        <RoundedButton
+          title={cancelButtonText}
+          onClick={onClose}
+          color="secondary"
+          variant="outlined"
+        >
           {cancelButtonText}
         </RoundedButton>
         {onSave && (
@@ -43,6 +49,7 @@ function DialogForm({
             isDisabled={isDisabled}
             onClick={onSave}
             color="primary"
+            title={saveButtonText}
           >
             {saveButtonText}
           </RoundedButton>

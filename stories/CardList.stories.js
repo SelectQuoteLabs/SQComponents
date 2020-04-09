@@ -17,77 +17,105 @@ export default {
 const agentPVList = [
   {
     header: 'Acct ID : 3761140',
-    body: 'Name : Ashley Payne has a really long name',
-    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    secondaryRows: [
+      'Name : Ashley Payne has a really long name',
+      'PV Rule : Quoted - LowInterest - Attempt2',
+    ],
     color: 'Purple',
   },
   {
     header: 'Acct ID : 446426',
-    body: 'Name : Flor Monterroso',
-    footer: 'PV Rule : TA Follow Up 2',
+    secondaryRows: ['Name : Flor Monterroso', 'PV Rule : TA Follow Up 2'],
     color: 'Green',
   },
   {
     header: 'Acct ID : 3761140',
-    body: 'Name : Ashley Payne',
-    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    secondaryRows: [
+      'Name : Ashley Payne',
+      'PV Rule : Quoted - LowInterest - Attempt2',
+    ],
     color: 'Orange',
   },
   {
     header: 'Acct ID : 446426',
-    body: 'Name : Flor Monterroso',
-    footer: 'PV Rule : TA Follow Up 2',
+    secondaryRows: ['Name : Flor Monterroso', 'PV Rule : TA Follow Up 2'],
   },
   {
     header: 'Acct ID : 3761140',
-    body: 'Name : Ashley Payne',
-    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    secondaryRows: [
+      'Name : Ashley Payne',
+      'PV Rule : Quoted - LowInterest - Attempt2',
+    ],
   },
   {
     header: 'Acct ID : 446426',
-    body: 'Name : Flor Monterroso',
-    footer: 'PV Rule : TA Follow Up 2',
+    secondaryRows: ['Name : Flor Monterroso', 'PV Rule : TA Follow Up 2'],
     color: 'Pink',
   },
   {
     header: 'Acct ID : 111111',
-    body: 'Name : Bob Payne',
-    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    secondaryRows: [
+      'Name : Bob Payne',
+      'PV Rule : Quoted - LowInterest - Attempt2',
+    ],
     color: 'Red',
   },
   {
     header: 'Acct ID : 222222',
-    body: 'Name : Bob Monterroso',
-    footer: 'PV Rule : TA Follow Up 2',
+    secondaryRows: ['Name : Bob Monterroso', 'PV Rule : TA Follow Up 2'],
     color: 'Yellow',
   },
 ];
 
-const toDoSupportTicketsList = [
-  {
-    header: 'Acct ID : 111111',
-    body: 'Name : Bob Payne',
-    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
-    color: 'Red',
-  },
-  {
-    header: 'Acct ID : 222222',
-    body: 'Name : Bob Monterroso',
-    footer: 'PV Rule : TA Follow Up 2',
-    color: 'Yellow',
-  },
-];
+const getPersonalQueue = () => {
+  const personalQueue = [
+    {
+      accountId: 1,
+      firstName: 'Danish',
+      lastName: 'Last Name',
+      state: 'state 1',
+      carriers: ' test plz ignore',
+      type: 'test type 1',
+    },
+    {
+      accountId: 2,
+      firstName: 'Aamir',
+      lastName: 'Khan',
+      state: 'state 2',
+      carriers: ' test plz ignore',
+      type: 'test type 2',
+    },
+    {
+      accountId: 3,
+      firstName: 'Nouman',
+      lastName: 'Ajmal',
+      state: 'state 3',
+      carriers: ' test plz ignore',
+      type: 'test type 3',
+    },
+  ];
+  return personalQueue.map(queue => ({
+    header: `Acct ID : ${queue.accountId}`,
+    secondaryRows: [
+      `Name : ${queue.firstName} ${queue.lastName}`,
+      `State : ${queue.state}`,
+      `Carriers : ${queue.carriers}`,
+      `Type : ${queue.type}`,
+    ],
+  }));
+};
 
 const lastCasesWorkedList = [
   {
     header: 'Acct ID : 555555',
-    body: 'Name : Pilot Pete',
-    footer: 'PV Rule : Quoted - LowInterest - Attempt2',
+    secondaryRows: [
+      'Name : Pilot Pete',
+      'PV Rule : Quoted - LowInterest - Attempt2',
+    ],
   },
   {
     header: 'Acct ID : 6666666',
-    body: 'Name : Pete Monterroso',
-    footer: 'PV Rule : TA Follow Up 2',
+    secondaryRows: ['Name : Pete Monterroso', 'PV Rule : TA Follow Up 2'],
   },
 ];
 
@@ -124,11 +152,14 @@ const tabOptions = [
     value: 'agentPV',
     listItems: agentPVList,
     onListItemClick: handlePVClick,
+    handleRefresh: () => {
+      alert('Refreshing Prioritized List');
+    },
   },
   {
-    label: 'To Do Support Tickets',
-    value: 'toDoSupportTickets',
-    listItems: toDoSupportTicketsList,
+    label: 'Personal Queue',
+    value: 'personalQueue',
+    listItems: getPersonalQueue(),
   },
   {
     label: 'Account History',
@@ -160,5 +191,14 @@ export const CardListExampleWithoutStyle = () => (
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
     tabs={tabOptions}
+  />
+);
+
+export const CardListExampleWithLoading = () => (
+  <CardList
+    onListItemClick={action(`Opening the acount`)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+    isExpandable={boolean('isExpandable', false)}
+    tabs={tabOptions.map(option => ({...option, isLoading: true}))}
   />
 );
