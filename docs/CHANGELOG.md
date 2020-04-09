@@ -1,3 +1,10 @@
+## [1.21.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.20.0...v1.21.0) (2020-04-09)
+
+
+### Features
+
+* updated card list to have onclick functionality per tab ([5d71405](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5d71405a9d2d459867c98f915c6271e87153ea25))
+
 ## [1.20.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.19.0...v1.20.0) (2020-04-09)
 
 ### Features
