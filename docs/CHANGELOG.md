@@ -1,3 +1,11 @@
+## [1.20.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.19.0...v1.20.0) (2020-04-09)
+
+
+### Features
+
+* added the listItem to onclick callback ([39f0075](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/39f00754d5c1320cabbee0d90eadf4b3798df1eb))
+* updated documentation ([15baa35](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/15baa350acccda629f9be33f12aa5fe9fa889fa5))
+
 ## [1.19.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.18.3...v1.19.0) (2020-04-06)
 
 
