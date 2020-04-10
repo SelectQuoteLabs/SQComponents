@@ -156,10 +156,7 @@ function CardList({
           {!selectedTab.isLoading &&
             selectedTab.listItems.map((listItem, listItemIndex) => (
               <SelectChip
-                onClick={() =>
-                  selectedTab.onListItemClick &&
-                  selectedTab.onListItemClick(listItem)
-                }
+                onClick={() => listItem.onClick && listItem.onClick()}
                 className="cardListItem__selectChip"
                 key={listItemIndex}
               >
