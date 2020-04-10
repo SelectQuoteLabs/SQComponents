@@ -14,58 +14,37 @@ export default {
   },
 };
 
-const agentPVList = [
+const prioritizedList = [
   {
-    header: 'Acct ID : 3761140',
-    secondaryRows: [
-      'Name : Ashley Payne has a really long name',
-      'PV Rule : Quoted - LowInterest - Attempt2',
-    ],
-    color: 'Purple',
+    accountId: 443123,
+    firstName: 'Ashley',
+    lastName: 'Payne',
+    ColorCode: 'yellow',
+    PLRule: 'Quoted - LowInterest - Attempt2',
   },
   {
-    header: 'Acct ID : 446426',
-    secondaryRows: ['Name : Flor Monterroso', 'PV Rule : TA Follow Up 2'],
-    color: 'Green',
-  },
-  {
-    header: 'Acct ID : 3761140',
-    secondaryRows: [
-      'Name : Ashley Payne',
-      'PV Rule : Quoted - LowInterest - Attempt2',
-    ],
-    color: 'Orange',
-  },
-  {
-    header: 'Acct ID : 446426',
-    secondaryRows: ['Name : Flor Monterroso', 'PV Rule : TA Follow Up 2'],
-  },
-  {
-    header: 'Acct ID : 3761140',
-    secondaryRows: [
-      'Name : Ashley Payne',
-      'PV Rule : Quoted - LowInterest - Attempt2',
-    ],
-  },
-  {
-    header: 'Acct ID : 446426',
-    secondaryRows: ['Name : Flor Monterroso', 'PV Rule : TA Follow Up 2'],
-    color: 'Pink',
-  },
-  {
-    header: 'Acct ID : 111111',
-    secondaryRows: [
-      'Name : Bob Payne',
-      'PV Rule : Quoted - LowInterest - Attempt2',
-    ],
-    color: 'Red',
-  },
-  {
-    header: 'Acct ID : 222222',
-    secondaryRows: ['Name : Bob Monterroso', 'PV Rule : TA Follow Up 2'],
-    color: 'Yellow',
+    accountId: 1277773123,
+    firstName: 'Tom',
+    lastName: 'Payne',
+    ColorCode: 'green',
+    PLRule: 'Quoted - LowInterest - Attempt2',
   },
 ];
+
+const agentPVList = () => {
+  if (!prioritizedList) return [];
+  return prioritizedList.map(listItem => ({
+    header: `Acct ID : ${listItem.accountId}`,
+    secondaryRows: [
+      `Name : ${listItem.firstName} ${listItem.lastName}`,
+      `PV Rule : ${listItem.PLRule}`,
+    ],
+    color: listItem.ColorCode,
+    onClick: () => {
+      alert(`Account ${listItem.accountId}`);
+    },
+  }));
+};
 
 const getPersonalQueue = () => {
   const personalQueue = [
@@ -128,10 +107,6 @@ const accountHistory = [
   </ListItemText>,
 ];
 
-const handlePVClick = listItem => {
-  alert(`Opening PV ${listItem.header}`);
-};
-
 const handleAccountHistoryClick = listItem => {
   alert(
     // Checked permissions
@@ -150,8 +125,7 @@ const tabOptions = [
   {
     label: 'Agent PV',
     value: 'agentPV',
-    listItems: agentPVList,
-    onListItemClick: handlePVClick,
+    listItems: agentPVList(),
     handleRefresh: () => {
       alert('Refreshing Prioritized List');
     },
