@@ -1,3 +1,10 @@
+## [1.22.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.21.0...v1.22.0) (2020-04-10)
+
+
+### Features
+
+* updated the onclick to be per listItem to make consumption cleaner ([db98143](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/db9814395e75b8ec58ec811bc7ab1ef8eea5d967))
+
 ## [1.21.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.20.0...v1.21.0) (2020-04-09)
 
 
