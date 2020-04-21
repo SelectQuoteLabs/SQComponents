@@ -106,9 +106,19 @@ const theme = {
         fontSize: 'var(--size-input)',
       },
       underline: {
-        '&:hover:not(.Mui-disabled):before': {
+        '&:hover:not(.Mui-disabled):not(.MuiInput-multiline):before': {
           borderBottom: '2px solid var(--color-teal)',
         },
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        '&:hover:not(.Mui-disabled):not(.Mui-error):not(.Mui-focused) .MuiOutlinedInput-notchedOutline': {
+          border: '2px solid var(--color-teal)',
+        },
+      },
+      notchedOutline: {
+        borderColor: 'var(--color-jetBlack)',
       },
     },
     MuiSelect: {
@@ -127,6 +137,10 @@ const theme = {
         lineHeight: 'var(--size-label)',
         height: '1.5rem',
       },
+      contained: {
+        marginLeft: 0,
+        marginRight: 0,
+      },
     },
     MuiInputLabel: {
       root: {
@@ -135,6 +149,14 @@ const theme = {
       },
       shrink: {
         transform: 'translate(0, 1.5px) scale(1)',
+      },
+    },
+    MuiIconButton: {
+      root: {
+        padding: 0,
+        '&:hover': {
+          backgroundColor: 'none',
+        },
       },
     },
   },

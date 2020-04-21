@@ -5,12 +5,16 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
+import CheckMarkIcon from 'material-ui/svg-icons/action/check-circle';
+
 import markdown from '../notes/SQForm.md';
 
 import {
   SQForm,
+  SQFormTextarea,
   SQFormTextField,
   SQFormButton,
+  SQFormIconButton,
   SQFormAutocomplete,
   SQFormCheckbox,
   SQFormDropdown,
@@ -31,6 +35,11 @@ const MOCK_AUTOCOMPLETE_OPTIONS = Array.from(new Array(10000))
   })
   .sort((a, b) => a.label.toUpperCase().localeCompare(b.label.toUpperCase()));
 
+const ACTIONS_AUTOCOMPLETE_OPTIONS = [
+  {label: 'Action 1', value: 1},
+  {label: 'Action 2', value: 2},
+];
+
 const MOCK_FORM_ENTITY = {
   firstName: '',
   lastName: '',
@@ -38,6 +47,11 @@ const MOCK_FORM_ENTITY = {
   age: '',
   state: '',
   tenThousandOptions: '',
+  note: '',
+};
+const MOCK_ACTIONS_FORM_ENTITY = {
+  actions: '',
+  note: '',
 };
 const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
   ...MOCK_FORM_ENTITY,
@@ -104,6 +118,7 @@ export const formWithValidation = () => {
       .required('Required'),
     state: Yup.string().required('Required'),
     tenThousandOptions: Yup.string().required('Required'),
+    note: Yup.string().required('Required'),
   };
 
   return (
@@ -144,6 +159,7 @@ export const formWithValidation = () => {
           {MOCK_STATE_OPTIONS}
         </SQFormDropdown>
         <SQFormTextField name="age" label="Age" size={2} isRequired={true} />
+        <SQFormTextarea name="note" label="Note" size={5} isRequired={true} />
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
@@ -250,6 +266,49 @@ export const basicFormWithCustomOnChange = () => {
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>
           </Grid>
+        </Grid>
+      </SQForm>
+    </Card>
+  );
+};
+
+export const applyAnAction = () => {
+  const validationSchema = {
+    actions: Yup.string().required('Required'),
+    note: Yup.string().required('Required'),
+  };
+
+  return (
+    <Card raised style={{padding: '16px', minWidth: '768px'}}>
+      <SQForm
+        initialValues={MOCK_ACTIONS_FORM_ENTITY}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+        muiGridProps={{
+          spacing: 2,
+          justify: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <SQFormAutocomplete
+          name="actions"
+          label="Actions"
+          size={5}
+          isRequired={true}
+        >
+          {ACTIONS_AUTOCOMPLETE_OPTIONS}
+        </SQFormAutocomplete>
+        <SQFormTextarea
+          name="note"
+          label="Note"
+          size={5}
+          isRequired={true}
+          placeholder="Type to add note..."
+          rows={2}
+          rowsMax={2}
+        />
+        <Grid item size={2} style={{alignSelf: 'flex-end'}}>
+          <SQFormIconButton IconComponent={CheckMarkIcon} />
         </Grid>
       </SQForm>
     </Card>
