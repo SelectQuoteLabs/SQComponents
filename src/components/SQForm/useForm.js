@@ -1,7 +1,7 @@
 import React from 'react';
 import {getIn, useField} from 'formik';
 import WarningIcon from '@material-ui/icons/NewReleases';
-import CheckIcon from '@material-ui/icons/Check';
+import VerifiedIcon from '@material-ui/icons/VerifiedUser';
 
 const SPACE_STYLE = {marginRight: '0.3333rem'};
 
@@ -60,7 +60,9 @@ export function useForm({name, isRequired, onBlur, onChange}) {
     }
     if (isFulfilled)
       return (
-        <CheckIcon style={{color: 'var(--color-palmLeaf)', ...SPACE_STYLE}} />
+        <VerifiedIcon
+          style={{color: 'var(--color-palmLeaf)', ...SPACE_STYLE}}
+        />
       );
     return ' '; // return something so DOM element always exists
   }, [errorMessage, isFieldError, isFieldRequired, isFulfilled]);
