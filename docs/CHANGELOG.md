@@ -1,3 +1,10 @@
+## [1.23.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.22.0...v1.23.0) (2020-04-21)
+
+
+### Features
+
+* textarea and icon button ([17bd657](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17bd657e28e18629c795e24b5c63a1e55d03c192))
+
 ## [1.22.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.21.0...v1.22.0) (2020-04-10)
 
 
