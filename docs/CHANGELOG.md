@@ -1,3 +1,10 @@
+### [1.23.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.0...v1.23.1) (2020-04-22)
+
+
+### Bug Fixes
+
+* change form inputs border to light gray ([06f923f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/06f923fcb510eae558f52d661d65bc4436eda36a))
+
 ## [1.23.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.22.0...v1.23.0) (2020-04-21)
 
 
