@@ -152,7 +152,11 @@ function SQFormAutocomplete({
             />
           );
         }}
-        renderOption={option => <Typography noWrap>{option.label}</Typography>}
+        renderOption={option => (
+          <Typography variant="body2" noWrap>
+            {option.label}
+          </Typography>
+        )}
       />
     </Grid>
   );

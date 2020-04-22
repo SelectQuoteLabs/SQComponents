@@ -109,6 +109,9 @@ const theme = {
         '&:hover:not(.Mui-disabled):not(.MuiInput-multiline):before': {
           borderBottom: '2px solid var(--color-teal)',
         },
+        '&::before': {
+          borderColor: 'var(--color-lightGray)',
+        },
       },
     },
     MuiOutlinedInput: {
@@ -118,7 +121,7 @@ const theme = {
         },
       },
       notchedOutline: {
-        borderColor: 'var(--color-jetBlack)',
+        borderColor: 'var(--color-lightGray)',
       },
     },
     MuiSelect: {
