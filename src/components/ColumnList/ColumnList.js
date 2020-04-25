@@ -40,6 +40,15 @@ function ColumnList({
 }) {
   const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
 
+  const selectedTabInProps = React.useMemo(() => {
+    return tabs.find(tab => tab.value === selectedTab.value);
+  }, [selectedTab.value, tabs]);
+
+  React.useEffect(() => {
+    if (!tabs) return;
+    setSelectedTab(selectedTabInProps);
+  }, [selectedTabInProps, tabs]);
+
   const [isExpanded, setExpanded] = React.useState(isInitiallyExpanded);
 
   const handleTabChange = selectedValue => {
