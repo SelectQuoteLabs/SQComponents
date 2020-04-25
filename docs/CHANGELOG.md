@@ -1,3 +1,10 @@
+### [1.23.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.1...v1.23.2) (2020-04-25)
+
+
+### Bug Fixes
+
+* **columnlist.js:** fixes list never updating when tabs prop changes ([6c43feb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6c43feb907eab908a716c6c2fd1493e25d83dc02))
+
 ### [1.23.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.0...v1.23.1) (2020-04-22)
 
 
