@@ -1,3 +1,10 @@
+### [1.23.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.2...v1.23.3) (2020-04-27)
+
+
+### Bug Fixes
+
+* **sqform:** resets form on submission & fixes disabled state of button ([46af9de](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/46af9dea12456cbef40c98a0505174f4e9952797))
+
 ### [1.23.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.1...v1.23.2) (2020-04-25)
 
 
