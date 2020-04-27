@@ -6,8 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 import {VariableSizeList} from 'react-window';
 import {Typography} from '@material-ui/core';
-import {getIn, useFormikContext} from 'formik';
+import {getIn, useField, useFormikContext} from 'formik';
 
+import {usePrevious} from '../../hooks/usePrevious';
 import {useForm} from './useForm';
 
 // MUI uses px, a numeric value is needed for calculations
@@ -93,7 +94,7 @@ function SQFormAutocomplete({
 }) {
   const classes = useStyles();
   const {setFieldValue, setTouched, values} = useFormikContext();
-
+  const [{value}] = useField(name);
   const {
     fieldState: {isFieldError},
     fieldHelpers: {HelperTextComponent},
@@ -101,6 +102,15 @@ function SQFormAutocomplete({
     name,
     isRequired,
   });
+  const [inputValue, setInputValue] = React.useState('');
+  const prevValue = usePrevious(value);
+
+  React.useEffect(() => {
+    // Form Reset
+    if (prevValue && inputValue && !value) {
+      setInputValue('');
+    }
+  }, [value, inputValue, name, prevValue, values]);
 
   const handleAutocompleteBlur = React.useCallback(
     event => {
@@ -121,6 +131,10 @@ function SQFormAutocomplete({
     [name, onChange, setFieldValue]
   );
 
+  const handleInputChange = React.useCallback((_event, value) => {
+    setInputValue(value);
+  }, []);
+
   return (
     <Grid item sm={size}>
       <Autocomplete
@@ -133,6 +147,8 @@ function SQFormAutocomplete({
         options={children}
         onBlur={handleAutocompleteBlur}
         onChange={handleAutocompleteChange}
+        onInputChange={handleInputChange}
+        inputValue={inputValue}
         getOptionLabel={option => option.label}
         renderInput={params => {
           return (
@@ -142,11 +158,13 @@ function SQFormAutocomplete({
               disabled={isDisabled}
               error={isFieldError}
               fullWidth={true}
-              InputLabelProps={{...params.InputLabelProps, shrink: true}}
+              InputLabelProps={{
+                ...params.InputLabelProps,
+                shrink: true,
+              }}
               inputProps={{
                 ...params.inputProps,
                 disabled: isDisabled,
-                value: values[name] ? params.inputProps.value : '',
               }}
               FormHelperTextProps={{error: isFieldError}}
               name={name}
