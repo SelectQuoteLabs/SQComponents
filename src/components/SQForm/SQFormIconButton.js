@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useFormikContext} from 'formik';
 
+import {useFormButton} from './useFormButton';
 import IconButton from '../IconButton';
 
 function SQFormIconButton({
   IconComponent,
+  isDisabled = false,
   title = 'Form Submission',
   type = 'submit',
 }) {
-  const {isDirty, isValid} = useFormikContext();
+  const {isButtonDisabled} = useFormButton(isDisabled);
+
   return (
     <IconButton
       IconComponent={IconComponent}
       title={title}
       type={type}
-      isDisabled={!isDirty && !isValid}
+      isDisabled={isButtonDisabled}
     />
   );
 }
@@ -23,6 +25,8 @@ function SQFormIconButton({
 SQFormIconButton.propTypes = {
   /** The Material UI Icon to render inside the button */
   IconComponent: PropTypes.func.isRequired,
+  /** Custom disabled state */
+  isDisabled: PropTypes.bool,
   /** The title of the button */
   title: PropTypes.string,
   /** Type of button, defaults to 'button' */

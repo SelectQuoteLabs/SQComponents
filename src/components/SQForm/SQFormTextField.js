@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import {useFormikContext} from 'formik';
 
 import {useForm} from './useForm';
 
@@ -15,6 +16,7 @@ function SQFormTextField({
   onBlur,
   onChange,
 }) {
+  const {values} = useFormikContext();
   const {
     fieldState: {isFieldError},
     fieldHelpers: {handleBlur, handleChange, HelperTextComponent},
@@ -42,6 +44,7 @@ function SQFormTextField({
         onChange={handleChange}
         onBlur={handleBlur}
         required={isRequired}
+        value={values[name]}
       />
     </Grid>
   );

@@ -69,6 +69,7 @@ const MOCK_STATE_OPTIONS = [
 const handleSubmit = (values, actions) => {
   window.alert(JSON.stringify(values, null, 2));
   actions.setSubmitting(false);
+  actions.resetForm();
 };
 
 export const basicForm = () => {
@@ -275,7 +276,6 @@ export const basicFormWithCustomOnChange = () => {
 export const applyAnAction = () => {
   const validationSchema = {
     actions: Yup.string().required('Required'),
-    note: Yup.string().required('Required'),
   };
 
   return (
@@ -302,7 +302,6 @@ export const applyAnAction = () => {
           name="note"
           label="Note"
           size={5}
-          isRequired={true}
           placeholder="Type to add note..."
           rows={2}
           rowsMax={2}

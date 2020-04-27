@@ -92,7 +92,7 @@ function SQFormAutocomplete({
   size = 'auto',
 }) {
   const classes = useStyles();
-  const {setFieldValue, setTouched} = useFormikContext();
+  const {setFieldValue, setTouched, values} = useFormikContext();
 
   const {
     fieldState: {isFieldError},
@@ -143,7 +143,11 @@ function SQFormAutocomplete({
               error={isFieldError}
               fullWidth={true}
               InputLabelProps={{...params.InputLabelProps, shrink: true}}
-              inputProps={{...params.inputProps, disabled: isDisabled}}
+              inputProps={{
+                ...params.inputProps,
+                disabled: isDisabled,
+                value: values[name] ? params.inputProps.value : '',
+              }}
               FormHelperTextProps={{error: isFieldError}}
               name={name}
               label={label}
