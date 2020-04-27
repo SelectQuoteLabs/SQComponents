@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import {useFormikContext} from 'formik';
 
 import {useForm} from './useForm';
 
@@ -17,6 +18,7 @@ function SQFormTextarea({
   rows = 3,
   rowsMax = 3,
 }) {
+  const {values} = useFormikContext();
   const {
     fieldState: {isFieldError},
     fieldHelpers: {handleBlur, handleChange, HelperTextComponent},
@@ -47,6 +49,7 @@ function SQFormTextarea({
         rows={rows}
         rowsMax={rowsMax}
         variant="outlined"
+        value={values[name]}
       />
     </Grid>
   );

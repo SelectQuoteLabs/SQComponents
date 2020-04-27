@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useFormikContext} from 'formik';
 
 import RoundedButton from '../RoundedButton';
+import {useFormButton} from './useFormButton';
 
-function SQFormButton({children, title = 'Form Submission', type = 'submit'}) {
-  const {isDirty, isValid} = useFormikContext();
+function SQFormButton({
+  children,
+  isDisabled = false,
+  title = 'Form Submission',
+  type = 'submit',
+}) {
+  const {isButtonDisabled} = useFormButton(isDisabled);
+
   return (
-    <RoundedButton title={title} type={type} isDisabled={!isDirty && !isValid}>
+    <RoundedButton title={title} type={type} isDisabled={isButtonDisabled}>
       {children}
     </RoundedButton>
   );
@@ -15,6 +21,7 @@ function SQFormButton({children, title = 'Form Submission', type = 'submit'}) {
 
 SQFormButton.propTypes = {
   children: PropTypes.node.isRequired,
+  isDisabled: PropTypes.bool,
   title: PropTypes.string,
   type: PropTypes.string,
 };
