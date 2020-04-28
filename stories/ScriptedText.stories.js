@@ -19,14 +19,14 @@ export const scriptedText = () => {
   );
 };
 
-export const scriptedTextWithLayoutWrapper = () => {
+export const scriptedTextTimesTwo = () => {
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" spacing={5}>
       <Grid item>
-        <ScriptedText text="`text` is the prop you use to customize the copy the agent needs to say out loud to the customer." />
+        <ScriptedText text="Important things to say to the customer." />
       </Grid>
       <Grid item>
-        <ScriptedText text="`text` is the prop you use to customize the copy the agent needs to say out loud to the customer." />
+        <ScriptedText text="Super, super important things." />
       </Grid>
     </Grid>
   );
