@@ -1,0 +1,12 @@
+.scriptedText__icon {
+  color: var(--color-brightYellow);
+  position: relative;
+  top: 0.2rem;
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+.scriptedText__text {
+  margin-left: 1rem;
+  white-space: pre-line;
+}
