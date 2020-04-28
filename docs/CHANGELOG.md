@@ -1,3 +1,10 @@
+### [1.23.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.3...v1.23.4) (2020-04-28)
+
+
+### Bug Fixes
+
+* **sqformautocomplete:** converts input to controlled for form reset ([71c65aa](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/71c65aaea88edb0ff58654af5b1459ea59562bab))
+
 ### [1.23.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.2...v1.23.3) (2020-04-27)
 
 
