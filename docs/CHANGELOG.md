@@ -1,3 +1,15 @@
+## [1.24.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.4...v1.24.0) (2020-04-28)
+
+
+### Features
+
+* **component:** implement ScriptedText component ([76394df](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/76394df84a03d3c4ee49dfc29dfb0e88dd46d7d7))
+
+
+### Bug Fixes
+
+* **scriptedtext:** fix wrapping and alignment issues in large text cases ([96f5b5f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/96f5b5faf2e158cd1fbefc30926c0d2d6140bb06))
+
 ### [1.23.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.3...v1.23.4) (2020-04-28)
 
 
