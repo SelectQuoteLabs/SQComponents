@@ -26,7 +26,7 @@ function ScriptedText({placement = 'top-start', text}) {
       >
         <SpeakerNotesIcon className="scriptedText__icon" />
       </Tooltip>
-      {text && <Text text={text} className="scriptedText__text" />}
+      <Text text={text} className="scriptedText__text" />
     </Grid>
   );
 }
