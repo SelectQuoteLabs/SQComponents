@@ -17,6 +17,7 @@ export {default as DialogAlert} from './components/DialogAlert';
 export {default as DialogForm} from './components/DialogForm';
 export {default as IconButton} from './components/IconButton';
 export {default as RoundedButton} from './components/RoundedButton';
+export {default as ScriptedText} from './components/ScriptedText';
 export {default as SelectChip} from './components/SelectChip';
 export {default as Section} from './components/Section';
 export {default as SectionBody} from './components/SectionBody';
