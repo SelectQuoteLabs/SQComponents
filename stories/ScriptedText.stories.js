@@ -31,3 +31,9 @@ export const scriptedTextTimesTwo = () => {
     </Grid>
   );
 };
+
+export const scriptedTextIsLong = () => {
+  return (
+    <ScriptedText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu imperdiet libero. Maecenas vel lorem dapibus, laoreet ex vitae, sollicitudin libero. Etiam id lectus non ex sollicitudin aliquam. Ut scelerisque semper ligula, nec commodo felis tempus ac. Duis pellentesque est iaculis suscipit egestas. Morbi sed risus dapibus, dictum metus eu, faucibus tortor. In hac habitasse platea dictumst. Sed pulvinar venenatis nunc." />
+  );
+};

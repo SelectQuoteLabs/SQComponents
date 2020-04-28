@@ -8,7 +8,7 @@ import './ScriptedText.css';
 function ScriptedText({placement = 'top-start', text}) {
   const Text = React.forwardRef((props, ref) => {
     return (
-      <Typography ref={ref} {...props} component="span">
+      <Typography ref={ref} {...props} component="span" variant="body2">
         {props.text}
       </Typography>
     );
@@ -19,7 +19,7 @@ function ScriptedText({placement = 'top-start', text}) {
   });
 
   return (
-    <Grid container alignItems="center">
+    <Grid container wrap="nowrap" alignItems="top">
       <Tooltip
         placement={placement}
         title={'Please read this scripted text to customer.'}
