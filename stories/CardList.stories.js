@@ -19,14 +19,14 @@ const prioritizedList = [
     accountId: 443123,
     firstName: 'Ashley',
     lastName: 'Payne',
-    ColorCode: 'yellow',
+    ColorCode: 'Yellow',
     PLRule: 'Quoted - LowInterest - Attempt2',
   },
   {
     accountId: 1277773123,
     firstName: 'Tom',
     lastName: 'Payne',
-    ColorCode: 'green',
+    ColorCode: 'Green',
     PLRule: 'Quoted - LowInterest - Attempt2',
   },
 ];
