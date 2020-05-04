@@ -8,43 +8,43 @@ import Typography from '@material-ui/core/Typography';
 import Tooltip from '../Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
 
+const COLORS = {
+  GREEN: 'GREEN',
+  ORANGE: 'ORANGE',
+  PINK: 'PINK',
+  PURPLE: 'PURPLE',
+  RED: 'RED',
+  YELLOW: 'YELLOW',
+};
+
+const getColorEmoji = color => {
+  switch (color) {
+    case COLORS.GREEN:
+      return '🍐';
+    case COLORS.ORANGE:
+      return '🍊';
+    case COLORS.PINK:
+      return '🍉';
+    case COLORS.PURPLE:
+      return '🍇';
+    case COLORS.RED:
+      return '🍒';
+    case COLORS.YELLOW:
+      return '🍌';
+    default:
+      return color;
+  }
+};
+
 const getColorIcons = color => {
-  const colorIcon = {
-    Green: (
-      <span role="img" aria-label={color}>
-        🍐
-      </span>
-    ),
-    Orange: (
-      <span role="img" aria-label={color}>
-        🍊
-      </span>
-    ),
-    Pink: (
-      <span role="img" aria-label={color}>
-        🍉
-      </span>
-    ),
-    Purple: (
-      <span role="img" aria-label={color}>
-        🍇
-      </span>
-    ),
-    Red: (
-      <span role="img" aria-label={color}>
-        🍒
-      </span>
-    ),
-    Yellow: (
-      <span role="img" aria-label={color}>
-        🍌
-      </span>
-    ),
-  };
+  const upperCaseColor = color.toUpperCase();
+  const emoji = getColorEmoji(upperCaseColor);
   return (
     <ListItemIcon className="cardList__icon">
       <Tooltip title={color} placement="top">
-        {colorIcon[color] || color}
+        <span role="img" aria-label={color}>
+          {emoji}
+        </span>
       </Tooltip>
     </ListItemIcon>
   );
