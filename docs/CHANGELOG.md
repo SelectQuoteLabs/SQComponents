@@ -1,3 +1,16 @@
+## [2.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.24.0...v2.0.0) (2020-05-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cardlist:** List item objects should now contain an id property to resolve prop-type warnings
+and provide a unique identifier to React for each list item.
+
+### Bug Fixes
+
+* **cardlist:** harden the getColorIcons method to be case insensitive ([e962ffd](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e962ffd38a1a5cc80480515c93d3da32523f3ab1))
+* **cardlist:** makes header optional, adds no data message ([6a8e056](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6a8e0565abc67b95f3813b90e04bfaa7afb2e69a))
+
 ## [1.24.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.4...v1.24.0) (2020-04-28)
 
 
