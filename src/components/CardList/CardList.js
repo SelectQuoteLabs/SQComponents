@@ -7,14 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import CardPopoverMenu from '../CardPopoverMenu';
-import Tooltip from '../Tooltip';
-import SelectChip from '../SelectChip/SelectChip';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import LoadingIcon from '../LoadingIcon';
 import {makeStyles} from '@material-ui/core/styles';
+
+import List from './List';
+import CardPopoverMenu from '../CardPopoverMenu';
+import LoadingIcon from '../LoadingIcon';
 import './CardList.css';
 
 const useStyles = makeStyles(theme => ({
@@ -34,50 +31,9 @@ function CardList({
   height,
   isExpandable = true,
   isInitiallyExpanded = true,
+  shouldRenderHeader = true,
   tabs,
 }) {
-  const getColorIcons = color => {
-    const colorIcon = {
-      Green: (
-        <span role="img" aria-label={color}>
-          🍐
-        </span>
-      ),
-      Orange: (
-        <span role="img" aria-label={color}>
-          🍊
-        </span>
-      ),
-      Pink: (
-        <span role="img" aria-label={color}>
-          🍉
-        </span>
-      ),
-      Purple: (
-        <span role="img" aria-label={color}>
-          🍇
-        </span>
-      ),
-      Red: (
-        <span role="img" aria-label={color}>
-          🍒
-        </span>
-      ),
-      Yellow: (
-        <span role="img" aria-label={color}>
-          🍌
-        </span>
-      ),
-    };
-    return (
-      <ListItemIcon className="cardList__icon">
-        <Tooltip title={color} placement="top">
-          {colorIcon[color] || color}
-        </Tooltip>
-      </ListItemIcon>
-    );
-  };
-
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
@@ -121,66 +77,46 @@ function CardList({
 
   return (
     <Card className="cardList" style={width}>
-      <CardHeader
-        className="cardList__header"
-        action={
-          <div className="cardList__headerItems">
-            <CardPopoverMenu
-              tabs={tabs}
-              selectedTab={selectedTab}
-              selectTab={handleTabChange}
-              disabled={false}
-            />
-            {isExpandable && (
-              <IconButton
-                className={
-                  isExpanded ? expandClasses.expandOpen : expandClasses.expand
-                }
-                onClick={expandClick}
-                aria-expanded={isExpanded}
-                aria-label="open"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            )}
-          </div>
-        }
-      />
+      {shouldRenderHeader && (
+        <CardHeader
+          className="cardList__header"
+          action={
+            <div className="cardList__headerItems">
+              <CardPopoverMenu
+                tabs={tabs}
+                selectedTab={selectedTab}
+                selectTab={handleTabChange}
+                disabled={false}
+              />
+              {isExpandable && (
+                <IconButton
+                  className={
+                    isExpanded ? expandClasses.expandOpen : expandClasses.expand
+                  }
+                  onClick={expandClick}
+                  aria-expanded={isExpanded}
+                  aria-label="open"
+                >
+                  <ExpandMoreIcon />
+                </IconButton>
+              )}
+            </div>
+          }
+        />
+      )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent className="cardList__content" style={(height, width)}>
-          {selectedTab.isLoading && (
+          {selectedTab.isLoading ? (
             <div className="cardList__loadingContainer">
               <LoadingIcon style={{marginLeft: '10rem'}} />
             </div>
+          ) : (
+            <List
+              listItems={selectedTab.listItems}
+              noDataMessage={selectedTab.noDataMessage}
+              zeroItemsMessage={selectedTab.zeroItemsMessage}
+            />
           )}
-          {!selectedTab.isLoading &&
-            selectedTab.listItems.map((listItem, listItemIndex) => (
-              <SelectChip
-                onClick={() => listItem.onClick && listItem.onClick()}
-                className="cardListItem__selectChip"
-                key={listItemIndex}
-              >
-                <ListItem
-                  className="cardList__items"
-                  key={tabs.indexOf(selectedTab)}
-                >
-                  {listItem.color && getColorIcons(listItem.color)}
-                  {listItem.header && (
-                    <ListItemText primary={listItem.header} />
-                  )}
-                  {listItem.secondaryRows &&
-                    listItem.secondaryRows.map(
-                      (row, secondaryListItemIndex) => (
-                        <ListItemText
-                          key={`${listItemIndex}_${secondaryListItemIndex}`}
-                          secondary={row}
-                        />
-                      )
-                    )}
-                </ListItem>
-                {!listItem.header && !listItem.secondaryRows && listItem}
-              </SelectChip>
-            ))}
         </CardContent>
       </Collapse>
       {isExpanded && selectedTab.handleRefresh && (
@@ -200,7 +136,7 @@ function CardList({
 
 CardList.propTypes = {
   /** OPTIONAL - boolean to override default behavior of intially expanded = true */
-  isInitiallyExpanded: PropTypes.bool.isRequired,
+  isInitiallyExpanded: PropTypes.bool,
   /** OPTIONAL - width of the card.  Default is 25rem. Ex. height={{height: '55rem'}}*/
   width: PropTypes.object,
   /** OPTIONAL - height of the card.  Default is 30rem. Ex. width={{width: '55rem'}} */
@@ -211,6 +147,8 @@ CardList.propTypes = {
   isExpandable: PropTypes.bool,
   /** object containing the options to be used in the card. See notes for more info. */
   tabs: PropTypes.array,
+  /** Whether or not to render the Header component */
+  shouldRenderHeader: PropTypes.bool,
 };
 
 export default CardList;

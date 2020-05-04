@@ -16,6 +16,7 @@ export default {
 
 const prioritizedList = [
   {
+    id: 1,
     accountId: 443123,
     firstName: 'Ashley',
     lastName: 'Payne',
@@ -23,6 +24,7 @@ const prioritizedList = [
     PLRule: 'Quoted - LowInterest - Attempt2',
   },
   {
+    id: 2,
     accountId: 1277773123,
     firstName: 'Tom',
     lastName: 'Payne',
@@ -34,6 +36,7 @@ const prioritizedList = [
 const agentPVList = () => {
   if (!prioritizedList) return [];
   return prioritizedList.map(listItem => ({
+    id: listItem.id,
     header: `Acct ID : ${listItem.accountId}`,
     secondaryRows: [
       `Name : ${listItem.firstName} ${listItem.lastName}`,
@@ -49,6 +52,7 @@ const agentPVList = () => {
 const getPersonalQueue = () => {
   const personalQueue = [
     {
+      id: 1,
       accountId: 1,
       firstName: 'Danish',
       lastName: 'Last Name',
@@ -57,6 +61,7 @@ const getPersonalQueue = () => {
       type: 'test type 1',
     },
     {
+      id: 2,
       accountId: 2,
       firstName: 'Aamir',
       lastName: 'Khan',
@@ -65,6 +70,7 @@ const getPersonalQueue = () => {
       type: 'test type 2',
     },
     {
+      id: 3,
       accountId: 3,
       firstName: 'Nouman',
       lastName: 'Ajmal',
@@ -74,6 +80,7 @@ const getPersonalQueue = () => {
     },
   ];
   return personalQueue.map(queue => ({
+    id: queue.id,
     header: `Acct ID : ${queue.accountId}`,
     secondaryRows: [
       `Name : ${queue.firstName} ${queue.lastName}`,
@@ -86,6 +93,7 @@ const getPersonalQueue = () => {
 
 const lastCasesWorkedList = [
   {
+    id: 1,
     header: 'Acct ID : 555555',
     secondaryRows: [
       'Name : Pilot Pete',
@@ -93,6 +101,7 @@ const lastCasesWorkedList = [
     ],
   },
   {
+    id: 2,
     header: 'Acct ID : 6666666',
     secondaryRows: ['Name : Pete Monterroso', 'PV Rule : TA Follow Up 2'],
   },
@@ -149,6 +158,36 @@ const tabOptions = [
   },
 ];
 
+const tabOptionsWithNoData = [
+  {
+    label: 'Agent PV',
+    value: 'agentPV',
+    listItems: [],
+    zeroItemsMessage: 'Congrats, your PV is empty!',
+    handleRefresh: () => {
+      alert('Refreshing Prioritized List');
+    },
+  },
+  {
+    label: 'Personal Queue',
+    value: 'personalQueue',
+    listItems: null,
+    noDataMessage: 'No data found',
+  },
+  {
+    label: 'Account History',
+    value: 'accountHistory',
+    listItems: null,
+    onListItemClick: handleAccountHistoryClick,
+  },
+  {
+    label: 'Last Cases Worked',
+    value: 'lastCasesWorked',
+    listItems: [],
+    onListItemClick: handleLastCasesWorkedClick,
+  },
+];
+
 export const CardListWithCustomStyle = () => (
   <CardList
     width={{width: '45rem'}}
@@ -174,5 +213,30 @@ export const CardListExampleWithLoading = () => (
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
     tabs={tabOptions.map(option => ({...option, isLoading: true}))}
+  />
+);
+
+export const CardListExampleWithNoData = () => (
+  <CardList
+    onListItemClick={action(`Opening the acount`)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+    isExpandable={boolean('isExpandable', false)}
+    tabs={tabOptionsWithNoData}
+  />
+);
+
+export const CardListExampleWithoutHeader = () => (
+  <CardList
+    onListItemClick={action(`Opening the acount`)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+    isExpandable={boolean('isExpandable', false)}
+    tabs={[
+      {
+        label: '',
+        value: '',
+        listItems: getPersonalQueue(),
+      },
+    ]}
+    shouldRenderHeader={false}
   />
 );

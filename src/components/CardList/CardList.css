@@ -61,3 +61,10 @@
   height: 100%;
   padding-left: 2.5rem;
 }
+
+.cardList__noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
