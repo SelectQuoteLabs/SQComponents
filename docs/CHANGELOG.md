@@ -1,3 +1,10 @@
+### [2.0.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.2...v2.0.3) (2020-05-06)
+
+
+### Bug Fixes
+
+* **root.css:** adds the new senior specific orange color for the navbar ([c0f490f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c0f490f01c96c96e8a691b37a9867c8ff89cc0f4))
+
 ### [2.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.1...v2.0.2) (2020-05-06)
 
 
