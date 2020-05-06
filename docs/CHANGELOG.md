@@ -1,3 +1,10 @@
+### [2.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.0...v2.0.1) (2020-05-06)
+
+
+### Bug Fixes
+
+* bumping that version ([a0ca581](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a0ca58102508b7310618a6f217ce9a04554f4802))
+
 ## [2.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.24.0...v2.0.0) (2020-05-04)
 
 
