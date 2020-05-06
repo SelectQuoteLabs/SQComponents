@@ -31,7 +31,7 @@ git commit -m “chore(rounded button): added boilerplate”
 
 The commit will be validated through a linter pre-commit hook and will reject any commit messages that do not properly adhere to the convention.
 
-[Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/#summary) formatted messages are required for proper versioning and automatic generation of release notes / CHANGELOG.
+[Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/#summary) formatted messages are required for proper versioning and automatic generation of release notes / CHANGELOG. Check out the documentation if you want to learn more about what commits trigger a version change.
 
 ## Consuming
 
