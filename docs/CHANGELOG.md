@@ -1,3 +1,10 @@
+### [2.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.1...v2.0.2) (2020-05-06)
+
+
+### Bug Fixes
+
+* **dialogs:** add option to disable backdrop click ([775c46a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/775c46a26d571e6721eca1d6836ed21328e5ee15))
+
 ### [2.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.0...v2.0.1) (2020-05-06)
 
 
