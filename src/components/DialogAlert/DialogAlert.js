@@ -17,6 +17,7 @@ const Transition = React.forwardRef((props, ref) => {
 function DialogAlert({
   secondaryButtonText,
   children,
+  disableBackdropClick = false,
   isDisabled = false,
   isOpen,
   onSecondaryButtonClick,
@@ -34,7 +35,11 @@ function DialogAlert({
   );
 
   return (
-    <Dialog open={isOpen} TransitionComponent={Transition}>
+    <Dialog
+      disableBackdropClick={disableBackdropClick}
+      open={isOpen}
+      TransitionComponent={Transition}
+    >
       <DialogTitle disableTypography={true}>
         <Typography variant="h4">{title}</Typography>
       </DialogTitle>
@@ -74,6 +79,8 @@ function DialogAlert({
 DialogAlert.propTypes = {
   /** The content to be rendered in the dialog body */
   children: PropTypes.node.isRequired,
+  /** If true, clicking the backdrop will not fire the onClose callback. */
+  disableBackdropClick: PropTypes.bool,
   /** The current disabled state of the Dialog Primary Button */
   isDisabled: PropTypes.bool,
   /** The current open/closed state of the Dialog */

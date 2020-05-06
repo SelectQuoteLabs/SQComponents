@@ -16,6 +16,7 @@ const Transition = React.forwardRef((props, ref) => {
 function DialogForm({
   cancelButtonText = 'Cancel',
   children,
+  disableBackdropClick = false,
   isDisabled = false,
   isOpen,
   maxWidth = 'sm',
@@ -26,6 +27,7 @@ function DialogForm({
 }) {
   return (
     <Dialog
+      disableBackdropClick={disableBackdropClick}
       maxWidth={maxWidth}
       open={isOpen}
       TransitionComponent={Transition}
@@ -64,6 +66,8 @@ DialogForm.propTypes = {
   cancelButtonText: PropTypes.string,
   /** The content to be rendered in the dialog body */
   children: PropTypes.node.isRequired,
+  /** If true, clicking the backdrop will not fire the onClose callback. */
+  disableBackdropClick: PropTypes.bool,
   /** The current disabled state of the Dialog Save Button */
   isDisabled: PropTypes.bool,
   /** The current open/closed state of the Dialog */
