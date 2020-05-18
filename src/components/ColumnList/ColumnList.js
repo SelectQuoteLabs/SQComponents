@@ -74,7 +74,7 @@ function ColumnList({
     const noRowsMessage = zeroItemsMessage
       ? zeroItemsMessage
       : 'No Items To Display';
-    return `<span style="color: var(--color-slate); font-size: 1.333rem;">${noRowsMessage}</span>`;
+    return `<span class="columnList__noDataMessage">${noRowsMessage}</span>`;
   };
 
   const onGridReady = params => {
