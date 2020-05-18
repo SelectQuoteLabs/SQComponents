@@ -30,6 +30,9 @@ const theme = {
     error: {
       main: spanishOrange,
     },
+    textSecondary: {
+      main: slate,
+    },
   },
   overrides: {
     MuiTypography: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {withKnobs} from '@storybook/addon-knobs';
+import {withKnobs, text} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/ColumnList.md';
 import {ColumnList} from '../src';
@@ -65,16 +65,7 @@ const columns = [
   },
 ];
 
-const agentPVListRows = [
-  {
-    status: 'PV list status',
-    comment: "Not Action 'Invalid.  This was probably illegal",
-    user: 'Alisha Pena',
-    date: '04/09/2013 11:14 am',
-    pvRule: 'N/A',
-    number: 234234,
-  },
-];
+const agentPVListRows = [];
 
 const toDoSupportTicketsListRows = [
   {
@@ -261,7 +252,11 @@ export const ColumnListWithCardHeader = () => (
     <h1 style={{textAlign: 'center'}}>
       Initial filters set, custom filters, and a Header
     </h1>
-    <ColumnList tabs={tabs} title="Account Information" />
+    <ColumnList
+      tabs={tabs}
+      title="Account Information"
+      zeroItemsMessage={text('zero items message', '')}
+    />
   </div>
 );
 
