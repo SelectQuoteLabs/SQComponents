@@ -101,11 +101,6 @@ const theme = {
         fontSize: pxToRem(10),
         letterSpacing: pxToRem(1.5),
       },
-      waterMark: {
-        fontWeight: 600,
-        fontSize: pxToRem(16),
-        letterSpacing: pxToRem(1.25),
-      },
     },
     MuiInput: {
       root: {
