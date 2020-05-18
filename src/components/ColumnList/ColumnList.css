@@ -43,8 +43,3 @@
 .columnList__number {
   text-align: right;
 }
-
-.columnList__noDataMessage {
-  color: var(--color-slate);
-  font-size: 1.333rem;
-}
