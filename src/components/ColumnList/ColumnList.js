@@ -37,6 +37,7 @@ function ColumnList({
   resizable = true,
   title,
   isInitiallyExpanded = true,
+  zeroItemsMessage,
 }) {
   const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
 
@@ -67,6 +68,13 @@ function ColumnList({
     field: 'Valid',
     filter: filter,
     resizable: resizable,
+  };
+
+  const emptyMessage = () => {
+    const noRowsMessage = zeroItemsMessage
+      ? zeroItemsMessage
+      : 'No Items To Display';
+    return `<span style="color: var(--color-slate); font-size: 1.333rem;">${noRowsMessage}</span>`;
   };
 
   const onGridReady = params => {
@@ -120,9 +128,10 @@ function ColumnList({
             onGridReady={onGridReady}
             defaultColDef={defaultColumnProps}
             rowClass={'columnList__rows'}
-            pagination={selectedTab.rowData.length > 100 ? true : false}
+            pagination={selectedTab.rowData?.length > 100 ? true : false}
             paginationPageSize={100}
             rowSelection={'single'}
+            overlayNoRowsTemplate={emptyMessage()}
           ></AgGridReact>
         </CardContent>
       </Collapse>
