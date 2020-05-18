@@ -30,6 +30,9 @@ const theme = {
     error: {
       main: spanishOrange,
     },
+    textSecondary: {
+      main: slate,
+    },
   },
   overrides: {
     MuiTypography: {
@@ -97,6 +100,11 @@ const theme = {
         fontWeight: 300,
         fontSize: pxToRem(10),
         letterSpacing: pxToRem(1.5),
+      },
+      waterMark: {
+        fontWeight: 600,
+        fontSize: pxToRem(16),
+        letterSpacing: pxToRem(1.25),
       },
     },
     MuiInput: {

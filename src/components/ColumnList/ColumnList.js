@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import {makeStyles} from '@material-ui/core/styles';
 import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
+import Typography from '@material-ui/core/Typography';
 import './AgGrid.css';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
@@ -38,6 +39,7 @@ function ColumnList({
   title,
   isInitiallyExpanded = true,
   zeroItemsMessage,
+  ...rest
 }) {
   const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
 
@@ -74,7 +76,11 @@ function ColumnList({
     const noRowsMessage = zeroItemsMessage
       ? zeroItemsMessage
       : 'No Items To Display';
-    return `<span class="columnList__noDataMessage">${noRowsMessage}</span>`;
+    return (
+      <Typography variant="subtitle1" color="textSecondary">
+        {noRowsMessage}
+      </Typography>
+    );
   };
 
   const onGridReady = params => {
@@ -131,8 +137,13 @@ function ColumnList({
             pagination={selectedTab.rowData?.length > 100 ? true : false}
             paginationPageSize={100}
             rowSelection={'single'}
-            overlayNoRowsTemplate={emptyMessage()}
-          ></AgGridReact>
+            frameworkComponents={{
+              ...rest.components,
+              emptyMessage,
+            }}
+            noRowsOverlayComponent="emptyMessage"
+            {...rest}
+          />
         </CardContent>
       </Collapse>
     </Card>
