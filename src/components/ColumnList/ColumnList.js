@@ -134,7 +134,11 @@ function ColumnList({
             onGridReady={onGridReady}
             defaultColDef={defaultColumnProps}
             rowClass={'columnList__rows'}
-            pagination={selectedTab.rowData?.length > 100 ? true : false}
+            pagination={
+              (selectedTab.rowData && selectedTab.rowData.length) > 100
+                ? true
+                : false
+            }
             paginationPageSize={100}
             rowSelection={'single'}
             frameworkComponents={{
