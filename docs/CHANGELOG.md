@@ -1,3 +1,15 @@
+## [2.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.3...v2.1.0) (2020-05-20)
+
+
+### Features
+
+* added a no data message to the columnlist with optional override ([b4964d2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b4964d2f9ae2cdbba7a052b70993aa9bb29d54bb))
+* removed css class that is no longer used ([30d621e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/30d621ebae3857ef65e470dbef9965300385e3fd))
+* removed extra theme ([fabbf01](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fabbf01af2ff5a1229269e4fd30323fdb75e14a9))
+* removed the !important call because it was not needed ([9384779](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9384779c816ede5acab8f2591feda686fee36c5d))
+* updated to a html class instead of inline style ([f5cd632](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f5cd632256c88c8e085945cb300f70359297f5a8))
+* updated to use new typography in no rows message ([fda5186](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fda51865d1c2281af88c7cacdaaf743216357187))
+
 ### [2.0.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.2...v2.0.3) (2020-05-06)
 
 
