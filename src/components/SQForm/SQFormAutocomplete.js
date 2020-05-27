@@ -122,11 +122,12 @@ function SQFormAutocomplete({
 
   const handleAutocompleteChange = React.useCallback(
     (event, value, reason) => {
-      onChange && onChange(event);
+      const selectedValue = getIn(value, 'value');
+      onChange && onChange(event, selectedValue, reason);
       if (reason === 'clear') {
         return setFieldValue(name, '');
       }
-      return setFieldValue(name, getIn(value, 'value'));
+      return setFieldValue(name, selectedValue);
     },
     [name, onChange, setFieldValue]
   );
