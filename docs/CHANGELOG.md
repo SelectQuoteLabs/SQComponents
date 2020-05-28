@@ -1,3 +1,10 @@
+### [2.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.1.0...v2.1.1) (2020-05-28)
+
+
+### Bug Fixes
+
+* **sqformautocomplete.js:** exposes all 3 params to the onChange prop ([12efb1b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/12efb1be2e995795a9102fb976bf40af2987c154))
+
 ## [2.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.3...v2.1.0) (2020-05-20)
 
 
