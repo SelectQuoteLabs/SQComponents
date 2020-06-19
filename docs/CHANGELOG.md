@@ -1,3 +1,10 @@
+## [2.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.1.1...v2.2.0) (2020-06-19)
+
+
+### Features
+
+* adding css for scratchpad creation ([d811b18](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d811b18165e1adb415e702afa3d7398579cd25a0))
+
 ### [2.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.1.0...v2.1.1) (2020-05-28)
 
 
