@@ -9,6 +9,7 @@
   --color-oysterBay: #d9f1f4;
   --color-lightBlue: #ecf5f7;
   --color-orange: #f17c21;
+  --color-granite: #5b5858;
 
   --color-brightYellow: #ff9f1c;
   --color-sienna: #c46c2a;
@@ -37,6 +38,7 @@
   --color-button-hover: rgba(1, 161, 183, 0.1);
   --color-button-cerulean-hover: #2bb2c6;
   --color-button-teal-hover: #d8f1f4;
+  --color-button-frenchBleu-hover: #006ccb;
   --color-button-hover-white: rgba(255, 255, 255, 0.2);
   --color-button-disabled: #a09d9e;
   --color-button-hover-success: #9dd169;
@@ -85,6 +87,8 @@
   --font-weight-input: var(--font-weight-semibold);
 
   /* Button */
+  --button-accent: var(--color-frenchBleu);
+  --button-accent-hover: var(--color-button-frenchBleu-hover);
   --button-primary: var(--color-teal);
   --button-primary-hover: var(--color-button-cerulean-hover);
   --button-primaryEmpty-hover: var(--color-oysterBay);
