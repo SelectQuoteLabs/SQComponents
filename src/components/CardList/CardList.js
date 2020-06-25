@@ -114,7 +114,9 @@ function CardList({
             <List
               listItems={selectedTab.listItems}
               noDataMessage={selectedTab.noDataMessage}
-              zeroItemsMessage={selectedTab.zeroItemsMessage}
+              zeroItemsMessage={
+                selectedTab.zeroItemsMessage || 'No Items To Display'
+              }
             />
           )}
         </CardContent>

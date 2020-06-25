@@ -5,6 +5,7 @@ import {action} from '@storybook/addon-actions';
 import markdown from '../notes/CardList.md';
 import CardList from '../src/components/CardList/CardList';
 import ListItemText from '@material-ui/core/ListItemText';
+import './CardList.stories.css';
 
 export default {
   title: 'CardList',
@@ -91,19 +92,26 @@ const getPersonalQueue = () => {
   }));
 };
 
-const lastCasesWorkedList = [
+const notifications = [
   {
-    id: 1,
-    header: 'Acct ID : 555555',
+    header: 'Enrollment Claimed',
     secondaryRows: [
-      'Name : Pilot Pete',
-      'PV Rule : Quoted - LowInterest - Attempt2',
+      `Date/Time : ${Date.now()}`,
+      'Info: Enrollment Claimed by Byan Busby',
+      <ListItemText disableTypography={true} className="cardList__hyperlink">
+        Click to acknowledge
+      </ListItemText>,
     ],
   },
   {
-    id: 2,
-    header: 'Acct ID : 6666666',
-    secondaryRows: ['Name : Pete Monterroso', 'PV Rule : TA Follow Up 2'],
+    header: 'Manager Override',
+    secondaryRows: [
+      `Date/Time : ${Date.now()}`,
+      'Info: Manager override requested on Acct: 123',
+      <ListItemText disableTypography={true} className="cardList__hyperlink">
+        Click to override
+      </ListItemText>,
+    ],
   },
 ];
 
@@ -153,8 +161,20 @@ const tabOptions = [
   {
     label: 'Last Cases Worked',
     value: 'lastCasesWorked',
-    listItems: lastCasesWorkedList,
+    listItems: [],
     onListItemClick: handleLastCasesWorkedClick,
+  },
+];
+
+const tabOptionsWithOneTab = [
+  {
+    label: 'Notifications',
+    value: 'notifications',
+    listItems: notifications,
+    disabled: true,
+    handleRefresh: () => {
+      alert('Refreshing Notifications');
+    },
   },
 ];
 
@@ -222,6 +242,15 @@ export const CardListExampleWithNoData = () => (
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
     tabs={tabOptionsWithNoData}
+  />
+);
+
+export const CardListExampleWithOneTab = () => (
+  <CardList
+    onListItemClick={action(`Opening the acount`)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+    isExpandable={boolean('isExpandable', false)}
+    tabs={tabOptionsWithOneTab}
   />
 );
 

@@ -86,7 +86,7 @@ class CardPopoverMenu extends React.Component {
   }
 
   render() {
-    const {selectedTab, selectTab, disabled} = this.props;
+    const {selectedTab, selectTab, disabled, tabs} = this.props;
     const {
       viewableTabs,
       overflowTabs,
@@ -131,7 +131,7 @@ class CardPopoverMenu extends React.Component {
                   }}
                   label={
                     <>
-                      <Kabob />
+                      {tabs.length > 1 && <Kabob />}
                       <span>&nbsp;&nbsp;</span>
                       {tab.label}
                     </>
