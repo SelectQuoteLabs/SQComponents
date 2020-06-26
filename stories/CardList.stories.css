@@ -1,0 +1,5 @@
+.cardList__hyperlink {
+  color: var(--color-teal);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
