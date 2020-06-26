@@ -1,3 +1,15 @@
+## [2.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.2.0...v2.3.0) (2020-06-26)
+
+
+### Features
+
+* updated the REAMDE to bump the version for my other changes ([d19bc01](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d19bc018f0a2dab967d475460a11711c9abbb6c1))
+
+
+### Bug Fixes
+
+* updated the readme for bugfix ([2de582f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2de582ffdd598d77a8b7fd9ee7e491f95e94ffbe))
+
 ## [2.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.1.1...v2.2.0) (2020-06-19)
 
 
