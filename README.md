@@ -106,7 +106,7 @@ The development container will automatically run the storybook container (scplus
 
 > Note: This is done automatically if you use the Development Container while developing locally. These instructions allow you to start the container independent from the Development Container.
 
-If you want to Pull an Existing Docker Image you can pass the VERSION property with the Docker image tag you want to pull down.
+If you want to Pull an Existing Docker image you can pass the VERSION property with the Docker image tag you want to pull down.
 
 ```properties
 VERSION=1.0 docker-compose pull scplus-shared-components
