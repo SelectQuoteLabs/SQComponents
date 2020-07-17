@@ -32,7 +32,7 @@ SQFormReadOnlyField.propTypes = {
   label: PropTypes.string.isRequired,
   /** Size of the input given full-width is 12. */
   size: PropTypes.oneOf(['auto', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default SQFormReadOnlyField;
