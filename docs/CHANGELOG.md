@@ -1,3 +1,12 @@
+## [2.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.3.0...v2.4.0) (2020-07-17)
+
+
+### Features
+
+* added a read only component and consumed it in sqform ([6334acb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6334acbf979a650e0faf247ac6a5930efebab976))
+* updated proptype ([24e6be5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/24e6be566060bfec57f0690136476e1437c95652))
+* updated read only component to live in SQForm ([637264d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/637264dc71b34bf275703411576012b6f00584b5))
+
 ## [2.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.2.0...v2.3.0) (2020-06-26)
 
 
