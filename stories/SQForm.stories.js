@@ -18,6 +18,7 @@ import {
   SQFormAutocomplete,
   SQFormCheckbox,
   SQFormDropdown,
+  ReadOnlyField,
 } from '../src';
 
 export default {
@@ -80,10 +81,10 @@ export const basicForm = () => {
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
-        <SQFormTextField name="firstName" label="First name" size={4} />
-        <SQFormTextField name="lastName" label="Last name" size={4} />
-        <SQFormTextField name="city" label="City" size={4} />
-        <SQFormTextField name="state" label="State" size={2} />
+        <SQFormTextField name="firstName" label="First name" size={3} />
+        <SQFormTextField name="lastName" label="Last name" size={3} />
+        <ReadOnlyField value="Kansas City" label="City" />
+        <ReadOnlyField value="Mo" label="State" size={1} />
         <SQFormAutocomplete
           name="tenThousandOptions"
           label="Ten Thousand Options"
