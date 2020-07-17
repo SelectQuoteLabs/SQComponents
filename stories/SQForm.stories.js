@@ -18,7 +18,7 @@ import {
   SQFormAutocomplete,
   SQFormCheckbox,
   SQFormDropdown,
-  ReadOnlyField,
+  SQFormReadOnlyField,
 } from '../src';
 
 export default {
@@ -44,7 +44,7 @@ const ACTIONS_AUTOCOMPLETE_OPTIONS = [
 const MOCK_FORM_ENTITY = {
   firstName: '',
   lastName: '',
-  city: '',
+  city: 'Kansas City',
   age: '',
   state: '',
   tenThousandOptions: '',
@@ -83,8 +83,8 @@ export const basicForm = () => {
       >
         <SQFormTextField name="firstName" label="First name" size={3} />
         <SQFormTextField name="lastName" label="Last name" size={3} />
-        <ReadOnlyField value="Kansas City" label="City" />
-        <ReadOnlyField value="Mo" label="State" size={1} />
+        <SQFormReadOnlyField name="city" label="City" />
+        <SQFormReadOnlyField name="state" label="State" size={1} />
         <SQFormAutocomplete
           name="tenThousandOptions"
           label="Ten Thousand Options"
