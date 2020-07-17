@@ -50,7 +50,7 @@ const columns = [
     cellClass: 'columnList__hyperlink',
     filterParams: {
       filterOptions: filterByAction,
-      defaultOption: 'valid',
+      defaultOption: 'filterBy',
       suppressAndOrCondition: true,
     },
   },
