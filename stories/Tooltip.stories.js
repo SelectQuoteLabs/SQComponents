@@ -38,7 +38,10 @@ export const tooltipWithMoarContent = () => {
 
 export const tooltipWithButtonChild = () => {
   return (
-    <Tooltip title={<button onClick={() => {}}>BUTTON</button>}>
+    <Tooltip
+      interactive={true}
+      title={<button onClick={() => {}}>BUTTON</button>}
+    >
       <h2>Tooltip with a button in it!</h2>
     </Tooltip>
   );
