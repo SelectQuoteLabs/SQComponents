@@ -1,3 +1,10 @@
+### [2.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.4.0...v2.4.1) (2020-07-23)
+
+
+### Bug Fixes
+
+* **tooltip:** set default value of interactive prop to false ([003350e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/003350eddaba89d0385332cf4ba146d2b399ccde))
+
 ## [2.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.3.0...v2.4.0) (2020-07-17)
 
 
