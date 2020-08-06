@@ -100,7 +100,10 @@ export const basicForm = () => {
         <SQFormCheckbox name="cool" label="Cool" />
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
-          <Grid container justify="flex-end">
+          <Grid container justify="space-between">
+            <SQFormButton title="Reset Form" type="reset">
+              RESET
+            </SQFormButton>
             <SQFormButton>Submit</SQFormButton>
           </Grid>
         </Grid>
@@ -163,7 +166,10 @@ export const formWithValidation = () => {
         <SQFormTextField name="age" label="Age" size={2} isRequired={true} />
         <SQFormTextarea name="note" label="Note" size={5} isRequired={true} />
         <Grid item sm={12}>
-          <Grid container justify="flex-end">
+          <Grid container justify="space-between">
+            <SQFormButton title="Reset" type="reset">
+              RESET
+            </SQFormButton>
             <SQFormButton>Submit</SQFormButton>
           </Grid>
         </Grid>

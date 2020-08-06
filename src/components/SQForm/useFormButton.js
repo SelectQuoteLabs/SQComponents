@@ -2,7 +2,7 @@ import React from 'react';
 import {useFormikContext} from 'formik';
 
 export function useFormButton(isDisabled) {
-  const {dirty, errors, values} = useFormikContext();
+  const {dirty, errors, values, ...rest} = useFormikContext();
 
   const isButtonDisabled = React.useMemo(() => {
     const errorsCount = Object.values(errors).length;
@@ -14,5 +14,5 @@ export function useFormButton(isDisabled) {
     return false;
   }, [dirty, errors, isDisabled, values]);
 
-  return {isButtonDisabled};
+  return {dirty, errors, isButtonDisabled, values, ...rest};
 }
