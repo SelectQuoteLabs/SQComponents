@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const styles = {
+  textDecoration: 'overline',
+  textDecorationColor: '#5B5858',
   borderBottom: '1px solid var(--color-lightGray)',
   fontSize: '1.4rem',
   marginBottom: '1.5rem',
