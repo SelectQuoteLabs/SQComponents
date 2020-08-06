@@ -30,5 +30,6 @@ export {default as SQFormTextarea} from './components/SQForm/SQFormTextarea';
 export {default as SQFormTextField} from './components/SQForm/SQFormTextField';
 export {default as SQFormDropdown} from './components/SQForm/SQFormDropdown';
 export {default as SQFormButton} from './components/SQForm/SQFormButton';
+export {default as SQFormDateTimePicker} from './components/SQForm/SQFormDateTimePicker';
 export {default as Tooltip} from './components/Tooltip';
 export {default as WeeklySchedule} from './components/WeeklySchedule';
