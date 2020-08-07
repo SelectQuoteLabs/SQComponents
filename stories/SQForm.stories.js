@@ -19,6 +19,7 @@ import {
   SQFormCheckbox,
   SQFormDropdown,
   SQFormReadOnlyField,
+  SQFormResetButtonWithConfirmation,
 } from '../src';
 
 export default {
@@ -44,7 +45,7 @@ const ACTIONS_AUTOCOMPLETE_OPTIONS = [
 const MOCK_FORM_ENTITY = {
   firstName: '',
   lastName: '',
-  city: 'Kansas City',
+  city: '',
   age: '',
   state: '',
   tenThousandOptions: '',
@@ -101,9 +102,9 @@ export const basicForm = () => {
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
           <Grid container justify="space-between">
-            <SQFormButton title="Reset Form" type="reset">
+            <SQFormResetButtonWithConfirmation confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed">
               RESET
-            </SQFormButton>
+            </SQFormResetButtonWithConfirmation>
             <SQFormButton>Submit</SQFormButton>
           </Grid>
         </Grid>

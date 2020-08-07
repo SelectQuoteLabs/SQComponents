@@ -25,7 +25,7 @@ function SQFormButton({
       title={title}
       type={type}
       isDisabled={isSQFormButtonDisabled}
-      onClick={type === 'reset' && handleReset}
+      onClick={type === 'reset' ? handleReset : undefined}
     >
       {children}
     </RoundedButton>
