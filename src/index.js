@@ -1,3 +1,5 @@
+import {FieldArray} from 'formik';
+
 // CSS
 import './styles/index.css';
 
@@ -6,6 +8,9 @@ export {muiTheme} from './theme';
 
 // CSS Variables
 export {default as cssVars} from './styles/cssVars';
+
+// Form Utils
+export {FieldArray as SQFieldArray};
 
 // Components
 export {default as Avatar} from './components/Avatar';

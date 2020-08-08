@@ -11,6 +11,7 @@ function IconButton({
   IconComponent,
   isDisabled = false,
   type = 'button',
+  isIconTeal = false,
 }) {
   return (
     <MUIIconButton
@@ -23,7 +24,7 @@ function IconButton({
     >
       <IconComponent
         className={`iconButton ${classnames({
-          iconButton__enabled: !isDisabled,
+          iconButton__enabled: !isDisabled && !isIconTeal,
           iconButton__disabled: isDisabled,
         })}`}
       />
@@ -42,6 +43,8 @@ IconButton.propTypes = {
   type: PropTypes.oneOf(['submit', 'reset', 'button']),
   /** The Material UI Icon to render inside the button */
   IconComponent: PropTypes.func.isRequired,
+  /** Allows the icon color to be the SQ Teal color */
+  isIconTeal: PropTypes.bool,
 };
 
 export default IconButton;
