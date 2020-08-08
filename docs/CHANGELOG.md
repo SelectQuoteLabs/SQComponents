@@ -1,3 +1,11 @@
+## [2.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.4.1...v2.5.0) (2020-08-08)
+
+
+### Features
+
+* **resetbutton:** exposes a Reset button type ([abdba6a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/abdba6a5d4747531741442a50a716dcdf0e134c4))
+* **sqformresetbuttonwithconfirmation.js:** confirm alert for reset ([a240427](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a2404271650fc80d588860ca7cb895cef9300fec))
+
 ### [2.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.4.0...v2.4.1) (2020-07-23)
 
 
