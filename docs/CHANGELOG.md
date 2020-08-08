@@ -1,3 +1,10 @@
+## [2.6.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.5.0...v2.6.0) (2020-08-08)
+
+
+### Features
+
+* **fieldarray:** exposes SQFieldArray coming from Formik ([3572874](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3572874c63ded68693a8897afcfa40fd45b00a03))
+
 ## [2.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.4.1...v2.5.0) (2020-08-08)
 
 
