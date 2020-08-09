@@ -1,3 +1,10 @@
+### [2.6.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.0...v2.6.1) (2020-08-09)
+
+
+### Bug Fixes
+
+* **section:** pass style prop for overrides ([1e28400](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1e284006c03e9e42dffeae5574438f18d77a1121))
+
 ## [2.6.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.5.0...v2.6.0) (2020-08-08)
 
 
