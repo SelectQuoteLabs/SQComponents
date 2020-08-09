@@ -5,8 +5,8 @@ const styles = {
   padding: '0 1.5rem',
 };
 
-function SectionBody({children}) {
-  return <div style={styles}>{children}</div>;
+function SectionBody({children, style}) {
+  return <div style={{...styles, ...style}}>{children}</div>;
 }
 
 SectionBody.propTypes = {
