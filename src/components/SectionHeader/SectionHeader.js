@@ -7,8 +7,8 @@ const styles = {
   marginBottom: '1.5rem',
 };
 
-function SectionHeader({children}) {
-  return <header style={styles}>{children}</header>;
+function SectionHeader({children, style}) {
+  return <header style={{...styles, ...style}}>{children}</header>;
 }
 
 SectionHeader.propTypes = {

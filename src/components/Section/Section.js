@@ -1,14 +1,16 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
-const styles = {
+const sectionStyles = {
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '3rem',
+  width: '100%',
 };
 
-function Section({children}) {
-  return <section style={styles}>{children}</section>;
+function Section({children, style}) {
+  return <section style={{...sectionStyles, ...style}}>{children}</section>;
 }
 
 Section.propTypes = {
