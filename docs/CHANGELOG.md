@@ -1,3 +1,10 @@
+### [2.6.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.1...v2.6.2) (2020-08-10)
+
+
+### Bug Fixes
+
+* **sqformresetbuttonwithconfirmation:** add variant prop to reset button ([0903bd4](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0903bd4bc25523061474a1835a223524b78d3511))
+
 ### [2.6.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.0...v2.6.1) (2020-08-09)
 
 
