@@ -8,8 +8,6 @@ Simple wrapper components.
 
 ## Technical Notes
 
-- These are intentionally simple and composable.
-- They each accept a `style` prop for any overrides.
 - `<Section>` is the container component using the semantic HTML tag of the same name. It always renders its children, `SectionHeader` and `SectionBody`, with `flex-direction: column`.
-- `<SectionHeader>` can be given a simple string child to render the default header text or you can compose other things into it and get, for example, a button at the right end of the header (see story 'Section With Action Header').
+- `<SectionHeader>` takes a `title` prop for the header text, and justifies the title + children via space-between. Pass children for whatever you want on the right side of the header. For example, a button (see story 'Section With Action Header'), or to control the styles of the container itself, use the `containerStyles` prop (see story Section With Header Style Overrides).
 - `<SectionBody>` ensures the `margin-left` provides consistent indentation relative to `<SectionHeader>`.

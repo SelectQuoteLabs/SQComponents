@@ -1,28 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
+import {Typography, Grid} from '@material-ui/core';
 
 const styles = {
-  borderBottom: '1px solid var(--color-lightGray)',
-  fontSize: '1.4rem',
-  marginBottom: '1.5rem',
-  color: 'var(--color-granite)',
+  container: {
+    borderBottom: '1px solid var(--color-lightGray)',
+    marginBottom: '1.5rem',
+  },
+  title: {
+    color: 'var(--color-granite)',
+  },
 };
 
-function SectionHeader({children, style = {}}) {
+function SectionHeader({children, title, containerStyles = {}}) {
   return (
-    <Typography
-      variant="overline"
+    <Grid
+      container
+      direction="row"
+      justify="space-between"
+      alignItems="baseline"
       component="header"
-      style={{...styles, ...style}}
+      style={{
+        ...styles.container,
+        ...containerStyles,
+      }}
     >
-      {children}
-    </Typography>
+      <Grid item>
+        <Typography
+          style={{
+            ...styles.title,
+          }}
+          component="h3"
+          variant="overline"
+        >
+          {title}
+        </Typography>
+      </Grid>
+      <Grid item>{children}</Grid>
+    </Grid>
   );
 }
 
 SectionHeader.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 
 export default SectionHeader;
