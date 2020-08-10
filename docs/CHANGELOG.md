@@ -1,3 +1,10 @@
+### [2.6.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.3...v2.6.4) (2020-08-10)
+
+
+### Bug Fixes
+
+* **sectionheader:** fix some inconsistencies in sectionheader ([dbc15c1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbc15c18e8b0f3a0cc6f227c971961b7e4877e2d))
+
 ### [2.6.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.2...v2.6.3) (2020-08-10)
 
 
