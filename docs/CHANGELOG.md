@@ -1,3 +1,11 @@
+### [2.6.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.2...v2.6.3) (2020-08-10)
+
+
+### Bug Fixes
+
+* **sectionheader:** add typography style ([7929270](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/79292705fe85257e6c11f82dde4735454fa558ec))
+* **sectionheader:** use material's Typography component ([0876c91](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0876c91d324e97e96168edf3a4555bca97e20555))
+
 ### [2.6.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.1...v2.6.2) (2020-08-10)
 
 
