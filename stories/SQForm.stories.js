@@ -107,7 +107,10 @@ export const basicForm = () => {
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
           <Grid container justify="space-between">
-            <SQFormResetButtonWithConfirmation confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed">
+            <SQFormResetButtonWithConfirmation
+              variant="outlined"
+              confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
+            >
               RESET
             </SQFormResetButtonWithConfirmation>
             <SQFormButton>Submit</SQFormButton>

@@ -12,6 +12,7 @@ function SQFormResetButtonWithConfirmation({
   buttonTitle = 'Form Reset',
   confirmationContent,
   confirmationTitle = 'Reset Form',
+  variant = 'contained',
 }) {
   const [isOpen, {openDialog, closeDialog}] = useDialog();
   const {dirty, handleReset} = useFormButton(isDisabled);
@@ -27,6 +28,7 @@ function SQFormResetButtonWithConfirmation({
         title={buttonTitle}
         isDisabled={isDisabled || !dirty}
         onClick={openDialog}
+        variant={variant}
       >
         {children}
       </RoundedButton>
