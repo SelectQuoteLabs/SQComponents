@@ -1,4 +1,4 @@
-import {FieldArray} from 'formik';
+import {FieldArray, useFormikContext} from 'formik';
 
 // CSS
 import './styles/index.css';
@@ -11,6 +11,7 @@ export {default as cssVars} from './styles/cssVars';
 
 // Form Utils
 export {FieldArray as SQFieldArray};
+export {useFormikContext as useSQFormContext};
 
 // Components
 export {default as Avatar} from './components/Avatar';
