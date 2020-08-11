@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import CheckMarkIcon from 'material-ui/svg-icons/action/check-circle';
 
 import FriendsFieldArray from './components/FriendsFieldArray';
+import FormValidationMessage from './components/FormValidationMessage';
 import markdown from '../notes/SQForm.md';
 
 import {
@@ -179,6 +180,8 @@ export const formWithValidation = () => {
             <SQFormButton title="Reset" type="reset">
               RESET
             </SQFormButton>
+            <FormValidationMessage />
+
             <SQFormButton>Submit</SQFormButton>
           </Grid>
         </Grid>
