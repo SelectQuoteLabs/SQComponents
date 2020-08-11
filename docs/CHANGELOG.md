@@ -1,3 +1,10 @@
+## [2.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.4...v2.7.0) (2020-08-11)
+
+
+### Features
+
+* **sqform:** expose formik's useFormikContext as useSQFormContext ([a6996e8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a6996e899be05434e7b8872f532e5f1c9aab7ee8))
+
 ### [2.6.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.3...v2.6.4) (2020-08-10)
 
 
