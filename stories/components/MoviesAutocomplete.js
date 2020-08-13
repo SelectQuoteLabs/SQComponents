@@ -1,36 +1,29 @@
 import React from 'react';
 import SQFormAsyncAutocomplete from '../../src/components/SQForm/SQFormAsyncAutocomplete';
-import {useQueryPokemon} from './useQueryPokemon';
+import {useQueryMovies} from './useQueryMovies';
 
-const getPokemonOptions = pokemonData => {
-  if (!pokemonData) return [];
+const getMovieOptions = movieData => {
+  if (!movieData) return [];
 
-  if (Array.isArray(pokemonData?.results)) {
-    return pokemonData.results.map(pokemon => ({
-      label: pokemon.name,
-      value: pokemon.name,
-    }));
-  }
-  return [
-    {
-      label: pokemonData.name,
-      value: pokemonData.name,
-    },
-  ];
+  return (movieData?.Search || []).map(movie => ({
+    label: movie.Title,
+    value: movie.Title,
+  }));
 };
 
-export default function PokemonAutocomplete({name}) {
+// http://www.omdbapi.com/
+export default function MoviesAutocomplete({name}) {
   const [inputValue, setInputValue] = React.useState('');
-  const {pokemonData, loading} = useQueryPokemon(inputValue);
+  const {movieData, loading} = useQueryMovies(inputValue);
   const [isOpen, setIsOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const isLoading = isOpen && loading;
 
   React.useEffect(() => {
     if (isLoading) return;
-    const pokemonOptions = getPokemonOptions(pokemonData);
-    setOptions(pokemonOptions);
-  }, [isLoading, pokemonData]);
+    const movieOptions = getMovieOptions(movieData);
+    setOptions(movieOptions);
+  }, [isLoading, movieData]);
 
   React.useEffect(() => {
     if (!isOpen) {
@@ -41,7 +34,7 @@ export default function PokemonAutocomplete({name}) {
   return (
     <SQFormAsyncAutocomplete
       name={name}
-      label="Pokemon"
+      label="Movies"
       size={10}
       handleAsyncInputChange={value => setInputValue(value)}
       open={isOpen}
