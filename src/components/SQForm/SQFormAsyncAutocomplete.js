@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
@@ -82,7 +83,7 @@ const ListboxVirtualizedComponent = React.forwardRef(
   }
 );
 
-function SQFormAutocomplete({
+function SQFormAsyncAutocomplete({
   children,
   isDisabled = false,
   isRequired = false,
@@ -90,6 +91,11 @@ function SQFormAutocomplete({
   name,
   onBlur,
   onChange,
+  handleAsyncInputChange,
+  loading,
+  open,
+  onOpen,
+  onClose,
   size = 'auto',
 }) {
   const classes = useStyles();
@@ -135,8 +141,9 @@ function SQFormAutocomplete({
   const handleInputChange = React.useCallback(
     (_event, value) => {
       setInputValue(value);
+      handleAsyncInputChange(value);
     },
-    []
+    [handleAsyncInputChange]
   );
 
   return (
@@ -152,6 +159,9 @@ function SQFormAutocomplete({
         onBlur={handleAutocompleteBlur}
         onChange={handleAutocompleteChange}
         onInputChange={handleInputChange}
+        open={open}
+        onOpen={onOpen}
+        onClose={onClose}
         inputValue={inputValue}
         getOptionLabel={option => option.label}
         renderInput={params => {
@@ -169,6 +179,17 @@ function SQFormAutocomplete({
               inputProps={{
                 ...params.inputProps,
                 disabled: isDisabled,
+              }}
+              InputProps={{
+                ...params.InputProps,
+                endAdornment: (
+                  <>
+                    {loading ? (
+                      <CircularProgress color="inherit" size={20} />
+                    ) : null}
+                    {params.InputProps.endAdornment}
+                  </>
+                ),
               }}
               FormHelperTextProps={{error: isFieldError}}
               name={name}
@@ -188,7 +209,7 @@ function SQFormAutocomplete({
   );
 }
 
-SQFormAutocomplete.propTypes = {
+SQFormAsyncAutocomplete.propTypes = {
   /** Dropdown menu options to select from */
   children: PropTypes.arrayOf(
     PropTypes.shape({
@@ -196,6 +217,8 @@ SQFormAutocomplete.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
+  /** updates parent's local state value passed to useSWR query */
+  handleAsyncInputChange: PropTypes.func,
   /** Disabled property to disable the input if true */
   isDisabled: PropTypes.bool,
   /** Required property used to highlight input and label if not fulfilled */
@@ -212,4 +235,4 @@ SQFormAutocomplete.propTypes = {
   size: PropTypes.oneOf(['auto', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
 };
 
-export default SQFormAutocomplete;
+export default SQFormAsyncAutocomplete;

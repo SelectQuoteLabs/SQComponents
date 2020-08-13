@@ -16,5 +16,6 @@ export function useQueryPokemon(pokemon) {
   return {
     pokemonData,
     error,
+    loading: !pokemonData && !error,
   };
 }
