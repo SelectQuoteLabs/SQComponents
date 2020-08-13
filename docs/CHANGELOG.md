@@ -1,3 +1,10 @@
+## [2.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.7.0...v2.8.0) (2020-08-13)
+
+
+### Features
+
+* **sqformautocomplete:** enhance SQFormAutocomplete for async options ([54751c0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/54751c0952b0987447366828e659582ecf50b3b7))
+
 ## [2.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.4...v2.7.0) (2020-08-11)
 
 
