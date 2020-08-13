@@ -31,6 +31,7 @@ export {default as SectionBody} from './components/SectionBody';
 export {default as SectionHeader} from './components/SectionHeader';
 export {default as SQForm} from './components/SQForm';
 export {default as SQFormAutocomplete} from './components/SQForm/SQFormAutocomplete';
+export {default as SQFormAsyncAutocomplete} from './components/SQForm/SQFormAsyncAutocomplete';
 export {default as SQFormCheckbox} from './components/SQForm/SQFormCheckbox';
 export {default as SQFormIconButton} from './components/SQForm/SQFormIconButton';
 export {default as SQFormTextarea} from './components/SQForm/SQFormTextarea';
