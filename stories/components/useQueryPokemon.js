@@ -6,6 +6,7 @@ async function fetcher(route) {
   return json;
 }
 
+// https://pokeapi.co/docs/v2#pokemon-section
 export function useQueryPokemon(pokemon) {
   const {data: pokemonData, error} = useSWR(
     `https://pokeapi.co/api/v2/pokemon/${pokemon}`,
