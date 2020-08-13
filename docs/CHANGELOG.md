@@ -1,3 +1,11 @@
+### [2.8.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.0...v2.8.1) (2020-08-13)
+
+
+### Bug Fixes
+
+* **sqformasyncautocomplete:** fix bugs in SQFormAsyncAutocomplete ([b922953](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b9229537458ae7dd5a124ff63c536c1cde0d86d9))
+* **sqformautocomplete:** remove unnecessary prop for async version ([46eb922](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/46eb9229bed4304630feec59afc110821bb201a3))
+
 ## [2.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.7.0...v2.8.0) (2020-08-13)
 
 
