@@ -1,3 +1,10 @@
+### [2.8.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.1...v2.8.2) (2020-08-13)
+
+
+### Bug Fixes
+
+* **sqformasyncautocomplete:** export async autocomplete from index ([aaecfa5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/aaecfa5546709b9c9866c3e285e45c1581288c91))
+
 ### [2.8.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.0...v2.8.1) (2020-08-13)
 
 
