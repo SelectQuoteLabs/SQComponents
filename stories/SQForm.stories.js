@@ -9,6 +9,7 @@ import CheckMarkIcon from 'material-ui/svg-icons/action/check-circle';
 
 import FriendsFieldArray from './components/FriendsFieldArray';
 import FormValidationMessage from './components/FormValidationMessage';
+import PokemonAutocomplete from './components/PokemonAutocomplete';
 import markdown from '../notes/SQForm.md';
 
 import {
@@ -106,6 +107,36 @@ export const basicForm = () => {
         </SQFormDropdown>
         <SQFormCheckbox name="cool" label="Cool" />
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
+        <Grid item sm={12}>
+          <Grid container justify="space-between">
+            <SQFormResetButtonWithConfirmation
+              variant="outlined"
+              confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
+            >
+              RESET
+            </SQFormResetButtonWithConfirmation>
+            <SQFormButton>Submit</SQFormButton>
+          </Grid>
+        </Grid>
+      </SQForm>
+    </Card>
+  );
+};
+
+export const basicFormWithAsyncAutocomplete = () => {
+  const validationSchema = {
+    pokemon: Yup.string().required('Required'),
+  };
+
+  return (
+    <Card raised style={{padding: 16}}>
+      <SQForm
+        initialValues={{pokemon: ''}}
+        onSubmit={handleSubmit}
+        muiGridProps={{spacing: 4}}
+        validationSchema={validationSchema}
+      >
+        <PokemonAutocomplete name="pokemon" />
         <Grid item sm={12}>
           <Grid container justify="space-between">
             <SQFormResetButtonWithConfirmation

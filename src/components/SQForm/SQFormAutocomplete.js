@@ -90,6 +90,7 @@ function SQFormAutocomplete({
   name,
   onBlur,
   onChange,
+  handleAsyncInputChange = undefined,
   size = 'auto',
 }) {
   const classes = useStyles();
@@ -132,9 +133,13 @@ function SQFormAutocomplete({
     [name, onChange, setFieldValue]
   );
 
-  const handleInputChange = React.useCallback((_event, value) => {
-    setInputValue(value);
-  }, []);
+  const handleInputChange = React.useCallback(
+    (_event, value) => {
+      setInputValue(value);
+      handleAsyncInputChange && handleAsyncInputChange(value);
+    },
+    [handleAsyncInputChange]
+  );
 
   return (
     <Grid item sm={size}>
@@ -193,6 +198,8 @@ SQFormAutocomplete.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
+  /** updates parent's local state value passed to useSWR query */
+  handleAsyncInputChange: PropTypes.func,
   /** Disabled property to disable the input if true */
   isDisabled: PropTypes.bool,
   /** Required property used to highlight input and label if not fulfilled */
