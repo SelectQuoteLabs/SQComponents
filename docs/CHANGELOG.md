@@ -1,3 +1,10 @@
+### [2.8.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.2...v2.8.3) (2020-08-14)
+
+
+### Bug Fixes
+
+* **sqformtextfield.js:** use useField instead of useFormikContext ([d7f4c31](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d7f4c31728e3b2e339581eb4316af6da7816854d))
+
 ### [2.8.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.1...v2.8.2) (2020-08-13)
 
 
