@@ -17,7 +17,10 @@ function SQFormReadOnlyField({label, name, size = 'auto'}) {
         value={field.value || '- -'}
         fullWidth={true}
         InputLabelProps={{shrink: true}}
-        InputProps={{readOnly: true}}
+        InputProps={{
+          readOnly: true,
+          disableUnderline: true,
+        }}
         style={{marginBottom: 21}}
       />
     </Grid>
