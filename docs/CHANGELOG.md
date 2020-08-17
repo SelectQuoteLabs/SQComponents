@@ -1,3 +1,10 @@
+### [2.8.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.3...v2.8.4) (2020-08-17)
+
+
+### Bug Fixes
+
+* **sqformreadonlyfield:** disable input underline ([af02c42](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/af02c42edefc74e86c6f60b2858f752ee32626b8))
+
 ### [2.8.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.2...v2.8.3) (2020-08-14)
 
 
