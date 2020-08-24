@@ -72,7 +72,7 @@ export default function IconButtonMenu({
         transformOrigin={PLACEMENTS[placement].TRANSFORM}
         onClose={handleClose}
       >
-        {menuItems?.length
+        {menuItems && menuItems.length
           ? menuItems.map(item => {
               const onClick = () => {
                 item.onClick();
