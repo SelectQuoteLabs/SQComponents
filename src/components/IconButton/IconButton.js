@@ -53,7 +53,8 @@ IconButton.propTypes = {
   /** Type of button, defaults to 'button' */
   type: PropTypes.oneOf(['submit', 'reset', 'button']),
   /** The Material UI Icon to render inside the button */
-  IconComponent: PropTypes.func.isRequired,
+  IconComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+    .isRequired,
   /** Allows the icon color to be the SQ Teal color */
   isIconTeal: PropTypes.bool,
   /** When true, this allows the button to be spaced appropriately from the popover menu */
