@@ -1,6 +1,6 @@
 {
   "name": "scplus-shared-components",
-  "version": "2.8.4",
+  "version": "2.9.0",
   "description": "SC Plus shared component library",
   "main": "dist/index.js",
   "private": true,

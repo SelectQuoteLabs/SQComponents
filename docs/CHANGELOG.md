@@ -1,3 +1,10 @@
+## [2.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.4...v2.9.0) (2020-08-24)
+
+
+### Features
+
+* **iconbuttonmenu:** icon button that opens menu popover ([4e252a4](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4e252a45f34a455105c098933ae1c6ceaaee8888))
+
 ### [2.8.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.3...v2.8.4) (2020-08-17)
 
 
