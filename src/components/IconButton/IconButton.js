@@ -21,7 +21,6 @@ function IconButton({
   isIconTeal = false,
   applyPopoverSpacing = false,
 }) {
-  console.log(typeof IconComponent);
   const classes = useStyles();
   return (
     <MUIIconButton
