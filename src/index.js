@@ -22,6 +22,7 @@ export {default as DatePicker} from './components/DatePicker';
 export {default as DialogAlert} from './components/DialogAlert';
 export {default as DialogForm} from './components/DialogForm';
 export {default as IconButton} from './components/IconButton';
+export {default as IconButtonMenu} from './components/IconButtonMenu';
 export {default as SQFormReadOnlyField} from './components/SQForm/SQFormReadOnlyField';
 export {default as RoundedButton} from './components/RoundedButton';
 export {default as ScriptedText} from './components/ScriptedText';
