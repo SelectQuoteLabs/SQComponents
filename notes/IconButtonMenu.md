@@ -12,36 +12,18 @@ For your button that needs to be an icon that shows a menu.
 
   1. An SSC `Avatar` component that wraps a letter or an MUI Icon. For example:
 
-     import {Avatar} from 'scplus-shared-components'
+  `const LetterAvatar = () => (<Avatar isInverted isDisabled={isDisabled}>L</Avatar>)`
 
-     const LetterAvatar = () => (
-     <Avatar isInverted isDisabled={isDisabled}>
-     L
-     </Avatar>
-     )
+  `const IconAvatar = () => (<Avatar isDisabled={isDisabled}><SomeIcon /></Avatar>)`
 
-     const IconAvatar = () => (
-     <Avatar isDisabled={isDisabled}>
-     <SomeIcon />
-     </Avatar>
-     )
+  then in the render, pass in the component like this:
 
-     ...
+  `<IconButtonMenu IconComponent={LetterAvatar} ...etc />`
 
-     <IconButtonMenu
-     IconComponent={LetterAvatar}
-     ...
-     />
-
-  2. v4 MUI Icon component, imported from '@material-ui/icons'
+2. v4 MUI Icon component, imported from '@material-ui/icons'
 
 - `menuItems` each object in array must have this shape:
-  {
-  id: String,
-  isDisabled: Boolean,
-  label: String,
-  onClick: Function
-  }
+  `{ id: String, isDisabled: Boolean, label: String, onClick: Function }`
 
 - Possible `placement` props:
   - "top", "topLeft", "topRight"
