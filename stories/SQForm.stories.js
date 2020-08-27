@@ -7,6 +7,10 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CheckMarkIcon from 'material-ui/svg-icons/action/check-circle';
 
+import FriendsFieldArray from './components/FriendsFieldArray';
+import FormValidationMessage from './components/FormValidationMessage';
+import PokemonAutocomplete from './components/PokemonAutocomplete';
+import MoviesAutocomplete from './components/MoviesAutocomplete';
 import markdown from '../notes/SQForm.md';
 
 import {
@@ -18,6 +22,8 @@ import {
   SQFormAutocomplete,
   SQFormCheckbox,
   SQFormDropdown,
+  SQFormReadOnlyField,
+  SQFormResetButtonWithConfirmation,
 } from '../src';
 
 export default {
@@ -59,6 +65,10 @@ const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
   cool: false,
   lame: false,
 };
+const MOCK_FORM_FOR_FIELD_ARRAY = {
+  ...MOCK_FORM_ENTITY,
+  friends: ['Joe', 'Jane', 'Jack', 'Jill'],
+};
 
 const MOCK_STATE_OPTIONS = [
   {label: 'Arizona', value: 'AZ'},
@@ -80,10 +90,10 @@ export const basicForm = () => {
         onSubmit={handleSubmit}
         muiGridProps={{spacing: 4}}
       >
-        <SQFormTextField name="firstName" label="First name" size={4} />
-        <SQFormTextField name="lastName" label="Last name" size={4} />
-        <SQFormTextField name="city" label="City" size={4} />
-        <SQFormTextField name="state" label="State" size={2} />
+        <SQFormTextField name="firstName" label="First name" size={3} />
+        <SQFormTextField name="lastName" label="Last name" size={3} />
+        <SQFormReadOnlyField name="city" label="City" />
+        <SQFormReadOnlyField name="state" label="State" size={1} />
         <SQFormAutocomplete
           name="tenThousandOptions"
           label="Ten Thousand Options"
@@ -99,7 +109,73 @@ export const basicForm = () => {
         <SQFormCheckbox name="cool" label="Cool" />
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
         <Grid item sm={12}>
-          <Grid container justify="flex-end">
+          <Grid container justify="space-between">
+            <SQFormResetButtonWithConfirmation
+              variant="outlined"
+              confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
+            >
+              RESET
+            </SQFormResetButtonWithConfirmation>
+            <SQFormButton>Submit</SQFormButton>
+          </Grid>
+        </Grid>
+      </SQForm>
+    </Card>
+  );
+};
+
+export const basicFormWithAsyncAutocompletePokemon = () => {
+  const validationSchema = {
+    pokemon: Yup.string().required('Required'),
+  };
+
+  return (
+    <Card raised style={{padding: 16}}>
+      <SQForm
+        initialValues={{pokemon: ''}}
+        onSubmit={handleSubmit}
+        muiGridProps={{spacing: 4}}
+        validationSchema={validationSchema}
+      >
+        <PokemonAutocomplete name="pokemon" />
+        <Grid item sm={12}>
+          <Grid container justify="space-between">
+            <SQFormResetButtonWithConfirmation
+              variant="outlined"
+              confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
+            >
+              RESET
+            </SQFormResetButtonWithConfirmation>
+            <SQFormButton>Submit</SQFormButton>
+          </Grid>
+        </Grid>
+      </SQForm>
+    </Card>
+  );
+};
+
+export const basicFormWithAsyncAutocompleteMovies = () => {
+  const validationSchema = {
+    movie: Yup.string().required('Required'),
+  };
+
+  return (
+    <Card raised style={{padding: 16}}>
+      <SQForm
+        initialValues={{movie: ''}}
+        onSubmit={handleSubmit}
+        muiGridProps={{spacing: 4}}
+        validationSchema={validationSchema}
+      >
+        <MoviesAutocomplete name="movie" />
+        <Grid item sm={12}>
+          <Grid container justify="space-between">
+            <SQFormResetButtonWithConfirmation
+              variant="outlined"
+              confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
+            >
+              RESET
+            </SQFormResetButtonWithConfirmation>
             <SQFormButton>Submit</SQFormButton>
           </Grid>
         </Grid>
@@ -161,6 +237,50 @@ export const formWithValidation = () => {
         </SQFormDropdown>
         <SQFormTextField name="age" label="Age" size={2} isRequired={true} />
         <SQFormTextarea name="note" label="Note" size={5} isRequired={true} />
+        <Grid item sm={12}>
+          <Grid container justify="space-between">
+            <SQFormButton title="Reset" type="reset">
+              RESET
+            </SQFormButton>
+            <FormValidationMessage />
+
+            <SQFormButton>Submit</SQFormButton>
+          </Grid>
+        </Grid>
+      </SQForm>
+    </Card>
+  );
+};
+
+export const formWithFieldArray = () => {
+  return (
+    <Card raised style={{padding: 16}}>
+      <SQForm
+        initialValues={MOCK_FORM_FOR_FIELD_ARRAY}
+        onSubmit={handleSubmit}
+        muiGridProps={{spacing: 4}}
+      >
+        <SQFormTextField name="firstName" label="First name" size={3} />
+        <SQFormTextField name="lastName" label="Last name" size={3} />
+        <SQFormReadOnlyField name="city" label="City" />
+        <SQFormReadOnlyField name="state" label="State" size={1} />
+        <SQFormAutocomplete
+          name="tenThousandOptions"
+          label="Ten Thousand Options"
+          size={6}
+        >
+          {MOCK_AUTOCOMPLETE_OPTIONS}
+        </SQFormAutocomplete>
+        <SQFormTextField name="hobby" label="Hobby" size={4} />
+        <SQFormTextField name="age" label="Age" size={2} />
+        <SQFormDropdown name="state" label="State" displayEmpty={true} size={4}>
+          {MOCK_STATE_OPTIONS}
+        </SQFormDropdown>
+        <SQFormCheckbox name="cool" label="Cool" />
+        <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
+        <Grid item sm={12}>
+          <FriendsFieldArray name="friends" />
+        </Grid>
         <Grid item sm={12}>
           <Grid container justify="flex-end">
             <SQFormButton>Submit</SQFormButton>

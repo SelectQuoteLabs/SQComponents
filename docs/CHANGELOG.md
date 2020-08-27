@@ -1,135 +1,212 @@
-## [2.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.2.0...v2.3.0) (2020-06-26)
-
+## [2.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.4...v2.9.0) (2020-08-24)
 
 ### Features
 
-* updated the REAMDE to bump the version for my other changes ([d19bc01](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d19bc018f0a2dab967d475460a11711c9abbb6c1))
+- **iconbuttonmenu:** icon button that opens menu popover ([4e252a4](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/4e252a45f34a455105c098933ae1c6ceaaee8888))
 
+### [2.8.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.3...v2.8.4) (2020-08-17)
 
 ### Bug Fixes
 
-* updated the readme for bugfix ([2de582f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2de582ffdd598d77a8b7fd9ee7e491f95e94ffbe))
+- **sqformreadonlyfield:** disable input underline ([af02c42](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/af02c42edefc74e86c6f60b2858f752ee32626b8))
+
+### [2.8.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.2...v2.8.3) (2020-08-14)
+
+### Bug Fixes
+
+- **sqformtextfield.js:** use useField instead of useFormikContext ([d7f4c31](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d7f4c31728e3b2e339581eb4316af6da7816854d))
+
+### [2.8.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.1...v2.8.2) (2020-08-13)
+
+### Bug Fixes
+
+- **sqformasyncautocomplete:** export async autocomplete from index ([aaecfa5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/aaecfa5546709b9c9866c3e285e45c1581288c91))
+
+### [2.8.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.0...v2.8.1) (2020-08-13)
+
+### Bug Fixes
+
+- **sqformasyncautocomplete:** fix bugs in SQFormAsyncAutocomplete ([b922953](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b9229537458ae7dd5a124ff63c536c1cde0d86d9))
+- **sqformautocomplete:** remove unnecessary prop for async version ([46eb922](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/46eb9229bed4304630feec59afc110821bb201a3))
+
+## [2.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.7.0...v2.8.0) (2020-08-13)
+
+### Features
+
+- **sqformautocomplete:** enhance SQFormAutocomplete for async options ([54751c0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/54751c0952b0987447366828e659582ecf50b3b7))
+
+## [2.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.4...v2.7.0) (2020-08-11)
+
+### Features
+
+- **sqform:** expose formik's useFormikContext as useSQFormContext ([a6996e8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a6996e899be05434e7b8872f532e5f1c9aab7ee8))
+
+### [2.6.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.3...v2.6.4) (2020-08-10)
+
+### Bug Fixes
+
+- **sectionheader:** fix some inconsistencies in sectionheader ([dbc15c1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/dbc15c18e8b0f3a0cc6f227c971961b7e4877e2d))
+
+### [2.6.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.2...v2.6.3) (2020-08-10)
+
+### Bug Fixes
+
+- **sectionheader:** add typography style ([7929270](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/79292705fe85257e6c11f82dde4735454fa558ec))
+- **sectionheader:** use material's Typography component ([0876c91](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0876c91d324e97e96168edf3a4555bca97e20555))
+
+### [2.6.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.1...v2.6.2) (2020-08-10)
+
+### Bug Fixes
+
+- **sqformresetbuttonwithconfirmation:** add variant prop to reset button ([0903bd4](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0903bd4bc25523061474a1835a223524b78d3511))
+
+### [2.6.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.6.0...v2.6.1) (2020-08-09)
+
+### Bug Fixes
+
+- **section:** pass style prop for overrides ([1e28400](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1e284006c03e9e42dffeae5574438f18d77a1121))
+
+## [2.6.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.5.0...v2.6.0) (2020-08-08)
+
+### Features
+
+- **fieldarray:** exposes SQFieldArray coming from Formik ([3572874](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3572874c63ded68693a8897afcfa40fd45b00a03))
+
+## [2.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.4.1...v2.5.0) (2020-08-08)
+
+### Features
+
+- **resetbutton:** exposes a Reset button type ([abdba6a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/abdba6a5d4747531741442a50a716dcdf0e134c4))
+- **sqformresetbuttonwithconfirmation.js:** confirm alert for reset ([a240427](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a2404271650fc80d588860ca7cb895cef9300fec))
+
+### [2.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.4.0...v2.4.1) (2020-07-23)
+
+### Bug Fixes
+
+- **tooltip:** set default value of interactive prop to false ([003350e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/003350eddaba89d0385332cf4ba146d2b399ccde))
+
+## [2.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.3.0...v2.4.0) (2020-07-17)
+
+### Features
+
+- added a read only component and consumed it in sqform ([6334acb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6334acbf979a650e0faf247ac6a5930efebab976))
+- updated proptype ([24e6be5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/24e6be566060bfec57f0690136476e1437c95652))
+- updated read only component to live in SQForm ([637264d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/637264dc71b34bf275703411576012b6f00584b5))
+
+## [2.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.2.0...v2.3.0) (2020-06-26)
+
+### Features
+
+- updated the REAMDE to bump the version for my other changes ([d19bc01](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d19bc018f0a2dab967d475460a11711c9abbb6c1))
+
+### Bug Fixes
+
+- updated the readme for bugfix ([2de582f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2de582ffdd598d77a8b7fd9ee7e491f95e94ffbe))
 
 ## [2.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.1.1...v2.2.0) (2020-06-19)
 
-
 ### Features
 
-* adding css for scratchpad creation ([d811b18](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d811b18165e1adb415e702afa3d7398579cd25a0))
+- adding css for scratchpad creation ([d811b18](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d811b18165e1adb415e702afa3d7398579cd25a0))
 
 ### [2.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.1.0...v2.1.1) (2020-05-28)
 
-
 ### Bug Fixes
 
-* **sqformautocomplete.js:** exposes all 3 params to the onChange prop ([12efb1b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/12efb1be2e995795a9102fb976bf40af2987c154))
+- **sqformautocomplete.js:** exposes all 3 params to the onChange prop ([12efb1b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/12efb1be2e995795a9102fb976bf40af2987c154))
 
 ## [2.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.3...v2.1.0) (2020-05-20)
 
-
 ### Features
 
-* added a no data message to the columnlist with optional override ([b4964d2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b4964d2f9ae2cdbba7a052b70993aa9bb29d54bb))
-* removed css class that is no longer used ([30d621e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/30d621ebae3857ef65e470dbef9965300385e3fd))
-* removed extra theme ([fabbf01](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fabbf01af2ff5a1229269e4fd30323fdb75e14a9))
-* removed the !important call because it was not needed ([9384779](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9384779c816ede5acab8f2591feda686fee36c5d))
-* updated to a html class instead of inline style ([f5cd632](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f5cd632256c88c8e085945cb300f70359297f5a8))
-* updated to use new typography in no rows message ([fda5186](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fda51865d1c2281af88c7cacdaaf743216357187))
+- added a no data message to the columnlist with optional override ([b4964d2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b4964d2f9ae2cdbba7a052b70993aa9bb29d54bb))
+- removed css class that is no longer used ([30d621e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/30d621ebae3857ef65e470dbef9965300385e3fd))
+- removed extra theme ([fabbf01](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fabbf01af2ff5a1229269e4fd30323fdb75e14a9))
+- removed the !important call because it was not needed ([9384779](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9384779c816ede5acab8f2591feda686fee36c5d))
+- updated to a html class instead of inline style ([f5cd632](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f5cd632256c88c8e085945cb300f70359297f5a8))
+- updated to use new typography in no rows message ([fda5186](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fda51865d1c2281af88c7cacdaaf743216357187))
 
 ### [2.0.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.2...v2.0.3) (2020-05-06)
 
-
 ### Bug Fixes
 
-* **root.css:** adds the new senior specific orange color for the navbar ([c0f490f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c0f490f01c96c96e8a691b37a9867c8ff89cc0f4))
+- **root.css:** adds the new senior specific orange color for the navbar ([c0f490f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c0f490f01c96c96e8a691b37a9867c8ff89cc0f4))
 
 ### [2.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.1...v2.0.2) (2020-05-06)
 
-
 ### Bug Fixes
 
-* **dialogs:** add option to disable backdrop click ([775c46a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/775c46a26d571e6721eca1d6836ed21328e5ee15))
+- **dialogs:** add option to disable backdrop click ([775c46a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/775c46a26d571e6721eca1d6836ed21328e5ee15))
 
 ### [2.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.0.0...v2.0.1) (2020-05-06)
 
-
 ### Bug Fixes
 
-* bumping that version ([a0ca581](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a0ca58102508b7310618a6f217ce9a04554f4802))
+- bumping that version ([a0ca581](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a0ca58102508b7310618a6f217ce9a04554f4802))
 
 ## [2.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.24.0...v2.0.0) (2020-05-04)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **cardlist:** List item objects should now contain an id property to resolve prop-type warnings
-and provide a unique identifier to React for each list item.
+- **cardlist:** List item objects should now contain an id property to resolve prop-type warnings
+  and provide a unique identifier to React for each list item.
 
 ### Bug Fixes
 
-* **cardlist:** harden the getColorIcons method to be case insensitive ([e962ffd](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e962ffd38a1a5cc80480515c93d3da32523f3ab1))
-* **cardlist:** makes header optional, adds no data message ([6a8e056](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6a8e0565abc67b95f3813b90e04bfaa7afb2e69a))
+- **cardlist:** harden the getColorIcons method to be case insensitive ([e962ffd](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e962ffd38a1a5cc80480515c93d3da32523f3ab1))
+- **cardlist:** makes header optional, adds no data message ([6a8e056](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6a8e0565abc67b95f3813b90e04bfaa7afb2e69a))
 
 ## [1.24.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.4...v1.24.0) (2020-04-28)
 
-
 ### Features
 
-* **component:** implement ScriptedText component ([76394df](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/76394df84a03d3c4ee49dfc29dfb0e88dd46d7d7))
-
+- **component:** implement ScriptedText component ([76394df](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/76394df84a03d3c4ee49dfc29dfb0e88dd46d7d7))
 
 ### Bug Fixes
 
-* **scriptedtext:** fix wrapping and alignment issues in large text cases ([96f5b5f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/96f5b5faf2e158cd1fbefc30926c0d2d6140bb06))
+- **scriptedtext:** fix wrapping and alignment issues in large text cases ([96f5b5f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/96f5b5faf2e158cd1fbefc30926c0d2d6140bb06))
 
 ### [1.23.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.3...v1.23.4) (2020-04-28)
 
-
 ### Bug Fixes
 
-* **sqformautocomplete:** converts input to controlled for form reset ([71c65aa](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/71c65aaea88edb0ff58654af5b1459ea59562bab))
+- **sqformautocomplete:** converts input to controlled for form reset ([71c65aa](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/71c65aaea88edb0ff58654af5b1459ea59562bab))
 
 ### [1.23.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.2...v1.23.3) (2020-04-27)
 
-
 ### Bug Fixes
 
-* **sqform:** resets form on submission & fixes disabled state of button ([46af9de](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/46af9dea12456cbef40c98a0505174f4e9952797))
+- **sqform:** resets form on submission & fixes disabled state of button ([46af9de](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/46af9dea12456cbef40c98a0505174f4e9952797))
 
 ### [1.23.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.1...v1.23.2) (2020-04-25)
 
-
 ### Bug Fixes
 
-* **columnlist.js:** fixes list never updating when tabs prop changes ([6c43feb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6c43feb907eab908a716c6c2fd1493e25d83dc02))
+- **columnlist.js:** fixes list never updating when tabs prop changes ([6c43feb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/6c43feb907eab908a716c6c2fd1493e25d83dc02))
 
 ### [1.23.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.23.0...v1.23.1) (2020-04-22)
 
-
 ### Bug Fixes
 
-* change form inputs border to light gray ([06f923f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/06f923fcb510eae558f52d661d65bc4436eda36a))
+- change form inputs border to light gray ([06f923f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/06f923fcb510eae558f52d661d65bc4436eda36a))
 
 ## [1.23.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.22.0...v1.23.0) (2020-04-21)
 
-
 ### Features
 
-* textarea and icon button ([17bd657](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17bd657e28e18629c795e24b5c63a1e55d03c192))
+- textarea and icon button ([17bd657](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17bd657e28e18629c795e24b5c63a1e55d03c192))
 
 ## [1.22.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.21.0...v1.22.0) (2020-04-10)
 
-
 ### Features
 
-* updated the onclick to be per listItem to make consumption cleaner ([db98143](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/db9814395e75b8ec58ec811bc7ab1ef8eea5d967))
+- updated the onclick to be per listItem to make consumption cleaner ([db98143](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/db9814395e75b8ec58ec811bc7ab1ef8eea5d967))
 
 ## [1.21.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.20.0...v1.21.0) (2020-04-09)
 
-
 ### Features
 
-* updated card list to have onclick functionality per tab ([5d71405](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5d71405a9d2d459867c98f915c6271e87153ea25))
+- updated card list to have onclick functionality per tab ([5d71405](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5d71405a9d2d459867c98f915c6271e87153ea25))
 
 ## [1.20.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v1.19.0...v1.20.0) (2020-04-09)
 

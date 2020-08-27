@@ -16,9 +16,10 @@ const useStyles = makeStyles(() => ({
 function Tooltip({
   arrow = true,
   children,
-  interactive = true,
+  interactive = false,
   placement = 'bottom',
   title,
+  ...props
 }) {
   const classes = useStyles();
 
@@ -38,7 +39,7 @@ function Tooltip({
       placement={placement}
       title={title}
     >
-      <Children />
+      <Children {...props} />
     </MUITooltip>
   );
 }
@@ -50,7 +51,9 @@ Tooltip.propTypes = {
   /** Must be an element able to hold a ref */
   children: PropTypes.node.isRequired,
 
-  /** Controls whether you can hover over the tooltip itself to interact with its content */
+  /** Controls whether you can hover over the tooltip itself
+   * to interact with its content, e.g. a button.
+   */
   interactive: PropTypes.bool,
 
   /** Defaults to 'bottom' */

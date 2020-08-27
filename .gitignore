@@ -9,3 +9,4 @@ package
 .cache
 .out
 .idea
+.vscode
