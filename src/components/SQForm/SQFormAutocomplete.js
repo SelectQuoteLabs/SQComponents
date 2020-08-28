@@ -132,12 +132,9 @@ function SQFormAutocomplete({
     [name, onChange, setFieldValue]
   );
 
-  const handleInputChange = React.useCallback(
-    (_event, value) => {
-      setInputValue(value);
-    },
-    []
-  );
+  const handleInputChange = React.useCallback((_event, value) => {
+    setInputValue(value);
+  }, []);
 
   return (
     <Grid item sm={size}>

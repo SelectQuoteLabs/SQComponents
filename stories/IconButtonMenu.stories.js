@@ -5,8 +5,7 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/IconButtonMenu.md';
 
-import {IconButtonMenu,Avatar} from '../src';
-
+import {IconButtonMenu, Avatar} from '../src';
 
 export default {
   title: 'IconButtonMenu',
