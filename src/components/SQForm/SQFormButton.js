@@ -10,10 +10,23 @@ function SQFormButton({
   title = 'Form Submission',
   type = 'submit',
 }) {
-  const {isButtonDisabled} = useFormButton(isDisabled);
+  const {dirty, isButtonDisabled, handleReset} = useFormButton(isDisabled);
+
+  const isSQFormButtonDisabled = React.useMemo(() => {
+    if (type === 'reset') {
+      return !dirty;
+    }
+
+    return isButtonDisabled;
+  }, [dirty, isButtonDisabled, type]);
 
   return (
-    <RoundedButton title={title} type={type} isDisabled={isButtonDisabled}>
+    <RoundedButton
+      title={title}
+      type={type}
+      isDisabled={isSQFormButtonDisabled}
+      onClick={type === 'reset' ? handleReset : undefined}
+    >
       {children}
     </RoundedButton>
   );
@@ -23,7 +36,7 @@ SQFormButton.propTypes = {
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
   title: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['submit', 'reset']),
 };
 
 export default SQFormButton;

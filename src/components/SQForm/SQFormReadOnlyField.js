@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
-import {useFormikContext} from 'formik';
-
-const useStyles = makeStyles(() => ({
-  label: {
-    color: 'var(--color- label)',
-    fontSize: '12px',
-  },
-  value: {
-    fontSize: '14px',
-    marginTop: '4px',
-  },
-}));
+import TextField from '@material-ui/core/TextField';
+import {useForm} from './useForm';
 
 function SQFormReadOnlyField({label, name, size = 'auto'}) {
-  const {values} = useFormikContext();
-  const classes = useStyles();
+  const {
+    formikField: {field},
+  } = useForm({name, isRequired: false});
 
   return (
     <Grid item sm={size}>
-      <label className={classes.label}>{label}</label>
-      <p className={classes.value}>{values[name] ? values[name] : '- -'}</p>
+      <TextField
+        label={label}
+        name={name}
+        value={field.value || '- -'}
+        fullWidth={true}
+        InputLabelProps={{shrink: true}}
+        InputProps={{
+          readOnly: true,
+          disableUnderline: true,
+        }}
+        style={{marginBottom: 21}}
+      />
     </Grid>
   );
 }
@@ -30,9 +30,10 @@ function SQFormReadOnlyField({label, name, size = 'auto'}) {
 SQFormReadOnlyField.propTypes = {
   /** Descriptive label of the input */
   label: PropTypes.string.isRequired,
+  /** Name of the field will be the Object key of the key/value pair form payload */
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Size of the input given full-width is 12. */
   size: PropTypes.oneOf(['auto', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default SQFormReadOnlyField;

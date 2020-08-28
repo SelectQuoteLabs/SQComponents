@@ -1,6 +1,7 @@
 .iconButton {
   width: 30px !important; /* MUI Override */
   height: 30px !important; /* MUI Override */
+  color: var(--color-teal) !important; /* MUI Override */
 }
 
 .iconButton__enabled {

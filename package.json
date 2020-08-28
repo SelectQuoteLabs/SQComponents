@@ -1,6 +1,6 @@
 {
   "name": "scplus-shared-components",
-  "version": "2.4.1",
+  "version": "2.9.0",
   "description": "SC Plus shared component library",
   "main": "dist/index.js",
   "private": true,
@@ -63,6 +63,7 @@
     "react-text-mask": "^5.4.3",
     "react-weekly-schedule": "0.0.0-development",
     "react-window": "^1.8.5",
+    "swr": "^0.3.0",
     "yup": "^0.28.3"
   },
   "peerDependencies": {
