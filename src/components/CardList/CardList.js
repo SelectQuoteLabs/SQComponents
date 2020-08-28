@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function CardList({
+  cardStyle,
   contentHeight,
   contentWidth,
   contentStyle,
@@ -77,7 +78,7 @@ function CardList({
   };
 
   return (
-    <Card className="cardList" style={{width: contentWidth}}>
+    <Card className="cardList" style={{width: contentWidth, ...cardStyle}}>
       {shouldRenderHeader && (
         <CardHeader
           className="cardList__header"
@@ -143,11 +144,13 @@ function CardList({
 CardList.propTypes = {
   /** OPTIONAL - boolean to override default behavior of intially expanded = true */
   isInitiallyExpanded: PropTypes.bool,
-  /** OPTIONAL - width of the card.  Default is 25rem. Ex. height={{height: '55rem'}}*/
-  contentWidth: PropTypes.object,
-  /** OPTIONAL - height of the card.  Default is 30rem. Ex. width={{width: '55rem'}} */
-  contentHeight: PropTypes.object,
-  /** OPTIONAL - additional styles to be applied to the content */
+  /** OPTIONAL - styles to be applied to the outer Card element */
+  cardStyle: PropTypes.object,
+  /** OPTIONAL - height of the card.  Default is 30rem. Ex. contentHeight: '55rem' */
+  contentWidth: PropTypes.string,
+  /** OPTIONAL - height of the card.  Default is 30rem. Ex. contentHeight: '55rem' */
+  contentHeight: PropTypes.string,
+  /** OPTIONAL - additional styles to be applied to the content Ex. contentStyle: {{backgroundColor: 'blue'}}*/
   contentStyle: PropTypes.object,
   /** Function to be triggered when an item is clicked on in the Card List */
   onListItemClick: PropTypes.func,

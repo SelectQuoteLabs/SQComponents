@@ -212,6 +212,7 @@ export const CardListWithCustomStyle = () => (
   <CardList
     contentWidth="45rem"
     contentHeight="85vh"
+    cardStyle={{minWidth: 'auto'}}
     contentStyle={{backgroundColor: 'blue'}}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
