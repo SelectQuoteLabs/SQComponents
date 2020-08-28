@@ -1,3 +1,10 @@
+### [3.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.0...v3.0.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* we need to be able to set the outter card styles for the CardList ([e3e5939](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e3e5939a7758550983dfe2a6c3bc4f6b34a3f023))
+
 ## [3.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.9.0...v3.0.0) (2020-08-28)
 
 
