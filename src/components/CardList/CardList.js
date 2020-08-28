@@ -76,7 +76,7 @@ function CardList({
   };
 
   return (
-    <Card className="cardList" style={width}>
+    <Card className="cardList" style={{width: width?.width || width}}>
       {shouldRenderHeader && (
         <CardHeader
           className="cardList__header"
@@ -105,7 +105,10 @@ function CardList({
         />
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-        <CardContent className="cardList__content" style={(height, width)}>
+        <CardContent
+          className="cardList__content"
+          style={{height, width: width?.width || width}}
+        >
           {selectedTab.isLoading ? (
             <div className="cardList__loadingContainer">
               <LoadingIcon style={{marginLeft: '10rem'}} />
