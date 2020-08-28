@@ -6,12 +6,16 @@ import {makeStyles} from '@material-ui/core';
 import './IconButton.css';
 
 const useStyles = makeStyles(() => ({
-  // this adds some space between the button and the menu popover
-  root: {
-    padding: '1rem',
-    background: 'transparent',
-  },
+  root: applyPopoverSpacing =>
+    applyPopoverSpacing
+      ? {
+          // this adds some space between the button and the menu popover
+          padding: '1rem',
+          background: 'transparent',
+        }
+      : {padding: 0},
 }));
+
 function IconButton({
   title,
   onClick,
@@ -21,7 +25,7 @@ function IconButton({
   isIconTeal = false,
   applyPopoverSpacing = false,
 }) {
-  const classes = useStyles();
+  const classes = useStyles(applyPopoverSpacing);
   return (
     <MUIIconButton
       disableRipple={true}
@@ -30,7 +34,7 @@ function IconButton({
       onClick={onClick}
       disabled={isDisabled}
       type={type}
-      classes={applyPopoverSpacing ? classes : {}}
+      classes={classes}
     >
       <IconComponent
         className={`iconButton ${classnames({

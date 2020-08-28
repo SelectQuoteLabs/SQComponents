@@ -15,6 +15,9 @@ import LoadingIcon from '../LoadingIcon';
 import './CardList.css';
 
 const useStyles = makeStyles(theme => ({
+  base: {
+    padding: 0,
+  },
   expand: {
     transform: 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
@@ -62,7 +65,10 @@ function CardList({
     setSelectedTab({type: 'SYNC_TAB', tab: tabs[selectedTab.index]});
   }, [selectedTab.index, tabs]);
 
-  const expandClasses = useStyles();
+  const buttonClasses = useStyles();
+  const expandClasses = isExpanded
+    ? buttonClasses.expandOpen
+    : buttonClasses.expand;
 
   const expandClick = () => {
     setExpanded(!isExpanded);
@@ -90,9 +96,7 @@ function CardList({
               />
               {isExpandable && (
                 <IconButton
-                  className={
-                    isExpanded ? expandClasses.expandOpen : expandClasses.expand
-                  }
+                  className={`${buttonClasses.base} ${expandClasses}`}
                   onClick={expandClick}
                   aria-expanded={isExpanded}
                   aria-label="open"
@@ -127,6 +131,7 @@ function CardList({
             title="Refresh List"
             color="primary"
             onClick={selectedTab.handleRefresh}
+            className={buttonClasses.base}
           >
             <RefreshIcon fontSize="large" />
           </IconButton>

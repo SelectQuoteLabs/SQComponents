@@ -159,7 +159,6 @@ const theme = {
     },
     MuiIconButton: {
       root: {
-        padding: 0,
         '&:hover': {
           backgroundColor: 'none',
         },

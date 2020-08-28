@@ -18,7 +18,7 @@ import './ColumnList.css';
 const useStyles = makeStyles(theme => ({
   open: {
     transform: 'rotate(0deg)',
-    paddingTop: '0.5rem',
+    padding: '0.5rem 0 0 0',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   closed: {
     transform: 'rotate(180deg)',
-    paddingTop: '0.5rem',
+    padding: '0.5rem 0 0 0',
   },
 }));
 
@@ -112,7 +112,7 @@ function ColumnList({
               </div>
               <IconButton
                 onClick={expandClick}
-                className={expandedStyle} //eslint-disable-line
+                className={expandedStyle}
                 aria-expanded={true}
                 aria-label="open"
               >
