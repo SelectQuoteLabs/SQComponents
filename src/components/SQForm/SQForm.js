@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 function SQForm({
   children,
+  enableReinitialize = false,
   initialValues,
   muiGridProps = {},
   onSubmit,
@@ -19,6 +20,7 @@ function SQForm({
 
   return (
     <Formik
+      enableReinitialize={enableReinitialize}
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationYupSchema}
