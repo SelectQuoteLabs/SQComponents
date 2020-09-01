@@ -1,3 +1,10 @@
+### [3.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.1...v3.0.2) (2020-09-01)
+
+
+### Bug Fixes
+
+* **sqform.js:** expose enableReinitialize - needed for admin view tables ([70d6482](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/70d64822406a05e5580d1dc8cc5d3ab119e1a65d))
+
 ### [3.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.0...v3.0.1) (2020-08-28)
 
 
