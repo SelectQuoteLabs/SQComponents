@@ -26,7 +26,8 @@ const schema = {
   datetime: Yup.date()
     .required()
     .min(new Date())
-    .max(new Date('2100-10-10')),
+    .max(new Date('2100-10-10'))
+    .typeError('Invalid date'),
 };
 
 export const basicDateTimePicker = () => {
