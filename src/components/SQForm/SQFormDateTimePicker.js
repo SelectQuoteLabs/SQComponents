@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-// import ClearIcon from '@material-ui/icons/Clear';
-// import {IconButton} from '@material-ui/core';
 import {DateTimePicker} from '@material-ui/pickers';
 
 import {useForm} from './useForm';
@@ -17,30 +15,33 @@ function SQFormDateTimePicker({
   placeholder = '',
   onBlur,
   onChange,
-  ...dateTimePickerProps // https://next.material-ui-pickers.dev/api/DateTimePicker
 }) {
   const {
-    fieldState: {isFieldError},
-    fieldHelpers: {handleBlur, handleChange, HelperTextComponent},
+    formikField: {field, helpers},
+    fieldState: {isFieldError, errorMessage},
+    fieldHelpers: {handleBlur, HelperTextComponent},
   } = useForm({
     name,
     isRequired,
     onBlur,
     onChange,
   });
-  const [selectedDate, handleDateChange] = React.useState(new Date());
+
+  const handleChange = date => {
+    helpers.setValue(date);
+    onChange && onChange(date);
+  };
 
   return (
     <Grid item sm={size}>
       <DateTimePicker
-        {...dateTimePickerProps}
         label={label}
-        value={selectedDate}
-        onChange={handleDateChange}
-        renderInput={props => {
+        value={field.value}
+        onChange={handleChange}
+        renderInput={inputProps => {
           return (
             <TextField
-              {...props}
+              {...inputProps}
               name={name}
               color="primary"
               disabled={isDisabled}
@@ -48,9 +49,8 @@ function SQFormDateTimePicker({
               fullWidth={true}
               InputLabelProps={{shrink: true}}
               FormHelperTextProps={{error: isFieldError}}
-              helperText={HelperTextComponent}
+              helperText={isFieldError ? errorMessage : HelperTextComponent}
               placeholder={placeholder}
-              onChange={handleChange}
               onBlur={handleBlur}
               required={isRequired}
             />
