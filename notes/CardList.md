@@ -14,8 +14,8 @@ Sample with custom width and height:
 
 ```
 <CardList
-  width={{width: '45rem'}} //optional
-  height={{height: '55rem'}} //optional
+  width='45rem' //optional
+  height='55rem' //optional
   onListItemClick={action(`Opening the acount`)}
   isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
   isExpandable={boolean('isExpandable', true)}

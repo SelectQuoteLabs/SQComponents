@@ -1,3 +1,29 @@
+### [3.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.1...v3.0.2) (2020-09-01)
+
+### Bug Fixes
+
+- **sqform.js:** expose enableReinitialize - needed for admin view tables ([70d6482](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/70d64822406a05e5580d1dc8cc5d3ab119e1a65d))
+
+### [3.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.0...v3.0.1) (2020-08-28)
+
+### Bug Fixes
+
+- we need to be able to set the outter card styles for the CardList ([e3e5939](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e3e5939a7758550983dfe2a6c3bc4f6b34a3f023))
+
+## [3.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.9.0...v3.0.0) (2020-08-28)
+
+### ⚠ BREAKING CHANGES
+
+- The cardlist styles will now all work correctly with the new format
+
+### Features
+
+- updated the change to be breaking and customizable ([09ecb06](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/09ecb060ecb2a94a9ec99e27feff062ea7d4b215))
+
+### Bug Fixes
+
+- fix for how the width and heigth are passed to cardlist ([0afba49](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0afba49c06b5f43f32f35d31ade05a37a46147e4))
+
 ## [2.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v2.8.4...v2.9.0) (2020-08-24)
 
 ### Features

@@ -210,8 +210,10 @@ const tabOptionsWithNoData = [
 
 export const CardListWithCustomStyle = () => (
   <CardList
-    width={{width: '45rem'}}
-    height={{height: '55rem'}}
+    contentWidth="45rem"
+    contentHeight="85vh"
+    cardStyle={{minWidth: 'auto'}}
+    contentStyle={{backgroundColor: 'blue'}}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
     tabs={tabOptions}
@@ -227,8 +229,9 @@ export const CardListExampleWithoutStyle = () => (
   />
 );
 
-export const CardListExampleWithLoading = () => (
+export const CardListExampleWithLoadingAndWidth = () => (
   <CardList
+    contentWidth="75rem"
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
