@@ -6,7 +6,7 @@ import {LocalizationProvider} from '@material-ui/pickers';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import 'storybook-addon-material-ui/register';
 
-import DayJsUtils from '@material-ui/pickers/adapter/dayjs';
+import MomentAdapter from '@material-ui/pickers/adapter/moment';
 
 import {muiTheme} from '../src/theme';
 import selectQuoteTheme from './selectQuoteTheme';
@@ -53,7 +53,7 @@ addDecorator(storyFn => {
     <V0MuiThemeProvider muiTheme={muiThemeV0}>
       {/* https://material-ui.com/guides/interoperability/#plain-css */}
       <StylesProvider injectFirst>
-        <LocalizationProvider dateAdapter={DayJsUtils}>
+        <LocalizationProvider dateAdapter={MomentAdapter} locale={'en'}>
           <MuiThemeProvider theme={muiTheme}>{storyFn()}</MuiThemeProvider>
         </LocalizationProvider>
       </StylesProvider>

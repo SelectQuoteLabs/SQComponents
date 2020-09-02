@@ -1,7 +1,4 @@
 import React from 'react';
-import moment from 'moment';
-import MomentAdapter from '@material-ui/pickers/adapter/moment';
-import {LocalizationProvider} from '@material-ui/pickers';
 import {withKnobs} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import {SQForm, SQFormDateTimePicker} from '../src';
@@ -32,18 +29,12 @@ const schema = {
 
 export const basicDateTimePicker = () => {
   return (
-    <LocalizationProvider
-      dateLibInstance={moment}
-      dateAdapter={MomentAdapter}
-      locale={'en'}
+    <SQForm
+      initialValues={MOCK_INITIAL_STATE}
+      onSubmit={handleSubmit}
+      validationSchema={schema}
     >
-      <SQForm
-        initialValues={MOCK_INITIAL_STATE}
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-      >
-        <SQFormDateTimePicker name="datetime" label="Date/Time" />
-      </SQForm>
-    </LocalizationProvider>
+      <SQFormDateTimePicker name="datetime" label="Date/Time" />
+    </SQForm>
   );
 };
