@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import {DateTimePicker} from '@material-ui/pickers';
+import {makeStyles} from '@material-ui/core';
 import {useForm} from './useForm';
+
+const useStyles = makeStyles(() => ({
+  root: {
+    '& .MuiInputBase-root.Mui-focused, & .MuiInputBase-root:hover:not(.Mui-disabled)': {
+      '& .MuiIconButton-root': {
+        color: 'var(--color-teal)',
+      },
+    },
+  },
+}));
 
 function SQFormDateTimePicker({
   name,
@@ -31,10 +42,13 @@ function SQFormDateTimePicker({
     onChange && onChange(date);
   };
 
+  const classes = useStyles();
+
   return (
     <Grid item sm={size}>
       <DateTimePicker
         label={label}
+        disabled={isDisabled}
         value={field.value}
         onChange={handleChange}
         renderInput={inputProps => {
@@ -52,6 +66,7 @@ function SQFormDateTimePicker({
               placeholder={placeholder}
               onBlur={handleBlur}
               required={isRequired}
+              classes={classes}
             />
           );
         }}

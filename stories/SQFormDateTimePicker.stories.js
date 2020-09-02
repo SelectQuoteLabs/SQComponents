@@ -1,5 +1,5 @@
 import React from 'react';
-import {withKnobs} from '@storybook/addon-knobs';
+import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import {SQForm, SQFormDateTimePicker} from '../src';
 import * as Yup from 'yup';
@@ -34,7 +34,11 @@ export const basicDateTimePicker = () => {
       onSubmit={handleSubmit}
       validationSchema={schema}
     >
-      <SQFormDateTimePicker name="datetime" label="Date/Time" />
+      <SQFormDateTimePicker
+        name="datetime"
+        label="Date/Time"
+        isDisabled={boolean('isDisabled')}
+      />
     </SQForm>
   );
 };
