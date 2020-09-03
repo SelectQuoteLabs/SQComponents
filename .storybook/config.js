@@ -2,8 +2,11 @@ import {configure, addDecorator, addParameters} from '@storybook/react';
 import React from 'react';
 import {MuiThemeProvider as V0MuiThemeProvider} from 'material-ui'; // v0.x
 import {MuiThemeProvider, StylesProvider} from '@material-ui/core/styles';
+import {LocalizationProvider} from '@material-ui/pickers';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import 'storybook-addon-material-ui/register';
+
+import MomentAdapter from '@material-ui/pickers/adapter/moment';
 
 import {muiTheme} from '../src/theme';
 import selectQuoteTheme from './selectQuoteTheme';
@@ -50,7 +53,9 @@ addDecorator(storyFn => {
     <V0MuiThemeProvider muiTheme={muiThemeV0}>
       {/* https://material-ui.com/guides/interoperability/#plain-css */}
       <StylesProvider injectFirst>
-        <MuiThemeProvider theme={muiTheme}>{storyFn()}</MuiThemeProvider>
+        <LocalizationProvider dateAdapter={MomentAdapter} locale={'en'}>
+          <MuiThemeProvider theme={muiTheme}>{storyFn()}</MuiThemeProvider>
+        </LocalizationProvider>
       </StylesProvider>
     </V0MuiThemeProvider>
   );
