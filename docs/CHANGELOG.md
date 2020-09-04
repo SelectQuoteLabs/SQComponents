@@ -1,3 +1,10 @@
+## [3.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.1.0...v3.2.0) (2020-09-04)
+
+
+### Features
+
+* **sqformdatepicker.js:** adds SQFormDatePicker ([594760e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/594760e924244b002ac0cdf31f65fef727aaab33))
+
 ## [3.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.2...v3.1.0) (2020-09-03)
 
 
