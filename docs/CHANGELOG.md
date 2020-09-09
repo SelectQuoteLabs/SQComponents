@@ -1,3 +1,10 @@
+### [3.2.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.2.0...v3.2.1) (2020-09-09)
+
+
+### Bug Fixes
+
+* fixed sticky tooltip on button and dialogs ([2159a38](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2159a38b3bbe3844189a4e81ca420cf2709ab5bd))
+
 ## [3.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.1.0...v3.2.0) (2020-09-04)
 
 
