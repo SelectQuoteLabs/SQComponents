@@ -22,6 +22,7 @@ function Tooltip({
   ...props
 }) {
   const classes = useStyles();
+  const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
 
   const Children = React.forwardRef((props, ref) => {
     return (
@@ -38,8 +39,14 @@ function Tooltip({
       interactive={interactive}
       placement={placement}
       title={title}
+      open={isTooltipOpen}
     >
-      <Children {...props} />
+      <Children
+        {...props}
+        onMouseEnter={() => setIsTooltipOpen(true)}
+        onMouseLeave={() => setIsTooltipOpen(false)}
+        onClick={() => setIsTooltipOpen(false)}
+      />
     </MUITooltip>
   );
 }
