@@ -1,12 +1,16 @@
 import React from 'react';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
-import {SQForm, SQFormDateTimePicker} from '../src';
 import * as Yup from 'yup';
+import {SQForm, SQFormDateTimePicker} from '../src';
+import markdown from '../notes/SQFormDatePicker.md';
 
 export default {
   title: 'SQFormDateTimePicker',
   decorators: [withKnobs, withInfo],
+  parameters: {
+    notes: {markdown},
+  },
 };
 
 const MOCK_INITIAL_STATE = {
