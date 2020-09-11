@@ -19,6 +19,7 @@ function Tooltip({
   interactive = false,
   placement = 'bottom',
   title,
+  timeoutMS = 3000,
   ...props
 }) {
   const classes = useStyles();
@@ -31,6 +32,13 @@ function Tooltip({
       </div>
     );
   });
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isTooltipOpen) setIsTooltipOpen(false);
+    }, timeoutMS);
+    return () => clearTimeout(timer);
+  }, [isTooltipOpen, timeoutMS]);
 
   return (
     <MUITooltip
@@ -65,6 +73,9 @@ Tooltip.propTypes = {
 
   /** Defaults to 'bottom' */
   placement: PropTypes.string,
+
+  /** How long a tooltip should be shown.  Defaults to 3000 */
+  timeoutMS: PropTypes.number,
 
   /** Empty string blocks tooltip from rendering. Otherwise must be string or DOM element  */
   title: PropTypes.node,
