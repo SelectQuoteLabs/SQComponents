@@ -1,3 +1,20 @@
+## [4.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.3.0...v4.0.0) (2020-09-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removed the shared component in favor of MUI and our theme
+
+### Features
+
+* removed the shared component tool tip and added theme for tooltips ([9671aff](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9671aff2cdb86e4a8558c71c8ad1c539b8075b4f))
+
+
+### Bug Fixes
+
+* added a timeout on the tooltip in case it sticks ([a493c14](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a493c142907715e15778405121192e46365e3c10))
+* fixed tooltip story ([ac116db](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ac116db0ecdb55bf9b182592051751fd9cab136b))
+
 ## [3.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.2.1...v3.3.0) (2020-09-11)
 
 ### Features
