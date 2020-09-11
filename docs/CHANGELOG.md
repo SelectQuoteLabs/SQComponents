@@ -1,33 +1,35 @@
-### [3.2.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.2.0...v3.2.1) (2020-09-09)
+## [3.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.2.1...v3.3.0) (2020-09-11)
 
+### Features
+
+- **sqdialogform.js:** adds SQDialogForm ([bd0e2b5](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bd0e2b590d9425461bef125053c25c8d1ee329e4))
+
+### [3.2.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.2.0...v3.2.1) (2020-09-09)
 
 ### Bug Fixes
 
-* fixed sticky tooltip on button and dialogs ([2159a38](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2159a38b3bbe3844189a4e81ca420cf2709ab5bd))
+- fixed sticky tooltip on button and dialogs ([2159a38](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2159a38b3bbe3844189a4e81ca420cf2709ab5bd))
 
 ## [3.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.1.0...v3.2.0) (2020-09-04)
 
-
 ### Features
 
-* **sqformdatepicker.js:** adds SQFormDatePicker ([594760e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/594760e924244b002ac0cdf31f65fef727aaab33))
+- **sqformdatepicker.js:** adds SQFormDatePicker ([594760e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/594760e924244b002ac0cdf31f65fef727aaab33))
 
 ## [3.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.2...v3.1.0) (2020-09-03)
 
-
 ### Features
 
-* **sqformdatetimepicker.js:** initial work to implement DateTime Picker ([7c0502d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7c0502dd944e2867e05d9a0d83891ffe93b5cff6))
-
+- **sqformdatetimepicker.js:** initial work to implement DateTime Picker ([7c0502d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7c0502dd944e2867e05d9a0d83891ffe93b5cff6))
 
 ### Bug Fixes
 
-* **sqformdatetimepicker.js:** updates calendar icon color ([99617ff](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/99617ff8bc53dcac57195eaade30fa9a8eba081e))
-* demo typeError on date time picker story ([5c8e417](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5c8e417cd6e619e095cb7c65e3764974b785afc1))
-* removes duplicate LocalizationProvider ([664e6d1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/664e6d115c9de27b3968fc03f53e844eb62aca27))
-* removes unnecessary newline ([11a5b66](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/11a5b669cbb4a9125deecd03c339893ef5871b77))
-* replaces global IconButton padding override with local ([bbf648a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bbf648a7cbeaf80ca1c070ca3ccbae3a2ef074d9))
-* updates DateTimePicker to work with latest material-ui pickers ([7d69e12](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7d69e128f016aa8a1416c23da89b7bc666405c96))
+- **sqformdatetimepicker.js:** updates calendar icon color ([99617ff](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/99617ff8bc53dcac57195eaade30fa9a8eba081e))
+- demo typeError on date time picker story ([5c8e417](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5c8e417cd6e619e095cb7c65e3764974b785afc1))
+- removes duplicate LocalizationProvider ([664e6d1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/664e6d115c9de27b3968fc03f53e844eb62aca27))
+- removes unnecessary newline ([11a5b66](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/11a5b669cbb4a9125deecd03c339893ef5871b77))
+- replaces global IconButton padding override with local ([bbf648a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bbf648a7cbeaf80ca1c070ca3ccbae3a2ef074d9))
+- updates DateTimePicker to work with latest material-ui pickers ([7d69e12](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7d69e128f016aa8a1416c23da89b7bc666405c96))
 
 ### [3.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.0.1...v3.0.2) (2020-09-01)
 
