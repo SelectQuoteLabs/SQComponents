@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from '../Tooltip';
+import Tooltip from '@material-ui/core/Tooltip';
 import SpeakerNotes from '@material-ui/icons/SpeakerNotes';
 import {Typography, Grid} from '@material-ui/core';
 import './ScriptedText.css';
@@ -22,6 +22,7 @@ function ScriptedText({placement = 'top-start', text}) {
     <Grid container wrap="nowrap" alignItems="top">
       <Tooltip
         placement={placement}
+        arrow
         title={'Please read this scripted text to customer.'}
       >
         <SpeakerNotesIcon className="scriptedText__icon" />
