@@ -5,7 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
 
-import Tooltip from '../Tooltip';
+import Tooltip from '@material-ui/core/Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
 
 const COLORS = {
@@ -41,7 +41,7 @@ const getColorIcons = color => {
   const emoji = getColorEmoji(upperCaseColor);
   return (
     <ListItemIcon className="cardList__icon">
-      <Tooltip title={color} placement="top">
+      <Tooltip arrow title={color} placement="top">
         <span role="img" aria-label={color}>
           {emoji}
         </span>

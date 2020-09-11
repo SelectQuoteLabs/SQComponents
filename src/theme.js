@@ -148,6 +148,15 @@ const theme = {
         marginRight: 0,
       },
     },
+    MuiTooltip: {
+      tooltip: {
+        fontSize: '1rem',
+        backgroundColor: 'var(--color-jetBlack)',
+      },
+      arrow: {
+        color: 'var(--color-jetBlack)',
+      },
+    },
     MuiInputLabel: {
       root: {
         fontSize: 'var(--size-label)',

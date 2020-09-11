@@ -43,5 +43,4 @@ export {default as SQFormDatePicker} from './components/SQForm/SQFormDatePicker'
 export {default as SQFormDateTimePicker} from './components/SQForm/SQFormDateTimePicker';
 export {default as SQFormResetButtonWithConfirmation} from './components/SQForm/SQFormResetButtonWithConfirmation';
 export {default as SQDialogForm} from './components/SQDialogForm';
-export {default as Tooltip} from './components/Tooltip';
 export {default as WeeklySchedule} from './components/WeeklySchedule';

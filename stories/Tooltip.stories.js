@@ -1,20 +1,16 @@
 import React from 'react';
-import markdown from '../notes/Tooltip.md';
 import {withInfo} from '@storybook/addon-info';
 
-import {Tooltip} from '../src';
+import Tooltip from '@material-ui/core/Tooltip';
 
 export default {
   title: 'Tooltip',
   decorators: [withInfo],
-  parameters: {
-    notes: {markdown},
-  },
 };
 
 export const tooltip = () => {
   return (
-    <Tooltip title="Tooltip title prop can be a string">
+    <Tooltip arrow title="Tooltip title prop can be a string">
       <h2>TEXT</h2>
     </Tooltip>
   );
@@ -23,6 +19,7 @@ export const tooltip = () => {
 export const tooltipWithMoarContent = () => {
   return (
     <Tooltip
+      arrow
       title={
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -39,6 +36,7 @@ export const tooltipWithMoarContent = () => {
 export const tooltipWithButtonChild = () => {
   return (
     <Tooltip
+      arrow
       interactive={true}
       title={<button onClick={() => {}}>BUTTON</button>}
     >
@@ -49,7 +47,11 @@ export const tooltipWithButtonChild = () => {
 
 export const tooltipWithCustomArrowPlacement = () => {
   return (
-    <Tooltip placement="top" title="Control orientation with placement prop">
+    <Tooltip
+      arrow
+      placement="top"
+      title="Control orientation with placement prop"
+    >
       <h2>TEXT</h2>
     </Tooltip>
   );
