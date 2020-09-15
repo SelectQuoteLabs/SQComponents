@@ -44,12 +44,15 @@ function SQFormDateTimePicker({
 
   const classes = useStyles();
 
+  // An empty string will not reset the DatePicker so we have to pass null
+  const value = field.value || null;
+
   return (
     <Grid item sm={size}>
       <DateTimePicker
         label={label}
         disabled={isDisabled}
-        value={field.value}
+        value={value}
         onChange={handleChange}
         renderInput={inputProps => {
           return (
