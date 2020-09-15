@@ -97,7 +97,7 @@ const theme = {
         letterSpacing: pxToRem(0.4),
       },
       overline: {
-        fontWeight: 300,
+        fontWeight: 600,
         fontSize: pxToRem(10),
         letterSpacing: pxToRem(1.5),
       },

@@ -2,7 +2,7 @@ import React from 'react';
 import markdown from '../notes/Section.md';
 import {withInfo} from '@storybook/addon-info';
 
-import {Section, SectionHeader, SectionBody} from '../src';
+import {Section, SectionHeader, SectionBody, TextButton} from '../src';
 
 export default {
   title: 'Section',
@@ -51,17 +51,9 @@ export const simpleSection = () => (
 export const sectionWithActionHeader = () => (
   <Section>
     <SectionHeader title="Section Header">
-      {/* consumer could get fancy and compose a button into the header */}
-      <label
-        style={{
-          fontSize: '1rem',
-          display: 'flex',
-        }}
-      >
-        An input!
-        <input type="checkbox" />
-      </label>
-      {/* </div> */}
+      <TextButton onClick={() => alert('You are awesome.')} tooltip="Get TCPA">
+        Get TCPA
+      </TextButton>
     </SectionHeader>
     <SectionBody>
       <div style={{display: 'flex'}}>
