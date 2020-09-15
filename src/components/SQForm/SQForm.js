@@ -21,7 +21,7 @@ function SQForm({
   // HACK: This is a workaround for: https://github.com/mui-org/material-ui-pickers/issues/2112
   // Remove this reset handler when the issue is fixed.
   const handleReset = () => {
-    document && document.activeElement.blur();
+    document && document.activeElement && document.activeElement.blur();
   };
 
   return (
