@@ -1,3 +1,11 @@
+## [4.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.0.0...v4.1.0) (2020-09-15)
+
+
+### Features
+
+* added a text button component ([789828e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/789828e755560bcd40ae11d552514236582148b4))
+* added tooltip placement prop and removed some css not needed ([32a0c76](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/32a0c76f0d85eff27d8e027e6147eb5cd90a05ad))
+
 ## [4.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.3.0...v4.0.0) (2020-09-11)
 
 
