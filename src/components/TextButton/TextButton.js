@@ -6,19 +6,18 @@ import Typography from '@material-ui/core/Typography';
 import './TextButton.css';
 import {Tooltip} from '@material-ui/core';
 
-/** Rounded Button - base button component */
 function TextButton({
   onClick,
   tooltip,
   isDisabled = false,
   children,
   color = 'primary',
+  toolipPlacement = 'top',
 }) {
   return (
-    <Tooltip arrow title={tooltip}>
+    <Tooltip placement={toolipPlacement} arrow title={tooltip}>
       <span>
         <Button
-          key={tooltip}
           onClick={onClick}
           className="textButton"
           disabled={isDisabled}
@@ -33,6 +32,8 @@ function TextButton({
 }
 
 TextButton.propTypes = {
+  /** The placement of the tooltip on the button */
+  toolipPlacement: PropTypes.string,
   /** The onClick action if button is clicked */
   onClick: PropTypes.func,
   /** The tooltip title of the button */
