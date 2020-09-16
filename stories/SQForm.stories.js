@@ -24,6 +24,7 @@ import {
   SQFormDropdown,
   SQFormReadOnlyField,
   SQFormResetButtonWithConfirmation,
+  SQFormDatePicker,
 } from '../src';
 
 export default {
@@ -64,6 +65,7 @@ const MOCK_FORM_WITH_BOOLEANS_ENTITY = {
   hobby: '',
   cool: false,
   lame: false,
+  date: '',
 };
 const MOCK_FORM_FOR_FIELD_ARRAY = {
   ...MOCK_FORM_ENTITY,
@@ -108,6 +110,7 @@ export const basicForm = () => {
         </SQFormDropdown>
         <SQFormCheckbox name="cool" label="Cool" />
         <SQFormCheckbox name="lame" label="Lame" isDisabled={true} />
+        <SQFormDatePicker name="date" label="Date" />
         <Grid item sm={12}>
           <Grid container justify="space-between">
             <SQFormResetButtonWithConfirmation

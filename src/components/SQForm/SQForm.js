@@ -18,11 +18,18 @@ function SQForm({
     return Yup.object().shape(validationSchema);
   }, [validationSchema]);
 
+  // HACK: This is a workaround for: https://github.com/mui-org/material-ui-pickers/issues/2112
+  // Remove this reset handler when the issue is fixed.
+  const handleReset = () => {
+    document && document.activeElement && document.activeElement.blur();
+  };
+
   return (
     <Formik
       enableReinitialize={enableReinitialize}
       initialValues={initialValues}
       onSubmit={onSubmit}
+      onReset={handleReset}
       validationSchema={validationYupSchema}
       validateOnMount={true}
     >
