@@ -1,3 +1,10 @@
+### [4.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.1...v4.1.2) (2020-09-16)
+
+
+### Bug Fixes
+
+* **sqform fields:** remove asterisks from input labels ([7d78493](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7d78493de6a5898464697c4d92c12b0edd4bd13d))
+
 ### [4.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.0...v4.1.1) (2020-09-16)
 
 
