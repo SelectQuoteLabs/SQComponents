@@ -1,3 +1,13 @@
+### [4.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.0...v4.1.1) (2020-09-16)
+
+
+### Bug Fixes
+
+* **sqform.js:** ensure there's an activeElement ([17351a1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17351a184ad2db44fb38a097df6c69a35f156b57))
+* **sqform.js:** fixes m-ui picker focus/reset issue (SSC-74) ([e55bf24](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e55bf24c669124374c924b7688c386dabe3cc7c5))
+* **sqformdatepicker.js:** fixes empty string reset bug ([9fcd696](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9fcd69664cd99f07aafbb86d383cccf53ebd950c))
+* **sqformdatetimepicker.js:** fixes empty string reset bug ([5f7274a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5f7274a0fedb1239bf52fa9973de1846e1625feb))
+
 ## [4.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.0.0...v4.1.0) (2020-09-15)
 
 
