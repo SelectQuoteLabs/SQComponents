@@ -33,6 +33,8 @@
 
 .expandingCard__headerTitle {
   align-self: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .expandingCard__headerActions {
