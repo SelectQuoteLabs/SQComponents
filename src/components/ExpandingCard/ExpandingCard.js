@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ExpandingCard({name, title, children}) {
+function ExpandingCard({name, title, actions, children}) {
   const {
     isCollapseAllowed,
     getIsCardExpanded,
@@ -56,6 +56,7 @@ function ExpandingCard({name, title, children}) {
           <Typography variant="h6">{title}</Typography>
         </div>
         <div className="expandingCard__headerActions">
+          {actions}
           <div className="expandingCard__expandButton">
             <IconButton
               onClick={toggleExpansion}
@@ -87,7 +88,7 @@ ExpandingCard.propTypes = {
   title: PropTypes.string,
 
   /** Is initially expanded. Used by ExpandingCardList */
-  initiallyExpanded: PropTypes.bool,
+  isInitiallyExpanded: PropTypes.bool,
 };
 
 export default ExpandingCard;

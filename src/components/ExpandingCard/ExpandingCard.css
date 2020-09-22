@@ -12,6 +12,7 @@
 .expandingCard__header {
   display: flex;
   justify-content: space-between;
+  height: 4rem;
   padding: 0rem 0rem 0rem 1rem;
   border-bottom: 1px solid var(--color-lightGray);
   transition: border-bottom-width var(--transition-duration-shortest);
@@ -34,7 +35,6 @@
 .expandingCard__headerActions {
   display: flex;
   justify-content: flex-end;
-  padding: 0.15rem 0rem 0rem 0rem;
   font-size: 1rem;
 }
 
@@ -50,15 +50,18 @@
 }
 
 .expandingCard__body {
-  transition: height var(--transition-duration-shortest);
-  overflow-y: scroll;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  overflow-y: scroll;
+  transition: height var(--transition-duration-shortest);
 }
 
 .expandingCard__expandButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-left: 1px solid var(--color-lightGray);
 }

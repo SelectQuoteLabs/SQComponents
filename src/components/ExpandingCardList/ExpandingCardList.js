@@ -7,7 +7,7 @@ export const ExpandingCardListContext = React.createContext();
 
 function init(children) {
   return children.reduce((acc, child) => {
-    acc[child.props.name] = child.props.initiallyExpanded ?? true;
+    acc[child.props.name] = child.props.isInitiallyExpanded ?? true;
     return acc;
   }, {});
 }
