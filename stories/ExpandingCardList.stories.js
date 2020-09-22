@@ -29,6 +29,21 @@ export const expandingCards = () => {
   );
 };
 
+export const expandingCardsWithSubheader = () => {
+  return (
+    <div style={{width: '45rem', height: '80vh'}}>
+      <ExpandingCardList>
+        <ExpandingCard title="Card One" name="one" subheader="Testing">
+          Body
+        </ExpandingCard>
+        <ExpandingCard title="Card Two" name="two">
+          Body
+        </ExpandingCard>
+      </ExpandingCardList>
+    </div>
+  );
+};
+
 const tabs = [
   {
     label: 'First Tab',

@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ExpandingCard({name, title, actions, children}) {
+function ExpandingCard({name, title, actions, subheader, children}) {
   const {
     isCollapseAllowed,
     getIsCardExpanded,
@@ -51,24 +51,31 @@ function ExpandingCard({name, title, actions, children}) {
         'expandingCard--collapsed': !isExpanded,
       })}
     >
-      <div className="expandingCard__header">
-        <div className="expandingCard__headerTitle">
-          <Typography variant="h6">{title}</Typography>
-        </div>
-        <div className="expandingCard__headerActions">
-          {actions}
-          <div className="expandingCard__expandButton">
-            <IconButton
-              onClick={toggleExpansion}
-              className={`${classes.expandButtonBase} ${expandButtonStateClass}`}
-              disabled={!isCollapseAllowed && isExpanded}
-              aria-expanded={true}
-              aria-label="open"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
+      <div className="expandingCard__headerWrapper">
+        <div className="expandingCard__header">
+          <div className="expandingCard__headerTitle">
+            <Typography variant="h6">{title}</Typography>
+          </div>
+          <div className="expandingCard__headerActions">
+            {actions}
+            <div className="expandingCard__expandButton">
+              <IconButton
+                onClick={toggleExpansion}
+                className={`${classes.expandButtonBase} ${expandButtonStateClass}`}
+                disabled={!isCollapseAllowed && isExpanded}
+                aria-expanded={true}
+                aria-label="open"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </div>
           </div>
         </div>
+        {subheader && (
+          <div className="expandingCard__subheader">
+            <Typography variant="subtitle2">{subheader}</Typography>
+          </div>
+        )}
       </div>
       <div className="expandingCard__bodyWrapper">
         <div className="expandingCard__body">{children}</div>
@@ -86,6 +93,9 @@ ExpandingCard.propTypes = {
 
   /** Title text */
   title: PropTypes.string,
+
+  /** Sub header */
+  subheader: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Is initially expanded. Used by ExpandingCardList */
   isInitiallyExpanded: PropTypes.bool,

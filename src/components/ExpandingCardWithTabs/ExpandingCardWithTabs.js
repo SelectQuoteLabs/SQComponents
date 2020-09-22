@@ -5,7 +5,7 @@ import ExpandingCard from '../ExpandingCard';
 
 import './ExpandingCardWithTabs.css';
 
-function ExpandingCardWithTabs({name, title, children, tabs}) {
+function ExpandingCardWithTabs({name, title, subheader, tabs, children}) {
   const [selectedTabValue, setSelectedTabValue] = React.useState(tabs[0].value);
 
   const selectedTab = tabs.find(tab => tab.value === selectedTabValue);
@@ -14,6 +14,7 @@ function ExpandingCardWithTabs({name, title, children, tabs}) {
     <ExpandingCard
       name={name}
       title={title}
+      subheader={subheader}
       actions={
         <CardPopoverMenu
           tabs={tabs}
@@ -34,6 +35,9 @@ ExpandingCardWithTabs.propTypes = {
 
   /** Title text */
   title: PropTypes.string,
+
+  /** Sub header */
+  subheader: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Is initially expanded. Used by ExpandingCardList */
   isInitiallyExpanded: PropTypes.bool,
