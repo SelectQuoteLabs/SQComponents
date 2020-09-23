@@ -37,7 +37,9 @@ ExpandingCardWithTabs.propTypes = {
   /** Sub header */
   subheader: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
-  /** Is initially expanded. Used by ExpandingCardList */
+  /** Is initially expanded */
+  // isInitiallyExpanded is not used within this component but exists here to provde a good API.
+  // See ExpandingCardList for how this property is used.
   isInitiallyExpanded: PropTypes.bool,
 
   /** An array of tab objects */
