@@ -36,7 +36,10 @@ function ExpandingCard({name, title, actions, subheader, children}) {
   const isExpanded = getIsCardExpanded(name);
 
   const toggleExpansion = React.useCallback(() => {
-    if (isExpanded && !isCollapseAllowed) return;
+    if (isExpanded && !isCollapseAllowed) {
+      return;
+    }
+
     setIsCardExpanded(name, !isExpanded);
   }, [isExpanded, name, setIsCardExpanded, isCollapseAllowed]);
 
