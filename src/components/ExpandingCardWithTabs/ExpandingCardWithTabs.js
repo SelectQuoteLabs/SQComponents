@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import CardPopoverMenu from '../CardPopoverMenu';
 import ExpandingCard from '../ExpandingCard';
 
-import './ExpandingCardWithTabs.css';
-
 function ExpandingCardWithTabs({name, title, subheader, tabs, children}) {
   const [selectedTabValue, setSelectedTabValue] = React.useState(tabs[0].value);
 
