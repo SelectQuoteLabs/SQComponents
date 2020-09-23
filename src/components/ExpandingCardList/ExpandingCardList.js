@@ -5,25 +5,6 @@ import './ExpandingCardList.css';
 
 export const ExpandingCardListContext = React.createContext();
 
-function init(children) {
-  return children.reduce((acc, child) => {
-    acc[child.props.name] = child.props.isInitiallyExpanded ?? true;
-    return acc;
-  }, {});
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'SET_EXPANDED_STATE':
-      return {
-        ...state,
-        [action.name]: action.isExpanded,
-      };
-    default:
-      throw new Error('Invalid ExpandingCardList action.');
-  }
-}
-
 function getExpandedCount(state) {
   return Object.values(state).reduce((acc, value) => {
     if (value) acc++;
@@ -32,27 +13,34 @@ function getExpandedCount(state) {
 }
 
 function ExpandingCardList({children}) {
-  const [state, dispatch] = React.useReducer(reducer, children, init);
-
-  const getIsCardExpanded = React.useCallback(
-    name => {
-      return state[name];
-    },
-    [state]
+  const [
+    cardExpansionStatesByName,
+    setCardExpansionStatesByName,
+  ] = React.useState(
+    children.reduce((acc, child) => {
+      acc[child.props.name] = child.props.isInitiallyExpanded ?? true;
+      return acc;
+    }, {})
   );
 
   const setIsCardExpanded = React.useCallback(
     (name, isExpanded) => {
-      dispatch({
-        type: 'SET_EXPANDED_STATE',
-        name,
-        isExpanded,
+      setCardExpansionStatesByName({
+        ...cardExpansionStatesByName,
+        [name]: isExpanded,
       });
     },
-    [dispatch]
+    [cardExpansionStatesByName, setCardExpansionStatesByName]
   );
 
-  const isCollapseAllowed = getExpandedCount(state) > 1;
+  const getIsCardExpanded = React.useCallback(
+    name => {
+      return cardExpansionStatesByName[name];
+    },
+    [cardExpansionStatesByName]
+  );
+
+  const isCollapseAllowed = getExpandedCount(cardExpansionStatesByName) > 1;
 
   const api = {
     isCollapseAllowed,
