@@ -1,3 +1,20 @@
+## [4.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.2...v4.2.0) (2020-09-24)
+
+
+### Features
+
+* **expandingcard.js:** adds subheader prop ([29f012c](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/29f012c1ef3a9a2c92b93e9e31d1a7e969bbf272))
+* **expandingcardlist.js:** adds expanding card and list ([715015f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/715015f24bbcf93bcb354d943ee2ac9a41e4f86d))
+* **expandingcardwithtabs.js:** added ExpandingCardWithTabs ([fc3a0e2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fc3a0e24cecbef06109ae4a62d3b5e35f26ff752))
+
+
+### Bug Fixes
+
+* **expandigcard.js:** whitepsace ([d7345ae](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d7345aeb827ff3a0c39e3ea5f2149898ccc0a6b3))
+* **expandingcard.css:** adjusts header height ([8d647a3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8d647a381fdc63c8fe7ce154d0446a52b00e8738))
+* **expandingcard.css:** fixes wrapping in header ([b5c0fe3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b5c0fe3815592597d130bff69a37c9485c0870f7))
+* **package.json:** support for nullish coalescing operator ([9abe3eb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9abe3eb6b59463a34cad5c5e956745ed465831d2))
+
 ### [4.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.1...v4.1.2) (2020-09-16)
 
 
