@@ -1,3 +1,15 @@
+## [4.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.2.0...v4.3.0) (2020-09-25)
+
+
+### Features
+
+* **datatable.js:** adds standalone data table ([ad05928](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ad05928b1e81ed5a95460825022b62c4c7e0f2de))
+
+
+### Bug Fixes
+
+* **expandingcard.css:** fix overflow styles for card ([5d6e821](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5d6e8215d8423fc1229d8207b29bb23db70c54e4))
+
 ## [4.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.2...v4.2.0) (2020-09-24)
 
 
