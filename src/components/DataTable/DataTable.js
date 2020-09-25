@@ -92,6 +92,9 @@ DataTable.propTypes = {
 
   /** Ability to resize each column by clicking between the headers. default = true */
   resizable: PropTypes.bool,
+
+  /** Message to display when rowData is empty */
+  zeroItemsMessage: PropTypes.string,
 };
 
 export default DataTable;
