@@ -98,6 +98,8 @@
 
   --button-font-weight: var(--font-weight-semibold);
   --button-font-size: 1.1667rem;
+
+  --transition-duration-shortest: 150ms;
 }
 
 html {

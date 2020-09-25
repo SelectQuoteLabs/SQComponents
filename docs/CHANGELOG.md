@@ -1,44 +1,64 @@
-### [4.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.1...v4.1.2) (2020-09-16)
+## [4.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.2.0...v4.3.0) (2020-09-25)
 
+### Features
+
+- **datatable.js:** adds standalone data table ([ad05928](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ad05928b1e81ed5a95460825022b62c4c7e0f2de))
 
 ### Bug Fixes
 
-* **sqform fields:** remove asterisks from input labels ([7d78493](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7d78493de6a5898464697c4d92c12b0edd4bd13d))
+- **expandingcard.css:** fix overflow styles for card ([5d6e821](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5d6e8215d8423fc1229d8207b29bb23db70c54e4))
+
+## [4.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.2...v4.2.0) (2020-09-24)
+
+### Features
+
+- **expandingcard.js:** adds subheader prop ([29f012c](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/29f012c1ef3a9a2c92b93e9e31d1a7e969bbf272))
+- **expandingcardlist.js:** adds expanding card and list ([715015f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/715015f24bbcf93bcb354d943ee2ac9a41e4f86d))
+- **expandingcardwithtabs.js:** added ExpandingCardWithTabs ([fc3a0e2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fc3a0e24cecbef06109ae4a62d3b5e35f26ff752))
+
+### Bug Fixes
+
+- **expandigcard.js:** whitepsace ([d7345ae](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d7345aeb827ff3a0c39e3ea5f2149898ccc0a6b3))
+- **expandingcard.css:** adjusts header height ([8d647a3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8d647a381fdc63c8fe7ce154d0446a52b00e8738))
+- **expandingcard.css:** fixes wrapping in header ([b5c0fe3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b5c0fe3815592597d130bff69a37c9485c0870f7))
+- **package.json:** support for nullish coalescing operator ([9abe3eb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9abe3eb6b59463a34cad5c5e956745ed465831d2))
+
+### [4.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.1...v4.1.2) (2020-09-16)
+
+### Bug Fixes
+
+- **sqform fields:** remove asterisks from input labels ([7d78493](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7d78493de6a5898464697c4d92c12b0edd4bd13d))
 
 ### [4.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.1.0...v4.1.1) (2020-09-16)
 
-
 ### Bug Fixes
 
-* **sqform.js:** ensure there's an activeElement ([17351a1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17351a184ad2db44fb38a097df6c69a35f156b57))
-* **sqform.js:** fixes m-ui picker focus/reset issue (SSC-74) ([e55bf24](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e55bf24c669124374c924b7688c386dabe3cc7c5))
-* **sqformdatepicker.js:** fixes empty string reset bug ([9fcd696](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9fcd69664cd99f07aafbb86d383cccf53ebd950c))
-* **sqformdatetimepicker.js:** fixes empty string reset bug ([5f7274a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5f7274a0fedb1239bf52fa9973de1846e1625feb))
+- **sqform.js:** ensure there's an activeElement ([17351a1](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17351a184ad2db44fb38a097df6c69a35f156b57))
+- **sqform.js:** fixes m-ui picker focus/reset issue (SSC-74) ([e55bf24](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e55bf24c669124374c924b7688c386dabe3cc7c5))
+- **sqformdatepicker.js:** fixes empty string reset bug ([9fcd696](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9fcd69664cd99f07aafbb86d383cccf53ebd950c))
+- **sqformdatetimepicker.js:** fixes empty string reset bug ([5f7274a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5f7274a0fedb1239bf52fa9973de1846e1625feb))
 
 ## [4.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.0.0...v4.1.0) (2020-09-15)
 
-
 ### Features
 
-* added a text button component ([789828e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/789828e755560bcd40ae11d552514236582148b4))
-* added tooltip placement prop and removed some css not needed ([32a0c76](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/32a0c76f0d85eff27d8e027e6147eb5cd90a05ad))
+- added a text button component ([789828e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/789828e755560bcd40ae11d552514236582148b4))
+- added tooltip placement prop and removed some css not needed ([32a0c76](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/32a0c76f0d85eff27d8e027e6147eb5cd90a05ad))
 
 ## [4.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.3.0...v4.0.0) (2020-09-11)
 
-
 ### ⚠ BREAKING CHANGES
 
-* Removed the shared component in favor of MUI and our theme
+- Removed the shared component in favor of MUI and our theme
 
 ### Features
 
-* removed the shared component tool tip and added theme for tooltips ([9671aff](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9671aff2cdb86e4a8558c71c8ad1c539b8075b4f))
-
+- removed the shared component tool tip and added theme for tooltips ([9671aff](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9671aff2cdb86e4a8558c71c8ad1c539b8075b4f))
 
 ### Bug Fixes
 
-* added a timeout on the tooltip in case it sticks ([a493c14](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a493c142907715e15778405121192e46365e3c10))
-* fixed tooltip story ([ac116db](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ac116db0ecdb55bf9b182592051751fd9cab136b))
+- added a timeout on the tooltip in case it sticks ([a493c14](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a493c142907715e15778405121192e46365e3c10))
+- fixed tooltip story ([ac116db](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ac116db0ecdb55bf9b182592051751fd9cab136b))
 
 ## [3.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v3.2.1...v3.3.0) (2020-09-11)
 
