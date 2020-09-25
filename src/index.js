@@ -45,3 +45,7 @@ export {default as SQFormResetButtonWithConfirmation} from './components/SQForm/
 export {default as SQDialogForm} from './components/SQDialogForm';
 export {default as TextButton} from './components/TextButton';
 export {default as WeeklySchedule} from './components/WeeklySchedule';
+
+// Custom Hooks
+export {useDialog} from './hooks/useDialog';
+export {usePrevious} from './hooks/usePrevious';
