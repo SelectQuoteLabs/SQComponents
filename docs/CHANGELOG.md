@@ -1,3 +1,10 @@
+## [4.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.3.0...v4.4.0) (2020-09-28)
+
+
+### Features
+
+* **hooks/:** expose useDialog + usePrevious custom hooks ([03699f7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/03699f7b487f81ff75c5a45f456c053afb7257af))
+
 ## [4.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.2.0...v4.3.0) (2020-09-25)
 
 ### Features
