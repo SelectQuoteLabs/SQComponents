@@ -16,5 +16,18 @@ export const iconButton = () => (
     title="Icon Button"
     onClick={action('Icon button clicked')}
     isDisabled={boolean('isDisabled', false)}
+    isIconTeal={boolean('isIconTeal', false)}
+  />
+);
+
+export const iconButtonWithCustomSizing = () => (
+  <IconButton
+    IconComponent={CheckMarkIcon}
+    title="Icon Button Custom Sizing"
+    onClick={action('Icon button clicked')}
+    isDisabled={boolean('isDisabled', false)}
+    isIconTeal={boolean('isIconTeal', false)}
+    width="1.5rem"
+    height="1.5rem"
   />
 );

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import MUIIconButton from '@material-ui/core/IconButton';
 import {makeStyles} from '@material-ui/core';
-import './IconButton.css';
 
 const useStyles = makeStyles(() => ({
   root: applyPopoverSpacing =>
@@ -14,7 +12,23 @@ const useStyles = makeStyles(() => ({
           background: 'transparent',
         }
       : {padding: 0},
+  disabled: isDisabled => ({
+    cursor: isDisabled ? 'default' : 'pointer',
+  }),
 }));
+
+// Overrides the inline styles from MUI (CSS classes from makeStyles specifity is lower than an inline style)
+const getIconColor = (isIconTeal, isDisabled) => {
+  if (isDisabled) {
+    return `var(--color-slate)`;
+  }
+
+  if (isIconTeal) {
+    return `var(--color-teal)`;
+  }
+
+  return `var(--color-palmLeaf)`;
+};
 
 function IconButton({
   title,
@@ -24,8 +38,12 @@ function IconButton({
   type = 'button',
   isIconTeal = false,
   applyPopoverSpacing = false,
+  height = '2.5rem',
+  width = '2.5rem',
 }) {
-  const classes = useStyles(applyPopoverSpacing);
+  const classes = useStyles(applyPopoverSpacing, isDisabled);
+  const iconColor = getIconColor(isIconTeal, isDisabled);
+
   return (
     <MUIIconButton
       disableRipple={true}
@@ -36,12 +54,7 @@ function IconButton({
       type={type}
       classes={classes}
     >
-      <IconComponent
-        className={`iconButton ${classnames({
-          iconButton__enabled: !isDisabled && !isIconTeal,
-          iconButton__disabled: isDisabled,
-        })}`}
-      />
+      <IconComponent style={{color: iconColor, width, height}} />
     </MUIIconButton>
   );
 }
@@ -62,6 +75,10 @@ IconButton.propTypes = {
   isIconTeal: PropTypes.bool,
   /** When true, this allows the button to be spaced appropriately from the popover menu */
   applyPopoverSpacing: PropTypes.bool,
+  /** Custom icon height size */
+  height: PropTypes.string,
+  /** Custom icon width size */
+  width: PropTypes.string,
 };
 
 export default IconButton;
