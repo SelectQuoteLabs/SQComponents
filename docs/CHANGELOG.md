@@ -1,3 +1,10 @@
+### [4.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.4.0...v4.4.1) (2020-09-29)
+
+
+### Bug Fixes
+
+* **iconbutton.js:** allows icon width & height to be customized ([c55ac8b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c55ac8b5a15d95c5e9ef2ebfac893fe14d970a23))
+
 ## [4.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.3.0...v4.4.0) (2020-09-28)
 
 
