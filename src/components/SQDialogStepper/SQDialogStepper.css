@@ -1,16 +1,19 @@
-.sqDialogStepper__actions {
+.SQDialogStepper__actions {
   display: flex;
   justify-content: space-between;
   flex: 1 1 100%;
   padding: 1.3333rem 2rem;
 }
 
-.sqDialogStepper__arrow {
-  display: flex !important; /* MUI override */
-  align-items: center;
+.SQDialogStepper__stepContainer {
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
-.sqDialogStepper__arrow svg {
-  height: 4rem !important; /* MUI override */
-  width: 4rem !important; /* MUI override */
+.SQDialogStepper__stepper {
+  display: inline-block;
+}
+
+.SQDialogStepper__divider {
+  margin-bottom: 2rem !important; /* material-ui override */
 }

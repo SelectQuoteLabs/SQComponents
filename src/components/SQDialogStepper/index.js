@@ -1,1 +1,1 @@
-export {SQDialogStepper, SQFormStep} from './SQDialogStepper';
+export {SQDialogStepper, SQDialogStep} from './SQDialogStepper';

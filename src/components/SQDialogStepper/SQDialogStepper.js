@@ -1,27 +1,27 @@
+import React from 'react';
 import {
   CircularProgress,
+  DialogActions,
+  DialogContent,
   Grid,
   Step,
   StepButton,
   Stepper,
   Dialog,
+  Typography,
 } from '@material-ui/core';
-import {Form, Formik} from 'formik';
-import React, {useState} from 'react';
 import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
+import {Divider} from 'material-ui';
+import {Form, Formik} from 'formik';
 import PropTypes from 'prop-types';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import RoundedButton from '../RoundedButton';
-import SQFormButton from '../SQForm/SQFormButton';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '../IconButton';
 import './SQDialogStepper.css';
 
-export function SQFormStep({children}) {
+export function SQDialogStep({children}) {
   return <>{children}</>;
 }
 
@@ -43,16 +43,17 @@ export function SQDialogStepper({
   muiGridProps = {},
   setValues,
   fullWidth = true,
+  contentHeight,
   ...props
 }) {
-  const childrenArray = React.Children.toArray(children);
+  const steps = React.Children.toArray(children);
   const [activeStep, setActiveStep] = React.useState(0);
-  const currentChild = childrenArray[activeStep];
-  const [completed, setCompleted] = useState(false);
+  const currentChild = steps[activeStep];
+  const [completed, setCompleted] = React.useState({});
 
   const totalSteps = React.useMemo(() => {
-    return childrenArray.length;
-  }, [childrenArray]);
+    return steps.length;
+  }, [steps]);
 
   const completedSteps = React.useMemo(() => {
     return Object.keys(completed).length;
@@ -63,42 +64,46 @@ export function SQDialogStepper({
   }, [activeStep, totalSteps]);
 
   const allStepsCompleted = React.useMemo(() => {
-    console.log(completedSteps, totalSteps);
     return completedSteps === totalSteps;
   }, [completedSteps, totalSteps]);
+
+  const handleNext = () => {
+    const newActiveStep =
+      isLastStep && !allStepsCompleted
+        ? // It's the last step, but not all steps have been completed,
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
+        : activeStep + 1;
+    setActiveStep(newActiveStep);
+    handleComplete();
+  };
 
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
 
-  const handleNext = () => {
-    // const newActiveStep =
-    //   isLastStep && !allStepsCompleted
-    //     ? // It's the last step, but not all steps have been completed,
-    //     // find the first step that has been completed
-    //     childrenArray.findIndex((step, i) => !(i in completed))
-    //     : activeStep + 1;
-    setActiveStep(activeStep + 1);
-  };
-
   const handleStep = step => () => {
-    setActiveStep(step);
+    const nextStep = step.toString();
+    const prevStep = (step - 1).toString();
+    const completedKeys = Object.keys(completed);
+    if ([nextStep, prevStep].some(step => completedKeys.includes(step))) {
+      setActiveStep(step);
+    }
   };
 
   const handleComplete = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
-    handleNext();
   };
 
   const handleSubmit = async (values, helpers) => {
-    if (isLastStep()) {
+    if (isLastStep) {
       await onSubmit(values, helpers);
       setCompleted(true);
     } else {
       setValues(values);
-      handleComplete();
+      handleNext();
     }
   };
 
@@ -108,12 +113,12 @@ export function SQDialogStepper({
       validationSchema={currentChild.props.validationSchema}
       onSubmit={handleSubmit}
     >
-      {({isSubmitting}) => (
+      {({isSubmitting, isValid}) => (
         <Dialog
+          TransitionComponent={Transition}
           disableBackdropClick={disableBackdropClick}
           maxWidth={maxWidth}
           open={isOpen}
-          TransitionComponent={Transition}
           onClose={onClose}
           fullWidth={fullWidth}
         >
@@ -121,43 +126,51 @@ export function SQDialogStepper({
             <DialogTitle disableTypography={true}>
               <Typography variant="h4">{title}</Typography>
             </DialogTitle>
-            <DialogContent dividers={true}>
-              <Stepper nonLinear activeStep={activeStep}>
-                {activeStep > 0 ? (
-                  <IconButton
-                    onClick={handleBack}
-                    className="sqDialogStepper__arrow"
-                  >
-                    <ArrowLeft color="var(--color-cerulean)" />
-                  </IconButton>
-                ) : null}
-                {childrenArray.map((child, index) => (
-                  <Step key={child.props.label}>
-                    <StepButton
-                      onClick={handleStep(index)}
-                      completed={completed[index]}
-                    >
-                      {child?.props.label}
-                    </StepButton>
-                  </Step>
-                ))}
+            <DialogContent
+              dividers={true}
+              style={{height: contentHeight, paddingTop: '.75rem'}}
+            >
+              <div class="SQDialogStepper__stepContainer">
                 <IconButton
-                  containerStyle="cirlce"
+                  title="Previous Step"
+                  IconComponent={ArrowLeft}
+                  isDisabled={activeStep === 0}
+                  isIconTeal={true}
+                  onClick={handleBack}
+                />
+                <div class="SQDialogStepper__stepper">
+                  <Stepper nonLinear activeStep={activeStep}>
+                    {steps.map((child, index) => (
+                      <Step key={child.props.label}>
+                        <StepButton
+                          onClick={handleStep(index)}
+                          completed={completed[index]}
+                        >
+                          {child?.props.label}
+                        </StepButton>
+                      </Step>
+                    ))}
+                  </Stepper>
+                </div>
+                <IconButton
+                  title="Next Step"
+                  IconComponent={ArrowRight}
+                  isDisabled={isLastStep}
+                  isIconTeal={true}
                   type="submit"
-                  className="sqDialogStepper__arrow"
-                >
-                  <ArrowRight color="var(--color-cerulean)" />
-                </IconButton>
-              </Stepper>
+                />
+              </div>
+              <Divider className="SQDialogStepper__divider" />
               <Grid
                 {...muiGridProps}
                 container
                 spacing={muiGridProps.spacing || 3}
+                justify="center"
               >
                 {currentChild}
               </Grid>
             </DialogContent>
-            <DialogActions className="sqDialogStepper__actions">
+            <DialogActions className="SQDialogStepper__actions">
               <RoundedButton
                 title={cancelButtonText}
                 onClick={onClose}
@@ -166,15 +179,16 @@ export function SQDialogStepper({
               >
                 {cancelButtonText}
               </RoundedButton>
-              <SQFormButton
+              <RoundedButton
                 startIcon={
                   isSubmitting ? <CircularProgress size="1rem" /> : null
                 }
-                disabled={!isLastStep || !allStepsCompleted}
+                type="submit"
+                isDisabled={!isLastStep || !isValid}
                 title={cancelButtonText}
               >
                 Submit
-              </SQFormButton>
+              </RoundedButton>
             </DialogActions>
           </Form>
         </Dialog>
@@ -206,11 +220,10 @@ SQDialogStepper.propTypes = {
   title: PropTypes.string.isRequired,
   /** Form Entity Object */
   initialValues: PropTypes.object.isRequired,
+  /** Callback function that is called when a step is completed to pass back the current state values to the consumer */
+  setValues: PropTypes.func,
   /** Any prop from https://material-ui.com/api/grid */
   muiGridProps: PropTypes.object,
-  /**
-   * Yup validation schema shape
-   * https://jaredpalmer.com/formik/docs/guides/validation#validationschema
-   * */
-  validationSchema: PropTypes.object,
+  /** Optional static height on the content */
+  contentHeight: PropTypes.string,
 };
