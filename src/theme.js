@@ -176,6 +176,13 @@ const theme = {
         },
       },
     },
+    MuiStepIcon: {
+      root: {
+        '&$active': {
+          color: spanishOrange,
+        },
+      },
+    },
   },
 };
 
