@@ -1,3 +1,13 @@
+## [4.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.4.1...v4.5.0) (2020-10-05)
+
+
+### Features
+
+* added a dialog stepper ([f57ae30](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f57ae3056015d1824eb5b32ba57171bfd75c2f45))
+* added a stepper dialog with validations and formik ([a2a36d3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/a2a36d3f724c40959bb56ad437a7e2e04e88c879))
+* added formik context to the next and submit, updated icon color ([68b6d31](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/68b6d3192b6010506231dc6d7b134ea9532011ce))
+* added optional chaining plugin to fix build ([74832b3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/74832b3adc58358a0fba453698dd6d82a0ca14d0))
+
 ### [4.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.4.0...v4.4.1) (2020-09-29)
 
 
