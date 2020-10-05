@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  CircularProgress,
   DialogActions,
   DialogContent,
   Grid,
@@ -13,7 +12,7 @@ import {
 import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 import {Divider} from 'material-ui';
-import {Form, Formik} from 'formik';
+import {Form, Formik, useFormikContext} from 'formik';
 import PropTypes from 'prop-types';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
@@ -43,7 +42,7 @@ export function SQDialogStepper({
   muiGridProps = {},
   setValues,
   fullWidth = true,
-  contentHeight,
+  contentStyle,
   ...props
 }) {
   const steps = React.Children.toArray(children);
@@ -55,17 +54,13 @@ export function SQDialogStepper({
     return steps.length;
   }, [steps]);
 
-  const completedSteps = React.useMemo(() => {
-    return Object.keys(completed).length;
-  }, [completed]);
-
   const isLastStep = React.useMemo(() => {
     return activeStep === totalSteps - 1;
   }, [activeStep, totalSteps]);
 
-  const allStepsCompleted = React.useMemo(() => {
-    return completedSteps === totalSteps;
-  }, [completedSteps, totalSteps]);
+  // Our last step doesn't get marked complete
+  const allStepsCompleted = () =>
+    Object.keys(completed).length === totalSteps - 1;
 
   const handleNext = () => {
     const newActiveStep =
@@ -107,6 +102,70 @@ export function SQDialogStepper({
     }
   };
 
+  function NextButton() {
+    const {errors, values} = useFormikContext();
+
+    const isButtonDisabled = React.useMemo(() => {
+      const formValues = Object.values(values).filter(val => val);
+      if (!formValues.length || isLastStep) return true;
+
+      if (
+        currentChild.props.validationSchema._nodes.some(step =>
+          Object.keys(errors).includes(step)
+        )
+      ) {
+        return true;
+      }
+
+      return false;
+    }, [errors, values]);
+
+    return (
+      <IconButton
+        title="Next Step"
+        IconComponent={ArrowRight}
+        isDisabled={isButtonDisabled}
+        isIconTeal={true}
+        type="submit"
+      />
+    );
+  }
+
+  function SubmitButton() {
+    const {errors, values} = useFormikContext();
+
+    const isButtonDisabled = React.useMemo(() => {
+      const currentStepKeys = currentChild.props.validationSchema._nodes;
+      const currentStepValues = Object.keys(values)
+        .filter(key => currentStepKeys.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = values[key];
+          return obj;
+        }, {});
+      const formValues = Object.values(currentStepValues).filter(val => val);
+      if (
+        !formValues.length ||
+        currentStepKeys.some(step => Object.keys(errors).includes(step))
+      ) {
+        return true;
+      }
+
+      if (allStepsCompleted() && isLastStep) {
+        return false;
+      }
+      return true;
+    }, [errors, values]);
+    return (
+      <RoundedButton
+        type="submit"
+        isDisabled={isButtonDisabled}
+        title={cancelButtonText}
+      >
+        Submit
+      </RoundedButton>
+    );
+  }
+
   return (
     <Formik
       {...props}
@@ -128,7 +187,7 @@ export function SQDialogStepper({
             </DialogTitle>
             <DialogContent
               dividers={true}
-              style={{height: contentHeight, paddingTop: '.75rem'}}
+              style={{...contentStyle, paddingTop: '.75rem'}}
             >
               <div class="SQDialogStepper__stepContainer">
                 <IconButton
@@ -152,13 +211,7 @@ export function SQDialogStepper({
                     ))}
                   </Stepper>
                 </div>
-                <IconButton
-                  title="Next Step"
-                  IconComponent={ArrowRight}
-                  isDisabled={isLastStep}
-                  isIconTeal={true}
-                  type="submit"
-                />
+                <NextButton />
               </div>
               <Divider className="SQDialogStepper__divider" />
               <Grid
@@ -179,16 +232,7 @@ export function SQDialogStepper({
               >
                 {cancelButtonText}
               </RoundedButton>
-              <RoundedButton
-                startIcon={
-                  isSubmitting ? <CircularProgress size="1rem" /> : null
-                }
-                type="submit"
-                isDisabled={!isLastStep || !isValid}
-                title={cancelButtonText}
-              >
-                Submit
-              </RoundedButton>
+              <SubmitButton />
             </DialogActions>
           </Form>
         </Dialog>
@@ -224,6 +268,6 @@ SQDialogStepper.propTypes = {
   setValues: PropTypes.func,
   /** Any prop from https://material-ui.com/api/grid */
   muiGridProps: PropTypes.object,
-  /** Optional static height on the content */
-  contentHeight: PropTypes.string,
+  /** Optional styling on the dialog */
+  contentStyle: PropTypes.string,
 };
