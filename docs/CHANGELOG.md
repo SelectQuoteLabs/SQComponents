@@ -1,3 +1,11 @@
+### [4.5.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.5.0...v4.5.1) (2020-10-07)
+
+
+### Bug Fixes
+
+* add a default top and bottom padding for popovers ([8a390fd](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8a390fdc28b1762226b0a215d41675484b3cf83e))
+* added the popover styling to just the iconMenuButton for padding ([2b9ff87](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2b9ff879d0229dc376dc3dad5157b7cf94c2ab75))
+
 ## [4.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.4.1...v4.5.0) (2020-10-05)
 
 
