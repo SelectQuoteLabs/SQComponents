@@ -183,12 +183,6 @@ const theme = {
         },
       },
     },
-    MuiPopover: {
-      paper: {
-        paddingTop: '6px',
-        paddingBottom: '6px',
-      },
-    },
   },
 };
 
