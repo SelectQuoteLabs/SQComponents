@@ -8,6 +8,7 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import IconButton from '../IconButton';
+import './IconButtonMenu.css';
 
 const useTooltipStyles = makeStyles(() => ({
   tooltipArrow: {
@@ -66,6 +67,7 @@ export default function IconButtonMenu({
         </div>
       </Tooltip>
       <Popover
+        classes={{paper: 'IconButtonMenu_popover'}}
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         anchorOrigin={PLACEMENTS[placement].ANCHOR}

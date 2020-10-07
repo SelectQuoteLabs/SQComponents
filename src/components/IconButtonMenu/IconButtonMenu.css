@@ -1,0 +1,4 @@
+.IconButtonMenu_popover {
+  padding-top: 6px !important; /* material-ui override */
+  padding-bottom: 6px !important; /* material-ui override */
+}
