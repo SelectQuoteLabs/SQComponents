@@ -4,7 +4,7 @@
   "description": "SC Plus shared component library",
   "main": "dist/index.js",
   "private": true,
-  "sideEffects": false,
+  "sideEffects": true,
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "parcel build src/index.js",
