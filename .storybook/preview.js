@@ -4,7 +4,6 @@ import {MuiThemeProvider as V0MuiThemeProvider} from 'material-ui'; // v0.x
 import {MuiThemeProvider, StylesProvider} from '@material-ui/core/styles';
 import {LocalizationProvider} from '@material-ui/pickers';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import 'storybook-addon-material-ui/register';
 
 import MomentAdapter from '@material-ui/pickers/adapter/moment';
 
@@ -71,6 +70,3 @@ addParameters({
     theme: selectQuoteTheme,
   },
 });
-
-// automatically import all files ending in *.stories.js
-configure(require.context('../stories', true, /\.stories\.js$/), module);
