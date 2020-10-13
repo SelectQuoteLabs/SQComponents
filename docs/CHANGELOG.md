@@ -1,3 +1,12 @@
+### [4.5.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.5.1...v4.5.2) (2020-10-13)
+
+
+### Bug Fixes
+
+* **manager-head.html:** fixes styling issue with SQ logo ([7fa9ace](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7fa9ace7a385c764e927e211c6a1c374c6f15c8c))
+* **package.json:** changes sideEffects to true ([09a6fbe](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/09a6fbe827a6f02663cdbf231c4d9cd67ea337aa))
+* **package.json:** upgrades storybook to fix deployed styling issues ([58f788d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/58f788d8c8c388fd3ca3a690c4ef61d4bb24f8fa))
+
 ### [4.5.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.5.0...v4.5.1) (2020-10-07)
 
 
