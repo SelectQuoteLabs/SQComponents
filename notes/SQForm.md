@@ -44,6 +44,10 @@ As shown in the component prop-types, the `children` of this component must be a
 
 If you want an empty option in the dropdown list options, set the `displayEmpty` prop to `true`.
 
+**SQFormResetButtonWithConfirmation**
+
+As shown in the component prop-types, the `onReset` of this component is optional, not required, but can be passed in order to handle any additional side effects when resetting the form. This function prop was created, for example, to be able to clear the search results from a search form, so when we reset the search form's fields, we also want to clear out the previous search's results.
+
 ## Library Documentation
 
 - [Formik](https://jaredpalmer.com/formik/docs/overview)
