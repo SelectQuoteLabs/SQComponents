@@ -13,12 +13,17 @@ function SQFormResetButtonWithConfirmation({
   confirmationContent,
   confirmationTitle = 'Reset Form',
   variant = 'contained',
+  onReset = () => {},
 }) {
   const [isOpen, {openDialog, closeDialog}] = useDialog();
   const {dirty, handleReset} = useFormButton(isDisabled);
 
   const handlePrimaryButtonClick = () => {
     handleReset();
+
+    // optional function prop consumer can pass to handle any additional side effects when resetting form
+    onReset();
+
     closeDialog();
   };
 
@@ -52,6 +57,7 @@ SQFormResetButtonWithConfirmation.propTypes = {
   confirmationContent: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   buttonTitle: PropTypes.string,
+  onReset: PropTypes.func,
 };
 
 export default SQFormResetButtonWithConfirmation;
