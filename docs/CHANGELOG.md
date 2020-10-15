@@ -1,3 +1,10 @@
+## [4.6.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.5.2...v4.6.0) (2020-10-15)
+
+
+### Features
+
+* 🎸 add onReset opt fn to SQFormResetButtonWithConfirmation ([2486769](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/248676946bddbdb95c1a072385fed61a7c9714f3))
+
 ### [4.5.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.5.1...v4.5.2) (2020-10-13)
 
 
