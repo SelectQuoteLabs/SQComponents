@@ -1,0 +1,37 @@
+.systemHeader__notificationsIcon svg {
+  height: 24px;
+  width: 19.86px;
+  padding: 0;
+  color: var(--color-white) !important;
+}
+
+.systemHeader__chatIcon svg {
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  color: var(--color-white) !important;
+}
+
+.systemHeader__appsIcon svg {
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  color: var(--color-white) !important;
+}
+
+.systemHeader__accountIcon,
+.systemHeader__accountIcon svg {
+  height: 28px !important;
+  width: 28px !important;
+  color: var(--color-white) !important;
+}
+
+.systemHeader__accountIcon > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.systemHeader__accountIconButton {
+  padding: 1rem 0rem 1rem 1rem;
+}

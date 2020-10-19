@@ -1,0 +1,34 @@
+/* MUI overrides */
+.systemHeader {
+  padding: 0px 20px !important;
+}
+
+/* MUI overrides */
+.systemHeader__ringsIcon {
+  padding: 0 !important;
+  margin-right: 15px !important;
+}
+
+.systemHeader__life {
+  background: var(--color-cerulean) !important; /* MUI overrides */
+}
+
+.systemHeader__senior {
+  background: var(--color-seniorOrange) !important; /* MUI overrides */
+}
+
+.systemHeader__sqah {
+  background: var(--color-sqahGreen) !important; /* MUI overrides */
+}
+
+.systemHeader__recruit {
+  background: var(--color-recruitViolet) !important; /* MUI overrides */
+}
+
+.systemHeader__srts {
+  background: var(--color-srtsGreen) !important; /* MUI overrides */
+}
+
+.systemHeader__buttonGroup {
+  padding: 0px;
+}

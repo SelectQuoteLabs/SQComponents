@@ -1,0 +1,16 @@
+.systemHeader__title h3 {
+  display: inline;
+  text-decoration: none;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.393;
+  font-size: 28px;
+  color: var(--color-white);
+}
+
+.systemHeader__base {
+  font-weight: var(--font-weight-bold) !important;
+}
+
+.systemHeader__productTitle {
+  text-transform: capitalize;
+}
