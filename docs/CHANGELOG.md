@@ -1,3 +1,10 @@
+## [4.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.6.0...v4.7.0) (2020-10-21)
+
+
+### Features
+
+* **system header:** ssc-80 add system header component ([d796f35](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d796f351c3778fdf9b7ca3ef7637e8cc963249ee))
+
 ## [4.6.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.5.2...v4.6.0) (2020-10-15)
 
 
