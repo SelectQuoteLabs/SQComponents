@@ -50,6 +50,7 @@ export {default as SQDialogForm} from './components/SQDialogForm';
 export {default as TextButton} from './components/TextButton';
 export {default as WeeklySchedule} from './components/WeeklySchedule';
 export {default as DataTable} from './components/DataTable';
+export {default as SystemHeader} from './components/SystemHeader';
 
 // Custom Hooks
 export {useDialog} from './hooks/useDialog';

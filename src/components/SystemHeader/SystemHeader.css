@@ -1,0 +1,13 @@
+.systemHeader {
+  padding: 0px 20px;
+}
+
+.systemHeader__ringsIcon {
+  padding: 0;
+  margin-right: 15px;
+}
+
+.systemHeader__buttonGroup {
+  display: flex;
+  padding: 0px;
+}
