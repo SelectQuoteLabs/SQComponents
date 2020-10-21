@@ -1,47 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
+import {Toolbar, makeStyles} from '@material-ui/core';
 import SystemHeaderTitle from './SystemHeaderTitle/SystemHeaderTitle';
-import classnames from 'classnames';
-import SqRings from './SqRings';
+import SqRings from '../SqRings/SqRings';
 import './SystemHeader.css';
 
+const useStyles = makeStyles({
+  root: {
+    background: ({backgroundColor}) => backgroundColor,
+  },
+});
+
 function SystemHeader({
-  division,
+  backgroundColor,
   headerComponents,
   productTitle,
   solutionTitle = 'SC +',
 }) {
+  const {root} = useStyles({backgroundColor});
+
   return (
-    <Toolbar
-      className={`systemHeader ${classnames({
-        systemHeader__life: division === 'life',
-        systemHeader__senior: division === 'senior',
-        systemHeader__sqah: division === 'sqah',
-        systemHeader__recruit: division === 'recruit',
-        systemHeader__srts: division === 'srts',
-      })}`}
-    >
-      <ToolbarGroup>
-        <SqRings className="systemHeader__ringsIcon" height="35" />
-        <SystemHeaderTitle
-          solutionTitle={solutionTitle}
-          productTitle={productTitle}
-        />
-      </ToolbarGroup>
+    <Toolbar className={`systemHeader ${root}`}>
+      <SqRings className="systemHeader__ringsIcon" height="35" />
+      <SystemHeaderTitle
+        solutionTitle={solutionTitle}
+        productTitle={productTitle}
+      />
       {headerComponents && (
-        <ToolbarGroup className="systemHeader__buttonGroup">
-          {headerComponents}
-        </ToolbarGroup>
+        <div className="systemHeader__buttonGroup">{headerComponents}</div>
       )}
     </Toolbar>
   );
 }
 
 SystemHeader.propTypes = {
-  /* Determines background color */
-  division: PropTypes.oneOf(['life', 'senior', 'sqah', 'recruit', 'srts'])
-    .isRequired,
+  /* Defines the background color */
+  backgroundColor: PropTypes.string.isRequired,
   /* Components to display on the right side of the header */
   headerComponents: PropTypes.node,
   /* The product title for the product */

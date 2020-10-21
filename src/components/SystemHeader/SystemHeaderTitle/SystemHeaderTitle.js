@@ -6,11 +6,11 @@ import './SystemHeaderTitle.css';
 function SystemHeaderTitle({productTitle, solutionTitle}) {
   return (
     <div className="systemHeader__title">
-      <Typography variant="h3" className="systemHeader__base">
+      <Typography variant="h4" className="systemHeader__base">
         {solutionTitle}
       </Typography>
-      <Typography variant="h3"> | </Typography>
-      <Typography variant="h3" className="systemHeader__productTitle">
+      <Typography variant="h4"> | </Typography>
+      <Typography variant="h4" className="systemHeader__productTitle">
         {productTitle}
       </Typography>
     </div>

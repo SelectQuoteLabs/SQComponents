@@ -24,10 +24,10 @@ const someComponent = () => {
   return (
     // Awesome React
     <SystemHeader
-      solutionTitle="SC +"
-      productTitle="Senior > Agent"
-      division="senior"
+      backgroundColor="var(--color-seniorOrange)"
       headerComponents={systemHeaderButtons()}
+      productTitle="Senior > Agent"
+      solutionTitle="SC +"
     >
   )
 }
@@ -41,9 +41,9 @@ This component can be displayed with or without header components. If you decide
 
 ### Props
 
-| Name             | Type                                                                           | Description                                                                                         | Required | Default     |
-| ---------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| division         | `string` <br />One of `'life'`, `'senior'`, `'sqah'`, `'recruit'`, or `'srts'` | The division the header will be used for. Determines the color of the header.                       | Yes      | N/A         |
-| headerComponents | `node`                                                                         | The component that will display on the right hand side of the header.                               | No       | `undefined` |
-| productTitle     | `string`                                                                       | The product title to display after the solution title and pipe. Text will be displayed capitalized. | Yes      | N/A         |
-| solutionTitle    | `string`                                                                       | The solution title to display in the system header. Text with be displayed bold.                    | No       | `SC +`      |
+| Name             | Type     | Description                                                                                         | Required | Default     |
+| ---------------- | -------- | --------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| backgroundColor  | `string` | The color the background should be. Any valid css backgroundColor property value is valid.          | Yes      | N/A         |
+| headerComponents | `node`   | The component that will display on the right hand side of the header.                               | No       | `undefined` |
+| productTitle     | `string` | The product title to display after the solution title and pipe. Text will be displayed capitalized. | Yes      | N/A         |
+| solutionTitle    | `string` | The solution title to display in the system header. Text with be displayed bold.                    | No       | `SC +`      |

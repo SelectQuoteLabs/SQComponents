@@ -3,9 +3,9 @@ import {withKnobs, text} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import AppsIcon from '@material-ui/icons/Apps';
 import ForumIcon from '@material-ui/icons/Forum';
-import IconButton from 'material-ui/IconButton';
-import AccountCircleIcon from 'material-ui/svg-icons/action/account-circle';
-import NotificationsNoneIcon from 'material-ui/svg-icons/social/notifications-none';
+import IconButton from '@material-ui/core/IconButton';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import markdown from '../notes/SystemHeader.md';
 
 import {SystemHeader} from '../src';
@@ -22,7 +22,7 @@ export default {
 export const systemHeader = () => {
   return (
     <SystemHeader
-      division={text('Division', 'senior')}
+      backgroundColor={text('Background Color', 'var(--color-seniorOrange)')}
       productTitle={text('Product Title', 'senior > agent')}
       solutionTitle={text('Solution Title', 'SC +')}
     />
@@ -32,7 +32,7 @@ export const systemHeader = () => {
 export const systemHeaderWithOneButton = () => {
   return (
     <SystemHeader
-      division={text('Division', 'senior')}
+      backgroundColor={text('Background Color', 'var(--color-seniorOrange)')}
       productTitle={text('Product Title', 'senior > agent')}
       solutionTitle={text('Solution Title', 'SC +')}
       headerComponents={
@@ -47,7 +47,7 @@ export const systemHeaderWithOneButton = () => {
 export const systemHeaderWithTwoButtons = () => {
   return (
     <SystemHeader
-      division={text('Division', 'senior')}
+      backgroundColor={text('Background Color', 'var(--color-seniorOrange)')}
       productTitle={text('Product Title', 'senior > agent')}
       solutionTitle={text('Solution Title', 'SC +')}
       headerComponents={
@@ -69,13 +69,13 @@ export const systemHeaderWithTwoButtons = () => {
 export const systemHeaderWithThreeButtons = () => {
   return (
     <SystemHeader
-      division={text('Division', 'senior')}
+      backgroundColor={text('Background Color', 'var(--color-seniorOrange)')}
       productTitle={text('Product Title', 'senior > agent')}
       solutionTitle={text('Solution Title', 'SC +')}
       headerComponents={
         <>
           <IconButton className="systemHeader__notificationsIcon">
-            <NotificationsNoneIcon />
+            <NotificationsIcon />
           </IconButton>
           <IconButton className="systemHeader__chatIcon">
             <ForumIcon />
@@ -94,13 +94,13 @@ export const systemHeaderWithThreeButtons = () => {
 export const systemHeaderWithFourButtons = () => {
   return (
     <SystemHeader
-      division={text('Division', 'senior')}
+      backgroundColor={text('Background Color', 'var(--color-seniorOrange)')}
       productTitle={text('Product Title', 'senior > agent')}
       solutionTitle={text('Solution Title', 'SC +')}
       headerComponents={
         <>
           <IconButton className="systemHeader__notificationsIcon">
-            <NotificationsNoneIcon />
+            <NotificationsIcon />
           </IconButton>
           <IconButton className="systemHeader__chatIcon">
             <ForumIcon />
@@ -108,11 +108,9 @@ export const systemHeaderWithFourButtons = () => {
           <IconButton className="systemHeader__appsIcon">
             <AppsIcon />
           </IconButton>
-          <div className="systemHeader__accountIconButton">
-            <IconButton className="systemHeader__accountIcon">
-              <AccountCircleIcon />
-            </IconButton>
-          </div>
+          <IconButton className="systemHeader__accountIcon">
+            <AccountCircleIcon />
+          </IconButton>
         </>
       }
     />
