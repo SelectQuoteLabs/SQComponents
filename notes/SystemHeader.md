@@ -35,7 +35,7 @@ const someComponent = () => {
 
 ## Design Notes
 
-This component can be displayed with or without header components. If you decide to use header components you're responsible for formatting for those buttons including but not limited to color, spacing, and size.
+This component can be displayed with or without header components. If you decide to use header components you're responsible for formatting those buttons including but not limited to color, spacing, and size.
 
 ## Technical Details
 
