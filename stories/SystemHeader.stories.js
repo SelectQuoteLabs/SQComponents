@@ -78,11 +78,9 @@ export const systemHeaderWithThreeButtons = () => {
           <IconButton className="systemHeader__chatIcon">
             <ForumIcon />
           </IconButton>
-          <div className="systemHeader__accountIconButton">
-            <IconButton className="systemHeader__accountIcon">
-              <AccountCircleIcon />
-            </IconButton>
-          </div>
+          <IconButton className="systemHeader__accountIcon">
+            <AccountCircleIcon />
+          </IconButton>
         </>
       }
     />
