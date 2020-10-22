@@ -13,9 +13,16 @@ export default {
 };
 
 export const componentLoadingSpinner = () => {
-  return <ComponentLoadingSpinner />;
+  return (
+    <ComponentLoadingSpinner spinnerHeight={text('Spinner Height', '120px')} />
+  );
 };
 
 export const componentLoadingSpinnerWithMessage = () => {
-  return <ComponentLoadingSpinner message={text('Message', 'Loading')} />;
+  return (
+    <ComponentLoadingSpinner
+      message={text('Message', 'Loading')}
+      spinnerHeight={text('Spinner Height', '120px')}
+    />
+  );
 };

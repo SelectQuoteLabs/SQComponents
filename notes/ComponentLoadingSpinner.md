@@ -24,6 +24,7 @@ const componentLoadingSpinner = () => {
 
 ### Props
 
-| Name    | Type     | Description                                                                                         | Required | Default |
-| ------- | -------- | --------------------------------------------------------------------------------------------------- | -------- | ------- |
-| message | `string` | The message to be displayed below the loading spinner. An ellipsis `...` is automatically appended. | No       | `''`    |
+| Name          | Type     | Description                                                                                         | Required | Default |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------- | -------- | ------- |
+| message       | `string` | The message to be displayed below the loading spinner. An ellipsis `...` is automatically appended. | No       | `''`    |
+| spinnerHeight | `string` | The height that will be passed to the loading spinner icon                                          | No       | `120px` |

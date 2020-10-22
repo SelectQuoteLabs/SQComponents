@@ -39,7 +39,7 @@ export const globalLoadingSpinnerMultilineMessage = () => {
       <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
       <GlobalLoadingSpinner
         isOpen={boolean('isOpen', false)}
-        message={text('Message', 'This:Message:Is Multiple:Lines')}
+        message={text('Message', `This\nMessage\nis Multiple\nLines`)}
       />
     </>
   );

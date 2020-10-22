@@ -2,8 +2,6 @@
   display: flex;
   position: fixed;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -11,6 +9,6 @@
 }
 
 .componentLoadingSpinner__message {
-  margin: 15px 0px;
   font-weight: var(--font-weight-light);
+  text-align: center;
 }
