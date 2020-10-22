@@ -1,0 +1,12 @@
+.globalLoadingSpinner__dialog {
+  width: 458px;
+  text-align: center;
+  padding: 24px;
+}
+
+.globalLoadingSpinner__icon {
+  position: relative;
+  height: 120px;
+  width: 120px;
+  margin: 16px auto;
+}
