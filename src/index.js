@@ -51,6 +51,8 @@ export {default as TextButton} from './components/TextButton';
 export {default as WeeklySchedule} from './components/WeeklySchedule';
 export {default as DataTable} from './components/DataTable';
 export {default as SystemHeader} from './components/SystemHeader';
+export {default as ComponentLoadingSpinner} from './components/ComponentLoadingSpinner';
+export {default as GlobalLoadingSpinner} from './components/GlobalLoadingSpinner';
 
 // Custom Hooks
 export {useDialog} from './hooks/useDialog';
