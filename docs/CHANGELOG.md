@@ -1,3 +1,10 @@
+## [4.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.7.0...v4.8.0) (2020-10-22)
+
+
+### Features
+
+* **loading spinners:** ssc-81 add loading spinner components ([9706235](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/97062353fba4ee3ceada025eb2340941cfbdf04c))
+
 ## [4.7.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.6.0...v4.7.0) (2020-10-21)
 
 
