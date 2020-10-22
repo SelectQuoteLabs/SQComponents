@@ -7,8 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import './GlobalLoadingSpinner.css';
 
 const GlobalLoadingSpinner = ({isOpen, message}) => {
-  // a split message would be formatted 'first part : second part'
-  // message does not have to be split with a ':', it will display normally otherwise
+  // Ensure modal isn't in DOM if it's not open
+  if (!isOpen) return null;
+
+  // a split message would be formatted `first part\nsecond part\nthird`
+  // messages not split with a '\n' will display normally otherwise
   const messageParts = message
     ? message
         .replace(/\r/g, '')
@@ -21,7 +24,7 @@ const GlobalLoadingSpinner = ({isOpen, message}) => {
   }
 
   return (
-    <Dialog disableBackdropClick open={isOpen}>
+    <Dialog disableBackdropClick open>
       <DialogContent className="globalLoadingSpinner__dialog">
         <LoadingIcon height="120px" />
         {messageParts.map(messagePart => (
