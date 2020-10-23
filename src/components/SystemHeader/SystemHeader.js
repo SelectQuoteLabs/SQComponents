@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Toolbar, makeStyles} from '@material-ui/core';
 import SystemHeaderTitle from './SystemHeaderTitle/SystemHeaderTitle';
-import SqRings from '../SqRings/SqRings';
+import SQRings from '../SQRings/SQRings';
 import './SystemHeader.css';
 
 const useStyles = makeStyles({
@@ -21,7 +21,7 @@ function SystemHeader({
 
   return (
     <Toolbar className={`systemHeader ${root}`}>
-      <SqRings className="systemHeader__ringsIcon" height="35" />
+      <SQRings className="systemHeader__ringsIcon" height="35" />
       <SystemHeaderTitle
         solutionTitle={solutionTitle}
         productTitle={productTitle}
