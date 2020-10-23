@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * @function SqRings
+ * @function SQRings
  * @param {number} [height] - Height (in pixels) of logo. Defaults to initial svg size of 283.
  * @description
  * SelectQuote logo svg
  * @return {element} - jsx
  */
-const SqRings = ({height = 283, ...props}) => (
+const SQRings = ({height = 283, ...props}) => (
   <div {...props}>
     <svg height={`${height}px`} viewBox="0 0 291 283" version="1.1">
       <title>SQ_RINGS</title>
@@ -106,8 +106,8 @@ const SqRings = ({height = 283, ...props}) => (
   </div>
 );
 
-SqRings.propTypes = {
+SQRings.propTypes = {
   height: PropTypes.string,
 };
 
-export default SqRings;
+export default SQRings;
