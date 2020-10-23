@@ -1,3 +1,10 @@
+## [4.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.8.0...v4.9.0) (2020-10-23)
+
+
+### Features
+
+* **sqrings:** add sqrings components ([05cbf73](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/05cbf731faef8bfbc35db816afef88663a489682))
+
 ## [4.8.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.7.0...v4.8.0) (2020-10-22)
 
 
