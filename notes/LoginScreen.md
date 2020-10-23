@@ -6,18 +6,20 @@ A standardized login screen.
 
 See examples for details on how to override styles/colors
 
-## Technical Notes
+## Usage
 
-SRTS2 example usage (also in examples):
-
+```jsx
+import {LoginScreen} from 'scplus-shared-components';
 ```
-    <LoginScreen
-      paperColor="var(--color-srts-green)"
-      backgroundColor="var(--color-srts-lightgreen)"
-      title="SRTS 2.0"
-    >
-      <Tooltip title="Sign in to SRTS">
-        <Button className={classes.loginButton}>Sign In</Button>
-      </Tooltip>
-    </LoginScreen>
+
+```jsx
+const someComponent = () => {
+  <LoginScreen
+    paperColor="var(--color-srtsGreen)"
+    backgroundColor="rgba(90, 126, 68, 0.44)"
+    title="Sign into my app"
+  >
+    {/* children (google oath button, magic string fields, email/pass) */}
+  </LoginScreen>;
+};
 ```

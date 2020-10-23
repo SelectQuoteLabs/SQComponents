@@ -1,10 +1,9 @@
 import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import {Button, Tooltip} from '@material-ui/core';
 
 import {LoginScreen} from '../src';
 import markdown from '../notes/LoginScreen.md';
-
-import {makeStyles} from '@material-ui/core/styles';
-import {Button, Tooltip} from '@material-ui/core';
 
 export default {
   title: 'LoginScreen',
@@ -19,8 +18,8 @@ export const SRTSLoginScreenExample = () => {
   const classes = useSRTSStyles();
   return (
     <LoginScreen
-      paperColor="var(--color-srts-green)"
-      backgroundColor="var(--color-srts-lightgreen)"
+      paperColor="var(--color-srtsGreen)"
+      backgroundColor="rgba(90, 126, 68, 0.44)"
       title="SRTS 2.0"
     >
       <Tooltip title="Sign in to SRTS">

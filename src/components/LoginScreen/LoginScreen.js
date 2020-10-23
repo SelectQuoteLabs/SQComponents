@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Paper} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
-import SqRings from '../SqRings';
+import SQRings from '../SQRings';
 
 function LoginScreen(props) {
   const {title = 'Sign in', children, ringSize = 175} = props;
@@ -10,7 +10,7 @@ function LoginScreen(props) {
   return (
     <div className={classes.login}>
       <Paper className={classes.paper}>
-        <SqRings height={ringSize} />
+        <SQRings height={ringSize} />
         <div className={classes.loginText}>{title}</div>
         {children}
       </Paper>
