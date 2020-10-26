@@ -19,7 +19,7 @@ const someComponent = () => {
     backgroundColor="rgba(90, 126, 68, 0.44)"
     title="Sign into my app"
   >
-    {/* children (google oath button, magic string fields, email/pass) */}
+    {/* children (google oauth button, magic string fields, email/pass) */}
   </LoginScreen>;
 };
 ```
