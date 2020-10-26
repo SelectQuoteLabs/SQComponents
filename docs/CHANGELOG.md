@@ -1,3 +1,10 @@
+## [4.10.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.9.0...v4.10.0) (2020-10-26)
+
+
+### Features
+
+* **loginscreen:** create a generic reusable login screen ([35f7beb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/35f7beb11596fe15b2b18e3f1960c48065008284))
+
 ## [4.9.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.8.0...v4.9.0) (2020-10-23)
 
 
