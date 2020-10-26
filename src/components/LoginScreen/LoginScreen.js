@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Paper, Grid, Typography} from '@material-ui/core';
+import {Grid, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 import SQRings from '../SQRings';
 
 function LoginScreen({title = 'Sign in', children, ringSize = 175, ...rest}) {
   const classes = useStyles(rest);
   return (
-    <Grid className={classes.login} justify="space-around" alignItems="center">
-      <Paper className={classes.paper}>
+    <Grid
+      container
+      className={classes.login}
+      justify="space-around"
+      alignItems="center"
+    >
+      <Grid item className={classes.paper}>
         <SQRings height={ringSize} />
         <Typography variant="h5" className={classes.loginText}>
           {title}
         </Typography>
         {children}
-      </Paper>
+      </Grid>
     </Grid>
   );
 }
@@ -24,7 +29,6 @@ const useStyles = makeStyles({
     backgroundColor: props => props.backgroundColor,
     width: '100vw',
     height: '100vh',
-    display: 'flex',
   },
   paper: {
     display: 'flex',
