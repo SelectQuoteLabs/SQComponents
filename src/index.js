@@ -55,6 +55,10 @@ export {default as SystemHeader} from './components/SystemHeader';
 export {default as ComponentLoadingSpinner} from './components/ComponentLoadingSpinner';
 export {default as GlobalLoadingSpinner} from './components/GlobalLoadingSpinner';
 export {default as SQRings} from './components/SQRings';
+export {default as SideNav} from './components/SideNav/SideNav';
+export {default as SideNavTop} from './components/SideNav/SideNavTop';
+export {default as SideNavMiddle} from './components/SideNav/SideNavMiddle';
+export {default as SideNavBottom} from './components/SideNav/SideNavBottom';
 
 // Custom Hooks
 export {useDialog} from './hooks/useDialog';
