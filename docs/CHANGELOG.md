@@ -1,3 +1,10 @@
+## [4.11.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.10.0...v4.11.0) (2020-10-30)
+
+
+### Features
+
+* **sidenav:** sideNav builds left-side navbar matching SQ design system ([9651adf](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9651adff19a044550a129b39871dab6a8f8c9b99))
+
 ## [4.10.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.9.0...v4.10.0) (2020-10-26)
 
 
