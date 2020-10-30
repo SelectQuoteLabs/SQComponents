@@ -235,15 +235,6 @@ export function sideNavWithMiddleOnly() {
       }}
     >
       <SideNav>
-        {/* <SideNavTop>
-          <IconButton
-            isIconTeal={true}
-            height="42px"
-            width="42px"
-            IconComponent={AddCircleIcon}
-            onClick={() => {}}
-          />
-        </SideNavTop> */}
         <SideNavMiddle>
           <IconButton IconComponent={() => <Avatar>1</Avatar>} />
           <IconButton IconComponent={() => <Avatar isInverted>2</Avatar>} />
