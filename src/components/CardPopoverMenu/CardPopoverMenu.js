@@ -1,178 +1,121 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import Kabob from 'material-ui/svg-icons/navigation/more-vert';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
+import KabobIcon from '@material-ui/icons/MoreVert';
 import cssVars from '../../styles/cssVars';
 import OverflowPopover from './OverflowPopover';
-import './CardPopoverMenu.css';
 
-class CardPopoverMenu extends React.Component {
-  constructor(props) {
-    super(props);
+const useTabStyles = makeStyles({
+  root: {
+    '& > span': {
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+    },
+  },
+});
 
-    this.state = {
-      isOverflowPopoverOpen: false,
-      overflowPopoverAnchorElement: null,
-      allTabs: null,
-    };
+const indicatorInlineStyles = {
+  style: {
+    backgroundColor: 'unset',
+  },
+};
 
-    this.tabsContainerNODE = null;
-    this.tabsNodes = [];
-    this.minWidth = 140;
+function CardPopoverMenu({classes, disabled = false, tabs}) {
+  const tabClasses = useTabStyles();
+  const [anchorElement, setAnchorElement] = React.useState(null);
+  const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
 
-    this.openOverflowPopover = this.openOverflowPopover.bind(this);
-    this.closeOverflowPopover = this.closeOverflowPopover.bind(this);
-    this.calculateTabs = this.calculateTabs.bind(this);
-  }
+  React.useEffect(() => {
+    setAnchorElement(null);
+    setSelectedTab(tabs[0]);
+  }, [tabs]);
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const nextTabs = nextProps.tabs;
-    const tabsDidChange = nextTabs && nextTabs !== prevState.allTabs;
+  const overflowTabs = tabs.filter(tab => {
+    return tab.label !== selectedTab.label;
+  });
 
-    if (tabsDidChange) {
-      return {
-        viewableTabs: nextTabs,
-        overflowTabs: [],
-        allTabs: nextProps.tabs,
-      };
+  const openOverflowPopover = event => {
+    if (!disabled) {
+      setAnchorElement(event.currentTarget);
     }
-    return null; // no changes to state are necessary
-  }
+  };
 
-  componentDidMount() {
-    this.calculateTabs();
-  }
+  const closeOverflowPopover = () => {
+    setAnchorElement(null);
+  };
 
-  componentDidUpdate(prevProps) {
-    const {tabs, selectedTab} = this.props;
+  const {
+    colors: {spanishOrange},
+    fontWeights: {bold},
+  } = cssVars;
 
-    const tabsDidChange =
-      tabs &&
-      (tabs !== prevProps.tabs || selectedTab !== prevProps.selectedTab);
-
-    if (tabsDidChange) {
-      this.calculateTabs();
-      this.setState({
-        isOverflowPopoverOpen: false,
-      });
-    }
-  }
-
-  calculateTabs() {
-    const {tabs, selectedTab} = this.props;
-
-    this.setState(() => ({
-      viewableTabs: tabs.filter(tab => {
-        return tab.label === selectedTab.label;
-      }),
-      overflowTabs: tabs.filter(tab => {
-        return tab.label !== selectedTab.label;
-      }),
-    }));
-  }
-
-  openOverflowPopover(event) {
-    event.preventDefault();
-    const targetElement = event.currentTarget;
-
-    this.setState(() => ({
-      isOverflowPopoverOpen: true,
-      overflowPopoverAnchorElement: targetElement,
-    }));
-  }
-
-  closeOverflowPopover() {
-    this.setState(() => ({isOverflowPopoverOpen: false}));
-  }
-
-  render() {
-    const {selectedTab, selectTab, disabled, tabs} = this.props;
-    const {
-      viewableTabs,
-      overflowTabs,
-      isOverflowPopoverOpen,
-      overflowPopoverAnchorElement,
-    } = this.state;
-    const {
-      colors: {teal, slate, spanishOrange},
-      fontWeights: {bold, normal},
-    } = cssVars;
-
-    return (
-      <div
-        className="cardPopoverMenu"
-        ref={e => {
-          this.tabsContainerNODE = e;
-        }}
+  const activeTab = tabs.find(tab => tab.label === selectedTab.label);
+  return (
+    <>
+      <Tabs
+        TabIndicatorProps={indicatorInlineStyles}
+        value={selectedTab.value}
+        onClick={openOverflowPopover}
       >
-        <Tabs
-          value={selectedTab.value}
-          onClick={this.openOverflowPopover}
-          onChange={selectTab}
-          inkBarStyle={{backgroundColor: disabled}}
-          tabItemContainerStyle={{backgroundColor: 'inherit'}}
-        >
-          {viewableTabs.map((tab, index) => {
-            const isSelected = selectedTab.value === tab.value;
-            return (
-              isSelected && (
-                <Tab
-                  className="cardPopoverMenu__kabob"
-                  key={tab.label}
-                  buttonStyle={{
-                    fontWeight: isSelected ? bold : normal,
-                    color:
-                      disabled || tab.disabled
-                        ? slate
-                        : isSelected
-                        ? spanishOrange
-                        : teal,
-                    padding: '0 0.5rem',
+        {tabs.length ? (
+          <Tab
+            className={tabClasses.root}
+            key={activeTab.label}
+            disabled={disabled}
+            disableRipple={true}
+            style={{
+              fontWeight: bold,
+              color: spanishOrange,
+              padding: '0 6px',
+            }}
+            label={
+              <>
+                <Typography
+                  style={{
+                    color: spanishOrange,
+                    fontWeight: 700,
                   }}
-                  label={
-                    <>
-                      {tabs.length > 1 && <Kabob />}
-                      <span>&nbsp;&nbsp;</span>
-                      {tab.label}
-                    </>
-                  }
-                  value={tab.value}
-                  disabled={disabled || tab.disabled}
-                  ref={input => {
-                    this.tabsNodes[index] = input;
-                  }}
-                />
-              )
-            );
-          })}
-        </Tabs>
-
-        {overflowTabs.length > 0 && (
-          <div>
-            <OverflowPopover
-              isOpen={isOverflowPopoverOpen}
-              anchorEl={overflowPopoverAnchorElement}
-              options={overflowTabs}
-              selectedOption={selectedTab}
-              selectOption={selectTab}
-              handleClose={this.closeOverflowPopover}
-            />
-          </div>
-        )}
-      </div>
-    );
-  }
+                  variant="subtitle2"
+                >
+                  {selectedTab.label}
+                </Typography>
+                {tabs.length ? (
+                  <KabobIcon
+                    color="primary"
+                    style={{height: '24px', width: '24px', marginLeft: '6px'}}
+                  />
+                ) : null}
+              </>
+            }
+            value={activeTab.value}
+          />
+        ) : null}
+      </Tabs>
+      {overflowTabs.length ? (
+        <OverflowPopover
+          anchorEl={anchorElement}
+          overflowTabs={overflowTabs}
+          setSelectedTab={setSelectedTab}
+          onClose={closeOverflowPopover}
+        />
+      ) : null}
+    </>
+  );
 }
 
 CardPopoverMenu.propTypes = {
-  tabs: PropTypes.array.isRequired,
-  selectedTab: PropTypes.object.isRequired,
-  selectTab: PropTypes.func.isRequired,
+  classes: PropTypes.object,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      disabled: PropTypes.bool,
+    })
+  ).isRequired,
   disabled: PropTypes.bool,
-};
-
-CardPopoverMenu.defaultProps = {
-  disabled: false,
 };
 
 export default CardPopoverMenu;

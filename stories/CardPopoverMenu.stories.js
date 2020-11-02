@@ -1,7 +1,6 @@
 import React from 'react';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
-import {action} from '@storybook/addon-actions';
 import markdown from '../notes/CardPopoverMenu.md';
 
 import {CardPopoverMenu} from '../src';
@@ -14,6 +13,7 @@ const TAB_OPTIONS = [
   {
     label: 'To Do Support Tickets',
     value: 'toDoSupportTickets',
+    disabled: true,
   },
   {
     label: 'Follow Up Support Tickets',
@@ -25,8 +25,6 @@ const TAB_OPTIONS = [
   },
 ];
 
-let selectedTab = TAB_OPTIONS[0];
-
 export default {
   title: 'CardPopoverMenu',
   decorators: [withKnobs, withInfo],
@@ -36,10 +34,5 @@ export default {
 };
 
 export const menuWithKebab = () => (
-  <CardPopoverMenu
-    tabs={TAB_OPTIONS}
-    selectedTab={selectedTab}
-    selectTab={action(`Menu option changed to: `)}
-    disabled={boolean('disabled', false)}
-  />
+  <CardPopoverMenu tabs={TAB_OPTIONS} disabled={boolean('disabled', false)} />
 );

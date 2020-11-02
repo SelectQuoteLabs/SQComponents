@@ -1,67 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Popover from 'material-ui/Popover/Popover';
-import classnames from 'classnames';
-import {Menu, MenuItem} from 'material-ui/Menu';
-import './OverflowPopover.css';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
+import cssVars from '../../styles/cssVars';
+
+const {
+  colors: {slate, teal},
+} = cssVars;
 
 function OverflowPopover({
-  selectOption,
-  handleClose,
-  isOpen,
+  setSelectedTab,
+  onClose,
   anchorEl,
-  options,
-  selectedOption,
+  overflowTabs,
   menuStyle,
 }) {
-  const selectItem = value => {
-    selectOption(value);
-    handleClose();
+  const isOpen = Boolean(anchorEl);
+
+  const selectItem = itemValue => {
+    setSelectedTab(overflowTabs.find(tab => tab.value === itemValue));
+    onClose();
   };
 
   return (
-    <Popover
-      open={isOpen}
+    <Menu
       anchorEl={anchorEl}
+      getContentAnchorEl={null}
       anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-      targetOrigin={{horizontal: 'right', vertical: 'top'}}
-      onRequestClose={handleClose}
+      open={isOpen}
+      onClose={onClose}
+      style={menuStyle}
+      transformOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-      <Menu style={menuStyle}>
-        {options.map(option => (
-          <MenuItem
-            key={option.value}
-            onClick={() => selectItem(option.value)}
-            disabled={option.disabled}
+      {overflowTabs.map(option => (
+        <MenuItem
+          key={option.value}
+          onClick={() => selectItem(option.value)}
+          disabled={option.disabled}
+          style={{opacity: 'initial'}}
+        >
+          <Typography
+            variant="body2"
+            noWrap={true}
+            style={{color: option.disabled ? slate : teal}}
           >
-            <span
-              className={classnames(
-                'overflowPopover__menuItemLabel',
-                {
-                  'overflowPopover__menuItemLabel--disabled': option.disabled,
-                },
-                {
-                  'overflowPopover__menuItemLabel--selected':
-                    selectedOption.value === option.value,
-                }
-              )}
-            >
-              {option.label.toUpperCase()}
-            </span>
-          </MenuItem>
-        ))}
-      </Menu>
-    </Popover>
+            {option.label.toUpperCase()}
+          </Typography>
+        </MenuItem>
+      ))}
+    </Menu>
   );
 }
 
 OverflowPopover.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
   anchorEl: PropTypes.object,
-  options: PropTypes.array.isRequired,
-  selectedOption: PropTypes.object.isRequired,
-  selectOption: PropTypes.func.isRequired,
-  handleClose: PropTypes.func.isRequired,
+  overflowTabs: PropTypes.array.isRequired,
+  setSelectedTab: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   menuStyle: PropTypes.object,
 };
 
