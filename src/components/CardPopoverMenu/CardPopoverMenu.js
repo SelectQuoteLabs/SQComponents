@@ -23,18 +23,12 @@ const indicatorInlineStyles = {
   },
 };
 
-function CardPopoverMenu({classes, disabled = false, tabs}) {
+function CardPopoverMenu({disabled = false, tabs, selectedTab, selectTab}) {
   const tabClasses = useTabStyles();
   const [anchorElement, setAnchorElement] = React.useState(null);
-  const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
-
-  React.useEffect(() => {
-    setAnchorElement(null);
-    setSelectedTab(tabs[0]);
-  }, [tabs]);
 
   const overflowTabs = tabs.filter(tab => {
-    return tab.label !== selectedTab.label;
+    return tab.value !== selectedTab.value;
   });
 
   const openOverflowPopover = event => {
@@ -52,7 +46,6 @@ function CardPopoverMenu({classes, disabled = false, tabs}) {
     fontWeights: {bold},
   } = cssVars;
 
-  const activeTab = tabs.find(tab => tab.label === selectedTab.label);
   return (
     <>
       <Tabs
@@ -63,7 +56,7 @@ function CardPopoverMenu({classes, disabled = false, tabs}) {
         {tabs.length ? (
           <Tab
             className={tabClasses.root}
-            key={activeTab.label}
+            key={selectedTab.value}
             disabled={disabled}
             disableRipple={true}
             style={{
@@ -90,7 +83,7 @@ function CardPopoverMenu({classes, disabled = false, tabs}) {
                 ) : null}
               </>
             }
-            value={activeTab.value}
+            value={selectedTab.value}
           />
         ) : null}
       </Tabs>
@@ -98,7 +91,7 @@ function CardPopoverMenu({classes, disabled = false, tabs}) {
         <OverflowPopover
           anchorEl={anchorElement}
           overflowTabs={overflowTabs}
-          setSelectedTab={setSelectedTab}
+          setSelectedTabValue={selectTab}
           onClose={closeOverflowPopover}
         />
       ) : null}
@@ -107,15 +100,22 @@ function CardPopoverMenu({classes, disabled = false, tabs}) {
 }
 
 CardPopoverMenu.propTypes = {
-  classes: PropTypes.object,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
+      body: PropTypes.node,
       disabled: PropTypes.bool,
     })
   ).isRequired,
   disabled: PropTypes.bool,
+  selectTab: PropTypes.func.isRequired,
+  selectedTab: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    body: PropTypes.node,
+    disabled: PropTypes.bool,
+  }).isRequired,
 };
 
 export default CardPopoverMenu;

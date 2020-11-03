@@ -10,7 +10,7 @@ const {
 } = cssVars;
 
 function OverflowPopover({
-  setSelectedTab,
+  setSelectedTabValue,
   onClose,
   anchorEl,
   overflowTabs,
@@ -19,7 +19,9 @@ function OverflowPopover({
   const isOpen = Boolean(anchorEl);
 
   const selectItem = itemValue => {
-    setSelectedTab(overflowTabs.find(tab => tab.value === itemValue));
+    setSelectedTabValue(
+      overflowTabs.find(tab => tab.value === itemValue).value
+    );
     onClose();
   };
 
@@ -56,7 +58,7 @@ function OverflowPopover({
 OverflowPopover.propTypes = {
   anchorEl: PropTypes.object,
   overflowTabs: PropTypes.array.isRequired,
-  setSelectedTab: PropTypes.func.isRequired,
+  setSelectedTabValue: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   menuStyle: PropTypes.object,
 };

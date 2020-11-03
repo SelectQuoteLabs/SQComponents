@@ -25,6 +25,22 @@ const TAB_OPTIONS = [
   },
 ];
 
+function MenuWithKebabExample() {
+  const [selectedTab, setSelectedTab] = React.useState(TAB_OPTIONS[0]);
+
+  const handleChange = selectedTabValue => {
+    setSelectedTab(TAB_OPTIONS.find(tab => tab.value === selectedTabValue));
+  };
+  return (
+    <CardPopoverMenu
+      tabs={TAB_OPTIONS}
+      selectedTab={selectedTab}
+      selectTab={handleChange}
+      disabled={boolean('disabled', false)}
+    />
+  );
+}
+
 export default {
   title: 'CardPopoverMenu',
   decorators: [withKnobs, withInfo],
@@ -33,6 +49,4 @@ export default {
   },
 };
 
-export const menuWithKebab = () => (
-  <CardPopoverMenu tabs={TAB_OPTIONS} disabled={boolean('disabled', false)} />
-);
+export const menuWithKebab = () => <MenuWithKebabExample />;
