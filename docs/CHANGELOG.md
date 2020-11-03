@@ -1,3 +1,11 @@
+### [4.11.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.11.0...v4.11.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* **cardpopovermenu.js:** refactor to remove MUIv0 dep ([ebb20a7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ebb20a7f054fadcab48b8340ee491769a06ec21e))
+* **cardpopovermenu.js:** refactored to use MUIv4 & function component ([064b6f0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/064b6f01c53a5a6c538ab796cfe337069596791a))
+
 ## [4.11.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.10.0...v4.11.0) (2020-10-30)
 
 
