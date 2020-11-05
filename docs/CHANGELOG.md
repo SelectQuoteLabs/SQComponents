@@ -1,3 +1,10 @@
+### [4.11.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.11.1...v4.11.2) (2020-11-05)
+
+
+### Bug Fixes
+
+* **theme.js:** fixes focus issue for Intercom when modals are open ([ffba9b6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ffba9b609d099935a6665f42d0246ce031ce08d5))
+
 ### [4.11.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.11.0...v4.11.1) (2020-11-03)
 
 
