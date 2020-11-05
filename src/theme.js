@@ -98,7 +98,7 @@ const theme = {
       },
       overline: {
         fontWeight: 600,
-        fontSize: pxToRem(10),
+        fontSize: pxToRem(12),
         letterSpacing: pxToRem(1.5),
       },
     },
@@ -182,6 +182,11 @@ const theme = {
           color: spanishOrange,
         },
       },
+    },
+  },
+  props: {
+    MuiModal: {
+      disableEnforceFocus: true,
     },
   },
 };
