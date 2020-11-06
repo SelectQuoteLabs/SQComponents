@@ -1,3 +1,10 @@
+## [4.12.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.11.2...v4.12.0) (2020-11-06)
+
+
+### Features
+
+* **sqformtextfield:** adds adornments to SQFormTextField ([8c3e109](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8c3e109531e1e069166922715fe340118f3e2c05))
+
 ### [4.11.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.11.1...v4.11.2) (2020-11-05)
 
 
