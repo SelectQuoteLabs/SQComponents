@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 import {useForm} from './useForm';
 
@@ -14,6 +15,8 @@ function SQFormTextField({
   size = 'auto',
   onBlur,
   onChange,
+  startAdornment,
+  endAdornment,
 }) {
   const {
     formikField: {field},
@@ -34,6 +37,14 @@ function SQFormTextField({
         error={isFieldError}
         fullWidth={true}
         InputLabelProps={{shrink: true}}
+        InputProps={{
+          startAdornment: startAdornment ? (
+            <InputAdornment position="start">{startAdornment}</InputAdornment>
+          ) : null,
+          endAdornment: endAdornment ? (
+            <InputAdornment position="end">{endAdornment}</InputAdornment>
+          ) : null,
+        }}
         FormHelperTextProps={{error: isFieldError}}
         name={name}
         type="text"
@@ -66,6 +77,10 @@ SQFormTextField.propTypes = {
   onBlur: PropTypes.func,
   /** Custom onChange event callback */
   onChange: PropTypes.func,
+  /** Adornment that appears at the start of the input */
+  startAdornment: PropTypes.node,
+  /** Adornment that appears at the end of the input */
+  endAdornment: PropTypes.node,
 };
 
 export default SQFormTextField;

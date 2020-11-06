@@ -448,3 +448,20 @@ function random(length) {
 
   return result;
 }
+
+export const basicFormWithTextAdornments = () => {
+  return (
+    <Card raised style={{padding: 16, minWidth: '300px'}}>
+      <SQForm initialValues={{faceAmount: null}} onSubmit={handleSubmit}>
+        <SQFormTextField
+          name="faceAmount"
+          label="Face Amount"
+          placeholder="--"
+          size={4}
+          startAdornment="$"
+          endAdornment="k"
+        />
+      </SQForm>
+    </Card>
+  );
+};
