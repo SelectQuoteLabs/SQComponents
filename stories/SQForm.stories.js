@@ -6,6 +6,7 @@ import {action} from '@storybook/addon-actions';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CheckMarkIcon from 'material-ui/svg-icons/action/check-circle';
+import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
 
 import FriendsFieldArray from './components/FriendsFieldArray';
 import FormValidationMessage from './components/FormValidationMessage';
@@ -452,7 +453,10 @@ function random(length) {
 export const basicFormWithTextAdornments = () => {
   return (
     <Card raised style={{padding: 16, minWidth: '300px'}}>
-      <SQForm initialValues={{faceAmount: null}} onSubmit={handleSubmit}>
+      <SQForm
+        initialValues={{faceAmount: null, phoneNumber: null}}
+        onSubmit={handleSubmit}
+      >
         <SQFormTextField
           name="faceAmount"
           label="Face Amount"
@@ -460,6 +464,12 @@ export const basicFormWithTextAdornments = () => {
           size={4}
           startAdornment="$"
           endAdornment="k"
+        />
+        <SQFormTextField
+          name="phoneNumber"
+          label="Phone Number"
+          size={4}
+          endAdornment={<LocalPhoneIcon />}
         />
       </SQForm>
     </Card>
