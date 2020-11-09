@@ -57,7 +57,12 @@ SectionHeader.propTypes = {
   /** Optional container inline styles */
   containerStyles: PropTypes.object,
   /** Optional element to render after the Title, most commonly used for informative dynamic text */
-  informativeHeading: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  informativeHeading: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.elementType,
+  ]),
   /** Title text to render at the start of the header (Left side) */
   title: PropTypes.string.isRequired,
 };
