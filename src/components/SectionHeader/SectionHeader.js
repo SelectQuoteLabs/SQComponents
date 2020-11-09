@@ -9,23 +9,30 @@ const styles = {
   },
   title: {
     color: 'var(--color-granite)',
+    marginRight: '10px',
   },
 };
 
-function SectionHeader({children, title, containerStyles = {}}) {
+function SectionHeader({
+  children,
+  informativeHeading = null,
+  title,
+  containerStyles = {},
+}) {
   return (
     <Grid
       container
       direction="row"
       justify="space-between"
       alignItems="baseline"
+      wrap="nowrap"
       component="header"
       style={{
         ...styles.container,
         ...containerStyles,
       }}
     >
-      <Grid item>
+      <Grid container item xs={10} alignItems="center">
         <Typography
           style={{
             ...styles.title,
@@ -35,14 +42,24 @@ function SectionHeader({children, title, containerStyles = {}}) {
         >
           {title}
         </Typography>
+        {informativeHeading}
       </Grid>
-      <Grid item>{children}</Grid>
+      <Grid container item xs={2} justify="flex-end">
+        {children}
+      </Grid>
     </Grid>
   );
 }
 
 SectionHeader.propTypes = {
+  /** Optional element to render at the end of the header (Right side) */
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  /** Optional container inline styles */
+  containerStyles: PropTypes.object,
+  /** Optional element to render after the Title, most commonly used for informative dynamic text */
+  informativeHeading: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  /** Title text to render at the start of the header (Left side) */
+  title: PropTypes.string.isRequired,
 };
 
 export default SectionHeader;
