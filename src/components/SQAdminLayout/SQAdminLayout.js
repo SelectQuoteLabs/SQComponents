@@ -29,5 +29,6 @@ export default function SQAdminLayout({HeaderComponent, children}) {
 }
 
 SQAdminLayout.propTypes = {
+  HeaderComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
 };
