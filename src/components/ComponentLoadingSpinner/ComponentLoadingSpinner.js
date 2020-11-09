@@ -5,10 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import LoadingIcon from '../LoadingIcon';
 import './ComponentLoadingSpinner.css';
 
-export default function ComponentLoadingSpinner({
-  message = '',
-  spinnerHeight = '120px',
-}) {
+function ComponentLoadingSpinner({message = '', spinnerHeight = '120px'}) {
   return (
     <Grid
       container
@@ -39,3 +36,5 @@ ComponentLoadingSpinner.propTypes = {
   /* The height of the spinner */
   spinnerHeight: PropTypes.string,
 };
+
+export default ComponentLoadingSpinner;
