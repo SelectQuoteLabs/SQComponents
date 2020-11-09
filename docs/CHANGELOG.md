@@ -1,3 +1,11 @@
+### [4.12.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.12.0...v4.12.1) (2020-11-09)
+
+
+### Bug Fixes
+
+* **componentloadingspinner:** fix layout bug in  componentloadingspinner ([ecb4a73](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ecb4a73dc771ee8520c3cae0d99514c8b908433d))
+* **componentloadingspinner:** fix layout bug in componentloadingspinner ([379e38b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/379e38b37c512be8e4ba01ec703886bf0708bacf))
+
 ## [4.12.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.11.2...v4.12.0) (2020-11-06)
 
 
