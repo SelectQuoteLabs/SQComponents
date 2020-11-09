@@ -1,3 +1,11 @@
+### [4.13.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.13.0...v4.13.1) (2020-11-09)
+
+
+### Bug Fixes
+
+* **sqadminmaincontent:** fix missing height style ([5062441](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5062441ac7760c090d4dc3494b6ae186dc49455f))
+* **sqadminpagelayout:** add height 100 to page layout grid components ([eda0cd2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/eda0cd20c4a3168c4caec3eb80b3b85a0300f93d))
+
 ## [4.13.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.12.1...v4.13.0) (2020-11-09)
 
 
