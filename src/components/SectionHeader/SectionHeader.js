@@ -62,6 +62,7 @@ SectionHeader.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.elementType,
+    PropTypes.func,
   ]),
   /** Title text to render at the start of the header (Left side) */
   title: PropTypes.string.isRequired,
