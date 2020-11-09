@@ -1,3 +1,10 @@
+### [4.13.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.13.1...v4.13.2) (2020-11-09)
+
+
+### Bug Fixes
+
+* **sectionheader.js:** adds informativeText prop ([f82f410](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f82f410958eee9548b5a5700db643a0ac0f57f39))
+
 ### [4.13.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.13.0...v4.13.1) (2020-11-09)
 
 
