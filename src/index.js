@@ -59,6 +59,9 @@ export {default as SideNav} from './components/SideNav/SideNav';
 export {default as SideNavTop} from './components/SideNav/SideNavTop';
 export {default as SideNavMiddle} from './components/SideNav/SideNavMiddle';
 export {default as SideNavBottom} from './components/SideNav/SideNavBottom';
+export {default as SQAdminLayout} from './components/SQAdminLayout';
+export {default as SQAdminPageLayout} from './components/SQAdminPageLayout';
+export {default as SQAdminMainContent} from './components/SQAdminMainContent';
 
 // Custom Hooks
 export {useDialog} from './hooks/useDialog';
