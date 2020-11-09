@@ -1,3 +1,10 @@
+## [4.13.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.12.1...v4.13.0) (2020-11-09)
+
+
+### Features
+
+* **sqadminlayout:** layout components for admin view apps ([8cb9c9a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8cb9c9a9839806ccaf84c21f1e65309a8864879b))
+
 ### [4.12.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.12.0...v4.12.1) (2020-11-09)
 
 
