@@ -1,4 +1,6 @@
 import React from 'react';
+import {Icon, Typography} from '@material-ui/core';
+import NewReleasesIcon from '@material-ui/icons/NewReleases';
 import markdown from '../notes/Section.md';
 import {withInfo} from '@storybook/addon-info';
 
@@ -51,6 +53,67 @@ export const simpleSection = () => (
 export const sectionWithActionHeader = () => (
   <Section>
     <SectionHeader title="Section Header">
+      <TextButton onClick={() => alert('You are awesome.')} tooltip="Get TCPA">
+        Get TCPA
+      </TextButton>
+    </SectionHeader>
+    <SectionBody>
+      <div style={{display: 'flex'}}>
+        <div style={{padding: '1rem', border: '1px solid blue'}}>
+          Do whatever.
+        </div>
+        <div style={{padding: '1rem', border: '1px solid blue'}}>
+          Maybe an input?
+        </div>
+        <div style={{padding: '1rem', border: '1px solid blue'}}>
+          Or some static stuff.
+        </div>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis
+        augue dui, nec posuere eros scelerisque ut. Maecenas in bibendum nisi.
+        Quisque egestas hendrerit justo mollis scelerisque.
+      </p>
+      <p>
+        Nunc commodo commodo mi, semper feugiat erat. Sed vitae condimentum
+        urna. Nam eros orci, tincidunt lobortis ex id, eleifend pharetra nibh.
+        Fusce aliquam diam in tortor fermentum, vel fermentum enim consectetur.
+        Phasellus id ullamcorper eros. Nulla vel luctus turpis. Donec blandit
+        urna enim. Ut sit amet lacus porttitor, condimentum urna quis, feugiat
+        magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+        posuere cubilia Curae;
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis
+        augue dui, nec posuere eros scelerisque ut.
+      </p>
+      <p>
+        Nunc commodo commodo mi, semper feugiat erat. Sed vitae condimentum
+        urna. Nam eros orci, tincidunt lobortis ex id, eleifend pharetra nibh.
+        Fusce aliquam diam in tortor fermentum, vel fermentum enim consectetur.
+        Phasellus id ullamcorper eros.
+      </p>
+    </SectionBody>
+  </Section>
+);
+
+export const sectionWithActionHeaderAndInformativeHeading = () => (
+  <Section>
+    <SectionHeader
+      title="Section Header"
+      informativeHeading={
+        <>
+          <Icon
+            color="error"
+            component={NewReleasesIcon}
+            style={{marginRight: '4px'}}
+          />
+          <Typography color="error" variant="body2">
+            You've done something wrong
+          </Typography>
+        </>
+      }
+    >
       <TextButton onClick={() => alert('You are awesome.')} tooltip="Get TCPA">
         Get TCPA
       </TextButton>
