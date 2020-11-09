@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import {makeStyles, Grid} from '@material-ui/core';
 
 const useStyles = makeStyles({
-  layout: {
+  mainContent: {
     width: '100%',
+    height: '100%',
   },
 });
 
@@ -13,7 +14,7 @@ export default function SQAdminMainContent({children}) {
 
   return (
     <Grid container>
-      <Grid item className={classes.layout}>
+      <Grid item className={classes.mainContent}>
         {children}
       </Grid>
     </Grid>
