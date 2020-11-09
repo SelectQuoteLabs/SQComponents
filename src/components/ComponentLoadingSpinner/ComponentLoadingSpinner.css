@@ -1,14 +1,7 @@
 .componentLoadingSpinner {
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
 }
 
 .componentLoadingSpinner__message {
   font-weight: var(--font-weight-light);
-  text-align: center;
 }

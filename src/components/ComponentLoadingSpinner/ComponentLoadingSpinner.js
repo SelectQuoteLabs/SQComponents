@@ -5,32 +5,30 @@ import Grid from '@material-ui/core/Grid';
 import LoadingIcon from '../LoadingIcon';
 import './ComponentLoadingSpinner.css';
 
-const ComponentLoadingSpinner = ({message = '', spinnerHeight = '120px'}) => {
+function ComponentLoadingSpinner({message = '', spinnerHeight = '120px'}) {
   return (
-    <Grid>
-      <Grid
-        container
-        alignItems="center"
-        justify="center"
-        className="componentLoadingSpinner"
-      >
-        <Grid item>
-          <LoadingIcon height={spinnerHeight} />
-        </Grid>
-        {message && (
-          <Grid item>
-            <Typography
-              variant="subtitle1"
-              className="componentLoadingSpinner__message"
-            >
-              {`${message}...`}
-            </Typography>
-          </Grid>
-        )}
+    <Grid
+      container
+      direction="column"
+      alignItems="center"
+      justify="center"
+      className="componentLoadingSpinner"
+    >
+      <Grid item>
+        <LoadingIcon height={spinnerHeight} />
+      </Grid>
+      <Grid item>
+        <Typography
+          align="center"
+          variant="subtitle1"
+          className="componentLoadingSpinner__message"
+        >
+          {message ? `${message}...` : ''}
+        </Typography>
       </Grid>
     </Grid>
   );
-};
+}
 
 ComponentLoadingSpinner.propTypes = {
   /* The message to display under the loading spinner. */
