@@ -40,13 +40,16 @@ function Header() {
 
 export function App() {
   return (
-    <SQAdminLayout HeaderComponent={Header}>
-      <Router>
-        <Switch>
-          {/* Other routes can go here*/}
-          <Route path="/login">
-            <Login />
-          </Route>
+    <Router>
+      <Switch>
+        {/*
+              We don't show the app's Header until we've logged in
+              so we keep it outside of SQAdminLayout
+          */}
+        <Route path="/login">
+          <Login />
+        </Route>
+        <SQAdminLayout HeaderComponent={Header}>
           <AuthenticatedRoute path="/accounts">
             <FakeManageAccounts />
           </AuthenticatedRoute>
@@ -54,9 +57,9 @@ export function App() {
           <AuthenticatedRoute path="/">
             <ManageUsers />
           </AuthenticatedRoute>
-        </Switch>
-      </Router>
-    </SQAdminLayout>
+        </SQAdminLayout>
+      </Switch>
+    </Router>
   );
 }
 ```
