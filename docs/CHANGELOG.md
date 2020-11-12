@@ -1,3 +1,10 @@
+## [4.14.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.13.2...v4.14.0) (2020-11-12)
+
+
+### Features
+
+* **snackbar:** snackbar, SnackbarProvider, useSnackbar ([2b8bb9d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2b8bb9d9ba5cf6545ccdaea2870fb3008ffbabdb))
+
 ### [4.13.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.13.1...v4.13.2) (2020-11-09)
 
 
