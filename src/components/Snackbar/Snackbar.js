@@ -29,5 +29,9 @@ export default function Snackbar({
 }
 
 Snackbar.propTypes = {
-  position: PropTypes.object,
+  /** This is optional, but if provided, must be an object with these properties */
+  position: PropTypes.shape({
+    vertical: PropTypes.string,
+    horizontal: PropTypes.string,
+  }),
 };

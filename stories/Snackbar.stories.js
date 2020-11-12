@@ -18,7 +18,8 @@ export default {
   },
 };
 
-export function snackbarWithSearchFeature() {
+export function snackbar() {
+  // please see Notes section for more complete code examples
   return (
     <SnackbarProvider>
       <FakeApp />
