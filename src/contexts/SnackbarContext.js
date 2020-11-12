@@ -65,7 +65,6 @@ function useSnackbarDispatch() {
 }
 
 function useSnackbar() {
-  // [snackbarState, {snackbar, closeSnackbar}]
   return [useSnackbarState(), useSnackbarDispatch()];
 }
 
