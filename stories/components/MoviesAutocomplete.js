@@ -1,6 +1,7 @@
 import React from 'react';
 import SQFormAsyncAutocomplete from '../../src/components/SQForm/SQFormAsyncAutocomplete';
 import {useQueryMovies} from './useQueryMovies';
+import {useSnackbarDispatch} from '../../src';
 
 const getMovieOptions = movieData => {
   if (!movieData) return [];
@@ -14,7 +15,10 @@ const getMovieOptions = movieData => {
 // http://www.omdbapi.com/
 export default function MoviesAutocomplete({name}) {
   const [inputValue, setInputValue] = React.useState('');
-  const {movieData, loading} = useQueryMovies(inputValue);
+  const {data: movieData, isLoading: loading, isError} = useQueryMovies(
+    inputValue
+  );
+  const {snackbar} = useSnackbarDispatch();
   const [isOpen, setIsOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const isLoading = isOpen && loading;
@@ -30,6 +34,12 @@ export default function MoviesAutocomplete({name}) {
       setOptions([]);
     }
   }, [isOpen]);
+
+  React.useEffect(() => {
+    if (isError) {
+      snackbar.error('There was an error fetching movie data');
+    }
+  }, [isError, snackbar]);
 
   return (
     <SQFormAsyncAutocomplete

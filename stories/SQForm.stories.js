@@ -26,6 +26,7 @@ import {
   SQFormReadOnlyField,
   SQFormResetButtonWithConfirmation,
   SQFormDatePicker,
+  SnackbarProvider,
 } from '../src';
 
 export default {
@@ -164,27 +165,29 @@ export const basicFormWithAsyncAutocompleteMovies = () => {
   };
 
   return (
-    <Card raised style={{padding: 16}}>
-      <SQForm
-        initialValues={{movie: ''}}
-        onSubmit={handleSubmit}
-        muiGridProps={{spacing: 4}}
-        validationSchema={validationSchema}
-      >
-        <MoviesAutocomplete name="movie" />
-        <Grid item sm={12}>
-          <Grid container justify="space-between">
-            <SQFormResetButtonWithConfirmation
-              variant="outlined"
-              confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
-            >
-              RESET
-            </SQFormResetButtonWithConfirmation>
-            <SQFormButton>Submit</SQFormButton>
+    <SnackbarProvider>
+      <Card raised style={{padding: 16}}>
+        <SQForm
+          initialValues={{movie: ''}}
+          onSubmit={handleSubmit}
+          muiGridProps={{spacing: 4}}
+          validationSchema={validationSchema}
+        >
+          <MoviesAutocomplete name="movie" />
+          <Grid item sm={12}>
+            <Grid container justify="space-between">
+              <SQFormResetButtonWithConfirmation
+                variant="outlined"
+                confirmationContent="You are about to reset this form. Any unsaved info for this customer will be removed"
+              >
+                RESET
+              </SQFormResetButtonWithConfirmation>
+              <SQFormButton>Submit</SQFormButton>
+            </Grid>
           </Grid>
-        </Grid>
-      </SQForm>
-    </Card>
+        </SQForm>
+      </Card>
+    </SnackbarProvider>
   );
 };
 
