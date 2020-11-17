@@ -99,3 +99,66 @@ export const dataTableWithZeroItems = () => (
     />
   </div>
 );
+
+const ExampleReactCellRenderer = ({value, onCellClick}) => {
+  const [isActive, setIsActive] = React.useState(false);
+
+  const handleClick = () => {
+    setIsActive(!isActive);
+    onCellClick();
+  };
+
+  if (isActive)
+    return (
+      <span onClick={handleClick} style={{color: 'green'}}>
+        {value}
+      </span>
+    );
+  return (
+    <span onClick={handleClick} style={{color: 'red'}}>
+      {value}
+    </span>
+  );
+};
+
+export const dataTableWithReactCellRenderer = () => {
+  const miscFunctionToInjectInCell = () => {
+    alert('your cell just invoked a function injected from parent!');
+  };
+
+  const columnsWithCellRenderer = [
+    {
+      headerName: 'Status',
+      field: 'status',
+      onCellClicked: onCellClicked,
+      cellClass: 'dataTable__hyperlink',
+      filterParams: {
+        filterOptions: filterByAction,
+        defaultOption: 'filterBy',
+        suppressAndOrCondition: true,
+      },
+    },
+    {headerName: 'Comment', field: 'comment', width: 400},
+    {headerName: 'User', field: 'user'},
+    {headerName: 'Date', field: 'date'},
+    {headerName: 'PV Rule', field: 'pvRule'},
+    {
+      headerName: 'Number right',
+      field: 'number',
+      cellClass: 'dataTable__number',
+      cellRendererFramework: ExampleReactCellRenderer,
+      cellRendererParams: {
+        onCellClick: miscFunctionToInjectInCell,
+      },
+    },
+  ];
+
+  return (
+    <div style={{height: '30rem', width: '55rem'}}>
+      <DataTable
+        columns={columnsWithCellRenderer}
+        rowData={accountHistoryLarge}
+      />
+    </div>
+  );
+};
