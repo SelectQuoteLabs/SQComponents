@@ -104,82 +104,101 @@ export const expandingCardsWithTabs = () => {
   );
 };
 
-const onCellClicked = params => {
-  const gridApi = params.api;
-  const selectedRows = gridApi.getSelectedRows();
-  if (selectedRows.length) {
-    gridApi.deselectAll();
-    //do something custom
-    alert(`Opening the account: \n ${JSON.stringify(selectedRows[0])}`);
-  }
+export const expandingCardsWithDataTable = () => {
+  //const [isCardTwoExpanded, setIsCardTwoExpanded] = React.useState(false);
+  const isCardTwoExpanded = false;
+
+  const onCellClicked = params => {
+    const gridApi = params.api;
+    const selectedRows = gridApi.getSelectedRows();
+    if (selectedRows.length) {
+      gridApi.deselectAll();
+      //do something custom
+      alert(`Opening the account: \n ${JSON.stringify(selectedRows[0])}`);
+    }
+  };
+
+  const filterByAction = [
+    {
+      displayKey: 'filterBy',
+      displayName: 'Filter by… (All)',
+      test: function(filterValue, cellValue) {
+        return cellValue != null;
+      },
+      hideFilterInput: true,
+    },
+    {
+      displayKey: 'valid',
+      displayName: 'Valid',
+      test: function(filterValue, cellValue) {
+        return cellValue != null && cellValue === 'valid';
+      },
+      hideFilterInput: true,
+    },
+  ];
+
+  const columns = [
+    {
+      headerName: 'Status',
+      field: 'status',
+      onCellClicked: onCellClicked,
+      cellClass: 'dataTable__hyperlink',
+      filterParams: {
+        filterOptions: filterByAction,
+        defaultOption: 'filterBy',
+        suppressAndOrCondition: true,
+      },
+    },
+    {
+      headerName: 'Comment',
+      field: 'comment',
+      width: 400,
+      cellClass: 'dataTable__hyperlink',
+      // onCellClicked: () => setIsCardTwoExpanded(!isCardTwoExpanded),
+    },
+    {headerName: 'User', field: 'user'},
+    {headerName: 'Date', field: 'date'},
+    {headerName: 'PV Rule', field: 'pvRule'},
+    {
+      headerName: 'Number right',
+      field: 'number',
+      cellClass: 'dataTable__number',
+    },
+  ];
+
+  const accountTabs = [
+    {
+      label: 'Account History',
+      value: 'account-history',
+      body: <DataTable columns={columns} rowData={accountHistoryLarge} />,
+    },
+    {
+      label: 'Agent PV',
+      value: 'agent-pv-list',
+      body: <DataTable columns={columns} rowData={[]} />,
+    },
+  ];
+
+  return (
+    <div style={{width: '45rem', height: '80vh'}}>
+      <ExpandingCardList>
+        <ExpandingCard title="Card One" name="one">
+          <DataTable columns={columns} rowData={accountHistoryLarge} />
+        </ExpandingCard>
+        <ExpandingCard
+          title="Card Two"
+          name="two"
+          isCardExpanded={isCardTwoExpanded}
+          // toggleCard={setIsCardTwoExpanded}
+        >
+          Body
+        </ExpandingCard>
+        <ExpandingCardWithTabs
+          title="Account Information"
+          name="account-information"
+          tabs={accountTabs}
+        />
+      </ExpandingCardList>
+    </div>
+  );
 };
-
-const filterByAction = [
-  {
-    displayKey: 'filterBy',
-    displayName: 'Filter by… (All)',
-    test: function(filterValue, cellValue) {
-      return cellValue != null;
-    },
-    hideFilterInput: true,
-  },
-  {
-    displayKey: 'valid',
-    displayName: 'Valid',
-    test: function(filterValue, cellValue) {
-      return cellValue != null && cellValue === 'valid';
-    },
-    hideFilterInput: true,
-  },
-];
-
-const columns = [
-  {
-    headerName: 'Status',
-    field: 'status',
-    onCellClicked: onCellClicked,
-    cellClass: 'dataTable__hyperlink',
-    filterParams: {
-      filterOptions: filterByAction,
-      defaultOption: 'filterBy',
-      suppressAndOrCondition: true,
-    },
-  },
-  {headerName: 'Comment', field: 'comment', width: 400},
-  {headerName: 'User', field: 'user'},
-  {headerName: 'Date', field: 'date'},
-  {headerName: 'PV Rule', field: 'pvRule'},
-  {
-    headerName: 'Number right',
-    field: 'number',
-    cellClass: 'dataTable__number',
-  },
-];
-
-const accountTabs = [
-  {
-    label: 'Account History',
-    value: 'account-history',
-    body: <DataTable columns={columns} rowData={accountHistoryLarge} />,
-  },
-  {
-    label: 'Agent PV',
-    value: 'agent-pv-list',
-    body: <DataTable columns={columns} rowData={[]} />,
-  },
-];
-
-export const expandingCardsWithDataTable = () => (
-  <div style={{width: '45rem', height: '80vh'}}>
-    <ExpandingCardList>
-      <ExpandingCard title="Card One" name="one">
-        Body
-      </ExpandingCard>
-      <ExpandingCardWithTabs
-        title="Account Information"
-        name="account-information"
-        tabs={accountTabs}
-      />
-    </ExpandingCardList>
-  </div>
-);

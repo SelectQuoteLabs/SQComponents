@@ -26,22 +26,39 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ExpandingCard({name, title, actions, subheader, children}) {
+function ExpandingCard({
+  name,
+  title,
+  actions,
+  subheader,
+  children,
+  isCardExpanded = null,
+  toggleCard,
+}) {
   const {
     isCollapseAllowed,
     getIsCardExpanded,
     setIsCardExpanded,
   } = React.useContext(ExpandingCardListContext);
 
-  const isExpanded = getIsCardExpanded(name);
+  const isExpanded =
+    isCardExpanded !== null ? isCardExpanded : getIsCardExpanded(name);
 
   const toggleExpansion = React.useCallback(() => {
+    isCardExpanded !== null && toggleCard(!isExpanded);
     if (isExpanded && !isCollapseAllowed) {
       return;
     }
 
     setIsCardExpanded(name, !isExpanded);
-  }, [isExpanded, name, setIsCardExpanded, isCollapseAllowed]);
+  }, [
+    isExpanded,
+    name,
+    setIsCardExpanded,
+    isCollapseAllowed,
+    toggleCard,
+    isCardExpanded,
+  ]);
 
   const classes = useStyles();
   const expandButtonStateClass = isExpanded
