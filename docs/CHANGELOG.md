@@ -1,3 +1,11 @@
+## [4.15.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.14.0...v4.15.0) (2020-11-18)
+
+
+### Features
+
+* aded code doc and knobs for example ([309556f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/309556f763ff78adee87916a6547cc96c152fe9f))
+* commented out hook in code ([6778308](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/677830894745c31b88a9f071d3e01df447fc2bae))
+
 ## [4.14.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.13.2...v4.14.0) (2020-11-12)
 
 
