@@ -33,7 +33,7 @@ function ExpandingCard({
   subheader,
   children,
   isCardExpanded = null,
-  toggleCard,
+  expandCard = null,
 }) {
   const {
     isCollapseAllowed,
@@ -41,11 +41,14 @@ function ExpandingCard({
     setIsCardExpanded,
   } = React.useContext(ExpandingCardListContext);
 
-  const isExpanded =
-    isCardExpanded !== null ? isCardExpanded : getIsCardExpanded(name);
+  const isConsumerExpandingCard = isCardExpanded !== null && expandCard;
+
+  const isExpanded = isConsumerExpandingCard
+    ? isCardExpanded
+    : getIsCardExpanded(name);
 
   const toggleExpansion = React.useCallback(() => {
-    isCardExpanded !== null && toggleCard(!isExpanded);
+    isConsumerExpandingCard && expandCard(!isExpanded);
     if (isExpanded && !isCollapseAllowed) {
       return;
     }
@@ -56,8 +59,8 @@ function ExpandingCard({
     name,
     setIsCardExpanded,
     isCollapseAllowed,
-    toggleCard,
-    isCardExpanded,
+    expandCard,
+    isConsumerExpandingCard,
   ]);
 
   const classes = useStyles();
@@ -121,6 +124,14 @@ ExpandingCard.propTypes = {
   // isInitiallyExpanded is not used within this component but exists here to provde a good API.
   // See ExpandingCardList for how this property is used.
   isInitiallyExpanded: PropTypes.bool,
+
+  /** expandCard callback synchronizes consumer state with ExpandingCardList state.
+   * Requires isCardExpanded prop. */
+  expandCard: PropTypes.func,
+
+  /** Optional prop for the consumer to define the cards open/close state.
+   * Requires expandCard prop. */
+  isCardExpanded: PropTypes.bool,
 };
 
 export default ExpandingCard;

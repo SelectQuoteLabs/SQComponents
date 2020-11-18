@@ -1,5 +1,6 @@
 import React from 'react';
 import {withInfo} from '@storybook/addon-info';
+import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {
   ExpandingCard,
   ExpandingCardWithTabs,
@@ -10,7 +11,7 @@ import {accountHistoryLarge} from './utils/accountHistoryLarge';
 
 export default {
   title: 'ExpandingCardList',
-  decorators: [withInfo],
+  decorators: [withInfo, withKnobs],
 };
 
 export const expandingCards = () => {
@@ -105,8 +106,9 @@ export const expandingCardsWithTabs = () => {
 };
 
 export const expandingCardsWithDataTable = () => {
-  //const [isCardTwoExpanded, setIsCardTwoExpanded] = React.useState(false);
-  const isCardTwoExpanded = false;
+  /* Hooks not allowed here but leaving as an example of how to control 
+    the expanded state of the card
+  const [isCardTwoExpanded, setIsCardTwoExpanded] = React.useState(false); **/
 
   const onCellClicked = params => {
     const gridApi = params.api;
@@ -154,7 +156,8 @@ export const expandingCardsWithDataTable = () => {
       field: 'comment',
       width: 400,
       cellClass: 'dataTable__hyperlink',
-      // onCellClicked: () => setIsCardTwoExpanded(!isCardTwoExpanded),
+      /* example of how to control the expanded state of the card
+      onCellClicked: () => setIsCardTwoExpanded(!isCardTwoExpanded), **/
     },
     {headerName: 'User', field: 'user'},
     {headerName: 'Date', field: 'date'},
@@ -186,12 +189,18 @@ export const expandingCardsWithDataTable = () => {
           <DataTable columns={columns} rowData={accountHistoryLarge} />
         </ExpandingCard>
         <ExpandingCard
-          title="Card Two"
+          title="Card Two - open/close with the knob"
           name="two"
-          isCardExpanded={isCardTwoExpanded}
-          // toggleCard={setIsCardTwoExpanded}
+          isCardExpanded={boolean(
+            'isCardTwoExpanded',
+            false,
+            'Toggle open Card two from outside card 2'
+          )}
+          expandCard={() => {}} // local state is needed to implement this
         >
-          Body
+          When fully implemented the open/close state can be triggered from from
+          the card or triggered from an outside source like another card within
+          the ExpandingCardList
         </ExpandingCard>
         <ExpandingCardWithTabs
           title="Account Information"
