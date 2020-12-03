@@ -1,12 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LoadingIcon from '../LoadingIcon';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import Typography from '@material-ui/core/Typography';
-import './GlobalLoadingSpinner.css';
+import {
+  Dialog,
+  DialogContent,
+  Grid,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
+
+const useStyles = makeStyles({
+  contentContainer: {
+    padding: 24,
+    width: 458,
+  },
+  spinner: {
+    marginBottom: 24,
+  },
+});
 
 const GlobalLoadingSpinner = ({isOpen, message}) => {
+  const classes = useStyles();
   // Ensure modal isn't in DOM if it's not open
   if (!isOpen) return null;
 
@@ -25,13 +39,24 @@ const GlobalLoadingSpinner = ({isOpen, message}) => {
 
   return (
     <Dialog disableBackdropClick open>
-      <DialogContent className="globalLoadingSpinner__dialog">
-        <LoadingIcon height="120px" />
-        {messageParts.map(messagePart => (
-          <Typography variant="h5" key={messagePart}>
-            {messagePart}
-          </Typography>
-        ))}
+      <DialogContent>
+        <Grid
+          container
+          direction="column"
+          wrap="nowrap"
+          justify="center"
+          alignItems="center"
+          className={classes.contentContainer}
+        >
+          <Grid item className={classes.spinner}>
+            <LoadingIcon height="120px" />
+          </Grid>
+          {messageParts.map(messagePart => (
+            <Typography variant="h5" key={messagePart} align="center">
+              {messagePart}
+            </Typography>
+          ))}
+        </Grid>
       </DialogContent>
     </Dialog>
   );

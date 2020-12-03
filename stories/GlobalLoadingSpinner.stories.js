@@ -1,8 +1,16 @@
 import React from 'react';
-import {withKnobs, text, boolean} from '@storybook/addon-knobs';
+import {withKnobs} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/GlobalLoadingSpinner.md';
-import {GlobalLoadingSpinner} from '../src';
+import {
+  GlobalLoadingProvider,
+  GlobalLoadingSpinner,
+  SnackbarProvider,
+  SQAdminLayout,
+  SystemHeader,
+  useGlobalLoadingState,
+} from '../src';
+import MovieSearchCard from './components/MovieSearchCard';
 
 export default {
   title: 'GlobalLoadingSpinner',
@@ -12,35 +20,53 @@ export default {
   },
 };
 
-export const globalLoadingSpinner = () => {
-  return (
-    <>
-      <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
-      <GlobalLoadingSpinner isOpen={boolean('isOpen', false)} />
-    </>
-  );
-};
+// export const globalLoadingSpinnerMultilineMessage = () => {
+//   return (
+//     <>
+//       <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
+//       <GlobalLoadingSpinner
+//         isOpen={boolean('isOpen', false)}
+//         message={text('Message', `This\nMessage\nis Multiple\nLines`)}
+//       />
+//     </>
+//   );
+// };
 
-export const globalLoadingSpinnerWithMessage = () => {
+export function globalLoadingSpinner() {
+  // please see Notes section for more complete code examples
   return (
     <>
-      <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
-      <GlobalLoadingSpinner
-        isOpen={boolean('isOpen', false)}
-        message={text('Message', 'Accessing Some Resource')}
-      />
+      <h3>
+        Search for a movie, select one, then click "Submit" to see
+        `GlobalLoadingSpinner` in action.
+      </h3>
+      <SnackbarProvider>
+        <GlobalLoadingProvider>
+          <FakeApp />
+        </GlobalLoadingProvider>
+      </SnackbarProvider>
     </>
   );
-};
+}
 
-export const globalLoadingSpinnerMultilineMessage = () => {
+function Header() {
   return (
-    <>
-      <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
-      <GlobalLoadingSpinner
-        isOpen={boolean('isOpen', false)}
-        message={text('Message', `This\nMessage\nis Multiple\nLines`)}
-      />
-    </>
+    <SystemHeader
+      backgroundColor="var(--color-seniorOrange)"
+      productTitle="Senior > Admin"
+    />
   );
-};
+}
+
+function FakeApp() {
+  const {isOpen, message} = useGlobalLoadingState();
+
+  return (
+    <div style={{width: 900}}>
+      <SQAdminLayout HeaderComponent={Header}>
+        <MovieSearchCard />
+      </SQAdminLayout>
+      <GlobalLoadingSpinner isOpen={isOpen} message={message} />
+    </div>
+  );
+}

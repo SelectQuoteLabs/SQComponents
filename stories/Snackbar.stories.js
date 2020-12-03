@@ -1,6 +1,7 @@
 import React from 'react';
 import {withInfo} from '@storybook/addon-info';
 import {
+  GlobalLoadingProvider,
   SQAdminLayout,
   SystemHeader,
   SnackbarProvider,
@@ -21,9 +22,11 @@ export default {
 export function snackbar() {
   // please see Notes section for more complete code examples
   return (
-    <SnackbarProvider>
-      <FakeApp />
-    </SnackbarProvider>
+    <GlobalLoadingProvider>
+      <SnackbarProvider>
+        <FakeApp />
+      </SnackbarProvider>
+    </GlobalLoadingProvider>
   );
 }
 
