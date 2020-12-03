@@ -1,3 +1,10 @@
+## [4.16.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.15.0...v4.16.0) (2020-12-03)
+
+
+### Features
+
+* **globalloadingspinner:** context/Hooks/singleton style blocking spinr ([3c3cebe](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/3c3cebeb2463fd8bfb7f79d309027db73f912d5f))
+
 ## [4.15.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.14.0...v4.15.0) (2020-11-18)
 
 
