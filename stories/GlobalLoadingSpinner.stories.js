@@ -1,5 +1,5 @@
 import React from 'react';
-import {withKnobs} from '@storybook/addon-knobs';
+import {withKnobs, text, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/GlobalLoadingSpinner.md';
 import {
@@ -20,18 +20,6 @@ export default {
   },
 };
 
-// export const globalLoadingSpinnerMultilineMessage = () => {
-//   return (
-//     <>
-//       <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
-//       <GlobalLoadingSpinner
-//         isOpen={boolean('isOpen', false)}
-//         message={text('Message', `This\nMessage\nis Multiple\nLines`)}
-//       />
-//     </>
-//   );
-// };
-
 export function globalLoadingSpinner() {
   // please see Notes section for more complete code examples
   return (
@@ -48,6 +36,18 @@ export function globalLoadingSpinner() {
     </>
   );
 }
+
+export const globalLoadingSpinnerLegacyPattern = () => {
+  return (
+    <>
+      <h1>Click the Knobs tab below to toggle the open state of the Dialog</h1>
+      <GlobalLoadingSpinner
+        isOpen={boolean('isOpen', false)}
+        message={text('Message', `Loading`)}
+      />
+    </>
+  );
+};
 
 function Header() {
   return (

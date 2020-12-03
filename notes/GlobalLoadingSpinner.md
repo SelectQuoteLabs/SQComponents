@@ -6,9 +6,11 @@ Once `GlobalLoadingProvider` and `GlobalLoadingSpinner` are added high in the co
 
 It is intended to be returned in JSX in one single place, high up in the component tree. Though this new Context/Hooks/single-component pattern does not break the multiple-instance legacy pattern, going forward we should prefer to follow the single-component pattern.
 
+To see multiple-instance example, go to "Global Loading Spinner Legacy Pattern" story.
+
 ## Demo
 
-[Loom demo here](https://www.loom.com/share/68a858a475a04e479a7562428079e241)
+[Loom demo here](https://www.loom.com/share/b3082fb06c62402dae1c481f6860a936)
 
 ## Usage
 
