@@ -26,6 +26,11 @@ export default {
     lightError: '#FAE5E8',
     palmLeaf: '#6CA03B', // used for success
     green: '#76B041',
+
+    successGreen: '#3C7107',
+    dangerYellow: '#C67000',
+    errorRed: '#AD0010',
+    infoBlue: '#006CCB',
   },
 
   fontWeights: {
