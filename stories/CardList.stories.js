@@ -94,6 +94,7 @@ const getPersonalQueue = () => {
 
 const notifications = [
   {
+    id: 1,
     header: 'Enrollment Claimed',
     secondaryRows: [
       `Date/Time : ${Date.now()}`,
@@ -104,6 +105,7 @@ const notifications = [
     ],
   },
   {
+    id: 2,
     header: 'Manager Override',
     secondaryRows: [
       `Date/Time : ${Date.now()}`,
@@ -248,12 +250,13 @@ export const CardListExampleWithNoData = () => (
   />
 );
 
-export const CardListExampleWithOneTab = () => (
+export const CardListExampleWithOneTabWithSelectableItems = () => (
   <CardList
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
     tabs={tabOptionsWithOneTab}
+    shouldRenderHeader={false}
   />
 );
 

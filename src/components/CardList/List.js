@@ -59,6 +59,8 @@ const renderNoDataMessage = message => {
 };
 
 function List({listItems, noDataMessage, zeroItemsMessage}) {
+  const [selectedID, setSelectedID] = React.useState(null);
+
   if (!listItems) {
     return renderNoDataMessage(noDataMessage || 'Data Currently Unavailable');
   }
@@ -66,11 +68,20 @@ function List({listItems, noDataMessage, zeroItemsMessage}) {
     return renderNoDataMessage(zeroItemsMessage || 'List is currently empty');
   }
 
+  const handleClick = listItem => {
+    if (listItem.onClick) {
+      return listItem.onClick();
+    } else if (listItem.id) {
+      return setSelectedID(listItem.id);
+    }
+  };
+
   return listItems.map(listItem => (
     <SelectChip
-      onClick={() => listItem.onClick && listItem.onClick()}
+      onClick={() => handleClick(listItem)}
       className="cardListItem__selectChip"
       key={listItem.id}
+      optionIsSelected={listItem.id === selectedID}
     >
       <ListItem className="cardList__items">
         {listItem.color && getColorIcons(listItem.color)}
