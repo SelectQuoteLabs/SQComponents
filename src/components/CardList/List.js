@@ -69,7 +69,7 @@ function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
   }
 
   const handleListItemClick = listItem => {
-    if (listItem.onClick) {
+    if (typeof listItem.onClick === 'function') {
       listItem.onClick();
     }
     if (isSelectable && listItem.id) {
