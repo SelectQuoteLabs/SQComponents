@@ -1,3 +1,13 @@
+## [4.17.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.16.0...v4.17.0) (2020-12-14)
+
+
+### Features
+
+* added a selected state to the cardlist items ([40211d9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/40211d92182727d6bca2759eaba51d43c156408f))
+* updated the docs and implementation for isSelectable ([8e345d7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8e345d71f3a9b4cb03fc3961f90feb0f31e8df8d))
+* updated the method name and removed returns ([ddf8546](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ddf8546013e58d2668cbbe3bd8a198ead3be8c00))
+* updated the onClick to a type check ([0730c3a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0730c3a6a79337545542cdc0c3460cd0c1d880a9))
+
 ## [4.16.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.15.0...v4.16.0) (2020-12-03)
 
 
