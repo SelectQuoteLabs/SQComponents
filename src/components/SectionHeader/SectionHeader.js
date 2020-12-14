@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Grid, Icon, Typography} from '@material-ui/core';
+import classnames from 'classnames';
+import {Grid, Icon, Typography, makeStyles} from '@material-ui/core';
 import NewReleasesIcon from '@material-ui/icons/NewReleases';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import WarningIcon from '@material-ui/icons/Warning';
 import InfoIcon from '@material-ui/icons/Info';
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   container: {
     borderBottom: '1px solid var(--color-lightGray)',
     marginBottom: '1.5rem',
@@ -20,8 +21,20 @@ const styles = {
   },
   informativeHeadingIcon: {
     marginLeft: '4px'
+  },
+  success: {
+    color: 'var(--color-palmLeaf)',
+  },
+  danger: {
+    color: 'var(--color-brightYellow)',
+  },
+  error: {
+    color: 'var(--color-roseMadder)',
+  },
+  info: {
+    color: 'var(--color-frenchBleu)',
   }
-};
+}));
 
 function SectionHeader({
   children,
@@ -30,16 +43,18 @@ function SectionHeader({
   type = 'initial',
   containerStyles = {},
 }) {
+  const classes = useStyles();
+
   function getInformativeHeadingIcon() {
     switch(type) {
       case 'error':
-        return <WarningIcon />;
+        return <WarningIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
       case 'danger':
-        return <NewReleasesIcon />;
+        return <NewReleasesIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
       case 'success':
-        return <VerifiedUserIcon />;
+        return <VerifiedUserIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
       case 'info':
-        return <InfoIcon />;
+        return <InfoIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
       default:
         return ''
     }
@@ -51,18 +66,11 @@ function SectionHeader({
         <Typography 
           component="span" 
           variant="caption" 
-          color={type}
-          style={{...styles.informativeHeading}}
+          className={classnames(classes.informativeHeading, classes[type])}
         >
           {informativeHeading}
         </Typography>
-        {type && (
-          <Icon 
-            color={type} 
-            component={getInformativeHeadingIcon} 
-            style={{...styles.informativeHeadingIcon}} 
-          />
-        )}
+        {type && <Icon component={getInformativeHeadingIcon} />}
       </>
     );
   }
@@ -75,16 +83,14 @@ function SectionHeader({
       alignItems="baseline"
       wrap="nowrap"
       component="header"
+      className={classes.container}
       style={{
-        ...styles.container,
         ...containerStyles,
       }}
     >
       <Grid container item xs={10} alignItems="center">
         <Typography
-          style={{
-            ...styles.title,
-          }}
+          className={classes.title}
           component="h3"
           variant="overline"
         >
