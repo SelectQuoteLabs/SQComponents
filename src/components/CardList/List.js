@@ -68,19 +68,18 @@ function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
     return renderNoDataMessage(zeroItemsMessage || 'List is currently empty');
   }
 
-  const handleClick = listItem => {
+  const handleListItemClick = listItem => {
     if (listItem.onClick) {
       listItem.onClick();
     }
     if (isSelectable && listItem.id) {
-      return setSelectedID(listItem.id);
+      setSelectedID(listItem.id);
     }
-    return;
   };
 
   return listItems.map(listItem => (
     <SelectChip
-      onClick={() => handleClick(listItem)}
+      onClick={() => handleListItemClick(listItem)}
       className="cardListItem__selectChip"
       key={listItem.id}
       optionIsSelected={isSelectable && listItem.id === selectedID}
