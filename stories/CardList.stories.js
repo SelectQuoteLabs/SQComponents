@@ -89,6 +89,7 @@ const getPersonalQueue = () => {
       `Carriers : ${queue.carriers}`,
       `Type : ${queue.type}`,
     ],
+    onClick: action(`selected ${queue.accountId}`),
   }));
 };
 
@@ -153,6 +154,7 @@ const tabOptions = [
     label: 'Personal Queue',
     value: 'personalQueue',
     listItems: getPersonalQueue(),
+    isSelectable: true,
   },
   {
     label: 'Account History',
@@ -177,6 +179,7 @@ const tabOptionsWithOneTab = [
     handleRefresh: () => {
       alert('Refreshing Notifications');
     },
+    isSelectable: true,
   },
 ];
 

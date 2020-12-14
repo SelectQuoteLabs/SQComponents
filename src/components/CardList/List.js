@@ -58,7 +58,7 @@ const renderNoDataMessage = message => {
   );
 };
 
-function List({listItems, noDataMessage, zeroItemsMessage}) {
+function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
   const [selectedID, setSelectedID] = React.useState(null);
 
   if (!listItems) {
@@ -70,10 +70,12 @@ function List({listItems, noDataMessage, zeroItemsMessage}) {
 
   const handleClick = listItem => {
     if (listItem.onClick) {
-      return listItem.onClick();
-    } else if (listItem.id) {
+      listItem.onClick();
+    }
+    if (isSelectable && listItem.id) {
       return setSelectedID(listItem.id);
     }
+    return;
   };
 
   return listItems.map(listItem => (
@@ -81,7 +83,7 @@ function List({listItems, noDataMessage, zeroItemsMessage}) {
       onClick={() => handleClick(listItem)}
       className="cardListItem__selectChip"
       key={listItem.id}
-      optionIsSelected={listItem.id === selectedID}
+      optionIsSelected={isSelectable && listItem.id === selectedID}
     >
       <ListItem className="cardList__items">
         {listItem.color && getColorIcons(listItem.color)}
@@ -106,6 +108,8 @@ List.propTypes = {
   noDataMessage: PropTypes.string,
   /** Message to display when the data returned is an empty array */
   zeroItemsMessage: PropTypes.string,
+  /** Should the item stay selected with a border */
+  isSelectable: PropTypes.bool,
 };
 
 export default List;
