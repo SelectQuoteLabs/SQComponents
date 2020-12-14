@@ -2,7 +2,7 @@ import {createMuiTheme} from '@material-ui/core/styles';
 
 import cssVars from '../src/styles/cssVars';
 
-const {cerulean, successGreen, cautionYellow, errorRed, infoBlue, slate, spanishOrange, teal} = cssVars.colors;
+const {cerulean, palmLeaf, slate, spanishOrange, teal} = cssVars.colors;
 
 const BASE_FONT_SIZE = 12; // px
 
@@ -25,16 +25,10 @@ const theme = {
       main: slate,
     },
     success: {
-      main: successGreen,
-    },
-    danger: {
-      main: cautionYellow,
+      main: palmLeaf,
     },
     error: {
-      main: errorRed,
-    },
-    info: {
-      main: infoBlue,
+      main: spanishOrange,
     },
     textSecondary: {
       main: slate,
