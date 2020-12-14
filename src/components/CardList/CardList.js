@@ -126,6 +126,7 @@ function CardList({
               zeroItemsMessage={
                 selectedTab.zeroItemsMessage || 'No Items To Display'
               }
+              isSelectable={selectedTab.isSelectable}
             />
           )}
         </CardContent>

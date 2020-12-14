@@ -89,11 +89,13 @@ const getPersonalQueue = () => {
       `Carriers : ${queue.carriers}`,
       `Type : ${queue.type}`,
     ],
+    onClick: action(`selected ${queue.accountId}`),
   }));
 };
 
 const notifications = [
   {
+    id: 1,
     header: 'Enrollment Claimed',
     secondaryRows: [
       `Date/Time : ${Date.now()}`,
@@ -104,6 +106,7 @@ const notifications = [
     ],
   },
   {
+    id: 2,
     header: 'Manager Override',
     secondaryRows: [
       `Date/Time : ${Date.now()}`,
@@ -151,6 +154,7 @@ const tabOptions = [
     label: 'Personal Queue',
     value: 'personalQueue',
     listItems: getPersonalQueue(),
+    isSelectable: true,
   },
   {
     label: 'Account History',
@@ -175,6 +179,7 @@ const tabOptionsWithOneTab = [
     handleRefresh: () => {
       alert('Refreshing Notifications');
     },
+    isSelectable: true,
   },
 ];
 
@@ -248,12 +253,13 @@ export const CardListExampleWithNoData = () => (
   />
 );
 
-export const CardListExampleWithOneTab = () => (
+export const CardListExampleWithOneTabWithSelectableItems = () => (
   <CardList
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
     tabs={tabOptionsWithOneTab}
+    shouldRenderHeader={false}
   />
 );
 

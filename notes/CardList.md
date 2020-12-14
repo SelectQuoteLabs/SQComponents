@@ -10,6 +10,8 @@
 
 The onListItemClick callback will return the whole listItem you passed to the component. This needs to be passed in each tab. You can then use the listItem.header or listItem objects directly.
 
+You must set the id property for each item in the listItems to be able to use the selected state with the organge border. You must also set the isSelectable prop to true in the tab you want to use it.
+
 Sample with custom width and height:
 
 ```
@@ -20,22 +22,33 @@ Sample with custom width and height:
   isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
   isExpandable={boolean('isExpandable', true)}
   tabs={[{
-  label: 'Agent PV',
-  value: 'agentPV',
-  onListItemClick: handlePVClick
-  listItems: {
-    header: 'Acct ID : 6666666',
-     secondaryRows: ['Name : Pete Monterroso',
-    'PV Rule : TA Follow Up 2']
-  },
+    label: 'Agent PV',
+    value: 'agentPV',
+    onListItemClick: handlePVClick
+    listItems: [{
+      id: 1
+      header: 'Acct ID : 6666666',
+      secondaryRows: ['Name : Pete Monterroso',
+      'PV Rule : TA Follow Up 2']
+    },
+    isSelectable: true
+    {
+      id: 2,
+          header: 'Acct ID : 123123',
+          secondaryRows: ['Name : Pete Pilot',
+          'PV Rule : QA Follow Up 2'],
+          color: 'Yellow'
+      }
+    ],
     label: 'Last Cases Worked',
     value: 'lastCasesWorked',
-    listItems: {
+    listItems: [{
+      id: 1,
       header: 'Acct ID : 123123',
        secondaryRows: ['Name : Pete Pilot',
       'PV Rule : QA Follow Up 2'],
       color: 'Yellow'
-  }
+  }]
   }]}
 />
 ```
