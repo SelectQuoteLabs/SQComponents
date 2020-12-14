@@ -23,16 +23,16 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '4px'
   },
   success: {
-    color: 'var(--color-palmLeaf)',
+    color: 'var(--color-textSuccessGreen)',
   },
   danger: {
-    color: 'var(--color-brightYellow)',
+    color: 'var(--color-textDangerYellow)',
   },
   error: {
-    color: 'var(--color-roseMadder)',
+    color: 'var(--color-textErrorRed)',
   },
   info: {
-    color: 'var(--color-frenchBleu)',
+    color: 'var(--color-textInfoBlue)',
   }
 }));
 
