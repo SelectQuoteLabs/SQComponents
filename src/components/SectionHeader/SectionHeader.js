@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
   success: {
     color: 'var(--color-textSuccessGreen)',
   },
-  danger: {
-    color: 'var(--color-textDangerYellow)',
+  warning: {
+    color: 'var(--color-textWarningYellow)',
   },
   error: {
     color: 'var(--color-textErrorRed)',
@@ -49,7 +49,7 @@ function SectionHeader({
     switch(type) {
       case 'error':
         return <WarningIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
-      case 'danger':
+      case 'warning':
         return <NewReleasesIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
       case 'success':
         return <VerifiedUserIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
@@ -116,7 +116,7 @@ SectionHeader.propTypes = {
   /** Optional element to render after the Title, most commonly used for informative dynamic text */
   informativeHeading: PropTypes.string,
   /** Optional, depicts the color and iconography of the informativeHeading */
-  type: PropTypes.oneOf(['success', 'danger', 'error', 'info']),
+  type: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
   /** Title text to render at the start of the header (Left side) */
   title: PropTypes.string.isRequired,
 };
