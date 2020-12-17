@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Typography, Grid} from '@material-ui/core';
+import classnames from 'classnames';
+import {Grid, Icon, Typography, makeStyles} from '@material-ui/core';
+import NewReleasesIcon from '@material-ui/icons/NewReleases';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import WarningIcon from '@material-ui/icons/Warning';
+import InfoIcon from '@material-ui/icons/Info';
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   container: {
     borderBottom: '1px solid var(--color-lightGray)',
     marginBottom: '1.5rem',
@@ -11,14 +16,68 @@ const styles = {
     color: 'var(--color-granite)',
     marginRight: '10px',
   },
-};
+  informativeHeading: {
+    fontWeight: 500,
+  },
+  informativeHeadingIcon: {
+    marginLeft: '4px'
+  },
+  initial: {
+    color: 'initial',
+  },
+  success: {
+    color: 'var(--color-textSuccessGreen)',
+  },
+  warning: {
+    color: 'var(--color-textWarningYellow)',
+  },
+  error: {
+    color: 'var(--color-textErrorRed)',
+  },
+  info: {
+    color: 'var(--color-textInfoBlue)',
+  }
+}));
 
 function SectionHeader({
   children,
   informativeHeading = null,
   title,
+  type = 'initial',
   containerStyles = {},
 }) {
+  const classes = useStyles();
+
+  function getInformativeHeadingIcon() {
+    switch(type) {
+      case 'error':
+        return <WarningIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+      case 'warning':
+        return <NewReleasesIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+      case 'success':
+        return <VerifiedUserIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+      case 'info':
+        return <InfoIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+      default:
+        return ''
+    }
+  }
+
+  function renderInformativeHeading() {
+    return (
+      <>
+        <Typography 
+          component="span" 
+          variant="caption" 
+          className={classnames(classes.informativeHeading, classes[type])}
+        >
+          {informativeHeading}
+        </Typography>
+        {type && <Icon component={getInformativeHeadingIcon} />}
+      </>
+    );
+  }
+
   return (
     <Grid
       container
@@ -27,22 +86,22 @@ function SectionHeader({
       alignItems="baseline"
       wrap="nowrap"
       component="header"
+      className={classes.container}
       style={{
-        ...styles.container,
         ...containerStyles,
       }}
     >
       <Grid container item xs={10} alignItems="center">
         <Typography
-          style={{
-            ...styles.title,
-          }}
+          className={classes.title}
           component="h3"
           variant="overline"
         >
           {title}
         </Typography>
-        {informativeHeading}
+        {informativeHeading && (
+          renderInformativeHeading()
+        )}
       </Grid>
       <Grid container item xs={2} justify="flex-end">
         {children}
@@ -51,19 +110,16 @@ function SectionHeader({
   );
 }
 
+
 SectionHeader.propTypes = {
   /** Optional element to render at the end of the header (Right side) */
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   /** Optional container inline styles */
   containerStyles: PropTypes.object,
   /** Optional element to render after the Title, most commonly used for informative dynamic text */
-  informativeHeading: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.elementType,
-    PropTypes.func,
-  ]),
+  informativeHeading: PropTypes.string,
+  /** Optional, depicts the color and iconography of the informativeHeading */
+  type: PropTypes.oneOf(['initial', 'success', 'warning', 'error', 'info']),
   /** Title text to render at the start of the header (Left side) */
   title: PropTypes.string.isRequired,
 };
