@@ -52,7 +52,7 @@ export const simpleSection = () => (
 export const simpleSectionWithInformativeHeading = () => (
   <Section>
     <SectionHeader 
-      type={select('type', [null, 'success', 'warning', 'error', 'info'])}
+      type={select('type', [null, 'initial', 'success', 'warning', 'error', 'info'])}
       title="Section Header" 
       informativeHeading='I am an informative heading'
     />

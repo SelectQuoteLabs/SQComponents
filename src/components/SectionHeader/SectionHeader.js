@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
   informativeHeadingIcon: {
     marginLeft: '4px'
   },
+  initial: {
+    color: 'initial',
+  },
   success: {
     color: 'var(--color-textSuccessGreen)',
   },
@@ -116,7 +119,7 @@ SectionHeader.propTypes = {
   /** Optional element to render after the Title, most commonly used for informative dynamic text */
   informativeHeading: PropTypes.string,
   /** Optional, depicts the color and iconography of the informativeHeading */
-  type: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
+  type: PropTypes.oneOf(['initial', 'success', 'warning', 'error', 'info']),
   /** Title text to render at the start of the header (Left side) */
   title: PropTypes.string.isRequired,
 };
