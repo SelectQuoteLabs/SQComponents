@@ -1,3 +1,29 @@
+## [5.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.17.0...v5.0.0) (2020-12-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 sectionHeader.type now defaults to initial, while letting consumer
+choose initial specifically
+
+✅ Closes: SSC-102
+* 🧨 SectionHeader.informativeHeading now takes a string only
+
+✅ Closes: SSC-102
+* 🧨 SectionHeader.informativeHeading only takes a String from now on.
+
+✅ Closes: SSC-102
+
+### Bug Fixes
+
+* 🐛 Updated prop options for informative heading ([17561de](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/17561decca5b9be36595faafaaa248d2fbb2f833))
+* 🐛 Updated sectionheader with enhancements to colors ([7a6271f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/7a6271fa234fbcc8d769d9b6d4651eb30a3e42e1))
+
+
+### Code Refactoring
+
+* 💡 Refactored section header for error display ([0908367](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/090836778934adf23c6a45f32abf88c71c054b98))
+
 ## [4.17.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.16.0...v4.17.0) (2020-12-14)
 
 
