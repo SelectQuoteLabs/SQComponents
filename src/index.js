@@ -19,6 +19,7 @@ export {default as CardList} from './components/CardList';
 export {default as CardPopoverMenu} from './components/CardPopoverMenu';
 export {default as ColumnList} from './components/ColumnList';
 export {default as DatePicker} from './components/DatePicker';
+export {default as Dialog} from './components/Dialog';
 export {default as DialogAlert} from './components/DialogAlert';
 export {default as DialogForm} from './components/DialogForm';
 export {default as IconButton} from './components/IconButton';
