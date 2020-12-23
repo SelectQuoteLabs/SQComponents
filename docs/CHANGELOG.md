@@ -1,3 +1,10 @@
+## [5.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.0.0...v5.1.0) (2020-12-23)
+
+
+### Features
+
+* **dialog.js:** unopinionated (mostly) Dialog ([c83a82f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c83a82f72f03e9ea20c8219011feeb5bf8a701eb))
+
 ## [5.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v4.17.0...v5.0.0) (2020-12-17)
 
 
