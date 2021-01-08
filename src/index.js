@@ -14,6 +14,7 @@ export {FieldArray as SQFieldArray};
 export {useFormikContext as useSQFormContext};
 
 // Components
+export {default as Accordion} from './components/Accordion';
 export {default as Avatar} from './components/Avatar';
 export {default as CardList} from './components/CardList';
 export {default as CardPopoverMenu} from './components/CardPopoverMenu';
