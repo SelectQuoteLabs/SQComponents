@@ -1,3 +1,10 @@
+## [5.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.1.0...v5.2.0) (2021-01-11)
+
+
+### Features
+
+* **accordion:** create an Accordion shared component ([0f571e0](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0f571e02043200c7176fe04f7129c2281034fb59))
+
 ## [5.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.0.0...v5.1.0) (2020-12-23)
 
 
