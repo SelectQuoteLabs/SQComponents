@@ -1,3 +1,10 @@
+## [5.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.2.0...v5.3.0) (2021-01-21)
+
+
+### Features
+
+* **accordion:** adds isDisabled and subtitles properties to Accordion ([0b2f2e7](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0b2f2e776b1d33fd4bc149f0048419333fe16a00))
+
 ## [5.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.1.0...v5.2.0) (2021-01-11)
 
 
