@@ -69,6 +69,10 @@ Accordion.propTypes = {
       name: PropTypes.string.isRequired,
       /** Title text */
       title: PropTypes.string.isRequired,
+      /** Subtitle text - Each Subtitle is separated by a pipe "|" */
+      subtitles: PropTypes.arrayOf(PropTypes.string),
+      /** Panel is disabled, the user cannot toggle the panel while disabled */
+      isDisabled: PropTypes.bool,
       /** Is initially expanded */
       isInitiallyExpanded: PropTypes.bool,
       /** expandPanel callback synchronizes consumer state with Accordion state.

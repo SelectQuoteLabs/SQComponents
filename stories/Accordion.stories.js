@@ -17,12 +17,15 @@ export const accordionUncontrolled = () => {
   const accordionPanels = [
     {
       title: 'Panel One',
+      subtitles: ['Available', 'Pitched : 05/05/2021'],
       name: 'one',
       body: 'Lorem ipsum',
       isInitiallyExpanded: true,
     },
     {
       title: 'Panel Two',
+      subtitles: ['Unavailable', 'Pitched : N/A'],
+      isDisabled: true,
       name: 'two',
       body: (
         <>
@@ -55,6 +58,7 @@ export const accordionUncontrolled = () => {
     },
     {
       title: 'Panel Three',
+      subtitles: ['Available', 'Pitched : Never'],
       name: 'three',
       body: 'Lorem ipsum dolor sit amet',
       onClick: () => alert('Click!'),
