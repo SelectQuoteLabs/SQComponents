@@ -1,3 +1,10 @@
+### [5.3.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.3.0...v5.3.1) (2021-02-09)
+
+
+### Bug Fixes
+
+* **scriptedtext:** invalid Grid alignItems value ([3541067](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/35410676121853d718790f2b9e3819b6d0d05b46))
+
 ## [5.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.2.0...v5.3.0) (2021-01-21)
 
 
