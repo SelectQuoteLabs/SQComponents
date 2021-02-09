@@ -19,7 +19,7 @@ function ScriptedText({placement = 'top-start', text}) {
   });
 
   return (
-    <Grid container wrap="nowrap" alignItems="top">
+    <Grid container wrap="nowrap" alignItems="center">
       <Tooltip
         placement={placement}
         arrow
@@ -33,7 +33,7 @@ function ScriptedText({placement = 'top-start', text}) {
 }
 
 ScriptedText.propTypes = {
-  placement: PropTypes.string.isRequired,
+  placement: PropTypes.string,
   text: PropTypes.string.isRequired,
 };
 
