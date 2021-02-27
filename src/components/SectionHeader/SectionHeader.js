@@ -7,6 +7,13 @@ import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import WarningIcon from '@material-ui/icons/Warning';
 import InfoIcon from '@material-ui/icons/Info';
 
+const truncateTextStyles = {
+  display: '-webkit-box',
+  overflow: 'hidden',
+  WebkitLineClamp: 1,
+  WebkitBoxOrient: 'vertical',
+};
+
 const useStyles = makeStyles(theme => ({
   container: {
     borderBottom: '1px solid var(--color-lightGray)',
@@ -15,12 +22,23 @@ const useStyles = makeStyles(theme => ({
   title: {
     color: 'var(--color-granite)',
     marginRight: '10px',
+    maxWidth: '380px',
+    flexShrink: 0,
   },
   informativeHeading: {
     fontWeight: 500,
   },
   informativeHeadingIcon: {
     marginLeft: '4px',
+    marginRight: '4px',
+  },
+  truncateText: {
+    ...truncateTextStyles,
+  },
+  childrenWrapper: {
+    '& button > span': {
+      ...truncateTextStyles,
+    },
   },
   initial: {
     color: 'initial',
@@ -93,18 +111,23 @@ function SectionHeader({
 
   function renderInformativeHeading() {
     return (
-      <Tooltip placement="top" arrow title={informativeHeading}>
-        <span>
-          {type && <Icon component={getInformativeHeadingIcon} />}
-          <Typography
-            component="span"
-            variant="caption"
-            className={classnames(classes.informativeHeading, classes[type])}
-          >
-            {informativeHeading}
-          </Typography>
-        </span>
-      </Tooltip>
+      <>
+        <Tooltip placement="top" arrow title={informativeHeading}>
+          <span>{type && <Icon component={getInformativeHeadingIcon} />}</span>
+        </Tooltip>
+
+        <Typography
+          component="span"
+          variant="caption"
+          className={classnames(
+            classes.informativeHeading,
+            classes.truncateText,
+            classes[type]
+          )}
+        >
+          {informativeHeading}
+        </Typography>
+      </>
     );
   }
 
@@ -121,13 +144,23 @@ function SectionHeader({
         ...containerStyles,
       }}
     >
-      <Grid container item xs={8} alignItems="center">
-        <Typography className={classes.title} component="h3" variant="overline">
+      <Grid container item xs={8} wrap="nowrap" alignItems="center">
+        <Typography
+          className={classnames(classes.title, classes.truncateText)}
+          component="h3"
+          variant="overline"
+        >
           {title}
         </Typography>
         {informativeHeading && renderInformativeHeading()}
       </Grid>
-      <Grid container item xs={4} justify="flex-end">
+      <Grid
+        className={classes.childrenWrapper}
+        container
+        item
+        xs={4}
+        justify="flex-end"
+      >
         {children}
       </Grid>
     </Grid>
