@@ -32,13 +32,9 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '4px',
     marginRight: '4px',
   },
-  truncateText: {
-    ...truncateTextStyles,
-  },
+  truncateText: truncateTextStyles,
   childrenWrapper: {
-    '& button > span': {
-      ...truncateTextStyles,
-    },
+    '& button > span': truncateTextStyles,
   },
   initial: {
     color: 'initial',
