@@ -1,3 +1,11 @@
+## [5.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.3.1...v5.4.0) (2021-03-02)
+
+
+### Features
+
+* **sectionheader:** add styles for text truncation, update story ([f72802b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f72802b480ca683520ba2a8b225c71aa3360016b))
+* **sectionheader:** add Tooltip to heading, change column values ([2b366ce](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2b366cefe2b2bb335a0b794c9081c42e2f27275d))
+
 ### [5.3.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.3.0...v5.3.1) (2021-02-09)
 
 
