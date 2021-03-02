@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import {withKnobs, select} from '@storybook/addon-knobs';
 import markdown from '../notes/Section.md';
 import {withInfo} from '@storybook/addon-info';
 
@@ -51,10 +51,17 @@ export const simpleSection = () => (
 
 export const simpleSectionWithInformativeHeading = () => (
   <Section>
-    <SectionHeader 
-      type={select('type', [null, 'initial', 'success', 'warning', 'error', 'info'])}
-      title="Section Header" 
-      informativeHeading='I am an informative heading'
+    <SectionHeader
+      type={select('type', [
+        null,
+        'initial',
+        'success',
+        'warning',
+        'error',
+        'info',
+      ])}
+      title="Section Header"
+      informativeHeading="I am an informative heading"
     />
     <SectionBody>
       {/* this part is totally up to the consumer */}
@@ -139,12 +146,15 @@ export const sectionWithActionHeader = () => (
 export const sectionWithActionHeaderAndInformativeHeading = () => (
   <Section>
     <SectionHeader
-      title="Section Header"
+      title="Section Header Lorem ipsum dolor too much text"
       type="error"
       informativeHeading="You've done something wrong"
     >
-      <TextButton onClick={() => alert('You are awesome.')} tooltip="Get TCPA">
-        Get TCPA
+      <TextButton
+        onClick={() => alert('You are awesome.')}
+        tooltip="Text button with a lot of text"
+      >
+        Text button with a lot of text
       </TextButton>
     </SectionHeader>
     <SectionBody>

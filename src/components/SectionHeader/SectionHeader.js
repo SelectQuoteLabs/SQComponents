@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {Grid, Icon, Typography, makeStyles} from '@material-ui/core';
+import {Grid, Icon, Typography, makeStyles, Tooltip} from '@material-ui/core';
 import NewReleasesIcon from '@material-ui/icons/NewReleases';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import WarningIcon from '@material-ui/icons/Warning';
 import InfoIcon from '@material-ui/icons/Info';
+
+const truncateTextStyles = {
+  display: '-webkit-box',
+  overflow: 'hidden',
+  WebkitLineClamp: 1,
+  WebkitBoxOrient: 'vertical',
+};
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -15,12 +22,19 @@ const useStyles = makeStyles(theme => ({
   title: {
     color: 'var(--color-granite)',
     marginRight: '10px',
+    maxWidth: '380px',
+    flexShrink: 0,
   },
   informativeHeading: {
     fontWeight: 500,
   },
   informativeHeadingIcon: {
-    marginLeft: '4px'
+    marginLeft: '4px',
+    marginRight: '4px',
+  },
+  truncateText: truncateTextStyles,
+  childrenWrapper: {
+    '& button > span': truncateTextStyles,
   },
   initial: {
     color: 'initial',
@@ -36,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
   info: {
     color: 'var(--color-textInfoBlue)',
-  }
+  },
 }));
 
 function SectionHeader({
@@ -49,31 +63,66 @@ function SectionHeader({
   const classes = useStyles();
 
   function getInformativeHeadingIcon() {
-    switch(type) {
+    switch (type) {
       case 'error':
-        return <WarningIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+        return (
+          <WarningIcon
+            className={classnames(
+              classes.informativeHeadingIcon,
+              classes[type]
+            )}
+          />
+        );
       case 'warning':
-        return <NewReleasesIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+        return (
+          <NewReleasesIcon
+            className={classnames(
+              classes.informativeHeadingIcon,
+              classes[type]
+            )}
+          />
+        );
       case 'success':
-        return <VerifiedUserIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+        return (
+          <VerifiedUserIcon
+            className={classnames(
+              classes.informativeHeadingIcon,
+              classes[type]
+            )}
+          />
+        );
       case 'info':
-        return <InfoIcon className={classnames(classes.informativeHeadingIcon, classes[type])} />;
+        return (
+          <InfoIcon
+            className={classnames(
+              classes.informativeHeadingIcon,
+              classes[type]
+            )}
+          />
+        );
       default:
-        return ''
+        return '';
     }
   }
 
   function renderInformativeHeading() {
     return (
       <>
-        <Typography 
-          component="span" 
-          variant="caption" 
-          className={classnames(classes.informativeHeading, classes[type])}
+        <Tooltip placement="top" arrow title={informativeHeading}>
+          <span>{type && <Icon component={getInformativeHeadingIcon} />}</span>
+        </Tooltip>
+
+        <Typography
+          component="span"
+          variant="caption"
+          className={classnames(
+            classes.informativeHeading,
+            classes.truncateText,
+            classes[type]
+          )}
         >
           {informativeHeading}
         </Typography>
-        {type && <Icon component={getInformativeHeadingIcon} />}
       </>
     );
   }
@@ -91,25 +140,28 @@ function SectionHeader({
         ...containerStyles,
       }}
     >
-      <Grid container item xs={10} alignItems="center">
+      <Grid container item xs={8} wrap="nowrap" alignItems="center">
         <Typography
-          className={classes.title}
+          className={classnames(classes.title, classes.truncateText)}
           component="h3"
           variant="overline"
         >
           {title}
         </Typography>
-        {informativeHeading && (
-          renderInformativeHeading()
-        )}
+        {informativeHeading && renderInformativeHeading()}
       </Grid>
-      <Grid container item xs={2} justify="flex-end">
+      <Grid
+        className={classes.childrenWrapper}
+        container
+        item
+        xs={4}
+        justify="flex-end"
+      >
         {children}
       </Grid>
     </Grid>
   );
 }
-
 
 SectionHeader.propTypes = {
   /** Optional element to render at the end of the header (Right side) */
