@@ -12,12 +12,27 @@ function getExpandedCount(state) {
   }, 0);
 }
 
+function getIsCollapseAllowed(cardsObj) {
+  const cardsArr = Object.values(cardsObj);
+  if (cardsArr.length > 1) {
+    return getExpandedCount(cardsObj) > 1;
+  }
+  if (cardsArr.length === 1) {
+    return true;
+  }
+  return false;
+}
+
+function ensureIsArray(thing) {
+  return Array.isArray(thing) ? thing : [thing];
+}
+
 function ExpandingCardList({children}) {
   const [
     cardExpansionStatesByName,
     setCardExpansionStatesByName,
   ] = React.useState(
-    children.reduce((acc, child) => {
+    ensureIsArray(children).reduce((acc, child) => {
       acc[child.props.name] = child.props.isInitiallyExpanded ?? true;
       return acc;
     }, {})
@@ -40,7 +55,7 @@ function ExpandingCardList({children}) {
     [cardExpansionStatesByName]
   );
 
-  const isCollapseAllowed = getExpandedCount(cardExpansionStatesByName) > 1;
+  const isCollapseAllowed = getIsCollapseAllowed(cardExpansionStatesByName);
 
   const api = {
     isCollapseAllowed,
