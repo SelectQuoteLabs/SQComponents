@@ -1,3 +1,10 @@
+### [5.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.4.0...v5.4.1) (2021-03-22)
+
+
+### Bug Fixes
+
+* **expandingcardlist:** add support for single expanding card ([b250c06](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b250c06e5f1e5f40ffe762a4b37c5dc16aec59e4))
+
 ## [5.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.3.1...v5.4.0) (2021-03-02)
 
 
