@@ -1,3 +1,10 @@
+### [5.4.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.4.1...v5.4.2) (2021-03-26)
+
+
+### Bug Fixes
+
+* **scriptedtext:** change icon to align to top of component ([0bf5112](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0bf51126dd1777376213de6f510423769cc994b4))
+
 ### [5.4.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.4.0...v5.4.1) (2021-03-22)
 
 
