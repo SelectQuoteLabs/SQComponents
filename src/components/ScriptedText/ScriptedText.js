@@ -19,7 +19,7 @@ function ScriptedText({placement = 'top-start', text}) {
   });
 
   return (
-    <Grid container wrap="nowrap" alignItems="center">
+    <Grid container wrap="nowrap" alignItems="flex-start">
       <Tooltip
         placement={placement}
         arrow
