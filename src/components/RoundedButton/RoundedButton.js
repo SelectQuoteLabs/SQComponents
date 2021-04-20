@@ -2,11 +2,66 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import {makeStyles} from '@material-ui/core';
 
-import './RoundedButton.css';
+const useStyles = makeStyles(() => {
+  return {
+    roundedButton: {
+      padding: '0 1.5rem',
+      height: '2.5rem',
+      lineHeight: '1rem',
+      border: '0.1667rem solid var(--button-primary)',
+      borderRadius: '2rem',
+      boxShadow: 'none',
+      textTransform: 'capitalize',
+      '&:hover': {
+        boxShadow: 'none',
+      },
+    },
+    primary: {
+      backgroundColor: 'var(--button-primary)',
+      color: 'var(--color-white)',
+      border: '0.1667rem solid transparent',
+      '&:hover': {
+        backgroundColor: 'var(--button-primary-hover)',
+        color: 'var(--color-white)',
+      },
+    },
+    secondary: {
+      backgroundColor: 'var(--color-white)',
+      color: 'var(--button-secondary)',
+      border: '0.1667rem solid var(--button-secondary)',
+      '&:hover': {
+        backgroundColor: 'var(--button-secondary-hover)',
+        color: 'var(--button-secondary)',
+        border: '0.1667rem solid var(--button-secondary)',
+      },
+    },
+    success: {
+      backgroundColor: 'var(--color-palmLeaf)',
+      color: 'var(--color-white)',
+      border: '0.1667rem solid transparent',
+      '&:hover': {
+        backgroundColor: 'var(--color-button-hover-success)',
+        color: 'var(--color-white)',
+      },
+    },
+  };
+});
 
-/** Rounded Button - base button component */
+const getButtonStyleType = ({isGhostButton, isSuccessButton}) => {
+  if (isGhostButton && !isSuccessButton) {
+    return 'secondary';
+  }
+  if (!isGhostButton) {
+    if (isSuccessButton) {
+      return 'success';
+    } else {
+      return 'primary';
+    }
+  }
+};
+
 function RoundedButton({
   onClick,
   title,
@@ -26,16 +81,16 @@ function RoundedButton({
     return color === 'success';
   }, [color]);
 
+  const buttonStyleType = getButtonStyleType({isGhostButton, isSuccessButton});
+
+  const classes = useStyles();
+
   return (
     <Button
       key={title}
       title={title}
       onClick={onClick}
-      className={`roundedButton ${classnames({
-        'roundedButton--primary': !isGhostButton && !isSuccessButton,
-        'roundedButton--secondary': isGhostButton && !isSuccessButton,
-        'roundedButton--success': !isGhostButton && isSuccessButton,
-      })}`}
+      className={`${classes.roundedButton} ${classes[buttonStyleType]}`}
       disabled={isDisabled}
       variant={variant}
       color={isSuccessButton ? 'default' : color}

@@ -45,22 +45,18 @@ Ideally, the SSC version consumed is managed by the technical lead. Replace the 
 "scplus-shared-components": "https://npm-public.selectquotelabs.com/scplus-shared-components/X.X.X",
 ```
 
-To standardize our CSS global styles, replace the following CSS files with the their Shared Component Library counterparts.
+To standardize our CSS global styles, you may copy the following CSS files from the `styles` folder of this repo and paste them in the consumer repo:
 
+- index.css
 - root.css
 - animations.css
 - typography.css
 - utilClasses.css
+- AgGrid.css
 
-From the `client/src/index.js` of the consumer codebase import the `index.css` from SSC.
+Import the `index.css` file at the top parent React component
 
-The `index.css` file from SSC imports the 4 CSS files above.
-
-```js
-import 'scplus-shared-components/dist/index.css';
-```
-
-Delete the four CSS files listed above from the consumer codebase
+> Distributing Global CSS via NPM is an anti-pattern. As of Version 6, you no longer receive the Global CSS styles when installing this npm package
 
 ### Using a Shared Component
 
@@ -72,59 +68,11 @@ import {Avatar} from 'scplus-shared-components';
 
 ---
 
-## Development
+## Local Development
 
-### Prerequisites
-
-This project leverages Docker and docker-compose. Docker and docker-compose must be installed installed to run this project.
-
-### Local Development
-
-Install Visual Studio Code and the Remote Development Extension
-
-```sh
-code --install-extension ms-vscode-remote.remote-containers
+```bash
+npm run storybook
 ```
-
-Now you can open the folder containing this repo in VS Code and you'll be presented with an option to Reopen the folder in a container.
-
-![](./docs/assets/start-container.png)
-
-The benefit of running inside a container is that your development environment will have the exact same tooling as the build pipeline in Bitbucket.
-
-The development container will automatically run the storybook container (scplus-shared-components) and you can access it at https://localhost:6006
-
-<sup><i>It may take a little while for the service to start. Storybook does a full build every time it starts, and you can monitor the logs from the storybook container to see the progress.</i></sup>
-
-> Note: You can still use other IDEs (such as WebStorm) if you prefer and completely ignore containerization of your development environment.
->
-> However, running in a container is the preferred approach since we can control all the environment variables.
->
-> **Any technical issues you encounter when developing outside of the container will be your responsibility.**
-
-### Installing and Running
-
-> Note: This is done automatically if you use the Development Container while developing locally. These instructions allow you to start the container independent from the Development Container.
-
-If you want to Pull an existing Docker image you can pass the VERSION property with the Docker image tag you want to pull down.
-
-```properties
-VERSION=1.0 docker-compose pull scplus-shared-components
-```
-
-To build the projects docker image run(optional to prepend with VERSION=\<tag\>):
-
-```sh
-docker-compose build scplus-shared-components
-```
-
-You can then run the project locally with:
-
-```sh
-docker-compose up scplus-shared-components
-```
-
-Then navigate to http://localhost:6006
 
 ### Deprecating Components and Props
 
@@ -185,11 +133,26 @@ export default deprecateComponent(
 );
 ```
 
-## Running the tests and lint
+## Updating to Version 6?
 
-```sh
-docker-compose run test
-```
+1. Ensure all Peer dependencies are installed
+2. Copy these styles to your project and import them
+
+- index.css
+- root.css
+- animations.css
+- typography.css
+- utilClasses.css
+- AgGrid.css
+
+3. Also add these imports:
+   import 'ag-grid-community/dist/styles/ag-grid.css';
+   import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+   import 'react-datepicker/dist/react-datepicker.css';
+   import 'tippy.js/dist/tippy.css';
+   import 'tippy.js/themes/material.css';
+   import 'react-weekly-schedule/index.css';
+4. Ensure any SQForm components are not imported from THIS library
 
 ## Contributing
 
@@ -200,9 +163,8 @@ For adding new components to the library follow this order:
 1. Make changes locally on a feature branch following the [PR process.](https://selectquote.atlassian.net/wiki/spaces/SE/pages/839516288/Pull+Requests)
 2. Run the storybook site locally and confirm all changes.
 3. Add complete story to properly document component.
-4. Run the tests.
-5. Merge your feature branch with origin/master (To be fixed in the near future)
-6. Open a PR to the master branch.
+4. Commit changes with `npm run commit`
+5. Open a PR to the master branch.
 
 ## Versioning
 

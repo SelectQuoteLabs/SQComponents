@@ -8,7 +8,6 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import IconButton from '../IconButton';
-import './IconButtonMenu.css';
 
 const useTooltipStyles = makeStyles(() => ({
   tooltipArrow: {
@@ -29,6 +28,15 @@ const useMenuItemStyles = makeStyles(() => ({
   },
 }));
 
+const usePopoverStyles = makeStyles(() => {
+  return {
+    paper: {
+      paddingTop: '6px !important' /* material-ui override */,
+      paddingBottom: '6px !important' /* material-ui override */,
+    },
+  };
+});
+
 export default function IconButtonMenu({
   menuItems,
   isDisabled = false,
@@ -37,6 +45,7 @@ export default function IconButtonMenu({
   IconComponent,
   placement = 'bottom',
 }) {
+  const popoverClasses = usePopoverStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const tooltipStyles = useTooltipStyles();
   const menuItemStyles = useMenuItemStyles();
@@ -67,7 +76,7 @@ export default function IconButtonMenu({
         </div>
       </Tooltip>
       <Popover
-        classes={{paper: 'IconButtonMenu_popover'}}
+        classes={popoverClasses}
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         anchorOrigin={PLACEMENTS[placement].ANCHOR}

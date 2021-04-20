@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDatePicker from 'react-datepicker';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import classnames from 'classnames';
 import MaskedTextInput from 'react-text-mask';
 import {
   DATE_TIME_FORMATS,
@@ -13,10 +12,81 @@ import {
 } from '../../utils/datetime';
 
 import Button from '@material-ui/core/Button';
+import {makeStyles} from '@material-ui/core';
 import ClearIcon from 'material-ui/svg-icons/content/clear';
 
-import 'react-datepicker/dist/react-datepicker.css';
-import './DatePicker.css';
+const useStyles = makeStyles(() => {
+  return {
+    datePicker: {
+      position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      top: '0.2rem',
+      width: '100%',
+    },
+    label: {
+      color: 'var(--color-label)',
+      fontSize: 'var(--size-label)',
+      lineHeight: '1.67rem',
+      display: 'inline-block',
+    },
+    error: {
+      borderBottom: '0.1667rem solid var(--color-spanishOrange)',
+    },
+    errorText: {
+      top: '0.8rem',
+      position: 'relative',
+      fontSize: 'var(--size-label)',
+      width: 'max-content',
+      color: 'var(--color-roseMadder)',
+    },
+    calendarIcon: {
+      bottom: '-0.25rem',
+      position: 'absolute',
+      right: '0',
+      color: ({disabled}) =>
+        disabled ? 'var(--color-slate' : 'var(--color-teal)',
+      transform: 'translateY(-50%)',
+      cursor: ({disabled}) => (disabled ? 'not-allowed' : 'pointer'),
+    },
+    clearIcon: {
+      color: 'var(--color-white)',
+    },
+    clearIconButton: {
+      bottom: '0.25rem',
+      position: 'absolute',
+      right: '2rem',
+      color: 'var(--color-white)',
+      transform: 'scale(0.5, 0.5)',
+      cursor: 'pointer',
+      border: '0.1rem solid var(--color-slate)',
+      borderRadius: '2rem',
+      backgroundColor: 'var(--color-slate)',
+      minWidth: '0.1rem',
+      height: 'auto',
+      lineHeight: '0.1rem',
+      '&:hover': {
+        backgroundColor: 'var(--color-slate)',
+      },
+    },
+    input: {
+      fontSize: '1.17rem',
+      lineHeight: '1.33rem',
+      padding: '0.66rem 2rem 0.66rem 0rem',
+      borderBottom: '0.2rem solid var(--color-gainsboro)',
+      borderLeft: 'none',
+      borderTop: 'none',
+      boxShadow: 'none',
+      borderRight: 'none',
+      width: '100%',
+    },
+    popper: {
+      width: '25rem',
+      height: 'auto',
+      lineHeight: 'normal',
+    },
+  };
+});
 
 function DatePicker({
   label,
@@ -31,6 +101,7 @@ function DatePicker({
   maxDate,
   saveFormat,
 }) {
+  const classes = useStyles({disabled});
   const clear = e => {
     updateDate(field, '');
     // explicitly close the popover since it is wrapped in a label
@@ -107,12 +178,12 @@ function DatePicker({
   const time = showTime ? timeFormat : '';
 
   return (
-    <div className="datePicker">
-      <label className="datePicker__label">{label}</label>
+    <div className={classes.datePicker}>
+      <label className={classes.label}>{label}</label>
       <label>
         <ReactDatePicker
-          className="datePicker__input"
-          popperClassName="datePicker__popper"
+          className={classes.input}
+          popperClassName={classes.popper}
           dateFormat={`${dateFormat} ${time}`}
           disabled={disabled}
           dropdownMode="select"
@@ -133,21 +204,15 @@ function DatePicker({
 
         {entity[field] && (
           <Button
-            className="datePicker__clearIcon_btn"
+            className={classes.clearIconButton}
             title="Clear Date"
             isDisabled={disabled}
             onClick={clear}
           >
-            <ClearIcon className="datePicker__clearIcon" />
+            <ClearIcon className={classes.clearIcon} />
           </Button>
         )}
-        <DateRangeIcon
-          filled
-          className={classnames([
-            'datePicker__calendarIcon',
-            {'datePicker__calendarIcon--disabled': disabled},
-          ])}
-        />
+        <DateRangeIcon filled className={classes.calendarIcon} />
       </label>
     </div>
   );

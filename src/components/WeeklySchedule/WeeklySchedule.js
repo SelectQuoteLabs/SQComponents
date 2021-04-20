@@ -6,12 +6,44 @@ import {
   DefaultEventRootComponent,
 } from 'react-weekly-schedule';
 import Tippy from '@tippy.js/react';
-import classnames from 'classnames';
+import {makeStyles} from '@material-ui/core';
 
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/themes/material.css';
-import 'react-weekly-schedule/index.css';
-import './WeeklySchedule.css';
+const useStyles = makeStyles(() => {
+  return {
+    dayHours: {
+      fontSize: '10px',
+    },
+    resizeHandleTop: {
+      top: '-20px !important',
+      cursor: 'n-resize !important',
+      '&:after': {
+        height: '20px !important',
+        display: 'block',
+        textAlign: 'center',
+        content: '═',
+        fontSize: '2px',
+      },
+    },
+    resizeHandleBottom: {
+      bottom: '27px !important',
+      cursor: 's-resize !important',
+      '&:after': {
+        height: '20px !important',
+        display: 'block',
+        textAlign: 'center',
+        content: '═',
+        fontSize: '2px',
+      },
+    },
+    eventContent: {
+      color: 'white',
+      position: 'relative',
+      top: 'calc(50% - 16px)',
+      textAlign: 'center',
+      borderRadius: '8px',
+    },
+  };
+});
 
 /* The actual date doesn't really matter.
  * we're just using it to start the calendar on a Sunday
@@ -75,6 +107,7 @@ function WeeklySchedule({
   isReadOnly,
   onChange,
 }) {
+  const weeklyScheduleClasses = useStyles();
   const [schedule, setSchedule] = useState(providedSchedule || []);
   React.useEffect(() => setSchedule(providedSchedule), [providedSchedule]);
 
@@ -88,13 +121,8 @@ function WeeklySchedule({
 
   const overriddenClasses = {
     ...classes,
-    'day-hours': classnames(classes['day-hours'], 'weeklySchedule__day-hours'),
-    'event-content': classnames(
-      classes['event-content'],
-      'weeklySchedule__event-content'
-    ),
-    // top: 'weeklySchedule__resize-handle-top',
-    // bottom: 'weeklySchedule__resize-handle-bottom',
+    'day-hours': `${classes['day-hours']} ${weeklyScheduleClasses.dayHours}`,
+    'event-content': `${classes['event-content']} ${classes.eventContent}`,
   };
 
   const HoverTooltip = React.useMemo(() => BuildHoverTooltip(TooltipContents), [

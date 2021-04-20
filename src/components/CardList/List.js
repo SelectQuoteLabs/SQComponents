@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Tooltip from '@material-ui/core/Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
+import {classes} from 'react-weekly-schedule';
 
 const COLORS = {
   GREEN: 'GREEN',
@@ -40,7 +41,7 @@ const getColorIcons = color => {
   const upperCaseColor = color.toUpperCase();
   const emoji = getColorEmoji(upperCaseColor);
   return (
-    <ListItemIcon className="cardList__icon">
+    <ListItemIcon className={classes.icon}>
       <Tooltip arrow title={color} placement="top">
         <span role="img" aria-label={color}>
           {emoji}
@@ -52,13 +53,19 @@ const getColorIcons = color => {
 
 const renderNoDataMessage = message => {
   return (
-    <div className="cardList__noData">
+    <div className={classes.noData}>
       <Typography variant="body2">{message}</Typography>
     </div>
   );
 };
 
-function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
+function List({
+  classes,
+  listItems,
+  noDataMessage,
+  zeroItemsMessage,
+  isSelectable,
+}) {
   const [selectedID, setSelectedID] = React.useState(null);
 
   if (!listItems) {
@@ -80,11 +87,11 @@ function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
   return listItems.map(listItem => (
     <SelectChip
       onClick={() => handleListItemClick(listItem)}
-      className="cardListItem__selectChip"
+      className={classes.selectChip}
       key={listItem.id}
       optionIsSelected={isSelectable && listItem.id === selectedID}
     >
-      <ListItem className="cardList__items">
+      <ListItem className={classes.items}>
         {listItem.color && getColorIcons(listItem.color)}
         {listItem.header && <ListItemText primary={listItem.header} />}
         {listItem.secondaryRows &&
@@ -101,6 +108,8 @@ function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
 }
 
 List.propTypes = {
+  /** MUI Custom Styles object */
+  classes: PropTypes.object.isRequired,
   /** The items in the list (selectedTab.listItems) */
   listItems: PropTypes.array,
   /** Message to display when data has not or could not be retrieved */

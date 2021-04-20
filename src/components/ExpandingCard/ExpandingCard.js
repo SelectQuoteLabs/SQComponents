@@ -5,10 +5,68 @@ import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
-import classnames from 'classnames';
 import {ExpandingCardListContext} from '../ExpandingCardList';
 
-import './ExpandingCard.css';
+const useCardStyles = makeStyles(() => {
+  return {
+    expandingCard: {
+      display: 'flex',
+      flexGrow: ({isExpanded}) => (isExpanded ? '1' : '0'),
+      flexDirection: 'column',
+      overflow: 'hidden',
+      transition: 'flex-grow var(--transition-duration-shortest)',
+    },
+    headerWrapper: {
+      borderBottom: ({isExpanded}) =>
+        `${isExpanded ? '1px' : '0'} solid var(--color-lightGray)`,
+      transition: 'border-bottom-width var(--transition-duration-shortest)',
+      /* Expand border to full width at the start of the transition */
+      transitionTimingFunction: ({isExpanded}) =>
+        isExpanded ? 'step-start' : 'step-end',
+    },
+    header: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      height: '3.3rem',
+      padding: '0rem 0rem 0rem 1rem',
+    },
+    headerTitle: {
+      alignSelf: 'center',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+    },
+    headerActions: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      fontSize: '1rem',
+    },
+    subheader: {
+      padding: '0.15rem 1rem',
+      borderTop: '1px solid var(--color-lightGray)',
+    },
+    bodyWrapper: {
+      position: 'relative' /* New stacking context for .expandingCard__body */,
+      flexGrow: '1',
+      height: ({isExpanded}) => (isExpanded ? 'auto' : '0'),
+      transition: 'height var(--transition-duration-shortest)',
+    },
+    body: {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      right: '0',
+      bottom: '0',
+      overflowY: 'auto',
+      transition: 'height var(--transition-duration-shortest)',
+    },
+    expandButton: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      borderLeft: '1px solid var(--color-lightGray)',
+    },
+  };
+});
 
 const useStyles = makeStyles(theme => ({
   expandButtonBase: {
@@ -47,6 +105,8 @@ function ExpandingCard({
     ? isCardExpanded
     : getIsCardExpanded(name);
 
+  const cardClasses = useCardStyles({isExpanded});
+
   const toggleExpansion = React.useCallback(() => {
     isConsumerExpandingCard && expandCard(!isExpanded);
     if (isExpanded && !isCollapseAllowed) {
@@ -69,19 +129,15 @@ function ExpandingCard({
     : classes.expandButtonClosed;
 
   return (
-    <Paper
-      className={classnames('expandingCard', {
-        'expandingCard--collapsed': !isExpanded,
-      })}
-    >
-      <div className="expandingCard__headerWrapper">
-        <div className="expandingCard__header">
-          <div className="expandingCard__headerTitle">
+    <Paper className={cardClasses.expandingCard}>
+      <div className={cardClasses.headerWrapper}>
+        <div className={cardClasses.header}>
+          <div className={cardClasses.headerTitle}>
             <Typography variant="h6">{title}</Typography>
           </div>
-          <div className="expandingCard__headerActions">
+          <div className={cardClasses.headerActions}>
             {actions}
-            <div className="expandingCard__expandButton">
+            <div className={cardClasses.expandButton}>
               <IconButton
                 onClick={toggleExpansion}
                 className={`${classes.expandButtonBase} ${expandButtonStateClass}`}
@@ -95,13 +151,13 @@ function ExpandingCard({
           </div>
         </div>
         {subheader && (
-          <div className="expandingCard__subheader">
+          <div className={cardClasses.subheader}>
             <Typography variant="subtitle2">{subheader}</Typography>
           </div>
         )}
       </div>
-      <div className="expandingCard__bodyWrapper">
-        <div className="expandingCard__body">{children}</div>
+      <div className={cardClasses.bodyWrapper}>
+        <div className={cardClasses.body}>{children}</div>
       </div>
     </Paper>
   );

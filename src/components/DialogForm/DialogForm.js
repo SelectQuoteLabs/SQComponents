@@ -6,8 +6,19 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
+import {makeStyles} from '@material-ui/core';
 import RoundedButton from '../RoundedButton';
-import './DialogForm.css';
+
+const useStyles = makeStyles(() => {
+  return {
+    actions: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      flex: '1 1 100%',
+      padding: '1.3333rem 2rem',
+    },
+  };
+});
 
 const Transition = React.forwardRef((props, ref) => {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -25,6 +36,7 @@ function DialogForm({
   saveButtonText = 'Save',
   title,
 }) {
+  const classes = useStyles();
   return (
     <Dialog
       disableBackdropClick={disableBackdropClick}
@@ -37,7 +49,7 @@ function DialogForm({
         <Typography variant="h4">{title}</Typography>
       </DialogTitle>
       <DialogContent dividers={true}>{children}</DialogContent>
-      <DialogActions className="dialogForm__actions">
+      <DialogActions className={classes.actions}>
         <RoundedButton
           title={cancelButtonText}
           onClick={onClose}

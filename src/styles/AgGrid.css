@@ -75,4 +75,29 @@
 .ag-header {
   background-color: var(--color-stone) !important;
 }
-/* ag-grid theme override css */
+
+.columnList__hyperlink {
+  color: var(--color-teal);
+  cursor: pointer;
+}
+
+.columnList__number {
+  text-align: right;
+}
+
+.columnList__rows {
+  color: var(--color-jetBlack);
+}
+
+.dataTable__rows {
+  color: var(--color-jetBlack);
+}
+
+.dataTable__hyperlink {
+  color: var(--color-teal);
+  cursor: pointer;
+}
+
+.dataTable__number {
+  text-align: right;
+}

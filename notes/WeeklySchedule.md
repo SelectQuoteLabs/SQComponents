@@ -8,6 +8,20 @@ A tool for scheduling events on a weekly basis.
 
 ## Technical Notes
 
+Install Required Dependencies
+
+```bash
+npm i @tippy.js/react react-weekly-schedule
+```
+
+import CSS files
+
+```javascript
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/material.css';
+import 'react-weekly-schedule/index.css';
+```
+
 ### Schedule Format
 
 `WeeklySchedule` uses the following format for defining schedules:

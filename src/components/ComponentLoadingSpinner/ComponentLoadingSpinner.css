@@ -1,7 +1,0 @@
-.componentLoadingSpinner {
-  position: relative;
-}
-
-.componentLoadingSpinner__message {
-  font-weight: var(--font-weight-light);
-}
