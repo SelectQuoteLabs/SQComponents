@@ -1,3 +1,10 @@
+## [6.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v6.0.0...v6.1.0) (2021-04-20)
+
+
+### Features
+
+* messed up the publish CI ([239e000](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/239e00036db171920311eb7adf19679ddec55382))
+
 ## [6.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.4.2...v6.0.0) (2021-04-20)
 
 
