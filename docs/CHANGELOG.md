@@ -1,3 +1,17 @@
+## [6.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.4.2...v6.0.0) (2021-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Some dependencies are now peer dependencies and must be installed separately. CSS
+files are no longer exposed for the consumer. The consumer must import CSS files from the peer
+dependencies themselves. All SQForm files in this library have been removed. See the 'Updating to
+Version 6?' section of the README for further instructions
+
+### Bug Fixes
+
+* removes ALL CSS Files and SQForm files ([05ee950](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/05ee950f08dba2044780b27b8cc7d15ce830fcf0))
+
 ### [5.4.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v5.4.1...v5.4.2) (2021-03-26)
 
 
