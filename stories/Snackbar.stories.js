@@ -9,7 +9,6 @@ import {
   useSnackbar,
 } from '../src';
 import markdown from '../notes/Snackbar.md';
-import MovieSearchCard from './components/MovieSearchCard';
 
 export default {
   title: 'Snackbar',
@@ -45,7 +44,7 @@ function FakeApp() {
   return (
     <div style={{width: 900}}>
       <SQAdminLayout HeaderComponent={Header}>
-        <MovieSearchCard />
+        <div>Fake App</div>
       </SQAdminLayout>
       <Snackbar snackbarState={snackbarState} closeSnackbar={closeSnackbar} />
     </div>

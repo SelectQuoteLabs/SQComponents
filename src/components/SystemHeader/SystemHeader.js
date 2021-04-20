@@ -3,11 +3,21 @@ import PropTypes from 'prop-types';
 import {Toolbar, makeStyles} from '@material-ui/core';
 import SystemHeaderTitle from './SystemHeaderTitle/SystemHeaderTitle';
 import SQRings from '../SQRings/SQRings';
-import './SystemHeader.css';
 
 const useStyles = makeStyles({
   root: {
     background: ({backgroundColor}) => backgroundColor,
+  },
+  systemHeader: {
+    padding: '0 20px',
+  },
+  ringsIcon: {
+    padding: '0',
+    marginRight: '15px',
+  },
+  buttonGroup: {
+    display: 'flex',
+    padding: '0',
   },
 });
 
@@ -17,17 +27,17 @@ function SystemHeader({
   productTitle,
   solutionTitle = 'SC +',
 }) {
-  const {root} = useStyles({backgroundColor});
+  const classes = useStyles({backgroundColor});
 
   return (
-    <Toolbar className={`systemHeader ${root}`}>
-      <SQRings className="systemHeader__ringsIcon" height="35" />
+    <Toolbar className={`${classes.systemHeader} ${classes.root}`}>
+      <SQRings className={classes.ringsIcon} height="35" />
       <SystemHeaderTitle
         solutionTitle={solutionTitle}
         productTitle={productTitle}
       />
       {headerComponents && (
-        <div className="systemHeader__buttonGroup">{headerComponents}</div>
+        <div className={classes.buttonGroup}>{headerComponents}</div>
       )}
     </Toolbar>
   );

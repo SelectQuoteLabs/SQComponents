@@ -1,9 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import MUIAvatar from '@material-ui/core/Avatar';
+import {Avatar as MUIAvatar, makeStyles} from '@material-ui/core';
 
-import './Avatar.css';
+const useStyles = makeStyles(() => {
+  return {
+    avatar: {
+      height: '3rem',
+      width: '3rem',
+      fontSize: '2rem',
+      fontWeight: 'var(--font-weight-semibold)',
+      color: 'var(--color-white)',
+      backgroundColor: 'var(--color-cerulean)',
+      margin: '0 auto',
+      transition: 'background-color 0.2s',
+    },
+    inverted: {
+      color: 'var(--color-teal)',
+      backgroundColor: 'transparent',
+      border: '0.167rem solid var(--color-teal)',
+    },
+    isDisabled: {
+      color: 'var(--color-white)',
+      backgroundColor: 'var(--color-slate)',
+      border: '0.083rem solid var(--color-slate)',
+    },
+    isFocused: {
+      color: 'var(--color-white)',
+      backgroundColor: 'var(--color-spanishOrange)',
+      border: '0.083rem solid var(--color-spanishOrange)',
+    },
+    centerContent: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  };
+});
 
 /** Avatar Component - formerly known as ButtonCircle */
 function Avatar({
@@ -13,21 +45,33 @@ function Avatar({
   isFocused,
   isInverted,
 }) {
+  const classes = useStyles();
+
   const contentCenterClass = React.useMemo(() => {
-    return isContentCenter ? 'avatar--centerContent' : '';
-  }, [isContentCenter]);
+    return isContentCenter ? classes.centerContent : '';
+  }, [classes.centerContent, isContentCenter]);
 
   const circleClass = React.useMemo(() => {
-    const baseClass = isInverted ? 'avatar avatar--inverted' : 'avatar';
+    const baseClass = isInverted
+      ? `${classes.avatar} ${classes.inverted}`
+      : classes.avatar;
 
-    if (isDisabled) return `${baseClass} avatar--isDisabled`;
-    if (isFocused) return `${baseClass} avatar--isFocused`;
+    if (isDisabled) return `${baseClass} ${classes.isDisabled}`;
+    if (isFocused) return `${baseClass} ${classes.isFocused}`;
 
     return baseClass;
-  }, [isDisabled, isFocused, isInverted]);
+  }, [
+    classes.avatar,
+    classes.inverted,
+    classes.isDisabled,
+    classes.isFocused,
+    isDisabled,
+    isFocused,
+    isInverted,
+  ]);
 
   return (
-    <MUIAvatar className={classnames(circleClass, contentCenterClass)}>
+    <MUIAvatar className={`${circleClass} ${contentCenterClass}`}>
       {children}
     </MUIAvatar>
   );

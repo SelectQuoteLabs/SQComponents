@@ -10,7 +10,6 @@ import {
   SystemHeader,
   useGlobalLoadingState,
 } from '../src';
-import MovieSearchCard from './components/MovieSearchCard';
 
 export default {
   title: 'GlobalLoadingSpinner',
@@ -64,7 +63,7 @@ function FakeApp() {
   return (
     <div style={{width: 900}}>
       <SQAdminLayout HeaderComponent={Header}>
-        <MovieSearchCard />
+        <div>Fake Data</div>
       </SQAdminLayout>
       <GlobalLoadingSpinner isOpen={isOpen} message={message} />
     </div>

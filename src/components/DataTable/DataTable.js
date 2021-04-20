@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {AgGridReact} from 'ag-grid-react';
-import Typography from '@material-ui/core/Typography';
-import './AgGrid.css';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import {makeStyles, Typography} from '@material-ui/core';
 
-import './DataTable.css';
-
+const useStyles = makeStyles(() => {
+  return {
+    dataTable: {
+      width: '100%',
+      height: '100%',
+    },
+  };
+});
 function DataTable({
   columns,
   rowData,
@@ -18,6 +21,7 @@ function DataTable({
   zeroItemsMessage,
   ...rest
 }) {
+  const classes = useStyles();
   const defaultColumnProps = {
     sortable: sortable,
     field: 'Valid',
@@ -47,7 +51,7 @@ function DataTable({
   };
 
   return (
-    <div className="dataTable ag-theme-balham">
+    <div className={`${classes.dataTable} ag-theme-balham`}>
       <AgGridReact
         animateRows={true}
         columnDefs={columns}

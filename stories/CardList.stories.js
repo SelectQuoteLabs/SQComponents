@@ -5,7 +5,6 @@ import {action} from '@storybook/addon-actions';
 import markdown from '../notes/CardList.md';
 import CardList from '../src/components/CardList/CardList';
 import ListItemText from '@material-ui/core/ListItemText';
-import './CardList.stories.css';
 
 export default {
   title: 'CardList',
@@ -100,7 +99,10 @@ const notifications = [
     secondaryRows: [
       `Date/Time : ${Date.now()}`,
       'Info: Enrollment Claimed by Byan Busby',
-      <ListItemText disableTypography={true} className="cardList__hyperlink">
+      <ListItemText
+        disableTypography={true}
+        style={{color: 'var(--color-teal)', cursor: 'pointer'}}
+      >
         Click to acknowledge
       </ListItemText>,
     ],
@@ -111,7 +113,10 @@ const notifications = [
     secondaryRows: [
       `Date/Time : ${Date.now()}`,
       'Info: Manager override requested on Acct: 123',
-      <ListItemText disableTypography={true} className="cardList__hyperlink">
+      <ListItemText
+        disableTypography={true}
+        style={{color: 'var(--color-teal)', cursor: 'pointer'}}
+      >
         Click to override
       </ListItemText>,
     ],

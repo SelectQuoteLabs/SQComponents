@@ -6,6 +6,9 @@ import markdown from '../notes/WeeklySchedule.md';
 import moment from 'moment';
 
 import {WeeklySchedule} from '../src';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/material.css';
+import 'react-weekly-schedule/index.css';
 
 export default {
   title: 'WeeklySchedule',

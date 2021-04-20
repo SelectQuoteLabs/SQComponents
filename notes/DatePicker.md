@@ -8,6 +8,18 @@
 
 ## Technical Notes
 
+Install React Datepicker
+
+```bash
+npm i react-datepicker
+```
+
+Import the css file from react-datepicker
+
+```javascript
+import 'react-datepicker/dist/react-datepicker.css';
+```
+
 Consumers are responsible for defining the callback function that is passed as the `updateDate` prop.
 
 Sample:

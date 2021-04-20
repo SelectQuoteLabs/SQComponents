@@ -5,6 +5,7 @@ import {action} from '@storybook/addon-actions';
 import markdown from '../notes/DatePicker.md';
 
 import {DatePicker} from '../src';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const dateRange = {
   start: '',

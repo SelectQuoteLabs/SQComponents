@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {makeStyles} from '@material-ui/core';
 
-import './ExpandingCardList.css';
+const useStyles = makeStyles(() => {
+  return {
+    expandingCardList: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      gap: '1rem',
+      width: '100%',
+    },
+  };
+});
 
 export const ExpandingCardListContext = React.createContext();
 
@@ -28,6 +39,7 @@ function ensureIsArray(thing) {
 }
 
 function ExpandingCardList({children}) {
+  const classes = useStyles();
   const [
     cardExpansionStatesByName,
     setCardExpansionStatesByName,
@@ -65,7 +77,7 @@ function ExpandingCardList({children}) {
 
   return (
     <ExpandingCardListContext.Provider value={api}>
-      <div className="expandingCardList">{children}</div>
+      <div className={classes.expandingCardList}>{children}</div>
     </ExpandingCardListContext.Provider>
   );
 }

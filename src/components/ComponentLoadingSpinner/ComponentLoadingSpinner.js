@@ -1,18 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import {Grid, makeStyles, Typography} from '@material-ui/core';
 import LoadingIcon from '../LoadingIcon';
-import './ComponentLoadingSpinner.css';
 
+const useStyles = makeStyles(() => {
+  return {
+    spinner: {
+      position: 'relative',
+    },
+    message: {
+      fontWeight: 'var(--font-weight-light)',
+    },
+  };
+});
 function ComponentLoadingSpinner({message = '', spinnerHeight = '120px'}) {
+  const classes = useStyles();
   return (
     <Grid
       container
       direction="column"
       alignItems="center"
       justify="center"
-      className="componentLoadingSpinner"
+      className={classes.spinner}
     >
       <Grid item>
         <LoadingIcon height={spinnerHeight} />
@@ -21,7 +30,7 @@ function ComponentLoadingSpinner({message = '', spinnerHeight = '120px'}) {
         <Typography
           align="center"
           variant="subtitle1"
-          className="componentLoadingSpinner__message"
+          className={classes.message}
         >
           {message ? `${message}...` : ''}
         </Typography>

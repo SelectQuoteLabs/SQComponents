@@ -7,8 +7,25 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
+import {makeStyles} from '@material-ui/core';
 import RoundedButton from '../RoundedButton';
-import './DialogAlert.css';
+
+const useStyles = makeStyles(() => {
+  return {
+    actions: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      flex: '1 1 100%',
+      padding: '1.3333rem 2rem',
+    },
+    primary: {
+      marginLeft: 'auto',
+    },
+    secondary: {
+      marginRight: 'auto',
+    },
+  };
+});
 
 const Transition = React.forwardRef((props, ref) => {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -25,6 +42,7 @@ function DialogAlert({
   primaryButtonText,
   title,
 }) {
+  const classes = useStyles();
   const shouldRenderSecondaryButton = React.useMemo(
     () => secondaryButtonText && onSecondaryButtonClick,
     [onSecondaryButtonClick, secondaryButtonText]
@@ -46,9 +64,9 @@ function DialogAlert({
       <DialogContent dividers={true}>
         <DialogContentText>{children}</DialogContentText>
       </DialogContent>
-      <DialogActions className="dialogAlert__actions">
+      <DialogActions className={classes.actions}>
         {shouldRenderSecondaryButton && (
-          <span className="dialogAlert__secondary">
+          <span className={classes.secondary}>
             <RoundedButton
               onClick={onSecondaryButtonClick}
               color="secondary"
@@ -60,7 +78,7 @@ function DialogAlert({
           </span>
         )}
         {shouldRenderPrimaryButton && (
-          <span className="dialogAlert__primary">
+          <span className={classes.primary}>
             <RoundedButton
               isDisabled={isDisabled}
               onClick={onPrimaryButtonClick}

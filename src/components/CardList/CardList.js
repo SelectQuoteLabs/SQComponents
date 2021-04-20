@@ -12,7 +12,72 @@ import {makeStyles} from '@material-ui/core/styles';
 import List from './List';
 import CardPopoverMenu from '../CardPopoverMenu';
 import LoadingIcon from '../LoadingIcon';
-import './CardList.css';
+
+const useCardListStyles = makeStyles(() => {
+  return {
+    header: {
+      height: 'var(--card-header-height)',
+      borderBottom: '1px solid var(--color-lightGray)',
+    },
+    headerItems: {
+      display: 'flex',
+      alignItems: 'center',
+      height: '2.5rem',
+    },
+    cardList: {
+      display: 'inline-block',
+      padding: '0rem 0rem 0rem 0rem',
+      minWidth: '25rem',
+      width: 'auto',
+    },
+    content: {
+      padding: '0.1rem 1.5rem 0rem 0rem',
+      overflowY: 'scroll',
+      overflowX: 'hidden',
+      height: '30rem',
+      width: '25rem',
+    },
+    icon: {
+      float: 'right',
+      display: 'block',
+      textAlign: 'right',
+      fontSize: '2.5rem',
+      paddingLeft: '2rem',
+      position: 'relative',
+      top: '0',
+    },
+    items: {
+      display: 'block',
+      padding: '0rem 0rem 0rem 0rem',
+      overflow: 'auto',
+      width: 'auto',
+    },
+    selectChip: {
+      height: '1.25rem',
+      padding: '.5rem 1.25rem 0rem',
+    },
+    footer: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      padding: '0.4rem',
+      borderTop: '1px solid var(--color-lightGray)',
+    },
+    loadingContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      height: '100%',
+      paddingLeft: '2.5rem',
+    },
+    noData: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%',
+    },
+  };
+});
 
 const useStyles = makeStyles(theme => ({
   base: {
@@ -39,6 +104,7 @@ function CardList({
   shouldRenderHeader = true,
   tabs,
 }) {
+  const classes = useCardListStyles();
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
@@ -84,12 +150,15 @@ function CardList({
   };
 
   return (
-    <Card className="cardList" style={{width: contentWidth, ...cardStyle}}>
+    <Card
+      className={classes.cardList}
+      style={{width: contentWidth, ...cardStyle}}
+    >
       {shouldRenderHeader && (
         <CardHeader
-          className="cardList__header"
+          className={classes.header}
           action={
-            <div className="cardList__headerItems">
+            <div className={classes.headerItems}>
               <CardPopoverMenu
                 tabs={tabs}
                 selectedTab={selectedTab}
@@ -112,15 +181,16 @@ function CardList({
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className="cardList__content"
+          className={classes.content}
           style={{height: contentHeight, width: contentWidth, ...contentStyle}}
         >
           {selectedTab.isLoading ? (
-            <div className="cardList__loadingContainer">
+            <div className={classes.loadingContainer}>
               <LoadingIcon style={{marginLeft: '10rem'}} />
             </div>
           ) : (
             <List
+              classes={classes}
               listItems={selectedTab.listItems}
               noDataMessage={selectedTab.noDataMessage}
               zeroItemsMessage={
@@ -132,7 +202,7 @@ function CardList({
         </CardContent>
       </Collapse>
       {isExpanded && selectedTab.handleRefresh && (
-        <footer className="cardListItem__footer">
+        <footer className={classes.footer}>
           <IconButton
             title="Refresh List"
             color="primary"

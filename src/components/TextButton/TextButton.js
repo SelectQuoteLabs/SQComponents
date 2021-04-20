@@ -2,9 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {Tooltip, makeStyles} from '@material-ui/core';
 
-import './TextButton.css';
-import {Tooltip} from '@material-ui/core';
+const useStyles = makeStyles(() => {
+  return {
+    textButton: {
+      padding: '0rem',
+      height: '2.5rem',
+      lineHeight: '1rem',
+      borderRadius: '2rem',
+      boxShadow: 'none',
+      border: 'none',
+      '&:hover': {
+        boxShadow: 'none',
+        border: 'none',
+      },
+    },
+  };
+});
 
 function TextButton({
   onClick,
@@ -14,12 +29,13 @@ function TextButton({
   color = 'primary',
   toolipPlacement = 'top',
 }) {
+  const classes = useStyles();
   return (
     <Tooltip placement={toolipPlacement} arrow title={tooltip}>
       <span>
         <Button
           onClick={onClick}
-          className="textButton"
+          className={classes.textButton}
           disabled={isDisabled}
           type="button"
           color={color}

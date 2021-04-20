@@ -3,6 +3,7 @@ import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/DataTable.md';
 import {DataTable} from '../src';
 import {accountHistoryLarge} from './utils/accountHistoryLarge';
+import '../src/styles/AgGrid.css';
 
 export default {
   title: 'DataTable',

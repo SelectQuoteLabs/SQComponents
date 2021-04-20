@@ -4,6 +4,9 @@ import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/ColumnList.md';
 import {ColumnList} from '../src';
 import {accountHistoryLarge} from './utils/accountHistoryLarge';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import '../src/styles/AgGrid.css';
 
 export default {
   title: 'ColumnList',

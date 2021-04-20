@@ -10,10 +10,40 @@ import Collapse from '@material-ui/core/Collapse';
 import {makeStyles} from '@material-ui/core/styles';
 import CardPopoverMenu from '../CardPopoverMenu/CardPopoverMenu';
 import Typography from '@material-ui/core/Typography';
-import './AgGrid.css';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
-import './ColumnList.css';
+
+const useColumnListStyles = makeStyles(() => {
+  return {
+    columnList: {
+      fontWeight: 'var(--font-weight-normal)',
+      fontFamily: 'Open Sans',
+      fontSize: '12px',
+    },
+    content: {
+      padding: '0',
+      height: '100%',
+      width: '100%',
+      paddingBottom: '0 !important' /* Material UI override */,
+    },
+    header: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      fontSize: '21px',
+      padding: '0rem 0.5rem 0rem 1rem',
+      height: '4rem',
+      backgroundColor: 'var(--color-white)',
+    },
+    cardPopOverMenu: {
+      borderRight: '0.08333rem solid var(--color-slate)',
+      paddingTop: '0.5rem',
+    },
+    headerButtons: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      fontSize: '1rem',
+      padding: '0.15rem 0rem 0rem 0rem',
+    },
+  };
+});
 
 const useStyles = makeStyles(theme => ({
   open: {
@@ -41,6 +71,7 @@ function ColumnList({
   zeroItemsMessage,
   ...rest
 }) {
+  const classes = useColumnListStyles();
   const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
 
   const selectedTabInProps = React.useMemo(() => {
@@ -94,15 +125,15 @@ function ColumnList({
   };
 
   return (
-    <Card className="columnList">
+    <Card className={classes.columnList}>
       {tabs.length > 1 && (
         <CardHeader
           disableTypography={true}
-          className="columnList__header"
+          className={classes.header}
           title={title}
           action={
-            <div className="columnList__headerButtons">
-              <div className="columnList__cardPopOverMenu">
+            <div className={classes.headerButtons}>
+              <div className={classes.cardPopOverMenu}>
                 <CardPopoverMenu
                   tabs={tabs}
                   selectedTab={selectedTab}
@@ -124,7 +155,7 @@ function ColumnList({
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className="ag-theme-balham columnList__content"
+          className={`ag-theme-balham ${classes.content}`}
           style={{height: height}}
         >
           <AgGridReact
@@ -133,7 +164,7 @@ function ColumnList({
             rowData={selectedTab.rowData}
             onGridReady={onGridReady}
             defaultColDef={defaultColumnProps}
-            rowClass={'columnList__rows'}
+            rowClass="columnList__rows"
             pagination={
               (selectedTab.rowData && selectedTab.rowData.length) > 100
                 ? true

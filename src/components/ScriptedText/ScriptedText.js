@@ -2,10 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from '@material-ui/core/Tooltip';
 import SpeakerNotes from '@material-ui/icons/SpeakerNotes';
-import {Typography, Grid} from '@material-ui/core';
-import './ScriptedText.css';
+import {Typography, Grid, makeStyles} from '@material-ui/core';
+
+const useStyles = makeStyles(() => {
+  return {
+    icon: {
+      color: 'var(--color-brightYellow)',
+      position: 'relative',
+      height: '1.7rem',
+      width: '1.7rem',
+    },
+    text: {
+      marginLeft: '1rem',
+    },
+  };
+});
 
 function ScriptedText({placement = 'top-start', text}) {
+  const classes = useStyles();
   const Text = React.forwardRef((props, ref) => {
     return (
       <Typography ref={ref} {...props} component="span" variant="body2">
@@ -25,9 +39,9 @@ function ScriptedText({placement = 'top-start', text}) {
         arrow
         title={'Please read this scripted text to customer.'}
       >
-        <SpeakerNotesIcon className="scriptedText__icon" />
+        <SpeakerNotesIcon className={classes.icon} />
       </Tooltip>
-      <Text text={text} className="scriptedText__text" />
+      <Text text={text} className={classes.text} />
     </Grid>
   );
 }

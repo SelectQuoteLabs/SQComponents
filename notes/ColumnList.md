@@ -8,6 +8,19 @@
 
 ## Technical Notes
 
+Install AG Grid dependencies:
+
+```bash
+npm install ag-grid-community ag-grid-react
+```
+
+Install AG Grid CSS Files:
+
+```javascript
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+```
+
 This component uses the Material UI card component for the optional header and card body. Under the covers we are using the Ag-Grid community edition for the card body. This is a very powerful grid package with many features and functionality.
 
 If you want to show just one tab of information the additional header will not be shown and you will just get the card body with the column headers.
