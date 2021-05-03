@@ -1,3 +1,15 @@
+## [7.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v6.1.0...v7.0.0) (2021-05-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* SQFormFieldArray, useSQFormContext, usePrevious, and useDialog can no longer be
+imported/consumed from this library
+
+### Bug Fixes
+
+* removes SQFormFieldArray, useSQFormContext, usePrevious, useDialog ([04ab338](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/04ab338d06a08b79b77e02c948cd5b1dde21ab01))
+
 ## [6.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v6.0.0...v6.1.0) (2021-04-20)
 
 
