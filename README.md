@@ -133,7 +133,7 @@ export default deprecateComponent(
 );
 ```
 
-## Updating to Version 6?
+## Updating to Version 6 or 7?
 
 1. Ensure all Peer dependencies are installed
 2. Copy these styles to your project and import them
@@ -152,7 +152,8 @@ export default deprecateComponent(
    import 'tippy.js/dist/tippy.css';
    import 'tippy.js/themes/material.css';
    import 'react-weekly-schedule/index.css';
-4. Ensure any SQForm components are not imported from THIS library
+4. Ensure any SQForm components, `useSQFormContext`, or `SQFieldArray` are NOT imported from THIS library. These should be imported from the SQForm library
+5. Ensure the `usePrevious` and `useDialog` hooks are NOT imported from THIS library. These should be imported from the SQHooks library
 
 ## Contributing
 
