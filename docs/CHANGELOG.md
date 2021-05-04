@@ -1,3 +1,10 @@
+### [7.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.0...v7.0.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* **proptype:** bugfix/AZT-1783-fixed-proptype-of-height ([e473cea](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/e473cea83173817b0b3f3087d8dc8456dfe7c94e))
+
 ## [7.0.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v6.1.0...v7.0.0) (2021-05-03)
 
 
