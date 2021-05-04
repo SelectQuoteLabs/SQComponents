@@ -187,7 +187,7 @@ function ColumnList({
 
 ColumnList.propTypes = {
   /** OPTIONAL - height of the card.  Default is 25rem. Ex. height='85rem' */
-  height: PropTypes.string,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Selected tab in view with selectedTab.columns and selectedTab.rowData */
   tabs: PropTypes.array,
   /** OPTIONAL - Ability to sort by each column by clicking the header. Can be set per column. default = true */
