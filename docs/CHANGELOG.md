@@ -1,3 +1,10 @@
+### [7.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.1...v7.0.2) (2021-05-06)
+
+
+### Bug Fixes
+
+* **added classname prop to round button and story for it:** className RB ([eff0b49](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/eff0b497211884bb0e2be6aadeeb2d81c3c76a05))
+
 ### [7.0.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.0...v7.0.1) (2021-05-04)
 
 
