@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core';
+import classnames from 'classnames';
 
 const useStyles = makeStyles(() => {
   return {
@@ -71,6 +72,7 @@ function RoundedButton({
   children,
   startIcon,
   endIcon,
+  className,
   type = 'button',
 }) {
   const isGhostButton = React.useMemo(() => {
@@ -90,7 +92,11 @@ function RoundedButton({
       key={title}
       title={title}
       onClick={onClick}
-      className={`${classes.roundedButton} ${classes[buttonStyleType]}`}
+      className={classnames(
+        classes.roundedButton,
+        classes[buttonStyleType],
+        className
+      )}
       disabled={isDisabled}
       variant={variant}
       color={isSuccessButton ? 'default' : color}
@@ -122,6 +128,8 @@ RoundedButton.propTypes = {
   endIcon: PropTypes.node,
   /** Type of button, defaults to 'button' */
   type: PropTypes.oneOf(['submit', 'reset', 'button']),
+  /** CSS classname */
+  className: PropTypes.string,
 };
 
 export default RoundedButton;
