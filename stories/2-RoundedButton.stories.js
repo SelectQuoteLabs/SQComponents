@@ -4,8 +4,17 @@ import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/1-RoundedButton.md';
 import {AccessAlarm, ThreeDRotation} from '@material-ui/icons';
+import {makeStyles} from '@material-ui/core/styles';
 
 import {RoundedButton} from '../src';
+
+const buttonStyles = makeStyles(() => {
+  return {
+    button: {
+      backgroundColor: 'yellowgreen',
+    },
+  };
+});
 
 export default {
   title: 'RoundedButton',
@@ -97,3 +106,19 @@ export const deprecatedDisableButton = () => (
     {text('label', 'Check the console to see the deprecation warning.')}
   </RoundedButton>
 );
+
+export const ButtonWithClassNameProp = () => {
+  const styles = buttonStyles();
+
+  return (
+    <RoundedButton
+      title="Rounded Button Base"
+      onClick={action('button clicked')}
+      disabled={boolean('disable', false)}
+      primary={boolean('primary', false)}
+      className={styles.button}
+    >
+      {text('label', 'This has a custom background color')}
+    </RoundedButton>
+  );
+};
