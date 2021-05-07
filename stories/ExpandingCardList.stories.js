@@ -1,4 +1,5 @@
 import React from 'react';
+import {makeStyles} from '@material-ui/core';
 import {withInfo} from '@storybook/addon-info';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {
@@ -106,7 +107,7 @@ export const expandingCardsWithTabs = () => {
 };
 
 export const expandingCardsWithDataTable = () => {
-  /* Hooks not allowed here but leaving as an example of how to control 
+  /* Hooks not allowed here but leaving as an example of how to control
     the expanded state of the card
   const [isCardTwoExpanded, setIsCardTwoExpanded] = React.useState(false); **/
 
@@ -240,6 +241,51 @@ export const expandingCardListWithSingleCard = () => {
             volutpat vel. Sed porttitor, magna sed pulvinar lobortis, mauris
             lorem ullamcorper mauris, ac rhoncus erat tellus sit amet mi. Nam
             ornare tempor magna nec suscipit. Integer ac congue mauris.
+          </p>
+        </ExpandingCard>
+      </ExpandingCardList>
+    </div>
+  );
+};
+
+const useStyles = makeStyles(() => {
+  return {
+    card: {
+      backgroundColor: 'dodgerblue',
+      color: 'white',
+    },
+    body: {
+      backgroundColor: 'white',
+      color: 'navy',
+      fontSize: '14px',
+      lineHeight: '20px',
+      padding: '0 16px',
+    },
+  };
+});
+
+export const ExpandingCardListWithCustomStyles = () => {
+  const classes = useStyles();
+  return (
+    <div style={{width: '45rem', height: '80vh'}}>
+      <ExpandingCardList>
+        <ExpandingCard
+          title="I'm pretty"
+          name="one"
+          className={classes.card}
+          bodyClassName={classes.body}
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            rutrum consectetur nisl, ut porttitor felis porta eget. Donec quam
+            tortor, sagittis a risus ut, aliquam euismod ligula. Aenean ipsum
+            neque, bibendum eu ipsum vel, ultrices scelerisque neque. Aliquam
+            fermentum nibh quis ante vestibulum condimentum. In viverra, libero
+            at interdum commodo, mauris tellus consequat arcu, id ultrices nisi
+            tortor vel sem. Nam accumsan lorem nunc, eu semper metus blandit id.
+            Nunc cursus tortor tempus eros mollis ultrices. Fusce sed nulla
+            massa. Phasellus non eros vel velit convallis euismod. Nulla iaculis
+            rutrum sem.
           </p>
         </ExpandingCard>
       </ExpandingCardList>

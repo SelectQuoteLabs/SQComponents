@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -85,6 +86,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ExpandingCard({
+  bodyClassName,
+  className,
   name,
   title,
   actions,
@@ -129,7 +132,7 @@ function ExpandingCard({
     : classes.expandButtonClosed;
 
   return (
-    <Paper className={cardClasses.expandingCard}>
+    <Paper className={classnames(cardClasses.expandingCard, className)}>
       <div className={cardClasses.headerWrapper}>
         <div className={cardClasses.header}>
           <div className={cardClasses.headerTitle}>
@@ -157,15 +160,23 @@ function ExpandingCard({
         )}
       </div>
       <div className={cardClasses.bodyWrapper}>
-        <div className={cardClasses.body}>{children}</div>
+        <div className={classnames(cardClasses.body, bodyClassName)}>
+          {children}
+        </div>
       </div>
     </Paper>
   );
 }
 
 ExpandingCard.propTypes = {
+  /** CSS class from MUI makeStyles for the Card Body */
+  bodyClassName: PropTypes.string,
+
   /** Body content */
   children: PropTypes.node.isRequired,
+
+  /** CSS class from MUI makeStyles */
+  className: PropTypes.string,
 
   /** Unique name used as a key for managing expansion state within ExpandingCardList */
   name: PropTypes.string.isRequired,
