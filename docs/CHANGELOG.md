@@ -1,3 +1,10 @@
+### [7.0.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.2...v7.0.3) (2021-05-07)
+
+
+### Bug Fixes
+
+* **expandingcard.js:** accepts className and bodyClassName props ([f807e18](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f807e181d90297afb0391e57416e7907784a2f00))
+
 ### [7.0.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.1...v7.0.2) (2021-05-06)
 
 
