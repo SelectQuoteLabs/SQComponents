@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import CardPopoverMenu from '../CardPopoverMenu';
 import ExpandingCard from '../ExpandingCard';
 
-function ExpandingCardWithTabs({name, title, subheader, tabs, children}) {
+function ExpandingCardWithTabs({name, title, subheader, tabs, bodyClassName}) {
   const [selectedTabValue, setSelectedTabValue] = React.useState(tabs[0].value);
 
   const selectedTab = tabs.find(tab => tab.value === selectedTabValue);
 
   return (
     <ExpandingCard
+      bodyClassName={bodyClassName}
       name={name}
       title={title}
       subheader={subheader}
@@ -30,6 +31,9 @@ function ExpandingCardWithTabs({name, title, subheader, tabs, children}) {
 ExpandingCardWithTabs.propTypes = {
   /** Unique name used as a key for managing expansion state within ExpandingCardList */
   name: PropTypes.string.isRequired,
+
+  /** expanding card body class prop*/
+  bodyClassName: PropTypes.string,
 
   /** Title text */
   title: PropTypes.string,
