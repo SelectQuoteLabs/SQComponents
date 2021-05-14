@@ -1,6 +1,6 @@
-# SC Plus Shared Component Library
+# SCPlus Shared Components
 
-SC Plus shared component library aims to offer reusable components to unify the UI for all Select Quote applications.
+The SCPlus Shared Components library aims to offer reusable components to unify the UI for all SelectQuote applications.
 
 ---
 
@@ -18,15 +18,7 @@ If you are unfamiliar with writing [Conventional Commit](https://www.conventiona
 
 ```sh
 git add .
-npx git-cz
-```
-
-> You can also use `npm run commit` instead of `npx git-cz` if that's easier to remember.
-
-When you are familiar with how commits should be structured, feel free to use `git commit -m` for quick things, for example:
-
-```sh
-git commit -m “chore(rounded button): added boilerplate”
+npm run commit
 ```
 
 The commit will be validated through a linter pre-commit hook and will reject any commit messages that do not properly adhere to the convention.
@@ -74,86 +66,34 @@ import {Avatar} from 'scplus-shared-components';
 npm run storybook
 ```
 
-### Deprecating Components and Props
-
-As we migrate components from divisional code into the shared components we have an opportunity to rewrite and unify the API. We may choose to replace certain components entirely or change the name of props to bring them inline with our conventions.
-
-Also, we have historically found ourselves in a position where our conventions changed and we felt like we couldn't update any components because we were afraid they may break if we do.
-
-A few helpers HOC's have been introduced to deal with these types of situations:
-
-#### Fully Deprecating a Component
-
-```js
-import {deprecateComponent} from 'helpers/deprecation';
-
-// ... code for component here
-
-// Originally, we may have simply exported the component:
-// export default Component
-
-// Instead, we're going to wrap it in 'deprecateComponent':
-export default deprecateComponent(
-  Component,
-  false /* isMarkedForFailure: setting this to false simply warns */
-  /* optionally provide a deprecation message here */
-);
-```
-
-#### Deprecating Individual Props on a Component
-
-```js
-import {deprecateProps} from 'helpers/deprecation';
-
-// ... code for component here
-
-// Originally, we may have simply exported the component:
-// export default Component
-
-// Instead, we're going to wrap it in 'deprecateProps':
-export default deprecateComponent(
-  Component,
-  {
-    isMarkedForFailure: false /* Warn that his prop is deprecated */,
-    deprecatedProp: 'disabled' /* Prop that is deprecated */,
-
-    /* The value of 'disabled' will be assigned to 'isDisabled' */
-    replacementProp: 'isDisabled',
-  },
-  {
-    /* Throw an error if this prop is assigned */
-    isMarkedForFailure: true,
-    deprecatedProp: 'onClick',
-
-    /* Custom error message for explaining the deprecation */
-    deprecationMessage: `Component.onClick has been fully deprecated because users do not expect to be able to click on Component elements.
-
-      Consider wrapping Component in a button to clarify the intent to users.`,
-  }
-);
-```
-
 ## Updating to Version 6 or 7?
 
 1. Ensure all Peer dependencies are installed
-2. Copy these styles to your project and import them
+2. Copy these CSS files to your project and import `index.css` at the root component of your application.
+
+   > 💡 Many applications already have these CSS files. If so, you may skip Step 2
 
 - index.css
+- fonts.css
 - root.css
 - animations.css
 - typography.css
 - utilClasses.css
 - AgGrid.css
 
-3. Also add these imports:
+3. Also import these CSS files at the root component of your application:
    import 'ag-grid-community/dist/styles/ag-grid.css';
    import 'ag-grid-community/dist/styles/ag-theme-balham.css';
    import 'react-datepicker/dist/react-datepicker.css';
    import 'tippy.js/dist/tippy.css';
    import 'tippy.js/themes/material.css';
    import 'react-weekly-schedule/index.css';
+
+   > 💡 `index.css` should be the last imported CSS so it's styles override any other global CSS
+
 4. Ensure any SQForm components, `useSQFormContext`, or `SQFieldArray` are NOT imported from THIS library. These should be imported from the SQForm library
 5. Ensure the `usePrevious` and `useDialog` hooks are NOT imported from THIS library. These should be imported from the SQHooks library
+6. Smoke test the application. If styles appear broken, ensure you've performed all prior steps. Ensure your application is using the latest version of this library and the SQForm library. If the styles are still broken, it's likely consumer styles were written that were using the libraries old CSS class names as part of the selector. Replace those styles with `useStyles` from MUI.
 
 ## Contributing
 
