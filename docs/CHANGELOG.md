@@ -1,3 +1,10 @@
+### [7.0.5](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.4...v7.0.5) (2021-05-19)
+
+
+### Bug Fixes
+
+* **accordionpanel.js:** warning message displayed ([40d4a00](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/40d4a00b64bb82b234013b658a9538a319c43904))
+
 ### [7.0.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.3...v7.0.4) (2021-05-10)
 
 

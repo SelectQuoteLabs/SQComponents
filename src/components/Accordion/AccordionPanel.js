@@ -100,6 +100,8 @@ function AccordionPanel({
     }
   };
 
+  const transformedSubtitles = subtitles.join(' | ');
+
   return (
     <Paper className={accordionClasses.accordion}>
       <Grid
@@ -114,26 +116,11 @@ function AccordionPanel({
           <Grid item className={accordionClasses.panelHeaderTitle}>
             <Typography variant="overline">{title}</Typography>
           </Grid>
-          {subtitles?.length
-            ? subtitles.map((subtitle, index) => {
-                return (
-                  <>
-                    <Grid item>
-                      <Typography variant="body2" display="inline">
-                        {subtitle}
-                      </Typography>
-                    </Grid>
-                    {index + 1 === subtitles.length ? null : (
-                      <Grid item>
-                        <Typography variant="body2" display="inline">
-                          |
-                        </Typography>
-                      </Grid>
-                    )}
-                  </>
-                );
-              })
-            : null}
+          <Grid item>
+            <Typography variant="body2" display="inline">
+              {transformedSubtitles}
+            </Typography>
+          </Grid>
         </Grid>
         <Grid
           container
