@@ -58,6 +58,17 @@ export const disabledButton = () => (
   </RoundedButton>
 );
 
+export const disabledOutlinedButton = () => (
+  <RoundedButton
+    title="Disabled Outlined Button Base"
+    onClick={action('button clicked')}
+    isDisabled={boolean('isDisabled', true)}
+    variant="outlined"
+  >
+    {text('children', 'save')}
+  </RoundedButton>
+);
+
 export const successButton = () => (
   <RoundedButton
     title="Success Button Base"

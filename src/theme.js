@@ -169,6 +169,13 @@ const theme = {
         display: 'none',
       },
     },
+    MuiButton: {
+      outlined: {
+        '&$disabled': {
+          border: '2px solid rgba(0, 0, 0, 0.12)',
+        },
+      },
+    },
     MuiIconButton: {
       root: {
         '&:hover': {
