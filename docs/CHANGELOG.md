@@ -1,3 +1,10 @@
+### [7.0.6](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.5...v7.0.6) (2021-05-20)
+
+
+### Bug Fixes
+
+* **theme.js:** updated outlined disabled button to 2px ([d8e5524](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/d8e5524446e373998f9946b6d1fc7e2d5df4c739))
+
 ### [7.0.5](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.4...v7.0.5) (2021-05-19)
 
 
