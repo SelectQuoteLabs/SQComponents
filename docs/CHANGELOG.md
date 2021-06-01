@@ -1,3 +1,10 @@
+### [7.0.7](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.6...v7.0.7) (2021-06-01)
+
+
+### Bug Fixes
+
+* **iconbutton.js:** added title in icon component ([2cc482e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2cc482e7242f72430de65bfddaba9fe87e5cb7b3))
+
 ### [7.0.6](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.5...v7.0.6) (2021-05-20)
 
 
