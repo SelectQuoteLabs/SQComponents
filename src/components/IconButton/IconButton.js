@@ -54,7 +54,7 @@ function IconButton({
       type={type}
       classes={classes}
     >
-      <IconComponent style={{color: iconColor, width, height}} />
+      <IconComponent title={title} style={{color: iconColor, width, height}} />
     </MUIIconButton>
   );
 }
