@@ -51,9 +51,9 @@ const getColorIcons = color => {
   );
 };
 
-const renderNoDataMessage = message => {
+const renderNoDataMessage = (message, className) => {
   return (
-    <div className={classes.noData}>
+    <div className={className}>
       <Typography variant="body2">{message}</Typography>
     </div>
   );
@@ -69,10 +69,16 @@ function List({
   const [selectedID, setSelectedID] = React.useState(null);
 
   if (!listItems) {
-    return renderNoDataMessage(noDataMessage || 'Data Currently Unavailable');
+    return renderNoDataMessage(
+      noDataMessage || 'Data Currently Unavailable',
+      classes.noData
+    );
   }
   if (!listItems.length) {
-    return renderNoDataMessage(zeroItemsMessage || 'List is currently empty');
+    return renderNoDataMessage(
+      zeroItemsMessage || 'List is currently empty',
+      classes.noData
+    );
   }
 
   const handleListItemClick = listItem => {
