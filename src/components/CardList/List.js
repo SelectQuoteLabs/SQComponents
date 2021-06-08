@@ -51,9 +51,9 @@ const getColorIcons = color => {
   );
 };
 
-const renderNoDataMessage = (message, className) => {
+const renderNoDataMessage = (message, noDataClass) => {
   return (
-    <div className={className}>
+    <div className={noDataClass}>
       <Typography variant="body2">{message}</Typography>
     </div>
   );
