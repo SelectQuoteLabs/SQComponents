@@ -44,11 +44,30 @@ export default function IconButtonMenu({
   tooltipTitle,
   IconComponent,
   placement = 'bottom',
+  selectedItem,
+  excludeSelectedItem = false,
 }) {
   const popoverClasses = usePopoverStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const tooltipStyles = useTooltipStyles();
   const menuItemStyles = useMenuItemStyles();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [options, setOptions] = React.useState(menuItems);
+
+  React.useEffect(() => {
+    if (!excludeSelectedItem) {
+      setOptions(menuItems);
+      return;
+    }
+
+    if (!selectedItem) {
+      return;
+    }
+
+    const filteredOptions = menuItems.filter(({id}) => id !== selectedItem.id);
+    setOptions(filteredOptions);
+  }, [selectedItem, menuItems, excludeSelectedItem]);
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -83,26 +102,26 @@ export default function IconButtonMenu({
         transformOrigin={PLACEMENTS[placement].TRANSFORM}
         onClose={handleClose}
       >
-        {menuItems && menuItems.length
-          ? menuItems.map(item => {
+        {options && options.length
+          ? options.map(option => {
               const onClick = () => {
-                item.onClick();
+                option.onClick();
                 handleClose();
               };
               return (
                 <MenuItem
-                  key={item.id}
-                  disabled={item.isDisabled}
+                  key={option.id}
+                  disabled={option.isDisabled}
                   onClick={onClick}
                   divider={false}
                   dense={false}
                   className={
-                    item.isDisabled
+                    option.isDisabled
                       ? menuItemStyles.disabled
                       : menuItemStyles.menuItem
                   }
                 >
-                  <Typography>{item.label}</Typography>
+                  <Typography>{option.label}</Typography>
                 </MenuItem>
               );
             })
@@ -112,15 +131,15 @@ export default function IconButtonMenu({
   );
 }
 
+const menuItem = PropTypes.exact({
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  isDisabled: PropTypes.bool,
+});
+
 IconButtonMenu.propTypes = {
-  menuItems: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      label: PropTypes.string,
-      onClick: PropTypes.func,
-      isDisabled: PropTypes.bool,
-    })
-  ).isRequired,
+  menuItems: PropTypes.arrayOf(menuItem).isRequired,
   placement: PropTypes.oneOf([
     'top',
     'topRight',
@@ -139,6 +158,8 @@ IconButtonMenu.propTypes = {
     PropTypes.object,
     PropTypes.func,
   ]).isRequired,
+  selectedItem: menuItem,
+  excludeSelectedItem: PropTypes.bool,
 };
 
 const PLACEMENTS = {

@@ -90,3 +90,30 @@ export const withIcon = () => (
     isDisabled={isDisabled}
   />
 );
+
+export const excludeSelected = () => {
+  const [selectedItem, setSelectedItem] = React.useState(menuItems[0]); // eslint-disable-line react-hooks/rules-of-hooks
+
+  const handleClick = newItem => {
+    setSelectedItem(newItem);
+  };
+
+  const formattedMenuItems = menuItems.map(menuItem => ({
+    ...menuItem,
+    isDisabled: false,
+    onClick: () => handleClick(menuItem),
+  }));
+
+  return (
+    <IconButtonMenu
+      IconComponent={AppsIcon}
+      isIconTeal={true}
+      tooltipTitle="SQ Senior Apps"
+      menuItems={formattedMenuItems}
+      placement="bottomLeft"
+      isDisabled={isDisabled}
+      selectedItem={selectedItem}
+      excludeSelectedItem
+    />
+  );
+};
