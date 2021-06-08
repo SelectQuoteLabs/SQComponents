@@ -1,4 +1,4 @@
-# TabbleCard
+# TabbableCard
 
 A card that can switch between 'tabs'
 
