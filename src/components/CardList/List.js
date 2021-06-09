@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 
 import Tooltip from '@material-ui/core/Tooltip';
 import SelectChip from '../SelectChip/SelectChip';
-import {classes} from 'react-weekly-schedule';
 
 const COLORS = {
   GREEN: 'GREEN',
@@ -37,7 +36,7 @@ const getColorEmoji = color => {
   }
 };
 
-const getColorIcons = color => {
+const getColorIcons = (color, classes) => {
   const upperCaseColor = color.toUpperCase();
   const emoji = getColorEmoji(upperCaseColor);
   return (
@@ -98,7 +97,7 @@ function List({
       optionIsSelected={isSelectable && listItem.id === selectedID}
     >
       <ListItem className={classes.items}>
-        {listItem.color && getColorIcons(listItem.color)}
+        {listItem.color && getColorIcons(listItem.color, classes)}
         {listItem.header && <ListItemText primary={listItem.header} />}
         {listItem.secondaryRows &&
           listItem.secondaryRows.map((row, secondaryListItemIndex) => (
