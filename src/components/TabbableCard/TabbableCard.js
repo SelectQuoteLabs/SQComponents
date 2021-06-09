@@ -46,7 +46,7 @@ function TabbableCard({
 }) {
   const classes = useStyles();
 
-  const [selectedTab, setSelectedTab] = React.useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = React.useState(tabs[0] || {});
 
   const formattedTitle = React.useMemo(() => title.replace(/\s/g, '-'), [
     title,
@@ -56,7 +56,7 @@ function TabbableCard({
 
   React.useEffect(() => {
     const currentElement = document.getElementById(
-      `sqform-scrollable-card-id-${formattedTitle}`
+      `tabbable-card-id-${formattedTitle}`
     );
 
     const topOffset = currentElement?.getBoundingClientRect().top;
@@ -88,11 +88,9 @@ function TabbableCard({
     };
   });
 
-  console.log({selectedTab, label: selectedTab.label});
-
   return (
     <Card
-      id={`sqform-scrollable-card-id-${formattedTitle}`}
+      id={`tabbable-card-id-${formattedTitle}`}
       raised={true}
       elevation={1}
       square={true}
