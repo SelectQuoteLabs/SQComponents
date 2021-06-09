@@ -1,3 +1,12 @@
+### [7.0.8](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.7...v7.0.8) (2021-06-09)
+
+
+### Bug Fixes
+
+* **list.js:** add noData class for empty list item ([fbf6c45](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fbf6c45f2a27c2156053936a13d343cc9a65ac2d))
+* **list.js:** remove react weekly schedule ([319aa61](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/319aa6123ef494b8c7ddda2b2beb85043b0a05c1))
+* **list.js:** rename parameter to noDataClass ([fb7f3bb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fb7f3bbf7146fe4dc72b9634b057fdc63c0de6a7))
+
 ### [7.0.7](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.6...v7.0.7) (2021-06-01)
 
 
