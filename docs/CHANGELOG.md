@@ -1,3 +1,10 @@
+### [7.0.9](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.8...v7.0.9) (2021-06-09)
+
+
+### Bug Fixes
+
+* **cardlist.js:** add class to the card content ([bad979f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bad979f8c0a17801402515b429fb5fc2edd0c41a))
+
 ### [7.0.8](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.7...v7.0.8) (2021-06-09)
 
 
