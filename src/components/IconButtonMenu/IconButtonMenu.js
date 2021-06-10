@@ -17,6 +17,9 @@ const useTooltipStyles = makeStyles(() => ({
   arrow: {
     color: 'var(--color-jetBlack)',
   },
+  ref: {
+    textAlign: 'center',
+  },
 }));
 
 const useMenuItemStyles = makeStyles(() => ({
@@ -44,6 +47,9 @@ export default function IconButtonMenu({
   tooltipTitle,
   IconComponent,
   placement = 'bottom',
+  applyPopoverSpacing = true,
+  height,
+  width,
 }) {
   const popoverClasses = usePopoverStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -65,13 +71,15 @@ export default function IconButtonMenu({
         placement={PLACEMENTS[placement].TOOLTIP}
         classes={tooltipStyles}
       >
-        <div>
+        <div className={tooltipStyles.ref}>
           <IconButton
             onClick={handleClick}
             isDisabled={isDisabled}
             isIconTeal={isIconTeal}
             IconComponent={IconComponent}
-            applyPopoverSpacing={true}
+            applyPopoverSpacing={applyPopoverSpacing}
+            height={height}
+            width={width}
           />
         </div>
       </Tooltip>
@@ -139,6 +147,12 @@ IconButtonMenu.propTypes = {
     PropTypes.object,
     PropTypes.func,
   ]).isRequired,
+  /** Whether to apply the popover spacing or not */
+  applyPopoverSpacing: PropTypes.bool,
+  /** Custom icon height size */
+  height: PropTypes.string,
+  /** Custom icon width size */
+  width: PropTypes.string,
 };
 
 const PLACEMENTS = {
