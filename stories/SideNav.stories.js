@@ -171,12 +171,13 @@ const menuItems = [
     id: 1,
     label: 'Some Label1',
     onClick: () => {},
-  }, {
+  },
+  {
     id: 2,
     label: 'Some Label2',
-    onClick: () => {}
-  }
-]
+    onClick: () => {},
+  },
+];
 
 export function sideNavWithTopAndMiddle() {
   return (
@@ -205,6 +206,15 @@ export function sideNavWithTopAndMiddle() {
             IconComponent={AddCircleIcon}
             onClick={() => {}}
           />
+          <IconButtonMenu
+            tooltipTitle="Some Tooltip"
+            menuItems={menuItems}
+            applyPopoverSpacing={false}
+            placement="right"
+            IconComponent={BuildIcon}
+            height="36px"
+            width="36px"
+          />
         </SideNavTop>
         <SideNavMiddle>
           <IconButton IconComponent={() => <Avatar>1</Avatar>} />
@@ -213,8 +223,6 @@ export function sideNavWithTopAndMiddle() {
           <IconButton IconComponent={() => <Avatar isInverted>4</Avatar>} />
           <IconButton IconComponent={() => <Avatar isInverted>5</Avatar>} />
           <IconButton IconComponent={() => <Avatar isInverted>6</Avatar>} />
-          <IconButton IconComponent={() => <Avatar isInverted>7</Avatar>} />
-          <IconButton IconComponent={() => <Avatar isInverted>8</Avatar>} />
           <IconButtonMenu
             tooltipTitle="Some Tooltip"
             menuItems={menuItems}
