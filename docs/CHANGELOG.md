@@ -1,3 +1,10 @@
+## [7.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.9...v7.1.0) (2021-06-10)
+
+
+### Features
+
+* **iconbuttonmenu:** expose applyPopoverPadding prop ([02f48a2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/02f48a2a6c80656042536440c16a6f61a695cad5))
+
 ### [7.0.9](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.8...v7.0.9) (2021-06-09)
 
 
