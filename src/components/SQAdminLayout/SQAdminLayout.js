@@ -17,7 +17,7 @@ export default function SQAdminLayout({HeaderComponent, children}) {
   const classes = useStyles();
 
   return (
-    <Grid container direction="column" className={classes.layout}>
+    <Grid container direction="column" wrap="nowrap" className={classes.layout}>
       <Grid item>
         <HeaderComponent />
       </Grid>
