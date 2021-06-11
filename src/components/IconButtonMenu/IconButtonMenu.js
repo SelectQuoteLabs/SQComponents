@@ -17,7 +17,10 @@ const useTooltipStyles = makeStyles(() => ({
   arrow: {
     color: 'var(--color-jetBlack)',
   },
-  ref: {
+}));
+
+const useTooltipRefDivStyles = makeStyles(() => ({
+  tooltipRefDiv: {
     textAlign: 'center',
   },
 }));
@@ -55,6 +58,7 @@ export default function IconButtonMenu({
   const [anchorEl, setAnchorEl] = React.useState(null);
   const tooltipStyles = useTooltipStyles();
   const menuItemStyles = useMenuItemStyles();
+  const tooltipRefStyles = useTooltipRefDivStyles();
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -71,7 +75,7 @@ export default function IconButtonMenu({
         placement={PLACEMENTS[placement].TOOLTIP}
         classes={tooltipStyles}
       >
-        <div className={tooltipStyles.ref}>
+        <div className={tooltipRefStyles.tooltipRefDiv}>
           <IconButton
             onClick={handleClick}
             isDisabled={isDisabled}
