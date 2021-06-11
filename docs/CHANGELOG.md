@@ -1,3 +1,10 @@
+### [7.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.0...v7.1.1) (2021-06-11)
+
+
+### Bug Fixes
+
+* fix tooltip classes console warning ([fb4563d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fb4563d62a55f9905d697bd85e728714129d126d))
+
 ## [7.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.9...v7.1.0) (2021-06-10)
 
 
