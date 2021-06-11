@@ -1,3 +1,10 @@
+### [7.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.1...v7.1.2) (2021-06-11)
+
+
+### Bug Fixes
+
+* **sqadminlayout:** add necessary nowrap style to Grid container comp ([bca0de6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bca0de68e3687d16843f80b09e302ca03f91ffbb))
+
 ### [7.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.0...v7.1.1) (2021-06-11)
 
 
