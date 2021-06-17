@@ -1,3 +1,10 @@
+### [7.1.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.2...v7.1.3) (2021-06-17)
+
+
+### Bug Fixes
+
+* **cardlist.js:** align no data text to center and add width ([aaaa285](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/aaaa285fa98aecd78709d10a033917bf7dbcaa1d))
+
 ### [7.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.1...v7.1.2) (2021-06-11)
 
 
