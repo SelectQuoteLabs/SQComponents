@@ -1,3 +1,47 @@
+### [7.1.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.2...v7.1.3) (2021-06-17)
+
+
+### Bug Fixes
+
+* **cardlist.js:** align no data text to center and add width ([aaaa285](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/aaaa285fa98aecd78709d10a033917bf7dbcaa1d))
+
+### [7.1.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.1...v7.1.2) (2021-06-11)
+
+
+### Bug Fixes
+
+* **sqadminlayout:** add necessary nowrap style to Grid container comp ([bca0de6](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bca0de68e3687d16843f80b09e302ca03f91ffbb))
+
+### [7.1.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.0...v7.1.1) (2021-06-11)
+
+
+### Bug Fixes
+
+* fix tooltip classes console warning ([fb4563d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fb4563d62a55f9905d697bd85e728714129d126d))
+
+## [7.1.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.9...v7.1.0) (2021-06-10)
+
+
+### Features
+
+* **iconbuttonmenu:** expose applyPopoverPadding prop ([02f48a2](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/02f48a2a6c80656042536440c16a6f61a695cad5))
+
+### [7.0.9](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.8...v7.0.9) (2021-06-09)
+
+
+### Bug Fixes
+
+* **cardlist.js:** add class to the card content ([bad979f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/bad979f8c0a17801402515b429fb5fc2edd0c41a))
+
+### [7.0.8](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.7...v7.0.8) (2021-06-09)
+
+
+### Bug Fixes
+
+* **list.js:** add noData class for empty list item ([fbf6c45](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fbf6c45f2a27c2156053936a13d343cc9a65ac2d))
+* **list.js:** remove react weekly schedule ([319aa61](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/319aa6123ef494b8c7ddda2b2beb85043b0a05c1))
+* **list.js:** rename parameter to noDataClass ([fb7f3bb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/fb7f3bbf7146fe4dc72b9634b057fdc63c0de6a7))
+
 ### [7.0.7](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.0.6...v7.0.7) (2021-06-01)
 
 

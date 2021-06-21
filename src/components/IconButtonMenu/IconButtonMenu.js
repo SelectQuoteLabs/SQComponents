@@ -19,6 +19,12 @@ const useTooltipStyles = makeStyles(() => ({
   },
 }));
 
+const useTooltipRefDivStyles = makeStyles(() => ({
+  tooltipRefDiv: {
+    textAlign: 'center',
+  },
+}));
+
 const useMenuItemStyles = makeStyles(() => ({
   menuItem: {
     color: 'var(--color-teal)',
@@ -46,6 +52,9 @@ export default function IconButtonMenu({
   placement = 'bottom',
   selectedItem,
   excludeSelectedItem = false,
+  applyPopoverSpacing = true,
+  height,
+  width,
 }) {
   const popoverClasses = usePopoverStyles();
   const tooltipStyles = useTooltipStyles();
@@ -68,6 +77,7 @@ export default function IconButtonMenu({
     setOptions(filteredOptions);
   }, [selectedItem, menuItems, excludeSelectedItem]);
 
+  const tooltipRefStyles = useTooltipRefDivStyles();
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -84,13 +94,15 @@ export default function IconButtonMenu({
         placement={PLACEMENTS[placement].TOOLTIP}
         classes={tooltipStyles}
       >
-        <div>
+        <div className={tooltipRefStyles.tooltipRefDiv}>
           <IconButton
             onClick={handleClick}
             isDisabled={isDisabled}
             isIconTeal={isIconTeal}
             IconComponent={IconComponent}
-            applyPopoverSpacing={true}
+            applyPopoverSpacing={applyPopoverSpacing}
+            height={height}
+            width={width}
           />
         </div>
       </Tooltip>
@@ -160,6 +172,12 @@ IconButtonMenu.propTypes = {
   ]).isRequired,
   selectedItem: menuItem,
   excludeSelectedItem: PropTypes.bool,
+  /** Whether to apply the popover spacing or not */
+  applyPopoverSpacing: PropTypes.bool,
+  /** Custom icon height size */
+  height: PropTypes.string,
+  /** Custom icon width size */
+  width: PropTypes.string,
 };
 
 const PLACEMENTS = {
