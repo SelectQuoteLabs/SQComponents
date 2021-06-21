@@ -94,14 +94,10 @@ export const withIcon = () => (
 export const excludeSelected = () => {
   const [selectedItem, setSelectedItem] = React.useState(menuItems[0]); // eslint-disable-line react-hooks/rules-of-hooks
 
-  const handleClick = newItem => {
-    setSelectedItem(newItem);
-  };
-
   const formattedMenuItems = menuItems.map(menuItem => ({
     ...menuItem,
     isDisabled: false,
-    onClick: () => handleClick(menuItem),
+    onClick: () => setSelectedItem(menuItem),
   }));
 
   return (
