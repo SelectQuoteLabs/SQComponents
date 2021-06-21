@@ -59,25 +59,24 @@ export default function IconButtonMenu({
   const popoverClasses = usePopoverStyles();
   const tooltipStyles = useTooltipStyles();
   const menuItemStyles = useMenuItemStyles();
+  const tooltipRefStyles = useTooltipRefDivStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [options, setOptions] = React.useState(menuItems);
 
-  React.useEffect(() => {
+  const transformOptions = () => {
     if (!excludeSelectedItem) {
-      setOptions(menuItems);
-      return;
+      return menuItems;
     }
 
     if (!selectedItem) {
       return;
     }
 
-    const filteredOptions = menuItems.filter(({id}) => id !== selectedItem.id);
-    setOptions(filteredOptions);
-  }, [selectedItem, menuItems, excludeSelectedItem]);
+    return menuItems.filter(({id}) => id !== selectedItem.id);
+  };
 
-  const tooltipRefStyles = useTooltipRefDivStyles();
+  const options = transformOptions();
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -114,26 +113,27 @@ export default function IconButtonMenu({
         transformOrigin={PLACEMENTS[placement].TRANSFORM}
         onClose={handleClose}
       >
-        {options && options.length
-          ? options.map(option => {
-              const onClick = () => {
-                option.onClick();
+        {options?.length
+          ? options.map(({id, isDisabled, onClick, label}) => {
+              const handleClick = () => {
+                onClick && onClick();
                 handleClose();
               };
+
               return (
                 <MenuItem
-                  key={option.id}
-                  disabled={option.isDisabled}
-                  onClick={onClick}
+                  key={id}
+                  disabled={isDisabled}
+                  onClick={handleClick}
                   divider={false}
                   dense={false}
                   className={
-                    option.isDisabled
+                    isDisabled
                       ? menuItemStyles.disabled
                       : menuItemStyles.menuItem
                   }
                 >
-                  <Typography>{option.label}</Typography>
+                  <Typography>{label}</Typography>
                 </MenuItem>
               );
             })
