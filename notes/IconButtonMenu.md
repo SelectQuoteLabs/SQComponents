@@ -20,7 +20,7 @@ For your button that needs to be an icon that shows a menu.
 
   `<IconButtonMenu IconComponent={LetterAvatar} ...etc />`
 
-2. v4 MUI Icon component, imported from '@material-ui/icons'
+  2. v4 MUI Icon component, imported from '@material-ui/icons'
 
 - `menuItems` each object in array must have this shape:
   `{ id: String, isDisabled: Boolean, label: String, onClick: Function }`

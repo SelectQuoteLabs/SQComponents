@@ -19,6 +19,12 @@ const useTooltipStyles = makeStyles(() => ({
   },
 }));
 
+const useTooltipRefDivStyles = makeStyles(() => ({
+  tooltipRefDiv: {
+    textAlign: 'center',
+  },
+}));
+
 const useMenuItemStyles = makeStyles(() => ({
   menuItem: {
     color: 'var(--color-teal)',
@@ -44,11 +50,33 @@ export default function IconButtonMenu({
   tooltipTitle,
   IconComponent,
   placement = 'bottom',
+  selectedItem,
+  excludeSelectedItem = false,
+  applyPopoverSpacing = true,
+  height,
+  width,
 }) {
   const popoverClasses = usePopoverStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const tooltipStyles = useTooltipStyles();
   const menuItemStyles = useMenuItemStyles();
+  const tooltipRefStyles = useTooltipRefDivStyles();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const transformOptions = () => {
+    if (!excludeSelectedItem) {
+      return menuItems;
+    }
+
+    if (!selectedItem) {
+      return;
+    }
+
+    return menuItems.filter(({id}) => id !== selectedItem.id);
+  };
+
+  const options = transformOptions();
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -65,13 +93,15 @@ export default function IconButtonMenu({
         placement={PLACEMENTS[placement].TOOLTIP}
         classes={tooltipStyles}
       >
-        <div>
+        <div className={tooltipRefStyles.tooltipRefDiv}>
           <IconButton
             onClick={handleClick}
             isDisabled={isDisabled}
             isIconTeal={isIconTeal}
             IconComponent={IconComponent}
-            applyPopoverSpacing={true}
+            applyPopoverSpacing={applyPopoverSpacing}
+            height={height}
+            width={width}
           />
         </div>
       </Tooltip>
@@ -83,26 +113,27 @@ export default function IconButtonMenu({
         transformOrigin={PLACEMENTS[placement].TRANSFORM}
         onClose={handleClose}
       >
-        {menuItems && menuItems.length
-          ? menuItems.map(item => {
-              const onClick = () => {
-                item.onClick();
+        {options?.length
+          ? options.map(({id, isDisabled, onClick, label}) => {
+              const handleClick = () => {
+                onClick && onClick();
                 handleClose();
               };
+
               return (
                 <MenuItem
-                  key={item.id}
-                  disabled={item.isDisabled}
-                  onClick={onClick}
+                  key={id}
+                  disabled={isDisabled}
+                  onClick={handleClick}
                   divider={false}
                   dense={false}
                   className={
-                    item.isDisabled
+                    isDisabled
                       ? menuItemStyles.disabled
                       : menuItemStyles.menuItem
                   }
                 >
-                  <Typography>{item.label}</Typography>
+                  <Typography>{label}</Typography>
                 </MenuItem>
               );
             })
@@ -112,15 +143,15 @@ export default function IconButtonMenu({
   );
 }
 
+const menuItem = PropTypes.exact({
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  isDisabled: PropTypes.bool,
+});
+
 IconButtonMenu.propTypes = {
-  menuItems: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      label: PropTypes.string,
-      onClick: PropTypes.func,
-      isDisabled: PropTypes.bool,
-    })
-  ).isRequired,
+  menuItems: PropTypes.arrayOf(menuItem).isRequired,
   placement: PropTypes.oneOf([
     'top',
     'topRight',
@@ -139,6 +170,14 @@ IconButtonMenu.propTypes = {
     PropTypes.object,
     PropTypes.func,
   ]).isRequired,
+  selectedItem: menuItem,
+  excludeSelectedItem: PropTypes.bool,
+  /** Whether to apply the popover spacing or not */
+  applyPopoverSpacing: PropTypes.bool,
+  /** Custom icon height size */
+  height: PropTypes.string,
+  /** Custom icon width size */
+  width: PropTypes.string,
 };
 
 const PLACEMENTS = {

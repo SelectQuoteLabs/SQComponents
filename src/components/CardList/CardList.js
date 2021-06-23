@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -75,6 +76,7 @@ const useCardListStyles = makeStyles(() => {
       justifyContent: 'center',
       alignItems: 'center',
       height: '100%',
+      width: 'inherit',
     },
   };
 });
@@ -96,6 +98,7 @@ const useStyles = makeStyles(theme => ({
 
 function CardList({
   cardStyle,
+  cardContentClass,
   contentHeight,
   contentWidth,
   contentStyle,
@@ -181,7 +184,7 @@ function CardList({
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className={classes.content}
+          className={classnames(classes.content, cardContentClass)}
           style={{height: contentHeight, width: contentWidth, ...contentStyle}}
         >
           {selectedTab.isLoading ? (
@@ -220,6 +223,8 @@ function CardList({
 CardList.propTypes = {
   /** OPTIONAL - boolean to override default behavior of intially expanded = true */
   isInitiallyExpanded: PropTypes.bool,
+  /** OPTIONAL - class to be applied to the Card content */
+  cardContentClass: PropTypes.object,
   /** OPTIONAL - styles to be applied to the outer Card element */
   cardStyle: PropTypes.object,
   /** OPTIONAL - height of the card.  Default is 30rem. Ex. contentHeight: '55rem' */
