@@ -25,22 +25,24 @@ const useHeaderStyles = makeStyles(() => ({
     height: 'var(--card-header-height)',
   },
   action: {
-    marginTop: '-18px',
-    marginRight: '-20px',
+    margin: '-18px -20px 0 0',
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
     alignItems: 'center',
   },
 }));
 
-const useContentStyles = makeStyles(theme => ({
-  root: {
-    height: '100%',
-    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
-    overflowY: 'auto',
-  },
-}));
+const useContentStyles = makeStyles(theme => {
+  const paddingTopBottom = theme.spacing(2);
+  const paddingLeftRight = theme.spacing(3);
+
+  return {
+    root: {
+      height: `calc(100% - ${2 * paddingTopBottom}px)`,
+      padding: `${paddingTopBottom}px ${paddingLeftRight}px`,
+      overflowY: 'auto',
+    },
+  };
+});
 
 function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
   const classes = useStyles();
