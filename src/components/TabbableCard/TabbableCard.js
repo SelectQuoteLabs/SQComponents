@@ -10,43 +10,44 @@ import {
 import {MoreVert as MoreVertIcon} from '@material-ui/icons';
 import IconButtonMenu from '../IconButtonMenu';
 
-const useStyles = makeStyles(theme => {
-  return {
-    card: {
-      display: 'grid',
-      gridTemplateColumns: '1fr',
-      gridTemplateRows: 'auto 1fr auto',
-      gridTemplateAreas: `'header' 'content' 'footer'`,
-      width: '100%',
-    },
-    cardHeaderRoot: {
-      gridArea: 'header',
-      borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-      padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
-    },
-    cardHeaderAction: {
-      marginTop: 0,
-      paddingTop: '8px',
-    },
-    cardContent: {
-      gridArea: 'content',
-      overflowY: 'auto',
-      padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
-      width: 'auto',
-      margin: 0,
-    },
-  };
-});
+const CARD_ID_PREFIX = 'tabbable-card-id';
 
-function TabbableCard({
-  tabs = [],
-  title = '',
-  isSelfBounding = false,
-  cardStyles = {},
-}) {
+const useStyles = makeStyles(() => ({
+  card: {
+    height: '100%',
+    width: '100%',
+  },
+}));
+
+const useHeaderStyles = makeStyles(() => ({
+  root: {
+    borderBottom: '1px solid var(--color-lightGray)',
+    height: 'var(--card-header-height)',
+  },
+  action: {
+    marginTop: '-18px',
+    marginRight: '-20px',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+}));
+
+const useContentStyles = makeStyles(theme => ({
+  root: {
+    height: '100%',
+    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
+    overflowY: 'auto',
+  },
+}));
+
+function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
   const classes = useStyles();
+  const headerClasses = useHeaderStyles();
+  const contentClasses = useContentStyles();
 
-  const [selectedTab, setSelectedTab] = React.useState(tabs[0] || {});
+  const [selectedTab, setSelectedTab] = React.useState(tabs?.[0] || {});
 
   const formattedTitle = React.useMemo(() => title.replace(/\s/g, '-'), [
     title,
@@ -56,7 +57,7 @@ function TabbableCard({
 
   React.useEffect(() => {
     const currentElement = document.getElementById(
-      `tabbable-card-id-${formattedTitle}`
+      `${CARD_ID_PREFIX}-${formattedTitle}`
     );
 
     const topOffset = currentElement?.getBoundingClientRect().top;
@@ -70,66 +71,49 @@ function TabbableCard({
 
     const calculatedHeight = `min(${offsetBasedHeight}, ${maxOffsetBasedHeight})`;
 
-    const heightToUse = (isSelfBounding && calculatedHeight) || '100%';
+    const heightToUse = (isAutoHeight && calculatedHeight) || '100%';
     setHeightToUse(heightToUse);
-  }, [formattedTitle, isSelfBounding]);
+  }, [formattedTitle, isAutoHeight]);
 
-  const handleTabClick = tab => {
-    setSelectedTab(tab);
-  };
-
-  const formattedMenuOptions = tabs.map(tab => {
-    const {id, label} = tab;
+  const formattedMenuOptions = tabs?.map(tab => {
+    const {id, label, isDisabled} = tab;
     return {
       id,
       label,
-      onClick: () => handleTabClick(tab),
-      isDisabled: false,
+      onClick: () => setSelectedTab(tab),
+      isDisabled: Boolean(isDisabled),
     };
   });
 
   return (
     <Card
-      id={`tabbable-card-id-${formattedTitle}`}
-      raised={true}
-      elevation={1}
-      square={true}
+      id={`${CARD_ID_PREFIX}-${formattedTitle}`}
+      raised
       className={classes.card}
       style={{height: heightToUse, ...cardStyles}}
     >
       <CardHeader
         title={title}
-        classes={{
-          root: classes.cardHeaderRoot,
-          action: classes.cardHeaderAction,
-        }}
-        titleTypographyProps={{variant: 'h4'}}
+        classes={headerClasses}
         action={
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
-            <Typography>{selectedTab.label}</Typography>
-            <IconButtonMenu
-              menuItems={formattedMenuOptions}
-              placement="bottom"
-              tooltipTitle="Select View"
-              IconComponent={() => <MoreVertIcon fontSize="large" />}
-              selectedItem={formattedMenuOptions.find(
-                ({id}) => id === selectedTab.id
-              )}
-              excludeSelectedItem
-            />
-          </div>
+          formattedMenuOptions && (
+            <>
+              <Typography>{selectedTab.label}</Typography>
+              <IconButtonMenu
+                menuItems={formattedMenuOptions}
+                placement="bottom"
+                tooltipTitle="Select View"
+                IconComponent={() => <MoreVertIcon fontSize="large" />}
+                selectedItem={formattedMenuOptions.find(
+                  ({id}) => id === selectedTab.id
+                )}
+                excludeSelectedItem
+              />
+            </>
+          )
         }
       />
-      <CardContent className={classes.cardContent}>
-        {selectedTab?.body}
-      </CardContent>
+      <CardContent classes={contentClasses}>{selectedTab?.body}</CardContent>
     </Card>
   );
 }
@@ -137,16 +121,17 @@ function TabbableCard({
 TabbableCard.propTypes = {
   /** Array of menu options with a body property that will be what is displayed inside the Card when selected */
   tabs: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      label: PropTypes.string,
-      body: PropTypes.node,
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      label: PropTypes.string.isRequired,
+      body: PropTypes.node.isRequired,
+      isDisabled: PropTypes.bool,
     })
   ),
   /** The Title for the Header component */
   title: PropTypes.string.isRequired,
   /** Boolean to determine whether the Card should determine it's own height or use 100% of its parent's height */
-  isSelfBounding: PropTypes.bool,
+  isAutoHeight: PropTypes.bool,
   /** Optional styling on the card */
   cardStyles: PropTypes.object,
 };
