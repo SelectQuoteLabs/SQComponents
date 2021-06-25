@@ -1,3 +1,11 @@
+### [7.1.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.3...v7.1.4) (2021-06-25)
+
+
+### Bug Fixes
+
+* **cardlist.js:** add comment material uI override ([513efdb](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/513efdb66a5762099cccdc46d61d7f3f4d788753))
+* **cardlist.js:** text vertically and horizontally centered ([0e11e70](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/0e11e703dfede10eee62d6aee1ad2fc82d9dd3e3))
+
 ### [7.1.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.2...v7.1.3) (2021-06-17)
 
 
