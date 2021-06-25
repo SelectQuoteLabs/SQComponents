@@ -79,7 +79,7 @@ const useCardListStyles = makeStyles(() => {
       width: 'inherit',
     },
     noDataCardContent: {
-      padding: '0 !important',
+      padding: '0 !important' /* Material UI override */,
     },
   };
 });
