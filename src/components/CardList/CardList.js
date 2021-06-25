@@ -78,6 +78,9 @@ const useCardListStyles = makeStyles(() => {
       height: '100%',
       width: 'inherit',
     },
+    noDataCardContent: {
+      padding: '0 !important' /* Material UI override */,
+    },
   };
 });
 
@@ -184,8 +187,16 @@ function CardList({
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className={classnames(classes.content, cardContentClass)}
-          style={{height: contentHeight, width: contentWidth, ...contentStyle}}
+          className={classnames(
+            classes.content,
+            {[classes.noDataCardContent]: !selectedTab.listItems?.length},
+            cardContentClass
+          )}
+          style={{
+            height: contentHeight,
+            width: contentWidth,
+            ...contentStyle,
+          }}
         >
           {selectedTab.isLoading ? (
             <div className={classes.loadingContainer}>
