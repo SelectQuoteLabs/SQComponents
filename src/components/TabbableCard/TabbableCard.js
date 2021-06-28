@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
-import {MoreVert as MoreVertIcon} from '@material-ui/icons';
-import IconButtonMenu from '../IconButtonMenu';
+import {Card, CardHeader, CardContent, makeStyles} from '@material-ui/core';
+import CardPopoverMenu from '../CardPopoverMenu';
 
 const CARD_ID_PREFIX = 'tabbable-card-id';
 
@@ -87,6 +80,13 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
     };
   });
 
+  const formatTab = ({id, label, body, isDisabled}) => ({
+    label,
+    body,
+    disabled: Boolean(isDisabled),
+    value: String(id),
+  });
+
   return (
     <Card
       id={`${CARD_ID_PREFIX}-${formattedTitle}`}
@@ -99,19 +99,11 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
         classes={headerClasses}
         action={
           formattedMenuOptions && (
-            <>
-              <Typography>{selectedTab.label}</Typography>
-              <IconButtonMenu
-                menuItems={formattedMenuOptions}
-                placement="bottom"
-                tooltipTitle="Select View"
-                IconComponent={() => <MoreVertIcon fontSize="large" />}
-                selectedItem={formattedMenuOptions.find(
-                  ({id}) => id === selectedTab.id
-                )}
-                excludeSelectedItem
-              />
-            </>
+            <CardPopoverMenu
+              tabs={tabs.map(tab => formatTab(tab))}
+              selectedTab={formatTab(selectedTab)}
+              selectTab={tabToSelect => setSelectedTab(tabToSelect)}
+            />
           )
         }
       />
