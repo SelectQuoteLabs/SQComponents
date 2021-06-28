@@ -197,8 +197,8 @@ const theme = {
       },
       content: {
         '& .MuiTypography-root': {
-          fontSize: '2rem',
-          fontWeight: 'var(--font-weight-semibold)',
+          fontSize: '24px',
+          fontWeight: 'var(--font-weight-normal)',
         },
       },
       action: {
@@ -210,6 +210,7 @@ const theme = {
 
         '& .MuiTypography-root': {
           color: 'var(--color-spanishOrange)',
+          fontSize: '14px',
           fontWeight: 'var(--font-weight-bold)',
         },
 
