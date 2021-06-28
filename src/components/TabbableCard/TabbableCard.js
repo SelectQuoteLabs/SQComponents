@@ -33,6 +33,11 @@ const useContentStyles = makeStyles(theme => {
       height: `calc(100% - ${2 * paddingTopBottom}px)`,
       padding: `${paddingTopBottom}px ${paddingLeftRight}px`,
       overflowY: 'auto',
+      display: 'flex',
+
+      '& *': {
+        margin: 'auto',
+      },
     },
   };
 });
@@ -70,22 +75,10 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
     setHeightToUse(heightToUse);
   }, [formattedTitle, isAutoHeight]);
 
-  const formattedMenuOptions = tabs?.map(tab => {
-    const {id, label, isDisabled} = tab;
-    return {
-      id,
-      label,
-      onClick: () => setSelectedTab(tab),
-      isDisabled: Boolean(isDisabled),
-    };
-  });
-
-  const formatTab = ({id, label, body, isDisabled}) => ({
-    label,
-    body,
-    disabled: Boolean(isDisabled),
-    value: String(id),
-  });
+  const handleTabSelected = selectedTabValue => {
+    const selectedTab = tabs.find(({value}) => value === selectedTabValue);
+    setSelectedTab(selectedTab);
+  };
 
   return (
     <Card
@@ -98,11 +91,11 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
         title={title}
         classes={headerClasses}
         action={
-          formattedMenuOptions && (
+          tabs && (
             <CardPopoverMenu
-              tabs={tabs.map(tab => formatTab(tab))}
-              selectedTab={formatTab(selectedTab)}
-              selectTab={tabToSelect => setSelectedTab(tabToSelect)}
+              tabs={tabs}
+              selectedTab={selectedTab}
+              selectTab={handleTabSelected}
             />
           )
         }
@@ -116,10 +109,10 @@ TabbableCard.propTypes = {
   /** Array of menu options with a body property that will be what is displayed inside the Card when selected */
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      value: PropTypes.PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       body: PropTypes.node.isRequired,
-      isDisabled: PropTypes.bool,
+      disabled: PropTypes.bool,
     })
   ),
   /** The Title for the Header component */

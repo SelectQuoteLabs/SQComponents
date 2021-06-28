@@ -21,24 +21,24 @@ export default {
 
 const tabs = [
   {
-    id: 1,
+    value: '1',
     label: 'Details',
-    body: <h2 style={{margin: 0}}>{TEXT}</h2>,
+    body: <h2>{TEXT}</h2>,
   },
   {
-    id: 2,
+    value: '2',
     label: 'Permissions',
-    body: <h2 style={{margin: 0}}>Imaginary Permissions content</h2>,
+    body: <h2>Imaginary Permissions content</h2>,
   },
   {
-    id: 3,
+    value: '3',
     label: 'Skill Group',
-    body: <h2 style={{margin: 0}}>Imaginary Skill Group content</h2>,
+    body: <h2>Imaginary Skill Group content</h2>,
   },
   {
-    id: 4,
+    value: '4',
     label: 'Gal States',
-    body: <h2 style={{margin: 0}}>Imaginary Gal States content</h2>,
+    body: <h2>Imaginary Gal States content</h2>,
   },
 ];
 
