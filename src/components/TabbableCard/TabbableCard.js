@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Card, CardHeader, CardContent, makeStyles} from '@material-ui/core';
 import CardPopoverMenu from '../CardPopoverMenu';
-
-const CARD_ID_PREFIX = 'tabbable-card-id';
+import {useAutoHeight} from '../../hooks/useAutoHeight';
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -48,33 +47,10 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
   const headerClasses = useHeaderStyles();
   const contentClasses = useContentStyles();
 
+  const {containerRef, autoHeight} = useAutoHeight();
+  const height = (isAutoHeight && autoHeight) || '100%';
+
   const [selectedTab, setSelectedTab] = React.useState(tabs?.[0] || {});
-
-  const formattedTitle = React.useMemo(() => title.replace(/\s/g, '-'), [
-    title,
-  ]);
-
-  const [heightToUse, setHeightToUse] = React.useState(0);
-
-  React.useEffect(() => {
-    const currentElement = document.getElementById(
-      `${CARD_ID_PREFIX}-${formattedTitle}`
-    );
-
-    const topOffset = currentElement?.getBoundingClientRect().top;
-    const offsetBasedHeight = `calc(100vh - ${topOffset}px - 24px)`;
-
-    const parentHeight = currentElement.parentElement.clientHeight;
-    const parentTopOffset = currentElement.parentElement.getBoundingClientRect()
-      .top;
-    const topDifferential = topOffset - parentTopOffset;
-    const maxOffsetBasedHeight = `calc(${parentHeight}px - ${topDifferential}px)`;
-
-    const calculatedHeight = `min(${offsetBasedHeight}, ${maxOffsetBasedHeight})`;
-
-    const heightToUse = (isAutoHeight && calculatedHeight) || '100%';
-    setHeightToUse(heightToUse);
-  }, [formattedTitle, isAutoHeight]);
 
   const handleTabSelected = selectedTabValue => {
     const selectedTab = tabs.find(({value}) => value === selectedTabValue);
@@ -83,10 +59,10 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
 
   return (
     <Card
-      id={`${CARD_ID_PREFIX}-${formattedTitle}`}
+      ref={containerRef}
       raised
       className={classes.card}
-      style={{height: heightToUse, ...cardStyles}}
+      style={{height, ...cardStyles}}
     >
       <CardHeader
         title={title}
