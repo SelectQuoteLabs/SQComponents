@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -16,15 +17,6 @@ import LoadingIcon from '../LoadingIcon';
 
 const useCardListStyles = makeStyles(() => {
   return {
-    header: {
-      height: 'var(--card-header-height)',
-      borderBottom: '1px solid var(--color-lightGray)',
-    },
-    headerItems: {
-      display: 'flex',
-      alignItems: 'center',
-      height: '2.5rem',
-    },
     cardList: {
       display: 'inline-block',
       padding: '0rem 0rem 0rem 0rem',
@@ -162,9 +154,8 @@ function CardList({
     >
       {shouldRenderHeader && (
         <CardHeader
-          className={classes.header}
           action={
-            <div className={classes.headerItems}>
+            <>
               <CardPopoverMenu
                 tabs={tabs}
                 selectedTab={selectedTab}
@@ -181,7 +172,7 @@ function CardList({
                   <ExpandMoreIcon />
                 </IconButton>
               )}
-            </div>
+            </>
           }
         />
       )}
@@ -216,7 +207,7 @@ function CardList({
         </CardContent>
       </Collapse>
       {isExpanded && selectedTab.handleRefresh && (
-        <footer className={classes.footer}>
+        <CardActions className={classes.footer}>
           <IconButton
             title="Refresh List"
             color="primary"
@@ -225,7 +216,7 @@ function CardList({
           >
             <RefreshIcon fontSize="large" />
           </IconButton>
-        </footer>
+        </CardActions>
       )}
     </Card>
   );
