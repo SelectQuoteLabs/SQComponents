@@ -18,7 +18,8 @@ const useHeaderStyles = makeStyles(() => ({
     height: 'var(--card-header-height)',
   },
   action: {
-    margin: '-18px -20px 0 0',
+    //Note: Negative margin to account for the default padding on MuiCardHeader.root
+    margin: '-16px -16px 0 0',
     display: 'flex',
     alignItems: 'center',
   },
