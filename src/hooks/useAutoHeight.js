@@ -9,7 +9,7 @@ export function useAutoHeight() {
       return;
     }
 
-    const topOffset = containerRef?.getBoundingClientRect().top;
+    const topOffset = containerRef.getBoundingClientRect().top;
     const offsetBasedHeight = `calc(100vh - ${topOffset}px - 24px)`;
 
     const parentHeight = containerRef.parentElement.clientHeight;
