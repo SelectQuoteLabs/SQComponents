@@ -35,8 +35,6 @@ const useCardStyles = makeStyles(() => {
       alignSelf: 'center',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
-      fontSize: '21.6px',
-      fontWeight: '500',
     },
     headerActions: {
       display: 'flex',
@@ -138,7 +136,7 @@ function ExpandingCard({
       <div className={cardClasses.headerWrapper}>
         <div className={cardClasses.header}>
           <div className={cardClasses.headerTitle}>
-            <Typography variant="inherit">{title}</Typography>
+            <Typography variant="h5">{title}</Typography>
           </div>
           <div className={cardClasses.headerActions}>
             {actions}
