@@ -1,3 +1,15 @@
+## [7.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.4...v7.2.0) (2021-06-30)
+
+
+### Features
+
+* created TabbableCard component ([1d52d2b](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/1d52d2b90afac2c64bf041727282c4c3adeefd50))
+
+
+### Bug Fixes
+
+* fixed typo ([8ab8043](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/8ab80430f5d76ecc2c20263c0febddd7a9904448))
+
 ### [7.1.4](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.3...v7.1.4) (2021-06-25)
 
 
