@@ -9,6 +9,6 @@ A card that can switch between 'tabs'
 ## Technical Notes
 
 - The tabs prop must be an array of object that follow this schema:
-  `{ id: string || number, label: string, body: node }`
+  `{ value: string, label: string, body: node, disabled: boolean }`
 
-- The `isSelfBounding` prop will allow the card to use as much space as it can within its parent node. Note: This prop will respect any siblings the card may have.
+- The `isAutoHeight` prop will allow the card to use as much space as it can within its parent node. Note: This prop will respect any siblings the card may have.
