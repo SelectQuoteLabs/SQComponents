@@ -229,6 +229,13 @@ const theme = {
         padding: '0 !important',
       },
     },
+    MuiCardActions: {
+      root: {
+        display: 'flex',
+        padding: '5px',
+        borderTop: '1px solid var(--color-lightGray)',
+      },
+    },
   },
   props: {
     MuiModal: {

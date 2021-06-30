@@ -220,9 +220,9 @@ const tabOptionsWithNoData = [
 
 export const CardListWithCustomStyle = () => (
   <CardList
-    contentWidth="45rem"
+    contentWidth="auto"
     contentHeight="85vh"
-    cardStyle={{minWidth: 'auto'}}
+    cardStyle={{minWidth: '45rem'}}
     contentStyle={{backgroundColor: 'blue'}}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
