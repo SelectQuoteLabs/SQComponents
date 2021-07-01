@@ -27,9 +27,6 @@ const useStyles = makeStyles(() => {
       height: '30rem',
       width: '25rem',
     },
-    loadingContainer: {
-      alignSelf: 'center',
-    },
     footer: {
       justifyContent: 'flex-end',
     },
@@ -146,9 +143,7 @@ function CardList({
           }}
         >
           {selectedTab.isLoading ? (
-            <div className={classes.loadingContainer}>
-              <LoadingIcon />
-            </div>
+            <LoadingIcon />
           ) : (
             <List
               listItems={selectedTab.listItems}

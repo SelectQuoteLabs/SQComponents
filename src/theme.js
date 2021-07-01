@@ -227,6 +227,10 @@ const theme = {
         margin: `16px 24px`, //Note: Using margin instead of padding so overflow is bounded as well
         overflowY: 'auto',
         padding: '0 !important',
+
+        '& *': {
+          margin: 'auto',
+        },
       },
     },
     MuiCardActions: {
