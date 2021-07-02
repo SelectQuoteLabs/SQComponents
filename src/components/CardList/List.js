@@ -4,41 +4,35 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
-
 import Tooltip from '@material-ui/core/Tooltip';
+import {makeStyles} from '@material-ui/core/styles';
 import SelectChip from '../SelectChip/SelectChip';
 
-const COLORS = {
-  GREEN: 'GREEN',
-  ORANGE: 'ORANGE',
-  PINK: 'PINK',
-  PURPLE: 'PURPLE',
-  RED: 'RED',
-  YELLOW: 'YELLOW',
+const COLOR_EMOJI_MAP = {
+  GREEN: '🍐',
+  ORANGE: '🍊',
+  PINK: '🍉',
+  PURPLE: '🍇',
+  RED: '🍒',
+  YELLOW: '🍌',
 };
 
-const getColorEmoji = color => {
-  switch (color) {
-    case COLORS.GREEN:
-      return '🍐';
-    case COLORS.ORANGE:
-      return '🍊';
-    case COLORS.PINK:
-      return '🍉';
-    case COLORS.PURPLE:
-      return '🍇';
-    case COLORS.RED:
-      return '🍒';
-    case COLORS.YELLOW:
-      return '🍌';
-    default:
-      return color;
-  }
-};
+const useColorIconStyles = makeStyles(() => ({
+  icon: {
+    float: 'right',
+    display: 'block',
+    textAlign: 'right',
+    fontSize: '2.5rem',
+    paddingLeft: '2rem',
+    position: 'relative',
+    top: '0',
+  },
+}));
 
-const getColorIcons = (color, classes) => {
-  const upperCaseColor = color.toUpperCase();
-  const emoji = getColorEmoji(upperCaseColor);
+const ColorIcon = ({color}) => {
+  const classes = useColorIconStyles();
+  const emoji = COLOR_EMOJI_MAP[color.toUpperCase()] || color;
+
   return (
     <ListItemIcon className={classes.icon}>
       <Tooltip arrow title={color} placement="top">
@@ -50,33 +44,51 @@ const getColorIcons = (color, classes) => {
   );
 };
 
-const renderNoDataMessage = (message, noDataClass) => {
+const useNoDataMessageStyles = makeStyles(() => ({
+  noData: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: 'inherit',
+  },
+}));
+
+const NoDataMessage = ({message}) => {
+  const classes = useNoDataMessageStyles();
   return (
-    <div className={noDataClass}>
+    <div className={classes.noDataClass}>
       <Typography variant="body2">{message}</Typography>
     </div>
   );
 };
 
-function List({
-  classes,
-  listItems,
-  noDataMessage,
-  zeroItemsMessage,
-  isSelectable,
-}) {
+const useListStyles = makeStyles(() => ({
+  items: {
+    display: 'block',
+    padding: '0rem 0rem 0rem 0rem',
+    overflow: 'auto',
+    width: 'auto',
+  },
+  selectChip: {
+    height: '1.25rem',
+    padding: '.5rem 1.25rem 0rem',
+  },
+}));
+
+function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
+  const classes = useListStyles();
   const [selectedID, setSelectedID] = React.useState(null);
 
   if (!listItems) {
-    return renderNoDataMessage(
-      noDataMessage || 'Data Currently Unavailable',
-      classes.noData
+    return (
+      <NoDataMessage message={noDataMessage || 'Data Currently Unavailable'} />
     );
   }
+
   if (!listItems.length) {
-    return renderNoDataMessage(
-      zeroItemsMessage || 'List is currently empty',
-      classes.noData
+    return (
+      <NoDataMessage message={zeroItemsMessage || 'List is currently empty'} />
     );
   }
 
@@ -97,7 +109,7 @@ function List({
       optionIsSelected={isSelectable && listItem.id === selectedID}
     >
       <ListItem className={classes.items}>
-        {listItem.color && getColorIcons(listItem.color, classes)}
+        {listItem.color && <ColorIcon color={listItem.color} />}
         {listItem.header && <ListItemText primary={listItem.header} />}
         {listItem.secondaryRows &&
           listItem.secondaryRows.map((row, secondaryListItemIndex) => (
@@ -113,8 +125,6 @@ function List({
 }
 
 List.propTypes = {
-  /** MUI Custom Styles object */
-  classes: PropTypes.object.isRequired,
   /** The items in the list (selectedTab.listItems) */
   listItems: PropTypes.array,
   /** Message to display when data has not or could not be retrieved */

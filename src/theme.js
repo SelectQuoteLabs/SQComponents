@@ -190,6 +190,56 @@ const theme = {
         },
       },
     },
+    MuiCardHeader: {
+      root: {
+        height: '48px',
+        borderBottom: '1px solid var(--color-lightGray)',
+      },
+      content: {
+        '& .MuiTypography-root': {
+          fontSize: '24px',
+          fontWeight: 'var(--font-weight-normal)',
+        },
+      },
+      action: {
+        //Note: Negative margin to account for the default padding on MuiCardHeader.root
+        marginTop: '-16px',
+        marginRight: '-16px',
+        display: 'flex',
+        alignItems: 'center',
+
+        '& .MuiTypography-root': {
+          color: 'var(--color-spanishOrange)',
+          fontSize: '14px',
+          fontWeight: 'var(--font-weight-bold)',
+        },
+
+        '& .MuiSvgIcon-root': {
+          color: 'var(--color-teal)',
+        },
+      },
+    },
+    MuiCardContent: {
+      root: {
+        display: 'flex',
+        justifyContent: 'center',
+        height: 'calc(100% - 32px - 48px)', //Note: 100% - (marginTop + marginBottom) - heightOfHeader
+        margin: `16px 24px`, //Note: Using margin instead of padding so overflow is bounded as well
+        overflowY: 'auto',
+        padding: '0 !important',
+
+        '& *': {
+          margin: 'auto',
+        },
+      },
+    },
+    MuiCardActions: {
+      root: {
+        display: 'flex',
+        padding: '5px',
+        borderTop: '1px solid var(--color-lightGray)',
+      },
+    },
   },
   props: {
     MuiModal: {

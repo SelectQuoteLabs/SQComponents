@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -14,77 +15,25 @@ import List from './List';
 import CardPopoverMenu from '../CardPopoverMenu';
 import LoadingIcon from '../LoadingIcon';
 
-const useCardListStyles = makeStyles(() => {
+const useStyles = makeStyles(() => {
   return {
-    header: {
-      height: 'var(--card-header-height)',
-      borderBottom: '1px solid var(--color-lightGray)',
-    },
-    headerItems: {
-      display: 'flex',
-      alignItems: 'center',
-      height: '2.5rem',
-    },
     cardList: {
       display: 'inline-block',
-      padding: '0rem 0rem 0rem 0rem',
       minWidth: '25rem',
       width: 'auto',
     },
     content: {
-      padding: '0.1rem 1.5rem 0rem 0rem',
-      overflowY: 'scroll',
       overflowX: 'hidden',
       height: '30rem',
       width: '25rem',
     },
-    icon: {
-      float: 'right',
-      display: 'block',
-      textAlign: 'right',
-      fontSize: '2.5rem',
-      paddingLeft: '2rem',
-      position: 'relative',
-      top: '0',
-    },
-    items: {
-      display: 'block',
-      padding: '0rem 0rem 0rem 0rem',
-      overflow: 'auto',
-      width: 'auto',
-    },
-    selectChip: {
-      height: '1.25rem',
-      padding: '.5rem 1.25rem 0rem',
-    },
     footer: {
-      display: 'flex',
       justifyContent: 'flex-end',
-      padding: '0.4rem',
-      borderTop: '1px solid var(--color-lightGray)',
-    },
-    loadingContainer: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      height: '100%',
-      paddingLeft: '2.5rem',
-    },
-    noData: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100%',
-      width: 'inherit',
-    },
-    noDataCardContent: {
-      padding: '0 !important' /* Material UI override */,
     },
   };
 });
 
-const useStyles = makeStyles(theme => ({
+const useButtonStyles = makeStyles(theme => ({
   base: {
     padding: 0,
   },
@@ -110,7 +59,9 @@ function CardList({
   shouldRenderHeader = true,
   tabs,
 }) {
-  const classes = useCardListStyles();
+  const classes = useStyles();
+  const buttonClasses = useButtonStyles();
+
   const [isExpanded, setExpanded] = React.useState(
     !isExpandable ? true : isInitiallyExpanded
   );
@@ -139,11 +90,6 @@ function CardList({
     setSelectedTab({type: 'SYNC_TAB', tab: tabs[selectedTab.index]});
   }, [selectedTab.index, tabs]);
 
-  const buttonClasses = useStyles();
-  const expandClasses = isExpanded
-    ? buttonClasses.expandOpen
-    : buttonClasses.expand;
-
   const expandClick = () => {
     setExpanded(!isExpanded);
   };
@@ -162,9 +108,8 @@ function CardList({
     >
       {shouldRenderHeader && (
         <CardHeader
-          className={classes.header}
           action={
-            <div className={classes.headerItems}>
+            <>
               <CardPopoverMenu
                 tabs={tabs}
                 selectedTab={selectedTab}
@@ -173,7 +118,10 @@ function CardList({
               />
               {isExpandable && (
                 <IconButton
-                  className={`${buttonClasses.base} ${expandClasses}`}
+                  className={classnames(buttonClasses.base, {
+                    [buttonClasses.expandOpen]: isExpanded,
+                    [buttonClasses.expand]: !isExpanded,
+                  })}
                   onClick={expandClick}
                   aria-expanded={isExpanded}
                   aria-label="open"
@@ -181,17 +129,13 @@ function CardList({
                   <ExpandMoreIcon />
                 </IconButton>
               )}
-            </div>
+            </>
           }
         />
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className={classnames(
-            classes.content,
-            {[classes.noDataCardContent]: !selectedTab.listItems?.length},
-            cardContentClass
-          )}
+          className={`${classes.content} ${cardContentClass}`}
           style={{
             height: contentHeight,
             width: contentWidth,
@@ -199,12 +143,9 @@ function CardList({
           }}
         >
           {selectedTab.isLoading ? (
-            <div className={classes.loadingContainer}>
-              <LoadingIcon style={{marginLeft: '10rem'}} />
-            </div>
+            <LoadingIcon />
           ) : (
             <List
-              classes={classes}
               listItems={selectedTab.listItems}
               noDataMessage={selectedTab.noDataMessage}
               zeroItemsMessage={
@@ -216,7 +157,7 @@ function CardList({
         </CardContent>
       </Collapse>
       {isExpanded && selectedTab.handleRefresh && (
-        <footer className={classes.footer}>
+        <CardActions className={classes.footer}>
           <IconButton
             title="Refresh List"
             color="primary"
@@ -225,7 +166,7 @@ function CardList({
           >
             <RefreshIcon fontSize="large" />
           </IconButton>
-        </footer>
+        </CardActions>
       )}
     </Card>
   );

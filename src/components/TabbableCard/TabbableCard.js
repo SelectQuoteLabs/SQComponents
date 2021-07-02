@@ -11,41 +11,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const useHeaderStyles = makeStyles(() => ({
-  root: {
-    borderBottom: '1px solid var(--color-lightGray)',
-    height: 'var(--card-header-height)',
-  },
-  action: {
-    //Note: Negative margin to account for the default padding on MuiCardHeader.root
-    margin: '-16px -16px 0 0',
-    display: 'flex',
-    alignItems: 'center',
-  },
-}));
-
-const useContentStyles = makeStyles(theme => {
-  const paddingTopBottom = theme.spacing(2);
-  const paddingLeftRight = theme.spacing(3);
-
-  return {
-    root: {
-      height: `calc(100% - ${2 * paddingTopBottom}px)`,
-      padding: `${paddingTopBottom}px ${paddingLeftRight}px`,
-      overflowY: 'auto',
-      display: 'flex',
-
-      '& *': {
-        margin: 'auto',
-      },
-    },
-  };
-});
-
 function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
   const classes = useStyles();
-  const headerClasses = useHeaderStyles();
-  const contentClasses = useContentStyles();
 
   const {containerRef, autoHeight} = useAutoHeight();
   const height = (isAutoHeight && autoHeight) || '100%';
@@ -66,7 +33,6 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
     >
       <CardHeader
         title={title}
-        classes={headerClasses}
         action={
           tabs && (
             <CardPopoverMenu
@@ -77,7 +43,7 @@ function TabbableCard({tabs, title = '', isAutoHeight = false, cardStyles}) {
           )
         }
       />
-      <CardContent classes={contentClasses}>{selectedTab?.body}</CardContent>
+      <CardContent>{selectedTab?.body}</CardContent>
     </Card>
   );
 }
