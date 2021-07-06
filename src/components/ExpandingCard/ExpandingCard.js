@@ -40,6 +40,8 @@ const useCardStyles = makeStyles(() => {
       display: 'flex',
       justifyContent: 'flex-end',
       fontSize: '1rem',
+      alignItems: 'center',
+      padding: '10px 0 8px 0',
     },
     subheader: {
       padding: '0.15rem 1rem',
