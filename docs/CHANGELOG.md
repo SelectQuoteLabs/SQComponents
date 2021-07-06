@@ -1,3 +1,11 @@
+### [7.2.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.0...v7.2.1) (2021-07-06)
+
+
+### Bug Fixes
+
+* **expandingcard.js:** add font size and font weight ([9c5a47f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9c5a47f8b767261e2707aaa80f13a3a7ea7956fc))
+* **expandingcard.js:** use h5 typography ([b16e0f3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b16e0f3b3d1f39fe4528e8db361ab182077fb5b4))
+
 ## [7.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.4...v7.2.0) (2021-06-30)
 
 
