@@ -136,10 +136,10 @@ function ExpandingCard({
       <div className={cardClasses.headerWrapper}>
         <div className={cardClasses.header}>
           <div className={cardClasses.headerTitle}>
-            <Typography variant="h6">{title}</Typography>
+            <Typography variant="h5">{title}</Typography>
           </div>
           <div className={cardClasses.headerActions}>
-            {actions}
+            <div style={{marginTop: '-4px'}}>{actions}</div>
             <div className={cardClasses.expandButton}>
               <IconButton
                 onClick={toggleExpansion}
