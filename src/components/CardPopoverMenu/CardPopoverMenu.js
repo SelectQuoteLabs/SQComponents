@@ -62,7 +62,7 @@ function CardPopoverMenu({disabled = false, tabs, selectedTab, selectTab}) {
             style={{
               fontWeight: bold,
               color: spanishOrange,
-              padding: '0 6px',
+              padding: '0 0 8px 0',
             }}
             label={
               <>
