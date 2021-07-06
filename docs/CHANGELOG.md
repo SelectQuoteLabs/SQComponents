@@ -1,3 +1,12 @@
+### [7.2.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.1...v7.2.2) (2021-07-06)
+
+
+### Bug Fixes
+
+* **cardpopovermenu.js:** align action item ([5afe70a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5afe70a01a894b791a858544c5d66104188d6a92))
+* **expandingcard.js:** align action item ([5e3a537](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5e3a5371f90e906357c8baa41632f72d3889fccd))
+* **expandingcard.js:** remove div ([ff8510e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ff8510eb5ba5c78139fbd481584c383890941dd8))
+
 ### [7.2.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.0...v7.2.1) (2021-07-06)
 
 
