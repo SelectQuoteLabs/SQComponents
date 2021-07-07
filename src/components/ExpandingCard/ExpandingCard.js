@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     borderLeft: '1px solid var(--color-lightGray)',
   },
-  expandButtonBase: {
+  expandButton: {
     padding: '12px 6px',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
@@ -48,13 +49,16 @@ function ExpandingCard({
     <Card
       ref={containerRef}
       raised={raised}
-      className={`${classes.card} ${cardClassName}`}
+      className={classnames(classes.card, {
+        [cardClassName]: Boolean(cardClassName),
+      })}
       style={{height}}
     >
       <CardHeader
+        className={subheader && 'custom-subheader'}
         title={title}
         subheader={
-          subheader && <Typography variant="h6">{subheader}</Typography>
+          subheader && <Typography variant="subtitle2">{subheader}</Typography>
         }
         action={
           <>
@@ -62,7 +66,7 @@ function ExpandingCard({
             <div className={classes.expandButtonContainer}>
               <IconButton
                 onClick={() => setIsExpanded(!isExpanded)}
-                className={classes.expandButtonBase}
+                className={classes.expandButton}
                 aria-expanded={isExpanded}
                 aria-label="open"
               >
