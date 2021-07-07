@@ -192,16 +192,37 @@ const theme = {
     },
     MuiCardHeader: {
       root: {
-        height: '48px',
+        /**
+         * Note: Set paddingLeft to 0 to allow .MuiCardHeader-subheader's
+         * borderTop to touch left side of header
+         */
+        padding: '16px 16px 16px 0',
+        /**
+         * Note: This should be the same as .MuiCardHeader-action:height
+         * AND included in the calc() for .MuiCardContent.root:height
+         */
+        height: '60px',
         borderBottom: '1px solid var(--color-lightGray)',
       },
-      content: {
-        '& .MuiTypography-root': {
-          fontSize: '24px',
-          fontWeight: 'var(--font-weight-normal)',
-        },
+      //Note: MUI defaults this to an h5
+      title: {
+        paddingLeft: '16px',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+      },
+      //Note: MUI defaults this to an h6
+      subheader: {
+        paddingLeft: '16px',
+        borderTop: '1px solid var(--color-lightGray)',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
       },
       action: {
+        /**
+         * Note: This should be the same as .MuiCardHeader-root:height
+         * AND included in the calc() for .MuiCardContent.root:height
+         */
+        height: '60px',
         //Note: Negative margin to account for the default padding on MuiCardHeader.root
         marginTop: '-16px',
         marginRight: '-16px',
@@ -223,7 +244,7 @@ const theme = {
       root: {
         display: 'flex',
         justifyContent: 'center',
-        height: 'calc(100% - 32px - 48px)', //Note: 100% - (marginTop + marginBottom) - heightOfHeader
+        height: 'calc(100% - 32px - 60px)', //Note: 100% - (marginTop + marginBottom) - heightOfHeader
         margin: `16px 24px`, //Note: Using margin instead of padding so overflow is bounded as well
         overflowY: 'auto',
         padding: '0 !important',
