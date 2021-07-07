@@ -222,7 +222,7 @@ const theme = {
     MuiCardContent: {
       root: {
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
         height: 'calc(100% - 32px - 48px)', //Note: 100% - (marginTop + marginBottom) - heightOfHeader
         margin: `16px 24px`, //Note: Using margin instead of padding so overflow is bounded as well
         overflowY: 'auto',

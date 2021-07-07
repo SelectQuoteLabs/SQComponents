@@ -102,10 +102,7 @@ function CardList({
   };
 
   return (
-    <Card
-      className={classes.cardList}
-      style={{width: contentWidth, ...cardStyle}}
-    >
+    <Card className={classes.cardList} style={cardStyle}>
       {shouldRenderHeader && (
         <CardHeader
           action={
@@ -135,7 +132,9 @@ function CardList({
       )}
       <Collapse in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent
-          className={`${classes.content} ${cardContentClass}`}
+          className={classnames(classes.content, {
+            [cardContentClass]: Boolean(cardContentClass),
+          })}
           style={{
             height: contentHeight,
             width: contentWidth,
