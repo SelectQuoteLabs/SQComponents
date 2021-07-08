@@ -6,7 +6,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
-import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import {makeStyles} from '@material-ui/core/styles';
@@ -15,23 +14,14 @@ import List from './List';
 import CardPopoverMenu from '../CardPopoverMenu';
 import LoadingIcon from '../LoadingIcon';
 
-const useStyles = makeStyles(() => {
-  return {
-    cardList: {
-      display: 'inline-block',
-      minWidth: '25rem',
-      width: 'auto',
-    },
-    content: {
-      overflowX: 'hidden',
-      height: '30rem',
-      width: '25rem',
-    },
-    footer: {
-      justifyContent: 'flex-end',
-    },
-  };
-});
+const useStyles = makeStyles(() => ({
+  content: {
+    margin: 0,
+  },
+  footer: {
+    justifyContent: 'flex-end',
+  },
+}));
 
 const useButtonStyles = makeStyles(theme => ({
   base: {
@@ -102,10 +92,7 @@ function CardList({
   };
 
   return (
-    <Card
-      className={classes.cardList}
-      style={{width: contentWidth, ...cardStyle}}
-    >
+    <Card style={cardStyle}>
       {shouldRenderHeader && (
         <CardHeader
           action={
@@ -133,11 +120,14 @@ function CardList({
           }
         />
       )}
-      <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+      {isExpanded && (
         <CardContent
-          className={`${classes.content} ${cardContentClass}`}
+          className={classnames(classes.content, {
+            [cardContentClass]: Boolean(cardContentClass),
+          })}
           style={{
-            height: contentHeight,
+            minHeight: contentHeight,
+            maxHeight: contentHeight,
             width: contentWidth,
             ...contentStyle,
           }}
@@ -155,7 +145,7 @@ function CardList({
             />
           )}
         </CardContent>
-      </Collapse>
+      )}
       {isExpanded && selectedTab.handleRefresh && (
         <CardActions className={classes.footer}>
           <IconButton

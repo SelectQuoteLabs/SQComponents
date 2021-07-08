@@ -190,6 +190,13 @@ const theme = {
         },
       },
     },
+    MuiCard: {
+      root: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      },
+    },
     MuiCardHeader: {
       root: {
         height: '48px',
@@ -221,11 +228,12 @@ const theme = {
     },
     MuiCardContent: {
       root: {
+        flex: 1,
         display: 'flex',
-        justifyContent: 'center',
-        height: 'calc(100% - 32px - 48px)', //Note: 100% - (marginTop + marginBottom) - heightOfHeader
-        margin: `16px 24px`, //Note: Using margin instead of padding so overflow is bounded as well
+        flexDirection: 'column',
+        margin: '16px 24px', // Note: Using margin instead of padding so overflow is bounded as well
         overflowY: 'auto',
+        overflowX: 'hidden',
         padding: '0 !important',
 
         '& *': {
