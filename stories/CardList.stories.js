@@ -251,6 +251,8 @@ export const CardListExampleWithLoadingAndWidth = () => (
 
 export const CardListExampleWithNoData = () => (
   <CardList
+    contentHeight="100px"
+    contentWidth="300px"
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
