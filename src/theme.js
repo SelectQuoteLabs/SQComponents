@@ -236,7 +236,7 @@ const theme = {
         overflowX: 'hidden',
         padding: '0 !important',
 
-        '& *': {
+        '& > *': {
           margin: 'auto',
         },
       },
