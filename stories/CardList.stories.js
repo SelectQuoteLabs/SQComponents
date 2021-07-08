@@ -220,9 +220,8 @@ const tabOptionsWithNoData = [
 
 export const CardListWithCustomStyle = () => (
   <CardList
-    contentWidth="auto"
-    contentHeight="85vh"
-    cardStyle={{minWidth: '45rem'}}
+    contentHeight="500px"
+    cardStyle={{minWidth: '400px'}}
     contentStyle={{backgroundColor: 'blue'}}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
@@ -241,7 +240,8 @@ export const CardListExampleWithoutStyle = () => (
 
 export const CardListExampleWithLoadingAndWidth = () => (
   <CardList
-    contentWidth="75rem"
+    contentHeight="450px"
+    contentWidth="800px"
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}
@@ -258,7 +258,7 @@ export const CardListExampleWithNoData = () => (
   />
 );
 
-export const CardListExampleWithOneTabWithSelectableItems = () => (
+export const CardListExampleWithSelectableItems = () => (
   <CardList
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
@@ -270,6 +270,8 @@ export const CardListExampleWithOneTabWithSelectableItems = () => (
 
 export const CardListExampleWithoutHeader = () => (
   <CardList
+    contentHeight="400px"
+    contentWidth="275px"
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', false)}

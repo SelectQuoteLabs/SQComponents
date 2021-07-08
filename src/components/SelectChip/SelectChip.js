@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@material-ui/core/Card';
-import {makeStyles} from '@material-ui/core';
+import {Paper, makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
   selectChip: {
@@ -9,7 +8,7 @@ const useStyles = makeStyles(() => ({
     padding: '0.75rem 1.25rem',
     cursor: 'pointer',
     border: '0.1667rem solid',
-    width: ({staticWidth}) => staticWidth,
+    width: ({staticWidth}) => (staticWidth ? staticWidth : '100%'),
     borderColor: ({isSelected}) =>
       isSelected ? 'var(--color-spanishOrange)' : 'transparent',
     transition: 'border-color 0.5s ease',
@@ -35,9 +34,9 @@ function SelectChip({
   const classes = useStyles({isSelected: optionIsSelected, staticWidth});
 
   return (
-    <Card tabIndex={tabIndex} onClick={onClick} className={classes.selectChip}>
+    <Paper tabIndex={tabIndex} onClick={onClick} className={classes.selectChip}>
       {children}
-    </Card>
+    </Paper>
   );
 }
 
