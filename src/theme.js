@@ -231,7 +231,7 @@ const theme = {
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        margin: `16px 24px`, // Note: Using margin instead of padding so overflow is bounded as well
+        margin: '16px 24px', // Note: Using margin instead of padding so overflow is bounded as well
         overflowY: 'auto',
         overflowX: 'hidden',
         padding: '0 !important',
