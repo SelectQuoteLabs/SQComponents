@@ -1,3 +1,11 @@
+### [7.2.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.2...v7.2.3) (2021-07-08)
+
+
+### Bug Fixes
+
+* fixed CardList and SelectChip height and width issues ([c22e2f9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c22e2f907d5b93a7c3784220a5bcc6cd8834a3ac))
+* fixed CardList content alignment and size issues ([2c92c5d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2c92c5de9b74b331991c5c012fe73c01be75f627))
+
 ### [7.2.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.1...v7.2.2) (2021-07-06)
 
 
