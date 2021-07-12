@@ -18,6 +18,13 @@ const useStyles = makeStyles(() => ({
   content: {
     margin: 0,
   },
+  loadingIconContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
+  },
   footer: {
     justifyContent: 'flex-end',
   },
@@ -41,7 +48,7 @@ const useButtonStyles = makeStyles(theme => ({
 function CardList({
   cardStyle,
   cardContentClass,
-  contentHeight,
+  contentHeight = '360px',
   contentWidth,
   contentStyle,
   isExpandable = true,
@@ -128,12 +135,14 @@ function CardList({
           style={{
             minHeight: contentHeight,
             maxHeight: contentHeight,
-            width: contentWidth,
+            minWidth: contentWidth ?? '300px',
             ...contentStyle,
           }}
         >
           {selectedTab.isLoading ? (
-            <LoadingIcon />
+            <div className={classes.loadingIconContainer}>
+              <LoadingIcon />
+            </div>
           ) : (
             <List
               listItems={selectedTab.listItems}

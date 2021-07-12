@@ -57,7 +57,7 @@ const useNoDataMessageStyles = makeStyles(() => ({
 const NoDataMessage = ({message}) => {
   const classes = useNoDataMessageStyles();
   return (
-    <div className={classes.noDataClass}>
+    <div className={classes.noData}>
       <Typography variant="body2">{message}</Typography>
     </div>
   );
