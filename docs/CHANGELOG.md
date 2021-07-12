@@ -1,3 +1,10 @@
+## [7.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.3...v7.3.0) (2021-07-12)
+
+
+### Features
+
+* **scriptedtext:** add ability to specify variant for ScriptedText ([f5ebdb8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f5ebdb8a38a36ef51942bfe0a3078c2d38c70f2a))
+
 ### [7.2.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.2...v7.2.3) (2021-07-08)
 
 
