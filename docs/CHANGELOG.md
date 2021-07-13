@@ -1,3 +1,10 @@
+### [7.3.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.0...v7.3.1) (2021-07-13)
+
+
+### Bug Fixes
+
+* fixed greedy css selector and updated CardList default height/width ([34af588](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/34af588d1a5b2ea517334fc3b4c1dee655584a27))
+
 ## [7.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.3...v7.3.0) (2021-07-12)
 
 
