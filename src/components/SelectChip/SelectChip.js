@@ -1,30 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@material-ui/core/Card';
-import {makeStyles} from '@material-ui/core';
+import {Paper, makeStyles} from '@material-ui/core';
 
-const useStyles = makeStyles(() => {
-  return {
-    selectChip: {
-      margin: '0.75rem',
-      padding: '0.75rem 1.25rem',
-      cursor: 'pointer',
-      border: '0.1667rem solid',
-      borderColor: ({isSelected}) =>
-        isSelected ? 'var(--color-spanishOrange)' : 'transparent',
-      transition: 'border-color 0.5s ease',
-      '&:focus': {
-        outline: 'none',
-      },
-      '&:hover': {
-        borderColor: ({isSelected}) =>
-          isSelected
-            ? 'var(--color-spanishOrange)'
-            : 'var(--color-button-cerulean-hover)',
-      },
+const useStyles = makeStyles(() => ({
+  selectChip: {
+    margin: '0.75rem',
+    padding: '0.75rem 1.25rem',
+    cursor: 'pointer',
+    border: '0.1667rem solid',
+    width: ({staticWidth}) => (staticWidth ? staticWidth : '100%'),
+    borderColor: ({isSelected}) =>
+      isSelected ? 'var(--color-spanishOrange)' : 'transparent',
+    transition: 'border-color 0.5s ease',
+    '&:focus': {
+      outline: 'none',
     },
-  };
-});
+    '&:hover': {
+      borderColor: ({isSelected}) =>
+        isSelected
+          ? 'var(--color-spanishOrange)'
+          : 'var(--color-button-cerulean-hover)',
+    },
+  },
+}));
 
 function SelectChip({
   children,
@@ -33,20 +31,12 @@ function SelectChip({
   optionIsSelected,
   tabIndex = 0,
 }) {
-  const classes = useStyles({isSelected: optionIsSelected});
-  const widthStyle = React.useMemo(() => {
-    return {width: staticWidth || '100%'};
-  }, [staticWidth]);
+  const classes = useStyles({isSelected: optionIsSelected, staticWidth});
 
   return (
-    <Card
-      tabIndex={tabIndex}
-      onClick={onClick}
-      className={classes.selectChip}
-      style={widthStyle}
-    >
+    <Paper tabIndex={tabIndex} onClick={onClick} className={classes.selectChip}>
       {children}
-    </Card>
+    </Paper>
   );
 }
 

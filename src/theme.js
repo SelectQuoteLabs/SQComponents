@@ -190,12 +190,18 @@ const theme = {
         },
       },
     },
+    MuiCard: {
+      root: {
+        height: '100%',
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gridTemplateRows: 'auto 1fr auto',
+        gridTemplateAreas: "'header' 'content' 'footer'",
+      },
+    },
     MuiCardHeader: {
       root: {
-        /**
-         * Note: This height should be the same as .MuiCardHeader-action:height
-         * AND included in the calc() for .MuiCardContent.root:height
-         */
+        gridArea: 'header',
         height: '48px',
         borderBottom: '1px solid var(--color-lightGray)',
 
@@ -262,21 +268,15 @@ const theme = {
     },
     MuiCardContent: {
       root: {
-        display: 'flex',
-        justifyContent: 'center',
-        height: 'calc(100% - 32px - 48px)', //Note: 100% - (marginTop + marginBottom) - heightOfHeader
-        margin: `16px 24px`, //Note: Using margin instead of padding so overflow is bounded as well
+        gridArea: 'content',
         overflowY: 'auto',
-        padding: '0 !important',
-
-        '& *': {
-          margin: 'auto',
-        },
+        overflowX: 'hidden',
+        padding: '0 !important', // Note: Remove MUI default padding
       },
     },
     MuiCardActions: {
       root: {
-        display: 'flex',
+        gridArea: 'footer',
         padding: '5px',
         borderTop: '1px solid var(--color-lightGray)',
       },

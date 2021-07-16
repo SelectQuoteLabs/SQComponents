@@ -18,11 +18,11 @@ const useStyles = makeStyles(() => {
   };
 });
 
-function ScriptedText({placement = 'top-start', text}) {
+function ScriptedText({placement = 'top-start', text, variant = 'body2'}) {
   const classes = useStyles();
   const Text = React.forwardRef((props, ref) => {
     return (
-      <Typography ref={ref} {...props} component="span" variant="body2">
+      <Typography ref={ref} {...props} component="span" variant={variant}>
         {props.text}
       </Typography>
     );
@@ -49,6 +49,23 @@ function ScriptedText({placement = 'top-start', text}) {
 ScriptedText.propTypes = {
   placement: PropTypes.string,
   text: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'subtitle1',
+    'subtitle2',
+    'body1',
+    'body2',
+    'caption',
+    'button',
+    'overline',
+    'srOnly',
+    'inherit',
+  ]),
 };
 
 export default ScriptedText;

@@ -1,3 +1,42 @@
+### [7.3.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.0...v7.3.1) (2021-07-13)
+
+
+### Bug Fixes
+
+* fixed greedy css selector and updated CardList default height/width ([34af588](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/34af588d1a5b2ea517334fc3b4c1dee655584a27))
+
+## [7.3.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.3...v7.3.0) (2021-07-12)
+
+
+### Features
+
+* **scriptedtext:** add ability to specify variant for ScriptedText ([f5ebdb8](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f5ebdb8a38a36ef51942bfe0a3078c2d38c70f2a))
+
+### [7.2.3](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.2...v7.2.3) (2021-07-08)
+
+
+### Bug Fixes
+
+* fixed CardList and SelectChip height and width issues ([c22e2f9](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c22e2f907d5b93a7c3784220a5bcc6cd8834a3ac))
+* fixed CardList content alignment and size issues ([2c92c5d](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/2c92c5de9b74b331991c5c012fe73c01be75f627))
+
+### [7.2.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.1...v7.2.2) (2021-07-06)
+
+
+### Bug Fixes
+
+* **cardpopovermenu.js:** align action item ([5afe70a](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5afe70a01a894b791a858544c5d66104188d6a92))
+* **expandingcard.js:** align action item ([5e3a537](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/5e3a5371f90e906357c8baa41632f72d3889fccd))
+* **expandingcard.js:** remove div ([ff8510e](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/ff8510eb5ba5c78139fbd481584c383890941dd8))
+
+### [7.2.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.2.0...v7.2.1) (2021-07-06)
+
+
+### Bug Fixes
+
+* **expandingcard.js:** add font size and font weight ([9c5a47f](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/9c5a47f8b767261e2707aaa80f13a3a7ea7956fc))
+* **expandingcard.js:** use h5 typography ([b16e0f3](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/b16e0f3b3d1f39fe4528e8db361ab182077fb5b4))
+
 ## [7.2.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.1.4...v7.2.0) (2021-06-30)
 
 

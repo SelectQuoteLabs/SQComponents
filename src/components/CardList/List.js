@@ -57,7 +57,7 @@ const useNoDataMessageStyles = makeStyles(() => ({
 const NoDataMessage = ({message}) => {
   const classes = useNoDataMessageStyles();
   return (
-    <div className={classes.noDataClass}>
+    <div className={classes.noData}>
       <Typography variant="body2">{message}</Typography>
     </div>
   );
@@ -101,12 +101,14 @@ function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
     }
   };
 
-  return listItems.map(listItem => (
+  return listItems.map((listItem, index) => (
     <SelectChip
       onClick={() => handleListItemClick(listItem)}
       className={classes.selectChip}
       key={listItem.id}
       optionIsSelected={isSelectable && listItem.id === selectedID}
+      tabIndex={index}
+      staticWidth="auto"
     >
       <ListItem className={classes.items}>
         {listItem.color && <ColorIcon color={listItem.color} />}
