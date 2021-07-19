@@ -1,15 +1,9 @@
 import React from 'react';
-import {ExpandingCardWithTabs, DataTable} from '../../src';
+import {ExpandingCard, DataTable} from '../../src';
 import {accountHistoryLarge} from '../utils/accountHistoryLarge';
 
-export default function FakeAccountsInfo({name}) {
-  return (
-    <ExpandingCardWithTabs
-      title="Account Information"
-      name={name}
-      tabs={accountTabs}
-    />
-  );
+export default function FakeAccountsInfo() {
+  return <ExpandingCard title="Account Information" tabs={accountTabs} />;
 }
 
 // implementation details below are copypasta from ExpandingCardList.stories.js

@@ -89,14 +89,11 @@ export default function FakeManageAccounts() {
       <SQAdminSideNav />
       <SQAdminMainContent>
         <ExpandingCardList>
-          {/* this uses ExpandingCard */}
           <FakeAccountsTable
-            name="fake-accounts-table"
             title="Manage Accounts"
             selectAccount={setSelectedAccount}
           />
-          {/* this uses ExpandingCardWithTabs */}
-          <FakeAccountInfo name="fake-accounts-info" title="Account Info" />
+          <FakeAccountInfo title="Account Info" />
         </ExpandingCardList>
       </SQAdminMainContent>
     </SQAdminPageLayout>
@@ -135,7 +132,7 @@ export default function FakeAccountsTable({name, selectAccount}) {
   }, [onSelectRow]);
 
   return (
-    <ExpandingCard title="Card One" name={name}>
+    <ExpandingCard title="Card One">
       {/* see `DataTable` stories for more info */}
       <DataTable columns={columns} rowData={data} />
     </ExpandingCard>
@@ -147,7 +144,7 @@ export default function FakeAccountsTable({name, selectAccount}) {
 
 ```javascript
 import React from 'react';
-import {ExpandingCardWithTabs, DataTable} from 'scplus-shared-components';
+import {ExpandingCard, DataTable} from 'scplus-shared-components';
 import FakeAccountDetails from './FakeAccountDetails'; // queries for specific `selectedAccount` data
 
 export default function FakeAccountInfo({name, selectedAccount}) {
@@ -162,12 +159,6 @@ export default function FakeAccountInfo({name, selectedAccount}) {
     ];
   }, [selectedAccount]);
 
-  return (
-    <ExpandingCardWithTabs
-      title="Account Information"
-      name={name}
-      tabs={accountInfoTabs}
-    />
-  );
+  return <ExpandingCard title="Account Information" tabs={accountInfoTabs} />;
 }
 ```

@@ -1,4 +1,4 @@
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createTheme} from '@material-ui/core/styles';
 
 import cssVars from '../src/styles/cssVars';
 
@@ -289,4 +289,4 @@ const theme = {
   },
 };
 
-export const muiTheme = createMuiTheme(theme);
+export const muiTheme = createTheme(theme);

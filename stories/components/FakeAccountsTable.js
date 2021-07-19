@@ -2,9 +2,9 @@ import React from 'react';
 import {ExpandingCard, DataTable} from '../../src';
 import {accountHistoryLarge} from '../utils/accountHistoryLarge';
 
-export default function FakeAccountsTable({name}) {
+export default function FakeAccountsTable() {
   return (
-    <ExpandingCard title="Card One" name={name}>
+    <ExpandingCard title="Card One">
       <DataTable columns={columns} rowData={accountHistoryLarge} />
     </ExpandingCard>
   );

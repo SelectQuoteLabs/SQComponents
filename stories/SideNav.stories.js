@@ -2,7 +2,6 @@ import React from 'react';
 import {withInfo} from '@storybook/addon-info';
 import {
   ExpandingCard,
-  ExpandingCardWithTabs,
   ExpandingCardList,
   DataTable,
   SideNav,
@@ -85,14 +84,8 @@ export function sideNavWithTopMiddleAndBottom() {
         }}
       >
         <ExpandingCardList>
-          <ExpandingCard title="Card One" name="one">
-            Body
-          </ExpandingCard>
-          <ExpandingCardWithTabs
-            title="Account Information"
-            name="account-information"
-            tabs={accountTabs}
-          />
+          <ExpandingCard title="Card One">Body</ExpandingCard>
+          <ExpandingCard title="Account Information" tabs={accountTabs} />
         </ExpandingCardList>
       </div>
     </div>
@@ -152,14 +145,8 @@ export function sideNavWithMiddleAndBottom() {
         }}
       >
         <ExpandingCardList>
-          <ExpandingCard title="Card One" name="one">
-            Body
-          </ExpandingCard>
-          <ExpandingCardWithTabs
-            title="Account Information"
-            name="account-information"
-            tabs={accountTabs}
-          />
+          <ExpandingCard title="Card One">Body</ExpandingCard>
+          <ExpandingCard title="Account Information" tabs={accountTabs} />
         </ExpandingCardList>
       </div>
     </div>
@@ -239,14 +226,8 @@ export function sideNavWithTopAndMiddle() {
         }}
       >
         <ExpandingCardList>
-          <ExpandingCard title="Card One" name="one">
-            Body
-          </ExpandingCard>
-          <ExpandingCardWithTabs
-            title="Account Information"
-            name="account-information"
-            tabs={accountTabs}
-          />
+          <ExpandingCard title="Card One">Body</ExpandingCard>
+          <ExpandingCard title="Account Information" tabs={accountTabs} />
         </ExpandingCardList>
       </div>
     </div>
@@ -281,14 +262,8 @@ export function sideNavWithMiddleOnly() {
         }}
       >
         <ExpandingCardList>
-          <ExpandingCard title="Card One" name="one">
-            Body
-          </ExpandingCard>
-          <ExpandingCardWithTabs
-            title="Account Information"
-            name="account-information"
-            tabs={accountTabs}
-          />
+          <ExpandingCard title="Card One">Body</ExpandingCard>
+          <ExpandingCard title="Account Information" tabs={accountTabs} />
         </ExpandingCardList>
       </div>
     </div>

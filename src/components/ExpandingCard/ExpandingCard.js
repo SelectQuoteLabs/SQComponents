@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
+import {makeStyles, Card, CardHeader, CardContent} from '@material-ui/core';
 import {useAutoHeight} from '../../hooks/useAutoHeight';
+import CardPopoverMenu from '../CardPopoverMenu';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -30,15 +30,37 @@ const useStyles = makeStyles(theme => ({
 function ExpandingCard({
   cardClassName,
   children,
+  headerClassName,
   contentClassName,
-  actions,
   title,
   subheader,
   isInitiallyExpanded = false,
   raised = false,
   isAutoHeight = false,
+  expandCard,
+  isCardExpanded,
+  tabs,
 }) {
-  const [isExpanded, setIsExpanded] = React.useState(isInitiallyExpanded);
+  const [selectedTab, setSelectedTab] = React.useState(tabs?.[0]);
+  const [localControlIsExpanded, setLocalControlIsExpanded] = React.useState(
+    isInitiallyExpanded
+  );
+  const isConsumerExpandingCard = Boolean(
+    isCardExpanded !== undefined && expandCard
+  );
+  const isExpanded = isConsumerExpandingCard
+    ? isCardExpanded
+    : localControlIsExpanded;
+
+  const toggleExpansion = React.useCallback(() => {
+    isConsumerExpandingCard
+      ? expandCard(!isExpanded)
+      : setLocalControlIsExpanded(!isExpanded);
+  }, [isConsumerExpandingCard, expandCard, isExpanded]);
+
+  const handleTabSelect = tabValue => {
+    setSelectedTab(tabs.find(({value}) => value === tabValue));
+  };
 
   const classes = useStyles({isExpanded, isAutoHeight});
 
@@ -55,17 +77,25 @@ function ExpandingCard({
       style={{height}}
     >
       <CardHeader
-        className={subheader && 'custom-subheader'}
+        className={classnames(headerClassName, {
+          'custom-subheader': Boolean(subheader),
+        })}
         title={title}
         subheader={
           subheader && <Typography variant="subtitle2">{subheader}</Typography>
         }
         action={
           <>
-            {actions}
+            {tabs?.length && (
+              <CardPopoverMenu
+                tabs={tabs}
+                selectedTab={selectedTab}
+                selectTab={handleTabSelect}
+              />
+            )}
             <div className={classes.expandButtonContainer}>
               <IconButton
-                onClick={() => setIsExpanded(!isExpanded)}
+                onClick={toggleExpansion}
                 className={classes.expandButton}
                 aria-expanded={isExpanded}
                 aria-label="open"
@@ -76,8 +106,10 @@ function ExpandingCard({
           </>
         }
       />
-      {isExpanded && (
-        <CardContent className={contentClassName}>{children}</CardContent>
+      {isExpanded && (children || selectedTab) && (
+        <CardContent className={contentClassName}>
+          {children ?? selectedTab.body}
+        </CardContent>
       )}
     </Card>
   );
@@ -87,11 +119,11 @@ ExpandingCard.propTypes = {
   /** CSS class from MUI makeStyles for the <CardConent /> */
   contentClassName: PropTypes.string,
   /** Body content */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  /** CSS class from MUI makeStyles for the <CardHeader /> */
+  headerClassName: PropTypes.string,
   /** CSS class from MUI makeStyles for the <Card /> */
   cardClassName: PropTypes.string,
-  /** Actions */
-  actions: PropTypes.array,
   /** Title text */
   title: PropTypes.string,
   /** Sub header */
@@ -105,6 +137,23 @@ ExpandingCard.propTypes = {
    * Note: Should be false when used inside of an <ExpandingCardList />
    */
   isAutoHeight: PropTypes.bool,
+  /** Callback to control expansion state
+   * Note: Requires isCardExpanded prop
+   */
+  expandCard: PropTypes.func,
+  /** If provided determines the expansion state
+   * Note: Requires expandCard prop
+   */
+  isCardExpanded: PropTypes.bool,
+  /** An array of tab objects */
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      body: PropTypes.node.isRequired,
+      disabled: PropTypes.bool,
+    })
+  ),
 };
 
 export default ExpandingCard;
