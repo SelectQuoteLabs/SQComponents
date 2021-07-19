@@ -41,6 +41,10 @@ export {default as SQAdminPageLayout} from './components/SQAdminPageLayout';
 export {default as SQAdminMainContent} from './components/SQAdminMainContent';
 export {default as Snackbar} from './components/Snackbar';
 
+// Note: Included for backwards compatibility. TODO: To be removed in future major version.
+export {default as ExpandingCardWithTabs} from './components/ExpandingCard/PendingDeprecationWrapper';
+export {default as TabbableCard} from './components/ExpandingCard/PendingDeprecationWrapper';
+
 // Custom Contexts
 export {
   SnackbarProvider,

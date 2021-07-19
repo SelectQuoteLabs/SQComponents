@@ -40,6 +40,8 @@ function ExpandingCard({
   expandCard,
   isCardExpanded,
   tabs,
+  cardStyles,
+  bodyClassName,
 }) {
   const [selectedTab, setSelectedTab] = React.useState(tabs?.[0]);
   const [localControlIsExpanded, setLocalControlIsExpanded] = React.useState(
@@ -74,7 +76,7 @@ function ExpandingCard({
       className={classnames(classes.card, {
         [cardClassName]: Boolean(cardClassName),
       })}
-      style={{height}}
+      style={{height, ...cardStyles}}
     >
       <CardHeader
         className={classnames(headerClassName, {
@@ -107,7 +109,7 @@ function ExpandingCard({
         }
       />
       {isExpanded && (children || selectedTab) && (
-        <CardContent className={contentClassName}>
+        <CardContent className={`${contentClassName} ${bodyClassName}`}>
           {children ?? selectedTab.body}
         </CardContent>
       )}
@@ -154,6 +156,16 @@ ExpandingCard.propTypes = {
       disabled: PropTypes.bool,
     })
   ),
+  /**
+   * Included to support backwards compatibility for TabbableCard
+   * TODO: Remove this in next major version release
+   */
+  cardStyles: PropTypes.object,
+  /**
+   * Included to support backwards compatibility for ExpandingCardWithTabs
+   * TODO: Remove this in next major version release
+   */
+  bodyClassName: PropTypes.string,
 };
 
 export default ExpandingCard;
