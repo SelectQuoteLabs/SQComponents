@@ -41,7 +41,6 @@ export {default as SQAdminLayout} from './components/SQAdminLayout';
 export {default as SQAdminPageLayout} from './components/SQAdminPageLayout';
 export {default as SQAdminMainContent} from './components/SQAdminMainContent';
 export {default as Snackbar} from './components/Snackbar';
-export {default as TabbableCard} from './components/TabbableCard';
 
 // Custom Contexts
 export {
