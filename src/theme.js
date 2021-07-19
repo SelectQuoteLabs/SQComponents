@@ -201,6 +201,7 @@ const theme = {
     MuiCardHeader: {
       root: {
         gridArea: 'header',
+        // Note: This height should be the same as .MuiCardHeader-action:height
         height: '48px',
         borderBottom: '1px solid var(--color-lightGray)',
 
@@ -237,16 +238,12 @@ const theme = {
       },
       //Note: MUI defaults this to an h6
       subheader: {
-        // TODO: Copy styling for subtitle2 in here
         borderTop: '1px solid var(--color-lightGray)',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
       },
       action: {
-        /**
-         * Note: This height should be the same as .MuiCardHeader-root:height
-         * AND included in the calc() for .MuiCardContent.root:height
-         */
+        // Note: This height should be the same as .MuiCardHeader-root:height
         height: '48px',
         //Note: Negative margin to account for the default padding on MuiCardHeader.root
         marginTop: '-16px',
