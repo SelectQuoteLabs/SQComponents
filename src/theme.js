@@ -192,7 +192,6 @@ const theme = {
     },
     MuiCard: {
       root: {
-        height: '100%',
         display: 'grid',
         gridTemplateColumns: '1fr',
         gridTemplateRows: 'auto 1fr auto',
