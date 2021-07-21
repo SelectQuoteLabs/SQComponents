@@ -5,13 +5,31 @@ import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles, Card, CardHeader, CardContent} from '@material-ui/core';
-import {useAutoHeight} from '../../hooks/useAutoHeight';
 import CardPopoverMenu from '../CardPopoverMenu';
+import {useAutoHeight} from '../../hooks/useAutoHeight';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   card: {
     flexGrow: ({isExpanded, isAutoHeight}) =>
       isExpanded && !isAutoHeight ? '1' : '0',
+    flexBasis: ({isExpanded, hasSubHeader}) => {
+      if (isExpanded) {
+        return 0;
+      }
+
+      // See theme.js -> MuiCardHeader.root for these heights
+      return hasSubHeader ? '74px' : '48px';
+    },
+    transitionDuration: 'var(--transition-duration-shortest)',
+    transitionTimingFunction: 'ease',
+    transitionProperty: ({isExpanded}) =>
+      !isExpanded ? 'flex-grow' : 'flex-grow, flex-basis',
+  },
+  cardContent: {
+    maxHeight: ({isExpanded}) => (isExpanded ? '1920px' : 0),
+    transitionDuration: 'var(--transition-duration-shortest)',
+    transitionTimingFunction: 'ease',
+    transitionProperty: ({isExpanded}) => (isExpanded ? 'max-height' : ''),
   },
   expandButtonContainer: {
     height: '100%',
@@ -20,9 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
   expandButton: {
     padding: '12px 6px',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
+    transition: 'transform var(--transition-duration-shortest)',
     transform: ({isExpanded}) => (!isExpanded ? 'rotate(180deg)' : ''),
   },
 }));
@@ -64,7 +80,11 @@ function ExpandingCard({
     setSelectedTab(tabs.find(({value}) => value === tabValue));
   };
 
-  const classes = useStyles({isExpanded, isAutoHeight});
+  const classes = useStyles({
+    isExpanded,
+    isAutoHeight,
+    hasSubHeader: Boolean(subheader),
+  });
 
   const {containerRef, autoHeight} = useAutoHeight();
   const height = isAutoHeight && autoHeight;
@@ -99,6 +119,7 @@ function ExpandingCard({
               <IconButton
                 onClick={toggleExpansion}
                 className={classes.expandButton}
+                disableRipple={true}
                 aria-expanded={isExpanded}
                 aria-label="open"
               >
@@ -108,11 +129,11 @@ function ExpandingCard({
           </>
         }
       />
-      {isExpanded && (children || selectedTab) && (
-        <CardContent className={`${contentClassName} ${bodyClassName}`}>
-          {children ?? selectedTab.body}
-        </CardContent>
-      )}
+      <CardContent
+        className={`${classes.cardContent} ${contentClassName} ${bodyClassName}`}
+      >
+        {children ?? selectedTab.body}
+      </CardContent>
     </Card>
   );
 }

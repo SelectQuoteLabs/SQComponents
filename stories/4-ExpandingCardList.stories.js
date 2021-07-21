@@ -13,7 +13,20 @@ export const expandingCards = () => {
   return (
     <div style={{width: '45rem', height: '80vh'}}>
       <ExpandingCardList>
-        <ExpandingCard title="Card One">Body</ExpandingCard>
+        <ExpandingCard title="Card One" subheader="Sub Title">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            rutrum consectetur nisl, ut porttitor felis porta eget. Donec quam
+            tortor, sagittis a risus ut, aliquam euismod ligula. Aenean ipsum
+            neque, bibendum eu ipsum vel, ultrices scelerisque neque. Aliquam
+            fermentum nibh quis ante vestibulum condimentum. In viverra, libero
+            at interdum commodo, mauris tellus consequat arcu, id ultrices nisi
+            tortor vel sem. Nam accumsan lorem nunc, eu semper metus blandit id.
+            Nunc cursus tortor tempus eros mollis ultrices. Fusce sed nulla
+            massa. Phasellus non eros vel velit convallis euismod. Nulla iaculis
+            rutrum sem.
+          </p>
+        </ExpandingCard>
         <ExpandingCard title="Card Two">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
@@ -41,7 +54,18 @@ export const expandingCards = () => {
           </p>
         </ExpandingCard>
         <ExpandingCard title="Card Three" isInitiallyExpanded={false}>
-          Body
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            rutrum consectetur nisl, ut porttitor felis porta eget. Donec quam
+            tortor, sagittis a risus ut, aliquam euismod ligula. Aenean ipsum
+            neque, bibendum eu ipsum vel, ultrices scelerisque neque. Aliquam
+            fermentum nibh quis ante vestibulum condimentum. In viverra, libero
+            at interdum commodo, mauris tellus consequat arcu, id ultrices nisi
+            tortor vel sem. Nam accumsan lorem nunc, eu semper metus blandit id.
+            Nunc cursus tortor tempus eros mollis ultrices. Fusce sed nulla
+            massa. Phasellus non eros vel velit convallis euismod. Nulla iaculis
+            rutrum sem.
+          </p>
         </ExpandingCard>
       </ExpandingCardList>
     </div>
