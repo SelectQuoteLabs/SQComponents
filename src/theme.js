@@ -4,12 +4,6 @@ import cssVars from '../src/styles/cssVars';
 
 const {cerulean, palmLeaf, slate, spanishOrange, teal} = cssVars.colors;
 
-const BASE_FONT_SIZE = 12; // px
-
-function pxToRem(value) {
-  return `${value / BASE_FONT_SIZE}rem`;
-}
-
 const theme = {
   typography: {
     fontFamily: 'Open Sans, sans-serif',
@@ -38,68 +32,68 @@ const theme = {
     MuiTypography: {
       h1: {
         fontWeight: 300,
-        fontSize: pxToRem(60),
-        letterSpacing: pxToRem(-0.5),
+        fontSize: '60px',
+        letterSpacing: '-0.5px',
       },
       h2: {
         fontWeight: 400,
-        fontSize: pxToRem(48),
-        letterSpacing: pxToRem(0),
+        fontSize: '48px',
+        letterSpacing: 0,
       },
       h3: {
         fontWeight: 400,
-        fontSize: pxToRem(36),
-        letterSpacing: pxToRem(0.25),
+        fontSize: '36px',
+        letterSpacing: '0.25px',
       },
       h4: {
         fontWeight: 400,
-        fontSize: pxToRem(30),
-        letterSpacing: pxToRem(0),
+        fontSize: '30px',
+        letterSpacing: 0,
       },
       h5: {
         fontWeight: 400,
-        fontSize: pxToRem(24),
-        letterSpacing: pxToRem(0),
+        fontSize: '24px',
+        letterSpacing: 0,
       },
       h6: {
         fontWeight: 600,
-        fontSize: pxToRem(18),
-        letterSpacing: pxToRem(0.15),
+        fontSize: '18px',
+        letterSpacing: '0.15px',
       },
       subtitle1: {
         fontWeight: 400,
-        fontSize: pxToRem(16),
-        letterSpacing: pxToRem(0.15),
+        fontSize: '16px',
+        letterSpacing: '0.15px',
       },
       subtitle2: {
         fontWeight: 600,
-        fontSize: pxToRem(14),
-        letterSpacing: pxToRem(0.1),
+        fontSize: '14px',
+        letterSpacing: '0.1px',
       },
       body1: {
         fontWeight: 400,
-        fontSize: pxToRem(16),
-        letterSpacing: pxToRem(0.5),
+        fontSize: '16px',
+        letterSpacing: '0.5px',
       },
       body2: {
         fontWeight: 400,
-        fontSize: pxToRem(14),
-        letterSpacing: pxToRem(0.25),
+        fontSize: '14px',
+        letterSpacing: '0.25px',
       },
       button: {
         fontWeight: 600,
-        fontSize: pxToRem(14),
-        letterSpacing: pxToRem(1.25),
+        fontSize: '14px',
+        letterSpacing: '1.25px',
       },
       caption: {
         fontWeight: 300,
-        fontSize: pxToRem(12),
-        letterSpacing: pxToRem(0.4),
+        fontSize: '12px',
+        letterSpacing: '0.4px',
       },
       overline: {
         fontWeight: 600,
-        fontSize: pxToRem(12),
-        letterSpacing: pxToRem(1.5),
+        fontSize: '12px',
+        letterSpacing: '1.5px',
       },
     },
     MuiInput: {
@@ -129,8 +123,8 @@ const theme = {
     },
     MuiSelect: {
       selectMenu: {
-        height: '1.6667rem', // match computed height of text fields
-        lineHeight: '2rem',
+        height: '20px', // match computed height of text fields
+        lineHeight: '48px',
       },
     },
     MuiFormHelperText: {
@@ -141,7 +135,7 @@ const theme = {
         fontSize: 'var(--size-label)',
         fontWeight: 'var(--font-weight-semibold)',
         lineHeight: 'var(--size-label)',
-        height: '1.5rem',
+        height: '18px',
       },
       contained: {
         marginLeft: 0,
@@ -150,7 +144,7 @@ const theme = {
     },
     MuiTooltip: {
       tooltip: {
-        fontSize: '1rem',
+        fontSize: '12px',
         backgroundColor: 'var(--color-jetBlack)',
       },
       arrow: {
