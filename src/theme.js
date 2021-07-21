@@ -173,7 +173,7 @@ const theme = {
     MuiIconButton: {
       root: {
         '&:hover': {
-          backgroundColor: 'none',
+          backgroundColor: 'transparent',
         },
       },
     },
