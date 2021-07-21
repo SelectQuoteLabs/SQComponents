@@ -48,7 +48,7 @@ const theme = {
       h4: {
         fontWeight: 400,
         fontSize: '30px',
-        letterSpacing: 0,
+        letterSpacing: '0.3px',
       },
       h5: {
         fontWeight: 400,
@@ -74,11 +74,13 @@ const theme = {
         fontWeight: 400,
         fontSize: '16px',
         letterSpacing: '0.5px',
+        lineHeight: '28px',
       },
       body2: {
         fontWeight: 400,
         fontSize: '14px',
         letterSpacing: '0.25px',
+        lineHeight: '26px',
       },
       button: {
         fontWeight: 600,
@@ -93,7 +95,7 @@ const theme = {
       overline: {
         fontWeight: 600,
         fontSize: '12px',
-        letterSpacing: '1.5px',
+        letterSpacing: '1px',
       },
     },
     MuiInput: {
