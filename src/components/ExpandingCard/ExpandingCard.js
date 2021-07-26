@@ -130,7 +130,9 @@ function ExpandingCard({
         }
       />
       <CardContent
-        className={`${classes.cardContent} ${contentClassName} ${bodyClassName}`}
+        className={classnames(classes.cardContent, bodyClassName, {
+          [contentClassName]: isExpanded,
+        })}
       >
         {children ?? selectedTab.body}
       </CardContent>
