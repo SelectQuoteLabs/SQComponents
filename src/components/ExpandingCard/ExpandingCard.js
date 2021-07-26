@@ -8,6 +8,10 @@ import {makeStyles, Card, CardHeader, CardContent} from '@material-ui/core';
 import CardPopoverMenu from '../CardPopoverMenu';
 import {useAutoHeight} from '../../hooks/useAutoHeight';
 
+// See theme.js -> MuiCardHeader.root for these heights
+const HEIGHT_WITH_SUBHEADER = '74px';
+const DEFAULT_HEIGHT = '48px';
+
 const useStyles = makeStyles(() => ({
   card: {
     flexGrow: ({isExpanded, isAutoHeight}) =>
@@ -17,13 +21,12 @@ const useStyles = makeStyles(() => ({
         return 0;
       }
 
-      // See theme.js -> MuiCardHeader.root for these heights
-      return hasSubHeader ? '74px' : '48px';
+      return hasSubHeader ? HEIGHT_WITH_SUBHEADER : DEFAULT_HEIGHT;
     },
     transitionDuration: 'var(--transition-duration-shortest)',
     transitionTimingFunction: 'ease',
     transitionProperty: ({isExpanded}) =>
-      !isExpanded ? 'flex-grow' : 'flex-grow, flex-basis',
+      !isExpanded ? 'flex-grow, height' : 'flex-grow, height, flex-basis',
   },
   cardContent: {
     maxHeight: ({isExpanded}) => (isExpanded ? '1920px' : 0),
@@ -80,14 +83,17 @@ function ExpandingCard({
     setSelectedTab(tabs.find(({value}) => value === tabValue));
   };
 
+  const hasSubHeader = Boolean(subheader);
   const classes = useStyles({
     isExpanded,
     isAutoHeight,
-    hasSubHeader: Boolean(subheader),
+    hasSubHeader,
   });
 
   const {containerRef, autoHeight} = useAutoHeight();
-  const height = isExpanded && isAutoHeight && autoHeight;
+  const height =
+    (isExpanded && isAutoHeight && autoHeight) ||
+    (!isExpanded && (hasSubHeader ? HEIGHT_WITH_SUBHEADER : DEFAULT_HEIGHT));
 
   return (
     <Card
@@ -131,7 +137,7 @@ function ExpandingCard({
       />
       <CardContent
         className={classnames(classes.cardContent, bodyClassName, {
-          [contentClassName]: isExpanded,
+          [contentClassName]: isExpanded && contentClassName,
         })}
       >
         {children ?? selectedTab.body}
