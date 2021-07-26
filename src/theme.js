@@ -267,7 +267,14 @@ const theme = {
         gridArea: 'content',
         overflowY: 'auto',
         overflowX: 'hidden',
-        padding: '0 !important', // Note: Removes MUI default padding
+
+        // Note: Removes MUI default padding
+        '&:last-child': {
+          paddingTop: 0,
+          paddingBottom: 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
       },
     },
     MuiCardActions: {
