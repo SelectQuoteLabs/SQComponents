@@ -87,7 +87,7 @@ function ExpandingCard({
   });
 
   const {containerRef, autoHeight} = useAutoHeight();
-  const height = isAutoHeight && autoHeight;
+  const height = isExpanded && isAutoHeight && autoHeight;
 
   return (
     <Card

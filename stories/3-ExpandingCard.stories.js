@@ -166,3 +166,40 @@ export const expandingCardWithCustomStyles = () => {
     </div>
   );
 };
+
+export const expandingCardWithAutoHeight = () => {
+  return (
+    <div
+      style={{
+        width: '45rem',
+        height: '90vh',
+        border: '2px solid black',
+        padding: '8px',
+      }}
+    >
+      <div
+        style={{
+          height: '100px',
+          border: '2px solid grey',
+          textAlign: 'center',
+          marginBottom: '8px',
+        }}
+      >
+        <p>Sibling</p>
+      </div>
+      <ExpandingCard title="Card" isAutoHeight={true}>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rutrum
+          consectetur nisl, ut porttitor felis porta eget. Donec quam tortor,
+          sagittis a risus ut, aliquam euismod ligula. Aenean ipsum neque,
+          bibendum eu ipsum vel, ultrices scelerisque neque. Aliquam fermentum
+          nibh quis ante vestibulum condimentum. In viverra, libero at interdum
+          commodo, mauris tellus consequat arcu, id ultrices nisi tortor vel
+          sem. Nam accumsan lorem nunc, eu semper metus blandit id. Nunc cursus
+          tortor tempus eros mollis ultrices. Fusce sed nulla massa. Phasellus
+          non eros vel velit convallis euismod. Nulla iaculis rutrum sem.
+        </p>
+      </ExpandingCard>
+    </div>
+  );
+};
