@@ -163,7 +163,7 @@ ExpandingCard.propTypes = {
   isInitiallyExpanded: PropTypes.bool,
   /** Whether the card should appear raised or not */
   raised: PropTypes.bool,
-  /** Whether the car should determine it's own height based on calcuatling it's surrounding.
+  /** Whether the card should determine its own height by calculating its parent and sibling styles.
    * Note: When false flexGrow: 1 will be used
    * Note: Should be false when used inside of an <ExpandingCardList />
    */
