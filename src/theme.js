@@ -1,4 +1,4 @@
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createTheme} from '@material-ui/core/styles';
 
 import cssVars from '../src/styles/cssVars';
 
@@ -188,7 +188,6 @@ const theme = {
     },
     MuiCard: {
       root: {
-        height: '100%',
         display: 'grid',
         gridTemplateColumns: '1fr',
         gridTemplateRows: 'auto 1fr auto',
@@ -198,16 +197,50 @@ const theme = {
     MuiCardHeader: {
       root: {
         gridArea: 'header',
+        // Note: This height should be the same as .MuiCardHeader-action:height
         height: '48px',
         borderBottom: '1px solid var(--color-lightGray)',
-      },
-      content: {
-        '& .MuiTypography-root': {
-          fontSize: '24px',
-          fontWeight: 'var(--font-weight-normal)',
+
+        /**
+         * Note: These overrides alter the default theme styling when the
+         * class 'custom-subheader' is included on any <CardHeader /> component
+         */
+        '&.custom-subheader': {
+          height: '74px',
+          paddingTop: '0',
+          paddingBottom: '0',
+          paddingLeft: '0',
+        },
+        '&.custom-subheader .MuiCardHeader-title': {
+          paddingTop: '8px',
+          paddingBottom: '8px',
+          paddingLeft: '16px',
+        },
+        '&.custom-subheader .MuiCardHeader-subheader': {
+          paddingTop: '2px',
+          paddingBottom: '2px',
+          paddingLeft: '16px',
+        },
+        '&.custom-subheader .MuiCardHeader-action': {
+          height: '48px',
+          marginTop: '0px',
+          borderBottom: '1px solid var(--color-lightGray)',
         },
       },
+      //Note: MUI defaults this to an h5
+      title: {
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+      },
+      //Note: MUI defaults this to an h6
+      subheader: {
+        borderTop: '1px solid var(--color-lightGray)',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+      },
       action: {
+        // Note: This height should be the same as .MuiCardHeader-root:height
+        height: '48px',
         //Note: Negative margin to account for the default padding on MuiCardHeader.root
         marginTop: '-16px',
         marginRight: '-16px',
@@ -230,7 +263,14 @@ const theme = {
         gridArea: 'content',
         overflowY: 'auto',
         overflowX: 'hidden',
-        padding: '0 !important', // Note: Remove MUI default padding
+
+        // Note: Removes MUI default padding
+        '&:last-child': {
+          paddingTop: 0,
+          paddingBottom: 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
       },
     },
     MuiCardActions: {
@@ -248,4 +288,4 @@ const theme = {
   },
 };
 
-export const muiTheme = createMuiTheme(theme);
+export const muiTheme = createTheme(theme);

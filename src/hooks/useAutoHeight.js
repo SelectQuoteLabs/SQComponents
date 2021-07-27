@@ -13,10 +13,11 @@ export function useAutoHeight() {
     const offsetBasedHeight = `calc(100vh - ${topOffset}px - 24px)`;
 
     const parentHeight = containerRef.parentElement.clientHeight;
+    const parentPadding = containerRef.parentElement?.style.paddingBottom;
     const parentTopOffset = containerRef.parentElement.getBoundingClientRect()
       .top;
     const topDifferential = topOffset - parentTopOffset;
-    const maxOffsetBasedHeight = `calc(${parentHeight}px - ${topDifferential}px)`;
+    const maxOffsetBasedHeight = `calc(${parentHeight}px - ${topDifferential}px - ${parentPadding})`;
 
     const calculatedHeight = `min(${offsetBasedHeight}, ${maxOffsetBasedHeight})`;
 

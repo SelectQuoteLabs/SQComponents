@@ -24,7 +24,6 @@ export {default as Section} from './components/Section';
 export {default as SectionBody} from './components/SectionBody';
 export {default as SectionHeader} from './components/SectionHeader';
 export {default as ExpandingCard} from './components/ExpandingCard';
-export {default as ExpandingCardWithTabs} from './components/ExpandingCardWithTabs';
 export {default as ExpandingCardList} from './components/ExpandingCardList';
 export {default as TextButton} from './components/TextButton';
 export {default as WeeklySchedule} from './components/WeeklySchedule';
@@ -41,7 +40,10 @@ export {default as SQAdminLayout} from './components/SQAdminLayout';
 export {default as SQAdminPageLayout} from './components/SQAdminPageLayout';
 export {default as SQAdminMainContent} from './components/SQAdminMainContent';
 export {default as Snackbar} from './components/Snackbar';
-export {default as TabbableCard} from './components/TabbableCard';
+
+// Note: Included for backwards compatibility. TODO: To be removed in future major version.
+export {default as ExpandingCardWithTabs} from './components/ExpandingCard/PendingDeprecationWrapper';
+export {default as TabbableCard} from './components/ExpandingCard/PendingDeprecationWrapper';
 
 // Custom Contexts
 export {

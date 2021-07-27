@@ -14,13 +14,8 @@ export default function FakeManageAccounts() {
       <SQAdminSideNav />
       <SQAdminMainContent>
         <ExpandingCardList>
-          {/* this uses ExpandingCard */}
-          <FakeAccountsTable
-            name="fake-accounts-table"
-            title="Manage Accounts"
-          />
-          {/* this uses ExpandingCardWithTabs */}
-          <FakeAccountInfo name="fake-accounts-info" title="Account Info" />
+          <FakeAccountsTable title="Manage Accounts" />
+          <FakeAccountInfo title="Account Info" />
         </ExpandingCardList>
       </SQAdminMainContent>
     </SQAdminPageLayout>

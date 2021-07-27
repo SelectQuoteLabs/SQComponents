@@ -45,7 +45,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/SelectQuote/scplus-shared-components#readme",
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.12.0",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
     "@material-ui/pickers": "^4.0.0-alpha.11",
@@ -81,14 +81,16 @@
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-controls": "^6.3.4",
     "@storybook/addon-docs": "^6.0.26",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-knobs": "^6.0.26",
     "@storybook/addon-links": "^6.0.26",
     "@storybook/addon-notes": "^5.3.21",
     "@storybook/addons": "^6.0.26",
+    "@storybook/client-api": "^6.3.4",
     "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.26",
+    "@storybook/react": "^6.3.4",
     "@tippy.js/react": "^3.1.1",
     "ag-grid-community": "^22.1.1",
     "ag-grid-react": "^22.1.1",
@@ -117,7 +119,7 @@
     "react-weekly-schedule": "0.0.0-development",
     "rimraf": "^3.0.0",
     "semantic-release": "^17.0.2",
-    "storybook-addon-material-ui": "^0.9.0-alpha.21"
+    "storybook-addon-material-ui": "^0.9.0-alpha.24"
   },
   "browserslist": {
     "production": [
