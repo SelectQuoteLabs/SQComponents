@@ -1,3 +1,10 @@
+### [7.3.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.1...v7.3.2) (2021-07-27)
+
+
+### Bug Fixes
+
+* fixed invalid style in theme.js ([72f5eed](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/72f5eedb0c29186dadb5c0f4061db4c7c901f002))
+
 ### [7.3.1](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.0...v7.3.1) (2021-07-13)
 
 
