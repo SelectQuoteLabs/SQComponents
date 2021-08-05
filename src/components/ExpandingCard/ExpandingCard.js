@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles, Card, CardHeader, CardContent} from '@material-ui/core';
 import CardPopoverMenu from '../CardPopoverMenu';
-import {useAutoHeight} from '../../hooks/useAutoHeight';
+import {useAutoHeight} from '@selectquotelabs/sqhooks';
 
 // See theme.js -> MuiCardHeader.root for these heights
 const HEIGHT_WITH_SUBHEADER = '74px';
