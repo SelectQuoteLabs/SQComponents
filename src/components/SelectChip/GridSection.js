@@ -35,7 +35,7 @@ function ChipSection({
       style={{}}
       className={classnames(classes.containerOverrides, className)}
     >
-      {header && <SectionHeader title={header} />}
+      <SectionHeader title={header} />
       <Grid
         item
         container
@@ -58,7 +58,7 @@ ChipSection.propTypes = {
   /** MUI Grid spacing props - defined space between items */
   spacing: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   /** Header Text */
-  header: PropTypes.string,
+  header: PropTypes.string.isRequired,
   /** The content of the component */
   children: PropTypes.node.isRequired,
   /** CSS class */

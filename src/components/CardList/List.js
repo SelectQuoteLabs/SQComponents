@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -70,13 +71,15 @@ const useListStyles = makeStyles(() => ({
     overflow: 'auto',
     width: 'auto',
   },
-  selectChip: {
-    height: '1.25rem',
-    padding: '.5rem 1.25rem 0rem',
-  },
 }));
 
-function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
+function List({
+  listItems,
+  noDataMessage,
+  zeroItemsMessage,
+  isSelectable,
+  listItemClass,
+}) {
   const classes = useListStyles();
   const [selectedID, setSelectedID] = React.useState(null);
 
@@ -103,25 +106,31 @@ function List({listItems, noDataMessage, zeroItemsMessage, isSelectable}) {
 
   return listItems.map((listItem, index) => (
     <SelectChip
+      header={listItem.props?.header}
       onClick={() => handleListItemClick(listItem)}
-      className={classes.selectChip}
+      className={classnames({
+        [listItemClass]: Boolean(listItemClass),
+      })}
       key={listItem.id}
       optionIsSelected={isSelectable && listItem.id === selectedID}
       tabIndex={index}
       staticWidth="auto"
     >
-      <ListItem className={classes.items}>
-        {listItem.color && <ColorIcon color={listItem.color} />}
-        {listItem.header && <ListItemText primary={listItem.header} />}
-        {listItem.secondaryRows &&
-          listItem.secondaryRows.map((row, secondaryListItemIndex) => (
-            <ListItemText
-              key={`${listItem.id}_${secondaryListItemIndex}`}
-              secondary={row}
-            />
-          ))}
-      </ListItem>
-      {!listItem.header && !listItem.secondaryRows && listItem}
+      {listItem.header || listItem.secondaryRows || listItem.color ? (
+        <ListItem className={classes.items} key={index}>
+          {listItem.color && <ColorIcon color={listItem.color} />}
+          {listItem.header && <ListItemText primary={listItem.header} />}
+          {listItem.secondaryRows &&
+            listItem.secondaryRows.map((row, secondaryListItemIndex) => (
+              <ListItemText
+                key={`${listItem.id}_${secondaryListItemIndex}`}
+                secondary={row}
+              />
+            ))}
+        </ListItem>
+      ) : (
+        <div key={index}>{listItem}</div>
+      )}
     </SelectChip>
   ));
 }
@@ -135,6 +144,8 @@ List.propTypes = {
   zeroItemsMessage: PropTypes.string,
   /** Should the item stay selected with a border */
   isSelectable: PropTypes.bool,
+  /** class to be applied to each list item */
+  listItemClass: PropTypes.string,
 };
 
 export default List;

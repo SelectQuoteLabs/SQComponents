@@ -49,12 +49,13 @@ function CardList({
   cardStyle,
   cardContentClass,
   contentHeight = '360px',
-  contentWidth,
+  contentWidth = '300px',
   contentStyle,
   isExpandable = true,
   isInitiallyExpanded = true,
   shouldRenderHeader = true,
   tabs,
+  listItemClass,
 }) {
   const classes = useStyles();
   const buttonClasses = useButtonStyles();
@@ -135,7 +136,7 @@ function CardList({
           style={{
             minHeight: contentHeight,
             maxHeight: contentHeight,
-            minWidth: contentWidth ?? '300px',
+            minWidth: contentWidth,
             ...contentStyle,
           }}
         >
@@ -151,6 +152,7 @@ function CardList({
                 selectedTab.zeroItemsMessage || 'No Items To Display'
               }
               isSelectable={selectedTab.isSelectable}
+              listItemClass={listItemClass}
             />
           )}
         </CardContent>
@@ -175,14 +177,14 @@ CardList.propTypes = {
   /** OPTIONAL - boolean to override default behavior of intially expanded = true */
   isInitiallyExpanded: PropTypes.bool,
   /** OPTIONAL - class to be applied to the Card content */
-  cardContentClass: PropTypes.object,
+  cardContentClass: PropTypes.string,
   /** OPTIONAL - styles to be applied to the outer Card element */
   cardStyle: PropTypes.object,
-  /** OPTIONAL - height of the card.  Default is 30rem. Ex. contentHeight: '55rem' */
+  /** OPTIONAL - width of the card.  Default is 300px. */
   contentWidth: PropTypes.string,
-  /** OPTIONAL - height of the card.  Default is 30rem. Ex. contentHeight: '55rem' */
+  /** OPTIONAL - height of the card.  Default is 360px. */
   contentHeight: PropTypes.string,
-  /** OPTIONAL - additional styles to be applied to the content Ex. contentStyle: {{backgroundColor: 'blue'}}*/
+  /** OPTIONAL - additional styles to be applied to the content Ex. contentStyle: {{backgroundColor: 'blue'}} */
   contentStyle: PropTypes.object,
   /** Function to be triggered when an item is clicked on in the Card List */
   onListItemClick: PropTypes.func,
@@ -192,6 +194,8 @@ CardList.propTypes = {
   tabs: PropTypes.array,
   /** Whether or not to render the Header component */
   shouldRenderHeader: PropTypes.bool,
+  /** OPTIONAL - class to be applied to each list item */
+  listItemClass: PropTypes.string,
 };
 
 export default CardList;
