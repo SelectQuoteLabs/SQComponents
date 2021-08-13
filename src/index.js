@@ -20,6 +20,7 @@ export {default as LoginScreen} from './components/LoginScreen';
 export {default as RoundedButton} from './components/RoundedButton';
 export {default as ScriptedText} from './components/ScriptedText';
 export {default as SelectChip} from './components/SelectChip';
+export {default as GridSection} from './components/SelectChip/GridSection';
 export {default as Section} from './components/Section';
 export {default as SectionBody} from './components/SectionBody';
 export {default as SectionHeader} from './components/SectionHeader';
