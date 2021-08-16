@@ -2,7 +2,6 @@ import React from 'react';
 import {withInfo} from '@storybook/addon-info';
 import {Paper, Grid} from '@material-ui/core';
 import markdown from '../notes/GridSection.md';
-
 import {GridSection} from '../src';
 
 export default {

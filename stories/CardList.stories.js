@@ -1,11 +1,11 @@
 import React from 'react';
+import {ListItemText, Grid, makeStyles, Typography} from '@material-ui/core';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/CardList.md';
 import CardList from '../src/components/CardList/CardList';
 import GridSection from '../src/components/SelectChip/GridSection';
-import {ListItemText, Grid, makeStyles, Typography} from '@material-ui/core';
 
 export default {
   title: 'CardList',

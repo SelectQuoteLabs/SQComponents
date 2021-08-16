@@ -1,9 +1,9 @@
 import React from 'react';
+import {Typography} from '@material-ui/core';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {action} from '@storybook/addon-actions';
 import {withInfo} from '@storybook/addon-info';
 import markdown from '../notes/SelectChip.md';
-import {Typography} from '@material-ui/core';
 
 import {SelectChip} from '../src';
 

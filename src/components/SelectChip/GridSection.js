@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ChipSection({
+function GridSection({
   item = false,
   spacing,
   header,
@@ -32,7 +32,6 @@ function ChipSection({
       item={item}
       container
       direction="column"
-      style={{}}
       className={classnames(classes.containerOverrides, className)}
     >
       <SectionHeader title={header} />
@@ -52,7 +51,7 @@ function ChipSection({
   );
 }
 
-ChipSection.propTypes = {
+GridSection.propTypes = {
   /** MUI Grid item prop - if in a grid this should be true */
   item: PropTypes.bool,
   /** MUI Grid spacing props - defined space between items */
@@ -67,4 +66,4 @@ ChipSection.propTypes = {
   childrenContainerClassName: PropTypes.string,
 };
 
-export default ChipSection;
+export default GridSection;
