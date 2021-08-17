@@ -1,3 +1,10 @@
+## [7.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.2...v7.4.0) (2021-08-17)
+
+
+### Features
+
+* **component:** create GridSection component ([c3a2906](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/c3a29066281d4b483adb7be4df517f6aa4f3690d))
+
 ### [7.3.2](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.1...v7.3.2) (2021-07-27)
 
 
