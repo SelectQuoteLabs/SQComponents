@@ -1,10 +1,11 @@
 import React from 'react';
+import {ListItemText, Grid, makeStyles, Typography} from '@material-ui/core';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {withInfo} from '@storybook/addon-info';
 import {action} from '@storybook/addon-actions';
 import markdown from '../notes/CardList.md';
 import CardList from '../src/components/CardList/CardList';
-import ListItemText from '@material-ui/core/ListItemText';
+import GridSection from '../src/components/SelectChip/GridSection';
 
 export default {
   title: 'CardList',
@@ -218,6 +219,15 @@ const tabOptionsWithNoData = [
   },
 ];
 
+export const Default = () => (
+  <CardList
+    onListItemClick={action(`Opening the acount`)}
+    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
+    isExpandable={boolean('isExpandable', false)}
+    tabs={tabOptions}
+  />
+);
+
 export const CardListWithCustomStyle = () => (
   <CardList
     contentHeight="500px"
@@ -225,15 +235,6 @@ export const CardListWithCustomStyle = () => (
     contentStyle={{backgroundColor: 'blue'}}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
     isExpandable={boolean('isExpandable', true)}
-    tabs={tabOptions}
-  />
-);
-
-export const CardListExampleWithoutStyle = () => (
-  <CardList
-    onListItemClick={action(`Opening the acount`)}
-    isInitiallyExpanded={boolean('isInitiallyExpanded', false)}
-    isExpandable={boolean('isExpandable', false)}
     tabs={tabOptions}
   />
 );
@@ -287,3 +288,85 @@ export const CardListExampleWithoutHeader = () => (
     shouldRenderHeader={false}
   />
 );
+
+const CustomListItems = ({listItem}) => {
+  return (
+    <>
+      <GridSection item header="Section 1" spacing={3}>
+        <Grid item>
+          <Typography variant="body2">ID: {listItem.id}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body2">
+            Account ID: {listItem.accountId}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body2">
+            First Name: {listItem.firstName}
+          </Typography>
+        </Grid>
+      </GridSection>
+      <GridSection item header="Section 2" spacing={3}>
+        <Grid item>
+          <Typography variant="body2">
+            Last Name: {listItem.lastName}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body2">PL Rule: {listItem.PLRule}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body2">
+            Color Code: {listItem.ColorCode}
+          </Typography>
+        </Grid>
+      </GridSection>
+    </>
+  );
+};
+
+const customListItems = () =>
+  prioritizedList.map((listItem, index) => (
+    <CustomListItems
+      listItem={listItem}
+      key={index}
+      header={`Custom Header ${index + 1}`}
+    />
+  ));
+
+const tabsWithCustomListItems = [
+  {
+    label: 'Agent PV',
+    value: 'agentPV',
+    listItems: customListItems(),
+  },
+];
+
+const useStyles = makeStyles({
+  contentOverrides: {
+    display: 'flex',
+    flexDirection: 'row',
+    overflow: 'auto hidden',
+    maxWidth: '350px',
+  },
+  listItemOverrides: {
+    minWidth: '250px',
+    overflow: 'hidden auto',
+  },
+});
+
+export const CardListWithCustomListItems = () => {
+  const classes = useStyles();
+  return (
+    <CardList
+      contentHeight="375px"
+      isInitiallyExpanded={boolean('isInitiallyExpanded', true)}
+      isExpandable={boolean('isExpandable', true)}
+      tabs={tabsWithCustomListItems}
+      cardContentClass={classes.contentOverrides}
+      shouldRenderHeader={false}
+      listItemClass={classes.listItemOverrides}
+    />
+  );
+};

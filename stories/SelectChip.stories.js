@@ -1,4 +1,5 @@
 import React from 'react';
+import {Typography} from '@material-ui/core';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {action} from '@storybook/addon-actions';
 import {withInfo} from '@storybook/addon-info';
@@ -50,10 +51,32 @@ export const selectChipWithMoarContentAndStaticWidth = () => (
       false,
       'Selected State of SelectChip'
     )}
-    staticWidth="15rem"
+    staticWidth="35rem"
   >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. In egestas erat
-    imperdiet sed euismod. Adipiscing at in tellus integer.
+    <Typography>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. In egestas erat
+      imperdiet sed euismod. Adipiscing at in tellus integer.
+    </Typography>
+    <Typography>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. In egestas erat
+      imperdiet sed euismod. Adipiscing at in tellus integer.
+    </Typography>
+  </SelectChip>
+);
+
+export const selectChipWithHeader = () => (
+  <SelectChip header="Header Text" staticWidth="35rem">
+    <Typography>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. In egestas erat
+      imperdiet sed euismod. Adipiscing at in tellus integer.
+    </Typography>
+    <Typography>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. In egestas erat
+      imperdiet sed euismod. Adipiscing at in tellus integer.
+    </Typography>
   </SelectChip>
 );

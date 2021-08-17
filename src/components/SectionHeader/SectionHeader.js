@@ -14,10 +14,10 @@ const truncateTextStyles = {
   WebkitBoxOrient: 'vertical',
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   container: {
     borderBottom: '1px solid var(--color-lightGray)',
-    marginBottom: '1.5rem',
+    marginBottom: '18px',
   },
   title: {
     color: 'var(--color-granite)',
