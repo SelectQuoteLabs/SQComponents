@@ -186,6 +186,7 @@ const tabOptionsWithOneTab = [
       alert('Refreshing Notifications');
     },
     isSelectable: true,
+    enableMultiselect: true,
   },
 ];
 
@@ -261,7 +262,7 @@ export const CardListExampleWithNoData = () => (
   />
 );
 
-export const CardListExampleWithSelectableItems = () => (
+export const CardListExampleWithMultiselectableItems = () => (
   <CardList
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}

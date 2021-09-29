@@ -104,10 +104,6 @@ function List({
   }
 
   const handleListItemClick = listItem => {
-    if (typeof listItem.onClick === 'function') {
-      listItem.onClick();
-    }
-
     if (isSelectable && listItem.id) {
       if (!enableMultiselect) {
         setSelectedIDs([listItem.id]);
@@ -125,6 +121,10 @@ function List({
       } else {
         setSelectedIDs([...selectedIDs, listItem.id]);
       }
+    }
+
+    if (typeof listItem.onClick === 'function') {
+      listItem.onClick(selectedIDs);
     }
   };
 
@@ -162,7 +162,7 @@ function List({
 export const LIST_ITEM = PropTypes.oneOfType([
   PropTypes.node,
   PropTypes.shape({
-    /** OPTIONAL - id for list item.
+    /** OPTIONAL - id for list item, can being string or number.
      * Note: Strongly recommended to include if possible and must be unique.
      * Note: REQUIRED for selection functionality.
      */
@@ -171,9 +171,11 @@ export const LIST_ITEM = PropTypes.oneOfType([
     header: PropTypes.string,
     /** OPTIONAL - Color to determine which icon to show */
     color: PropTypes.oneOf(COLOR_OPTIONS),
-    /** OPTIONAL - Array of strings to show inside list item. Note: each element is a new row. */
-    secondaryRows: PropTypes.arrayOf(PropTypes.string),
-    /** OPTIONAL - Function to execute on list item click. */
+    /** OPTIONAL - Array of strings/nodes to show inside list item. Note: each element is a new row. */
+    secondaryRows: PropTypes.arrayOf(
+      PropTypes.oneOfType(PropTypes.string, PropTypes.node)
+    ),
+    /** OPTIONAL - Function to execute on list item click. Provides currently selected item(s) as parameter. */
     onClick: PropTypes.func,
   }),
 ]);
