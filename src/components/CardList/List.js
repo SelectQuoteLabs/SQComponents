@@ -104,28 +104,27 @@ function List({
   }
 
   const handleListItemClick = listItem => {
+    let newSelectedIDs = [];
+
     if (isSelectable && listItem.id) {
       if (!enableMultiselect) {
-        setSelectedIDs([listItem.id]);
-        return;
-      }
-
-      const isAlreadySelected = selectedIDs.includes(listItem.id);
-
-      if (isAlreadySelected) {
-        const filteredSelectedIDs = selectedIDs.filter(
-          id => id !== listItem.id
-        );
-
-        setSelectedIDs(filteredSelectedIDs);
+        newSelectedIDs = [listItem.id];
       } else {
-        setSelectedIDs([...selectedIDs, listItem.id]);
+        const isAlreadySelected = selectedIDs.includes(listItem.id);
+
+        if (isAlreadySelected) {
+          newSelectedIDs = selectedIDs.filter(id => id !== listItem.id);
+        } else {
+          newSelectedIDs = [...selectedIDs, listItem.id];
+        }
       }
     }
 
     if (typeof listItem.onClick === 'function') {
-      listItem.onClick(selectedIDs);
+      listItem.onClick(newSelectedIDs);
     }
+
+    setSelectedIDs(newSelectedIDs);
   };
 
   return listItems.map((listItem, index) => (

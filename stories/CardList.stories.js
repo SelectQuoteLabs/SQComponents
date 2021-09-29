@@ -107,6 +107,9 @@ const notifications = [
         Click to acknowledge
       </ListItemText>,
     ],
+    onClick: selectedIDs => {
+      window.alert(`Currently selected ids: ${selectedIDs.join(', ')}`);
+    },
   },
   {
     id: 2,
@@ -121,6 +124,9 @@ const notifications = [
         Click to override
       </ListItemText>,
     ],
+    onClick: selectedIDs => {
+      window.alert(`Currently selected ids: ${selectedIDs.join(', ')}`);
+    },
   },
 ];
 
