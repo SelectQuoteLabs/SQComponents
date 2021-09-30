@@ -107,6 +107,9 @@ const notifications = [
         Click to acknowledge
       </ListItemText>,
     ],
+    onClick: selectedIDs => {
+      window.alert(`Currently selected ids: ${selectedIDs.join(', ')}`);
+    },
   },
   {
     id: 2,
@@ -121,6 +124,9 @@ const notifications = [
         Click to override
       </ListItemText>,
     ],
+    onClick: selectedIDs => {
+      window.alert(`Currently selected ids: ${selectedIDs.join(', ')}`);
+    },
   },
 ];
 
@@ -186,6 +192,7 @@ const tabOptionsWithOneTab = [
       alert('Refreshing Notifications');
     },
     isSelectable: true,
+    enableMultiselect: true,
   },
 ];
 
@@ -261,7 +268,7 @@ export const CardListExampleWithNoData = () => (
   />
 );
 
-export const CardListExampleWithSelectableItems = () => (
+export const CardListExampleWithMultiselectableItems = () => (
   <CardList
     onListItemClick={action(`Opening the acount`)}
     isInitiallyExpanded={boolean('isInitiallyExpanded', false)}

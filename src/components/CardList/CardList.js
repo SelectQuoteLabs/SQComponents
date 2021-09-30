@@ -10,7 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import {makeStyles} from '@material-ui/core/styles';
 
-import List from './List';
+import List, {LIST_ITEM} from './List';
 import CardPopoverMenu from '../CardPopoverMenu';
 import LoadingIcon from '../LoadingIcon';
 
@@ -152,6 +152,7 @@ function CardList({
                 selectedTab.zeroItemsMessage || 'No Items To Display'
               }
               isSelectable={selectedTab.isSelectable}
+              enableMultiselect={selectedTab.enableMultiselect}
               listItemClass={listItemClass}
             />
           )}
@@ -173,26 +174,43 @@ function CardList({
   );
 }
 
+const TAB = PropTypes.shape({
+  /** OPTIONAL - The label of the tab */
+  label: PropTypes.string,
+  /** The value of the tab. Note: This should be unique. */
+  value: PropTypes.string.isRequired,
+  /** OPTIONAL - Array of list items. Note: can either be React nodes or objects */
+  listItems: PropTypes.arrayOf(LIST_ITEM),
+  /** OPTIONAL - Message to show when listItems is undefined */
+  noDataMessage: PropTypes.string,
+  /** OPTIONAL - Message to show when listItems is empty */
+  zeroItemsMessage: PropTypes.string,
+  /** OPTIONAL - boolean to allow listItems to be selectable. Default = false */
+  isSelectable: PropTypes.bool,
+  /** OPTIONAL - boolean to allow multiselection for listItems. Note: isSelectable must also be true. Default = false */
+  enableMultiselect: PropTypes.bool,
+  /** OPTIONAL - function to handle fetching new data for listItems */
+  handleRefresh: PropTypes.func,
+});
+
 CardList.propTypes = {
-  /** OPTIONAL - boolean to override default behavior of intially expanded = true */
+  /** OPTIONAL - boolean to override default behavior of intially expanded. Default = true */
   isInitiallyExpanded: PropTypes.bool,
   /** OPTIONAL - class to be applied to the Card content */
   cardContentClass: PropTypes.string,
   /** OPTIONAL - styles to be applied to the outer Card element */
   cardStyle: PropTypes.object,
-  /** OPTIONAL - width of the card.  Default is 300px. */
+  /** OPTIONAL - width of the card. Default is 300px. */
   contentWidth: PropTypes.string,
-  /** OPTIONAL - height of the card.  Default is 360px. */
+  /** OPTIONAL - height of the card. Default is 360px. */
   contentHeight: PropTypes.string,
   /** OPTIONAL - additional styles to be applied to the content Ex. contentStyle: {{backgroundColor: 'blue'}} */
   contentStyle: PropTypes.object,
-  /** Function to be triggered when an item is clicked on in the Card List */
-  onListItemClick: PropTypes.func,
-  /** OPTIONAL - Should the card list have the capability to minimize and maximize. default = true */
+  /** OPTIONAL - Should the card list have the capability to minimize and maximize. Default = true */
   isExpandable: PropTypes.bool,
-  /** object containing the options to be used in the card. See notes for more info. */
-  tabs: PropTypes.array,
-  /** Whether or not to render the Header component */
+  /** Object containing the options to be used in the card. See notes for more info. */
+  tabs: PropTypes.arrayOf(TAB).isRequired,
+  /** OPTIONAL - Whether or not to render the Header component. Default = true */
   shouldRenderHeader: PropTypes.bool,
   /** OPTIONAL - class to be applied to each list item */
   listItemClass: PropTypes.string,

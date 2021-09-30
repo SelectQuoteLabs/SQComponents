@@ -17,6 +17,9 @@ const COLOR_EMOJI_MAP = {
   RED: '🍒',
   YELLOW: '🍌',
 };
+const COLOR_OPTIONS = Object.keys(COLOR_EMOJI_MAP).map(color =>
+  color.toLowerCase()
+);
 
 const useColorIconStyles = makeStyles(() => ({
   icon: {
@@ -43,6 +46,10 @@ const ColorIcon = ({color}) => {
       </Tooltip>
     </ListItemIcon>
   );
+};
+
+ColorIcon.propTypes = {
+  color: PropTypes.oneOf(COLOR_OPTIONS),
 };
 
 const useNoDataMessageStyles = makeStyles(() => ({
@@ -77,11 +84,12 @@ function List({
   listItems,
   noDataMessage,
   zeroItemsMessage,
-  isSelectable,
+  isSelectable = false,
+  enableMultiselect = false,
   listItemClass,
 }) {
   const classes = useListStyles();
-  const [selectedID, setSelectedID] = React.useState(null);
+  const [selectedIDs, setSelectedIDs] = React.useState([]);
 
   if (!listItems) {
     return (
@@ -96,12 +104,27 @@ function List({
   }
 
   const handleListItemClick = listItem => {
-    if (typeof listItem.onClick === 'function') {
-      listItem.onClick();
-    }
+    let newSelectedIDs = [];
+
     if (isSelectable && listItem.id) {
-      setSelectedID(listItem.id);
+      if (!enableMultiselect) {
+        newSelectedIDs = [listItem.id];
+      } else {
+        const isAlreadySelected = selectedIDs.includes(listItem.id);
+
+        if (isAlreadySelected) {
+          newSelectedIDs = selectedIDs.filter(id => id !== listItem.id);
+        } else {
+          newSelectedIDs = [...selectedIDs, listItem.id];
+        }
+      }
     }
+
+    if (typeof listItem.onClick === 'function') {
+      listItem.onClick(newSelectedIDs);
+    }
+
+    setSelectedIDs(newSelectedIDs);
   };
 
   return listItems.map((listItem, index) => (
@@ -111,8 +134,8 @@ function List({
       className={classnames({
         [listItemClass]: Boolean(listItemClass),
       })}
-      key={listItem.id}
-      optionIsSelected={isSelectable && listItem.id === selectedID}
+      key={listItem.props?.key || listItem.id || index}
+      optionIsSelected={isSelectable && selectedIDs.includes(listItem.id)}
       tabIndex={index}
       staticWidth="auto"
     >
@@ -135,16 +158,39 @@ function List({
   ));
 }
 
+export const LIST_ITEM = PropTypes.oneOfType([
+  PropTypes.node,
+  PropTypes.shape({
+    /** OPTIONAL - id for list item, can being string or number.
+     * Note: Strongly recommended to include if possible and must be unique.
+     * Note: REQUIRED for selection functionality.
+     */
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** OPTIONAL - Header string */
+    header: PropTypes.string,
+    /** OPTIONAL - Color to determine which icon to show */
+    color: PropTypes.oneOf(COLOR_OPTIONS),
+    /** OPTIONAL - Array of strings/nodes to show inside list item. Note: each element is a new row. */
+    secondaryRows: PropTypes.arrayOf(
+      PropTypes.oneOfType(PropTypes.string, PropTypes.node)
+    ),
+    /** OPTIONAL - Function to execute on list item click. Provides currently selected item(s) as parameter. */
+    onClick: PropTypes.func,
+  }),
+]);
+
 List.propTypes = {
-  /** The items in the list (selectedTab.listItems) */
-  listItems: PropTypes.array,
-  /** Message to display when data has not or could not be retrieved */
+  /** OPTIONAL - The items in the list (selectedTab.listItems) */
+  listItems: PropTypes.arrayOf(LIST_ITEM),
+  /** OPTIONAL - Message to display when data has not or could not be retrieved */
   noDataMessage: PropTypes.string,
-  /** Message to display when the data returned is an empty array */
+  /** OPTIONAL - Message to display when the data returned is an empty array */
   zeroItemsMessage: PropTypes.string,
-  /** Should the item stay selected with a border */
+  /** OPTIONAL - Should the item stay selected with a border. Default = false */
   isSelectable: PropTypes.bool,
-  /** class to be applied to each list item */
+  /** OPTIONAL - boolean to allow multiselection for listItems. Default = false */
+  enableMultiselect: PropTypes.bool,
+  /** OPTIONAL - class to be applied to each list item */
   listItemClass: PropTypes.string,
 };
 
