@@ -1,3 +1,10 @@
+## [7.5.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.4.0...v7.5.0) (2021-09-30)
+
+
+### Features
+
+* **cardlist:** added multiselect to cardlist tab items ([f5d9160](http://bitbucket.org/SelectQuote/scplus-shared-components/commit/f5d9160ae30982c6172be9847a8630082d199f61))
+
 ## [7.4.0](http://bitbucket.org/SelectQuote/scplus-shared-components/compare/v7.3.2...v7.4.0) (2021-08-17)
 
 
