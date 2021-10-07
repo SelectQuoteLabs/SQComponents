@@ -296,57 +296,65 @@ export const CardListExampleWithoutHeader = () => (
   />
 );
 
-const CustomListItems = ({listItem}) => {
-  return (
-    <>
-      <GridSection item header="Section 1" spacing={3}>
-        <Grid item>
-          <Typography variant="body2">ID: {listItem.id}</Typography>
-        </Grid>
-        <Grid item>
-          <Typography variant="body2">
-            Account ID: {listItem.accountId}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Typography variant="body2">
-            First Name: {listItem.firstName}
-          </Typography>
-        </Grid>
-      </GridSection>
-      <GridSection item header="Section 2" spacing={3}>
-        <Grid item>
-          <Typography variant="body2">
-            Last Name: {listItem.lastName}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Typography variant="body2">PL Rule: {listItem.PLRule}</Typography>
-        </Grid>
-        <Grid item>
-          <Typography variant="body2">
-            Color Code: {listItem.ColorCode}
-          </Typography>
-        </Grid>
-      </GridSection>
-    </>
-  );
-};
+const CustomListItem = ({listItem}) => (
+  <>
+    <GridSection item header="Section 1" spacing={3}>
+      <Grid item>
+        <Typography variant="body2">ID: {listItem.id}</Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="body2">
+          Account ID: {listItem.accountId}
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="body2">
+          First Name: {listItem.firstName}
+        </Typography>
+      </Grid>
+    </GridSection>
+    <GridSection item header="Section 2" spacing={3}>
+      <Grid item>
+        <Typography variant="body2">Last Name: {listItem.lastName}</Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="body2">PL Rule: {listItem.PLRule}</Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="body2">
+          Color Code: {listItem.ColorCode}
+        </Typography>
+      </Grid>
+    </GridSection>
+  </>
+);
 
-const customListItems = () =>
+const multiselectableCustomListItems = () =>
   prioritizedList.map((listItem, index) => (
-    <CustomListItems
+    <CustomListItem
       listItem={listItem}
-      key={index}
+      key={index + 1}
+      id={index + 1}
       header={`Custom Header ${index + 1}`}
+      onClick={currentlySelectedListItems => {
+        const log = `List item ${index +
+          1} was clicked. The currently selected list items are: ${currentlySelectedListItems.join?.(
+          ', '
+        )}.`;
+
+        console.log(log, {currentlySelectedListItems});
+        window.alert(log);
+      }}
     />
   ));
 
-const tabsWithCustomListItems = [
+const tabsWithMultiselectableCustomListItems = [
   {
     label: 'Agent PV',
     value: 'agentPV',
-    listItems: customListItems(),
+    listItems: multiselectableCustomListItems(),
+    isSelectable: true,
+    enableMultiselect: true,
   },
 ];
 
@@ -363,14 +371,14 @@ const useStyles = makeStyles({
   },
 });
 
-export const CardListWithCustomListItems = () => {
+export const CardListWithMutliselectableCustomListItems = () => {
   const classes = useStyles();
   return (
     <CardList
       contentHeight="375px"
       isInitiallyExpanded={boolean('isInitiallyExpanded', true)}
       isExpandable={boolean('isExpandable', true)}
-      tabs={tabsWithCustomListItems}
+      tabs={tabsWithMultiselectableCustomListItems}
       cardContentClass={classes.contentOverrides}
       shouldRenderHeader={false}
       listItemClass={classes.listItemOverrides}

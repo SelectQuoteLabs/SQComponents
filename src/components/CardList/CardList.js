@@ -200,6 +200,8 @@ CardList.propTypes = {
   cardContentClass: PropTypes.string,
   /** OPTIONAL - styles to be applied to the outer Card element */
   cardStyle: PropTypes.object,
+  /** OPTIONAL - class to be applied to the Card */
+  cardClass: PropTypes.string,
   /** OPTIONAL - width of the card. Default is 300px. */
   contentWidth: PropTypes.string,
   /** OPTIONAL - height of the card. Default is 360px. */
