@@ -103,80 +103,99 @@ function List({
     );
   }
 
-  const handleListItemClick = listItem => {
+  const handleListItemClick = (listItem, listItemID) => {
     let newSelectedIDs = [];
-
-    if (isSelectable && listItem.id) {
+    if (isSelectable && listItemID !== undefined) {
       if (!enableMultiselect) {
-        newSelectedIDs = [listItem.id];
+        newSelectedIDs = [listItemID];
       } else {
-        const isAlreadySelected = selectedIDs.includes(listItem.id);
+        const isAlreadySelected = selectedIDs.includes(listItemID);
 
         if (isAlreadySelected) {
-          newSelectedIDs = selectedIDs.filter(id => id !== listItem.id);
+          newSelectedIDs = selectedIDs.filter(id => id !== listItemID);
         } else {
-          newSelectedIDs = [...selectedIDs, listItem.id];
+          newSelectedIDs = [...selectedIDs, listItemID];
         }
       }
     }
 
-    if (typeof listItem.onClick === 'function') {
-      listItem.onClick(newSelectedIDs);
+    const listItemOnClick = listItem.onClick || listItem.props.onClick;
+    if (
+      typeof listItemOnClick === 'function' &&
+      !listItem.props?.disableCardListItemOnClickHandling
+    ) {
+      listItemOnClick(newSelectedIDs);
     }
 
     setSelectedIDs(newSelectedIDs);
   };
 
-  return listItems.map((listItem, index) => (
-    <SelectChip
-      header={listItem.props?.header}
-      onClick={() => handleListItemClick(listItem)}
-      className={classnames({
-        [listItemClass]: Boolean(listItemClass),
-      })}
-      key={listItem.props?.key || listItem.id || index}
-      optionIsSelected={isSelectable && selectedIDs.includes(listItem.id)}
-      tabIndex={index}
-      staticWidth="auto"
-    >
-      {listItem.header || listItem.secondaryRows || listItem.color ? (
-        <ListItem className={classes.items} key={index}>
-          {listItem.color && <ColorIcon color={listItem.color} />}
-          {listItem.header && <ListItemText primary={listItem.header} />}
-          {listItem.secondaryRows &&
-            listItem.secondaryRows.map((row, secondaryListItemIndex) => (
-              <ListItemText
-                key={`${listItem.id}_${secondaryListItemIndex}`}
-                secondary={row}
-              />
-            ))}
-        </ListItem>
-      ) : (
-        <div key={index}>{listItem}</div>
-      )}
-    </SelectChip>
-  ));
+  return listItems.map((listItem, index) => {
+    const listItemID = listItem.id || listItem.props?.id || index;
+
+    return (
+      <SelectChip
+        header={listItem.props?.header || listItem.superHeader}
+        onClick={() => handleListItemClick(listItem, listItemID)}
+        className={classnames({
+          [listItemClass]: Boolean(listItemClass),
+        })}
+        key={listItemID}
+        optionIsSelected={isSelectable && selectedIDs.includes(listItemID)}
+        tabIndex={index}
+        staticWidth="auto"
+      >
+        {listItem.header || listItem.secondaryRows || listItem.color ? (
+          <ListItem className={classes.items}>
+            {listItem.color && <ColorIcon color={listItem.color} />}
+            {listItem.header && <ListItemText primary={listItem.header} />}
+            {listItem.secondaryRows &&
+              listItem.secondaryRows.map((row, secondaryListItemIndex) => (
+                <ListItemText
+                  key={`${listItemID}_${secondaryListItemIndex}`}
+                  secondary={row}
+                />
+              ))}
+          </ListItem>
+        ) : (
+          listItem
+        )}
+      </SelectChip>
+    );
+  });
 }
 
+const LIST_ITEM_OBJECT = PropTypes.exact({
+  /** OPTIONAL - id for list item, can being string or number.
+   * Note: Strongly recommended to include if possible and must be unique.
+   * Note: REQUIRED for selection functionality.
+   */
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** OPTIONAL - Header string */
+  header: PropTypes.string,
+  /** OPTIONAL - Super Header string */
+  superHeader: PropTypes.string,
+  /** OPTIONAL - Color to determine which icon to show */
+  color: PropTypes.oneOf(COLOR_OPTIONS),
+  /** OPTIONAL - Array of strings/nodes to show inside list item. Note: each element is a new row. */
+  secondaryRows: PropTypes.arrayOf(
+    PropTypes.oneOfType(PropTypes.string, PropTypes.node)
+  ),
+  /** OPTIONAL - Function to execute on list item click. Provides currently selected item(s) as parameter. */
+  onClick: PropTypes.func,
+  /** OPTIONAL - If true then any onClick function will be ignored.
+   * Note: This should be used when listItems are React Elements
+   * with an onClick prop that should not be called by the CardList.
+   */
+  disableCardListItemOnClickHandling: PropTypes.bool,
+});
+
 export const LIST_ITEM = PropTypes.oneOfType([
-  PropTypes.node,
-  PropTypes.shape({
-    /** OPTIONAL - id for list item, can being string or number.
-     * Note: Strongly recommended to include if possible and must be unique.
-     * Note: REQUIRED for selection functionality.
-     */
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    /** OPTIONAL - Header string */
-    header: PropTypes.string,
-    /** OPTIONAL - Color to determine which icon to show */
-    color: PropTypes.oneOf(COLOR_OPTIONS),
-    /** OPTIONAL - Array of strings/nodes to show inside list item. Note: each element is a new row. */
-    secondaryRows: PropTypes.arrayOf(
-      PropTypes.oneOfType(PropTypes.string, PropTypes.node)
-    ),
-    /** OPTIONAL - Function to execute on list item click. Provides currently selected item(s) as parameter. */
-    onClick: PropTypes.func,
-  }),
+  /** Note: If the list item is a React element it's props will be
+   * checked for the following three props: header, id, and onClick.
+   */
+  PropTypes.element,
+  LIST_ITEM_OBJECT,
 ]);
 
 List.propTypes = {

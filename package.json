@@ -50,6 +50,7 @@
     "@material-ui/lab": "^4.0.0-alpha.46",
     "@material-ui/pickers": "^4.0.0-alpha.11",
     "@selectquotelabs/sqhooks": "^2.1.0",
+    "@swc/helpers": "^0.2.13",
     "classnames": "^2.2.6",
     "dayjs": "^1.8.21",
     "formik": "^2.1.4",
