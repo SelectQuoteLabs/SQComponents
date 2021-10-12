@@ -1,9 +1,0 @@
-{
-  "cluster": "EC2",
-  "deploymentConfiguration": {
-    "maximumPercent": 200,
-    "minimumHealthyPercent": 25
-  },
-  "forceNewDeployment": true,
-  "healthCheckGracePeriodSeconds": 10
-}

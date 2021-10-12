@@ -1,6 +1,6 @@
 {
-  "repositoryURL": "$BITBUCKET_GIT_HTTP_ORIGIN",
-  "branches": ["master", {"name": "release-test"}],
+  "repositoryURL": "https://github.com/SelectQuoteLabs/SQComponents.git",
+  "branches": "main",
   "plugins": [
     "@semantic-release/commit-analyzer",
     [
